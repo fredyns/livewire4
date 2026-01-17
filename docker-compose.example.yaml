@@ -1,0 +1,37 @@
+services:
+    app:
+        build:
+            context: ./docker/php
+            dockerfile: Dockerfile
+        container_name: livewire4_app
+        working_dir: /var/www/html
+        volumes:
+            - '.:/var/www/html'
+        environment:
+            - DB_HOST=${DB_HOST}
+            - DB_PORT=${DB_PORT}
+            - DB_DATABASE=${DB_DATABASE}
+            - DB_USERNAME=${DB_USERNAME}
+            - DB_PASSWORD=${DB_PASSWORD}
+            - REDIS_HOST=${REDIS_HOST}
+            - REDIS_PORT=${REDIS_PORT}
+        networks:
+            - livewire4_net
+
+    web:
+      image: 'nginx:alpine'
+      container_name: livewire4_web
+      ports:
+        - '${APP_PORT:-9200}:80'
+      volumes:
+        - '.:/var/www/html'
+        - './docker/nginx/conf.d:/etc/nginx/conf.d'
+        - './docker/nginx/nginx.conf:/etc/nginx/nginx.conf'
+      networks:
+        - livewire4_net
+
+# postgres, redis, minio provided by shared services
+
+networks:
+  livewire4_net:
+    driver: bridge
