@@ -1,8 +1,8 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/livewire-starter-kit",
+    "name": "fredyns/livewire4",
     "type": "project",
-    "description": "The official Laravel starter kit for Livewire.",
+    "description": "Personal starter kit with Laravel 12 and Livewire 4.",
     "keywords": [
         "laravel",
         "framework"

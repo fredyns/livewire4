@@ -21,3 +21,9 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+/.private
+docker-compose.yaml
+*.bak
+*.bkp
+*~*
