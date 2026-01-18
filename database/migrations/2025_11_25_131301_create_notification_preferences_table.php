@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('notification_preferences', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->uuid('user_id');
+            $table->string('type');
+            $table->string('channel');
+            $table->boolean('enabled')->default(true);
+            $table->time('quiet_hours_start')->nullable();
+            $table->time('quiet_hours_end')->nullable();
+            $table->timestamps();
+
+            // Foreign key
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            // Unique constraint
+            $table->unique(['user_id', 'type', 'channel']);
+
+            // Indexes
+            $table->index('user_id');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('notification_preferences');
+    }
+};

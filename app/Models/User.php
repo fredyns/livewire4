@@ -3,16 +3,50 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\UserRole;
+use App\Helpers\S3;
+use App\Models\RBAC\Role;
+use App\Models\Traits\ModelDocBlocks;
+use App\Models\Traits\Searchable;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * This is the model class for table "users".
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $profile_picture_hd
+ * @property string $profile_picture_thumbnail
+ * @property string $storage_dir
+ * @property Carbon $email_verified_at
+ * @property string $password
+ * @property string $remember_token
+ * @property-read Carbon|null $created_at
+ * @property-read Carbon|null $updated_at
+ * @property-read Role[] $roles
+ */
 class User extends Authenticatable
 {
+    use HasApiTokens;
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, TwoFactorAuthenticatable;
+    use HasFactory;
+
+    use HasRoles;
+    use HasUuids;
+    use ModelDocBlocks;
+    use Notifiable;
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +57,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_picture_hd',
+        'profile_picture_thumbnail',
+    ];
+
+    protected array $searchableFields = [
+        'name',
+        'email',
     ];
 
     /**
@@ -32,8 +73,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'two_factor_secret',
-        'two_factor_recovery_codes',
         'remember_token',
     ];
 
@@ -47,6 +86,8 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
         ];
     }
 
@@ -60,5 +101,129 @@ class User extends Authenticatable
             ->take(2)
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
+    }
+
+    public function storageDir(): string
+    {
+        if (empty($this->storage_dir)) {
+            $idWithoutDash = str_replace('-', '', $this->id);
+            $firstSegment = substr($idWithoutDash, 0, 8);
+            $secondSegment = substr($idWithoutDash, 8);
+            $this->storage_dir = "users/{$firstSegment}/{$secondSegment}";
+            $this->saveQuietly();
+        }
+
+        return $this->storage_dir;
+    }
+
+    /**
+     * Get the HD profile picture (1024x1024) URL from S3
+     */
+    public function profilePictureHdUrl(): ?string
+    {
+        return S3::url($this->profile_picture_hd);
+    }
+
+    /**
+     * Get the thumbnail profile picture (128x128) URL from S3
+     */
+    public function profilePictureThumbnailUrl(): ?string
+    {
+        return S3::url($this->profile_picture_thumbnail);
+    }
+
+    /**
+     * Check if user has a profile picture
+     */
+    public function hasProfilePicture(): bool
+    {
+        return ! empty($this->profile_picture_hd) && ! empty($this->profile_picture_thumbnail);
+    }
+
+    /**
+     * Get user's notifications
+     */
+    public function notifications(): HasMany
+    {
+        return $this->hasMany(Notification::class, 'notifiable_id')
+            ->where('notifiable_type', self::class);
+    }
+
+    /**
+     * Get user's notification preferences
+     */
+    public function notificationPreferences(): HasMany
+    {
+        return $this->hasMany(NotificationPreference::class);
+    }
+
+    /**
+     * @param  Role[]|UserRole[]  $roles
+     */
+    public function assignRoles(array $roles): void
+    {
+        foreach ($roles as $role) {
+            $this->assignRole($role, 'web');
+            $this->assignRole($role, 'sanctum');
+        }
+    }
+
+    public function assignRole(Role|UserRole $role, string $guardName = 'web'): void
+    {
+        if ($role instanceof UserRole) {
+            $role = Role::findOrCreate($role->value, $guardName);
+        }
+
+        $tableNames = config('permission.table_names');
+        $columnNames = config('permission.column_names');
+        $pivotRole = $columnNames['role_pivot_key'] ?? 'role_id';
+        $modelKey = $columnNames['model_morph_key'] ?? 'model_id';
+
+        $exists = DB::table($tableNames['model_has_roles'])
+            ->where($pivotRole, $role->id)
+            ->where('model_type', User::class)
+            ->where($modelKey, $this->id)
+            ->exists();
+
+        if (! $exists) {
+            DB::table($tableNames['model_has_roles'])->insert([
+                'id' => Str::uuid(),
+                $pivotRole => $role->id,
+                'model_type' => User::class,
+                $modelKey => $this->id,
+            ]);
+        }
+    }
+
+    /**
+     * @param  Role[]|UserRole[]  $roles
+     */
+    public function revokeRoles(array $roles): void
+    {
+        foreach ($roles as $role) {
+            $this->revokeRole($role, 'web');
+            $this->revokeRole($role, 'sanctum');
+        }
+    }
+
+    public function revokeRole(Role|UserRole $role, string $guardName = 'web'): void
+    {
+        if ($role instanceof UserRole) {
+            $role = Role::where('name', $role->value)->where('guard_name', $guardName)->first();
+            if (! $role) {
+                return;
+            }
+        }
+
+        $tableNames = config('permission.table_names');
+        $columnNames = config('permission.column_names');
+        $pivotRole = $columnNames['role_pivot_key'] ?? 'role_id';
+        $modelKey = $columnNames['model_morph_key'] ?? 'model_id';
+
+        DB::table($tableNames['model_has_roles'])
+            ->where($pivotRole, $role->id)
+            ->where('model_type', User::class)
+            ->where($modelKey, $this->id)
+            ->delete();
     }
 }
