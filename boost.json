@@ -1,0 +1,11 @@
+{
+    "agents": [
+        "cursor"
+    ],
+    "editors": [
+        "phpstorm"
+    ],
+    "guidelines": [
+        "laravel/fortify"
+    ]
+}
