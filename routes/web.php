@@ -33,6 +33,9 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 
+    // User App
+    Route::livewire('/users', 'pages::user.index')->name('user.index');
+
 });
 
 require __DIR__.'/settings.php';

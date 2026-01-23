@@ -16,6 +16,13 @@
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
+
+                <flux:sidebar.group :heading="__('System')" class="grid">
+                    <flux:sidebar.item icon="home" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>
+                        {{ __('Users') }}
+                    </flux:sidebar.item>
+                </flux:sidebar.group>
+
             </flux:sidebar.nav>
 
             <flux:spacer />
