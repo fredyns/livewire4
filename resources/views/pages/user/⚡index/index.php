@@ -81,6 +81,6 @@ new class extends Component
     {
         return $this->view([
             'users' => $this->users,
-        ]);
+        ])->title('Users');
     }
 };
