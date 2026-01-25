@@ -37,17 +37,17 @@
         <div class="overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-700">
             <flux:table>
                 <flux:table.columns>
-                    <flux:table.column>{{ __('Name') }}</flux:table.column>
+                    <flux:table.column style="padding-left: 12px !important;">{{ __('Name') }}</flux:table.column>
                     <flux:table.column>{{ __('Email') }}</flux:table.column>
                     <flux:table.column>{{ __('Roles') }}</flux:table.column>
                     <flux:table.column>{{ __('Created') }}</flux:table.column>
-                    <flux:table.column align="end">{{ __('Actions') }}</flux:table.column>
+                    <flux:table.column align="end" style="padding-right: 12px !important;">{{ __('Actions') }}</flux:table.column>
                 </flux:table.columns>
 
                 <flux:table.rows>
                     @forelse ($users as $user)
                         <flux:table.row>
-                            <flux:table.cell>
+                            <flux:table.cell style="padding-left: 12px !important;">
                                 <div class="flex items-center gap-3">
                                     @if ($user->hasProfilePicture())
                                         <img
@@ -91,7 +91,7 @@
                                     {{ $user->created_at?->format('M d, Y') ?? '-' }}
                                 </span>
                             </flux:table.cell>
-                            <flux:table.cell align="end">
+                            <flux:table.cell align="end" style="padding-right: 12px !important;">
                                 <div class="flex items-center justify-end gap-2">
                                     <flux:button
                                         href="{{-- route('user.show', $user) --}}"
