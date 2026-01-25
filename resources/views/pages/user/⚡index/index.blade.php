@@ -98,30 +98,27 @@
                             </flux:table.cell>
                             <flux:table.cell align="end" style="padding-right: 12px !important;">
                                 <div class="flex items-center justify-end gap-2">
-                                    <flux:button
-                                        href="{{-- route('user.show', $user) --}}"
-                                        variant="ghost"
-                                        size="sm"
-                                        icon="eye"
-                                    >
-                                        {{ __('View') }}
-                                    </flux:button>
-                                    <flux:button
-                                        href="{{-- route('user.edit', $user) --}}"
-                                        variant="ghost"
-                                        size="sm"
-                                        icon="pencil"
-                                    >
-                                        {{ __('Edit') }}
-                                    </flux:button>
                                     <flux:dropdown>
                                         <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal"/>
 
                                         <flux:menu>
                                             <flux:menu.item
+                                                href="{{-- route('user.show', $user) --}}"
+                                                icon="eye"
+                                            >
+                                                {{ __('View') }}
+                                            </flux:menu.item>
+                                            <flux:menu.item
+                                                href="{{-- route('user.edit', $user) --}}"
+                                                icon="pencil"
+                                            >
+                                                {{ __('Edit') }}
+                                            </flux:menu.item>
+                                            <flux:menu.item
                                                 wire:click="delete({{ $user->id }})"
                                                 wire:confirm="{{ __('Are you sure you want to delete this user?') }}"
                                                 variant="danger"
+                                                icon="trash"
                                             >
                                                 {{ __('Delete') }}
                                             </flux:menu.item>
