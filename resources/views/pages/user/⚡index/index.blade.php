@@ -1,4 +1,9 @@
 <section>
+    <style>
+        .flex.items-center.justify-between > div > nav {
+            margin-left: 1rem;
+        }
+    </style>
     <div class="flex h-full w-full flex-1 flex-col gap-4">
         <!-- Header -->
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -142,18 +147,7 @@
         </div>
 
         <!-- Pagination -->
-        <div class="flex items-center justify-between">
-            <div class="text-sm text-neutral-600 dark:text-neutral-400">
-                {{ __('Showing') }}
-                <span class="font-medium">{{ $users->firstItem() ?? 0 }}</span>
-                {{ __('to') }}
-                <span class="font-medium">{{ $users->lastItem() ?? 0 }}</span>
-                {{ __('of') }}
-                <span class="font-medium">{{ $users->total() }}</span>
-                {{ __('users') }}
-            </div>
-            {{ $users->links() }}
-        </div>
+        {{ $users->links() }}
 
         <!-- Flash Messages -->
         @if (session('message'))
