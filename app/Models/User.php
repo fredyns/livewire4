@@ -11,6 +11,7 @@ use App\Models\Traits\Searchable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -34,6 +35,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property-read Carbon|null $created_at
  * @property-read Carbon|null $updated_at
  * @property-read Role[] $roles
+ * @property-read Role[] $webRoles
  */
 class User extends Authenticatable
 {
@@ -225,5 +227,13 @@ class User extends Authenticatable
             ->where('model_type', User::class)
             ->where($modelKey, $this->id)
             ->delete();
+    }
+
+    /**
+     * A model may have multiple roles.
+     */
+    public function webRoles(): BelongsToMany
+    {
+        return $this->roles()->where('guard_name', 'web');
     }
 }

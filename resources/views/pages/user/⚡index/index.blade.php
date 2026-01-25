@@ -80,7 +80,7 @@
                             </flux:table.cell>
                             <flux:table.cell>
                                 <div class="flex flex-wrap gap-1">
-                                    @forelse ($user->roles as $role)
+                                    @forelse ($user->webRoles as $role)
                                         <flux:badge size="sm" color="blue">
                                             {{ $role->name }}
                                         </flux:badge>
