@@ -26,16 +26,9 @@
                 placeholder="{{ __('Search users...') }}"
                 icon="magnifying-glass"
                 class="flex-1"
+                clearable
+                @clear="resetSearch"
             />
-            @if ($this->search)
-                <flux:button
-                    wire:click="resetSearch"
-                    variant="ghost"
-                    icon="x-mark"
-                >
-                    {{ __('Clear') }}
-                </flux:button>
-            @endif
         </div>
 
         <!-- Users Table -->
