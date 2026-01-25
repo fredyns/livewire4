@@ -1,9 +1,4 @@
 <section>
-    <style>
-        .flex.items-center.justify-between > div > nav {
-            margin-left: 1rem;
-        }
-    </style>
     <div class="flex h-full w-full flex-1 flex-col gap-4">
         <!-- Header -->
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
