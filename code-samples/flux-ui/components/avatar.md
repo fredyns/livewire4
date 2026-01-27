@@ -1,70 +1,84 @@
-{{-- docs: https://fluxui.dev/components/avatar --}}
+﻿# Avatar
 
-{{--basic--}}
+Source: https://fluxui.dev/components/avatar
+
+## Main
+
+```blade
+<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:avatar</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> src</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"https://unavatar.io/x/calebporzio"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span>
+```
+
+
+## Basic
+
+```blade
 <flux:avatar src="https://unavatar.io/x/calebporzio" />
+```
 
+## Tooltip
 
-{{--use tooltip--}}
+```blade
 <flux:avatar tooltip="Caleb Porzio" src="https://unavatar.io/x/calebporzio" />
+```
 
+## Initials
 
-{{--use name initials--}}
+```blade
 <flux:avatar name="Caleb Porzio" />
 <flux:avatar name="calebporzio" />
 <flux:avatar name="calebporzio" initials:single />
 
-
-<!-- Or use the initials prop directly... -->
 <flux:avatar initials="CP" />
+```
 
+## Sizes
 
-<!-- Extra large: size-16 (64px) -->
+```blade
 <flux:avatar size="xl" src="https://unavatar.io/x/calebporzio" />
-
-
-<!-- Large: size-12 (48px) -->
 <flux:avatar size="lg" src="https://unavatar.io/x/calebporzio" />
-
-
-<!-- Default: size-10 (40px) -->
 <flux:avatar src="https://unavatar.io/x/calebporzio" />
-
-
-<!-- Small: size-8 (32px) -->
 <flux:avatar size="sm" src="https://unavatar.io/x/calebporzio" />
-
-
-<!-- Extra small: size-6 (24px) -->
 <flux:avatar size="xs" src="https://unavatar.io/x/calebporzio" />
+```
 
+## Icons
 
-{{--icon--}}
+```blade
 <flux:avatar icon="user" />
 <flux:avatar icon="phone" />
 <flux:avatar icon="computer-desktop" />
+```
 
+## Color
 
-{{--color--}}
+```blade
 <flux:avatar name="Caleb Porzio" color="red" />
+```
 
+## Circle
 
-{{--circle--}}
+```blade
 <flux:avatar circle src="https://unavatar.io/x/calebporzio" />
+```
 
+## Badges
 
-{{--badges--}}
+```blade
 <flux:avatar badge badge:color="green" src="https://unavatar.io/x/calebporzio" />
 <flux:avatar badge badge:color="zinc" badge:position="top right" badge:circle badge:variant="outline" src="https://unavatar.io/x/calebporzio" />
 <flux:avatar badge="25" src="https://unavatar.io/x/calebporzio" />
-<flux:avatar circle badge="👍" badge:circle src="https://unavatar.io/x/calebporzio" />
+<flux:avatar circle badge="ðŸ‘" badge:circle src="https://unavatar.io/x/calebporzio" />
+
 <flux:avatar circle src="https://unavatar.io/x/calebporzio">
     <x-slot:badge>
         <img class="size-3" src="https://unavatar.io/github/hugosaintemarie" />
     </x-slot:badge>
 </flux:avatar>
+```
 
+## Groups
 
-{{--groups--}}
+```blade
 <flux:avatar.group>
     <flux:avatar src="https://unavatar.io/x/calebporzio" />
     <flux:avatar src="https://unavatar.io/github/hugosaintemarie" />
@@ -72,21 +86,23 @@
     <flux:avatar>3+</flux:avatar>
 </flux:avatar.group>
 
-
-<!-- Adapt rings to custom background... -->
 <flux:avatar.group class="**:ring-zinc-100 dark:**:ring-zinc-800">
     <flux:avatar circle src="https://unavatar.io/x/calebporzio" />
     <flux:avatar circle src="https://unavatar.io/github/hugosaintemarie" />
     <flux:avatar circle src="https://unavatar.io/github/joshhanley" />
     <flux:avatar circle>3+</flux:avatar>
 </flux:avatar.group>
+```
 
+## As link
 
-{{--as link--}}
+```blade
 <flux:avatar href="https://x.com/calebporzio" src="https://unavatar.io/x/calebporzio" />
+```
 
+## Testimonial
 
-{{--Testimonials--}}
+```blade
 <div>
     <div class="flex items-center gap-2">
         <flux:icon.star variant="solid" />
@@ -97,7 +113,7 @@
     </div>
 
     <flux:heading size="xl" class="mt-4 italic">
-        <p>IMO Livewire takes Blade to the next level. It's basically what Blade should be by default. 🔥</p>
+        <p>IMO Livewire takes Blade to the next level. It's basically what Blade should be by default. ðŸ”¥</p>
     </flux:heading>
 
     <div class="mt-6 flex items-center gap-4">
@@ -109,14 +125,16 @@
         </div>
     </div>
 </div>
+```
 
+## Grouped feature
 
-{{--grouped feature--}}
+```blade
 <div>
     <flux:heading size="xl">The Laravel Podcast <flux:badge inset="top bottom" class="ml-1 max-sm:hidden">New</flux:badge></flux:heading>
 
     <flux:text class="mt-2">
-        A podcast about Laravel, development best practices, and the PHP ecosystem—hosted by Jeffrey Way, Matt Stauffer, and Taylor Otwell, later joined by Adam Wathan.
+        A podcast about Laravel, development best practices, and the PHP ecosystemâ€”hosted by Jeffrey Way, Matt Stauffer, and Taylor Otwell, later joined by Adam Wathan.
     </flux:text>
 
     <flux:avatar.group class="mt-6">
@@ -126,9 +144,11 @@
         <flux:avatar circle size="lg" src="https://unavatar.io/x/stauffermatt" />
     </flux:avatar.group>
 </div>
+```
 
+## Members table
 
-{{--members table--}}
+```blade
 <div class="flex justify-between items-center mb-4">
     <flux:heading size="lg">Team members</flux:heading>
 
@@ -207,9 +227,11 @@
         </flux:table.row>
     </flux:table.rows>
 </flux:table>
+```
 
+## Assignees list
 
-{{--Assignees list--}}
+```blade
 <flux:card>
     <div class="flex justify-between items-center">
         <flux:heading>Assignees</flux:heading>
@@ -237,9 +259,11 @@
         </li>
     </ul>
 </flux:card>
+```
 
+## Select options
 
-{{--Select options--}}
+```blade
 <flux:select variant="listbox" label="Assign to">
     <flux:select.option selected>
         <div class="flex items-center gap-2 whitespace-nowrap">
@@ -265,9 +289,11 @@
         </div>
     </flux:select.option>
 </flux:select>
+```
 
+## User popover
 
-{{--User popover--}}
+```blade
 <flux:dropdown hover position="bottom center">
     <flux:avatar as="button" name="calebporzio" src="https://unavatar.io/x/calebporzio" />
 
@@ -296,5 +322,36 @@
         </div>
     </flux:popover>
 </flux:dropdown>
+```
 
+## Reference
 
+### `flux:avatar`
+
+| Prop | Description |
+| --- | --- |
+| `name` | User's name to display as initials. If provided without `initials`, this will be used to generate initials automatically. |
+| `src` | URL to the image to display as avatar. |
+| `initials` | Custom initials to display when no `src` is provided. Will override `name` if provided. |
+| `alt` | Alternative text for the avatar image. (Default: `name` if provided) |
+| `size` | Size of the avatar. Options: `xs` (24px), `sm` (32px), default (40px), `lg` (48px). |
+| `color` | Background color when displaying initials or icons. Options: `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `auto`. Default: none (uses system colors). |
+| `color:seed` | Value used when `color="auto"` to deterministically generate consistent colors. |
+| `circle` | If present or `true`, makes the avatar fully circular instead of rounded corners. |
+| `icon` | Name of the icon to display instead of an image or initials. |
+| `icon:variant` | Icon variant to use. Options: `outline`, `solid`. Default: `solid`. |
+| `tooltip` | Text to display in a tooltip when hovering over the avatar. If set to `true`, uses the `name` prop as tooltip content. |
+| `tooltip:position` | Position of the tooltip. Options: `top`, `right`, `bottom`, `left`. Default: `top`. |
+| `badge` | Content to display as a badge. Can be a string, boolean, or a slot. |
+| `badge:color` | Color of the badge. Options: same color options as the `color` prop. |
+| `badge:circle` | If present or `true`, makes the badge fully circular instead of slightly rounded corners. |
+| `badge:position` | Position of the badge. Options: `top left`, `top right`, `bottom left`, `bottom right`. Default: `bottom right`. |
+| `badge:variant` | Variant of the badge. Options: `solid`, `outline`. Default: `solid`. |
+| `as` | Element to render the avatar as. Options: `button`, `div` (default). |
+| `href` | URL to link to, making the avatar a link element. |
+
+### `flux:avatar.group`
+
+| Prop | Description |
+| --- | --- |
+| `class` | CSS classes to apply to the group, including customizing ring colors using `*:ring-{color}` format. |

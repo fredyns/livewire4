@@ -1,0 +1,598 @@
+﻿# Chart - PRO
+
+Source: https://fluxui.dev/components/chart
+
+## Main
+
+```blade
+<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> wire:model</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"data"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> class</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"aspect-3/1"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.svg</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.line</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> field</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"visitors"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> class</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"text-pink-500 dark:text-pink-400"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.axis</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> axis</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"x"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> field</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"date"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.axis.line</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.axis.tick</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.axis</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.axis</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> axis</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"y"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.axis.grid</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.axis.tick</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.axis</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.cursor</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.svg</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.tooltip</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.tooltip.heading</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> field</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"date"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> :format</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"['year' => 'numeric', 'month' => 'numeric', 'day' => 'numeric']"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.tooltip.value</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> field</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"visitors"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> label</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Visitors"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart.tooltip</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:chart</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
+```
+
+
+## Introduction
+
+```blade
+<flux:chart wire:model="data" class="aspect-3/1">
+    <flux:chart.svg>
+        <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" />
+
+        <flux:chart.axis axis="x" field="date">
+            <flux:chart.axis.line />
+            <flux:chart.axis.tick />
+        </flux:chart.axis>
+
+        <flux:chart.axis axis="y">
+            <flux:chart.axis.grid />
+            <flux:chart.axis.tick />
+        </flux:chart.axis>
+
+        <flux:chart.cursor />
+    </flux:chart.svg>
+
+    <flux:chart.tooltip>
+        <flux:chart.tooltip.heading field="date" :format="['year' => 'numeric', 'month' => 'numeric', 'day' => 'numeric']" />
+        <flux:chart.tooltip.value field="visitors" label="Visitors" />
+    </flux:chart.tooltip>
+</flux:chart>
+```
+
+## Data structure
+
+```php
+<?php
+
+use Livewire\Component;
+
+class Dashboard extends Component
+{
+    public array $data = [
+        ['date' => '2026-01-27', 'visitors' => 267],
+        ['date' => '2026-01-26', 'visitors' => 259],
+        ['date' => '2026-01-25', 'visitors' => 269],
+        // ...
+    ];
+}
+```
+
+```blade
+<flux:chart wire:model="data" />
+```
+
+```blade
+<flux:chart :value="$this->data" />
+```
+
+```blade
+<flux:chart :value="[1, 2, 3, 4, 5]" />
+```
+
+## Line chart
+
+```blade
+<flux:chart wire:model="data" class="aspect-[3/1]">
+    <flux:chart.svg>
+        <flux:chart.line field="memory" class="text-pink-500" />
+        <flux:chart.point field="memory" class="text-pink-400" />
+
+        <flux:chart.axis axis="x" field="date">
+            <flux:chart.axis.tick />
+            <flux:chart.axis.line />
+        </flux:chart.axis>
+
+        <flux:chart.axis axis="y" tick-values="[0, 128, 256, 384, 512]" :format="['style' => 'unit', 'unit' => 'megabyte']">
+            <flux:chart.axis.grid />
+            <flux:chart.axis.tick />
+        </flux:chart.axis>
+    </flux:chart.svg>
+</flux:chart>
+```
+
+## Area chart
+
+```blade
+<flux:chart wire:model="data" class="aspect-3/1">
+    <flux:chart.svg>
+        <flux:chart.line field="stock" class="text-blue-500 dark:text-blue-400" curve="none" />
+        <flux:chart.area field="stock" class="text-blue-200/50 dark:text-blue-400/30" curve="none" />
+
+        <flux:chart.axis axis="y" position="right" tick-prefix="$" :format="[
+            'notation' => 'compact',
+            'compactDisplay' => 'short',
+            'maximumFractionDigits' => 1,
+        ]">
+            <flux:chart.axis.grid />
+            <flux:chart.axis.tick />
+        </flux:chart.axis>
+
+        <flux:chart.axis axis="x" field="date">
+            <flux:chart.axis.tick />
+            <flux:chart.axis.line />
+        </flux:chart.axis>
+    </flux:chart.svg>
+</flux:chart>
+```
+
+## Multiple lines
+
+```blade
+<flux:chart wire:model="data">
+    <flux:chart.viewport class="min-h-[20rem]">
+        <flux:chart.svg>
+            <flux:chart.line field="twitter" class="text-blue-500" curve="none" />
+            <flux:chart.point field="twitter" class="text-blue-500" r="6" stroke-width="3" />
+
+            <flux:chart.line field="facebook" class="text-red-500" curve="none" />
+            <flux:chart.point field="facebook" class="text-red-500" r="6" stroke-width="3" />
+
+            <flux:chart.line field="instagram" class="text-green-500" curve="none" />
+            <flux:chart.point field="instagram" class="text-green-500" r="6" stroke-width="3" />
+
+            <flux:chart.axis axis="x" field="date">
+                <flux:chart.axis.tick />
+                <flux:chart.axis.line />
+            </flux:chart.axis>
+
+            <flux:chart.axis axis="y" tick-start="0" tick-end="1" :format="[
+                'style' => 'percent',
+                'minimumFractionDigits' => 0,
+                'maximumFractionDigits' => 0,
+            ]">
+                <flux:chart.axis.grid />
+                <flux:chart.axis.tick />
+            </flux:chart.axis>
+        </flux:chart.svg>
+    </flux:chart.viewport>
+
+    <div class="flex justify-center gap-4 pt-4">
+        <flux:chart.legend label="Instagram">
+            <flux:chart.legend.indicator class="bg-green-400" />
+        </flux:chart.legend>
+
+        <flux:chart.legend label="Twitter">
+            <flux:chart.legend.indicator class="bg-blue-400" />
+        </flux:chart.legend>
+
+        <flux:chart.legend label="Facebook">
+            <flux:chart.legend.indicator class="bg-red-400" />
+        </flux:chart.legend>
+    </div>
+</flux:chart>
+```
+
+## Live summary
+
+```blade
+<flux:card>
+    <flux:chart class="grid gap-6" wire:model="data">
+        <flux:chart.summary class="flex gap-12">
+            <div>
+                <flux:text>Today</flux:text>
+                <flux:heading size="xl" class="mt-2 tabular-nums">
+                    <flux:chart.summary.value field="sales" :format="['style' => 'currency', 'currency' => 'USD']" />
+                </flux:heading>
+                <flux:text class="mt-2 tabular-nums">
+                    <flux:chart.summary.value field="date" :format="['hour' => 'numeric', 'minute' => 'numeric', 'hour12' => true]" />
+                </flux:text>
+            </div>
+
+            <div>
+                <flux:text>Yesterday</flux:text>
+                <flux:heading size="lg" class="mt-2 tabular-nums">
+                    <flux:chart.summary.value field="yesterday" :format="['style' => 'currency', 'currency' => 'USD']" />
+                </flux:heading>
+            </div>
+        </flux:chart.summary>
+
+        <flux:chart.viewport class="aspect-[3/1]">
+            <flux:chart.svg>
+                <flux:chart.line field="yesterday" class="text-zinc-300 dark:text-white/40" stroke-dasharray="4 4" curve="none" />
+                <flux:chart.line field="sales" class="text-sky-500 dark:text-sky-400" curve="none" />
+
+                <flux:chart.axis axis="x" field="date">
+                    <flux:chart.axis.grid />
+                    <flux:chart.axis.tick />
+                    <flux:chart.axis.line />
+                </flux:chart.axis>
+
+                <flux:chart.axis axis="y">
+                    <flux:chart.axis.tick />
+                </flux:chart.axis>
+
+                <flux:chart.cursor />
+            </flux:chart.svg>
+        </flux:chart.viewport>
+    </flux:chart>
+</flux:card>
+```
+
+## Sparkline
+
+```blade
+<flux:chart :value="[15, 18, 16, 19, 22, 25, 28, 25, 29, 28, 32, 35]" class="w-[5rem] aspect-[3/1]">
+    <flux:chart.svg gutter="0">
+        <flux:chart.line class="text-green-500 dark:text-green-400" />
+    </flux:chart.svg>
+</flux:chart>
+```
+
+## Dashboard stat
+
+```blade
+<flux:card class="overflow-hidden min-w-[12rem]">
+    <flux:text>Revenue</flux:text>
+    <flux:heading size="xl" class="mt-2 tabular-nums">$12,345</flux:heading>
+
+    <flux:chart class="-mx-8 -mb-8 h-[3rem]" :value="[10, 12, 11, 13, 15, 14, 16, 18, 17, 19, 21, 20]">
+        <flux:chart.svg gutter="0">
+            <flux:chart.line class="text-sky-200 dark:text-sky-400" />
+            <flux:chart.area class="text-sky-100 dark:text-sky-400/30" />
+        </flux:chart.svg>
+    </flux:chart>
+</flux:card>
+```
+
+## Chart padding
+
+```blade
+<flux:chart>
+    <flux:chart.svg gutter="12 0 12 8">
+        <!-- ... -->
+    </flux:chart.svg>
+</flux:chart>
+```
+
+## Axis scale
+
+```blade
+<flux:chart.axis axis="y" scale="linear">
+    <!-- ... -->
+</flux:chart.axis>
+```
+
+## Axis lines
+
+```blade
+<flux:chart.svg>
+    <!-- ... -->
+
+    <flux:chart.axis axis="x">
+        <flux:chart.axis.line />
+    </flux:chart.axis>
+
+    <flux:chart.axis axis="y">
+        <flux:chart.axis.line />
+    </flux:chart.axis>
+</flux:chart.svg>
+```
+
+```blade
+<flux:chart.axis.line class="text-zinc-800" stroke-width="2" />
+```
+
+## Zero line
+
+```blade
+<flux:chart.svg>
+    <!-- ... -->
+
+    <flux:chart.zero-line />
+</flux:chart.svg>
+```
+
+```blade
+<flux:chart.zero-line class="text-zinc-800" stroke-width="2" />
+```
+
+## Grid lines
+
+```blade
+<flux:chart.svg>
+    <!-- ... -->
+
+    <flux:chart.axis axis="x">
+        <flux:chart.axis.grid />
+    </flux:chart.axis>
+
+    <flux:chart.axis axis="y">
+        <flux:chart.axis.grid />
+    </flux:chart.axis>
+</flux:chart.svg>
+```
+
+```blade
+<flux:chart.axis.grid class="text-zinc-200/50" stroke-width="2" stroke-dasharray="4,4" />
+```
+
+## Ticks
+
+```blade
+<flux:chart.svg>
+    <!-- ... -->
+
+    <flux:chart.axis axis="x">
+        <flux:chart.axis.mark />
+        <flux:chart.axis.tick />
+    </flux:chart.axis>
+
+    <flux:chart.axis axis="y">
+        <flux:chart.axis.mark />
+        <flux:chart.axis.tick />
+    </flux:chart.axis>
+</flux:chart.svg>
+```
+
+```blade
+<flux:chart.axis.mark class="text-zinc-300" stroke-width="2" y1="0" y2="10" />
+```
+
+```blade
+<flux:chart.axis.tick class="text-xs text-blue-500" text-anchor="middle" dy="2.5rem" />
+```
+
+## Tick frequency
+
+```blade
+<flux:chart.axis axis="y" tick-count="5">
+    <!-- ... -->
+</flux:chart.axis>
+```
+
+```blade
+<flux:chart.axis axis="y" tick-start="min">
+    <!-- ... -->
+</flux:chart.axis>
+```
+
+```blade
+<flux:chart.axis axis="y" tick-end="max">
+    <!-- ... -->
+</flux:chart.axis>
+```
+
+```blade
+<flux:chart.axis axis="y" tick-values="[0, 128, 256, 384, 512]" tick-suffix="MB">
+    <!-- ... -->
+</flux:chart.axis>
+```
+
+## Tick formatting
+
+```blade
+<flux:chart.svg>
+    <!-- ... -->
+
+    <flux:chart.axis axis="x" :format="['month' => 'long', 'day' => 'numeric']">
+        <flux:chart.axis.tick />
+    </flux:chart.axis>
+
+    <flux:chart.axis axis="y" :format="['style' => 'currency', 'currency' => 'USD']">
+        <flux:chart.axis.tick />
+    </flux:chart.axis>
+</flux:chart.svg>
+```
+
+```blade
+<flux:chart.axis axis="y" tick-prefix="$">
+    <!-- ... -->
+</flux:chart.axis>
+```
+
+```blade
+<flux:chart.axis axis="y" tick-suffix="MB">
+    <!-- ... -->
+</flux:chart.axis>
+```
+
+## Cursor
+
+```blade
+<flux:chart.svg>
+    <!-- ... -->
+
+    <flux:chart.cursor />
+</flux:chart.svg>
+```
+
+```blade
+<flux:chart.cursor class="text-zinc-800" stroke-width="1" stroke-dasharray="4,4" />
+```
+
+## Tooltip
+
+```blade
+<flux:chart>
+    <flux:chart.svg>
+        <!-- ... -->
+    </flux:chart.svg>
+
+    <flux:chart.tooltip>
+        <flux:chart.tooltip.heading field="date" />
+        <flux:chart.tooltip.value field="visitors" label="Visitors" />
+        <flux:chart.tooltip.value field="views" label="Views" :format="['notation' => 'compact']" />
+    </flux:chart.tooltip>
+</flux:chart>
+```
+
+```blade
+<flux:chart.tooltip>
+    <flux:chart.tooltip.heading field="date" />
+    <flux:chart.tooltip.value field="visitors" label="Visitors" />
+    <flux:chart.tooltip.value field="views" label="Page Views" :format="['notation' => 'compact']" />
+</flux:chart.tooltip>
+```
+
+## Legend
+
+```blade
+<flux:chart wire:model="data">
+    <flux:chart.viewport class="aspect-3/1">
+        <flux:chart.svg>
+            <flux:chart.line class="text-blue-500" field="visitors" />
+            <flux:chart.line class="text-red-500" field="views" />
+        </flux:chart.svg>
+    </flux:chart.viewport>
+
+    <div class="flex justify-center gap-4 pt-4">
+        <flux:chart.legend label="Visitors">
+            <flux:chart.legend.indicator class="bg-blue-400" />
+        </flux:chart.legend>
+
+        <flux:chart.legend label="Views">
+            <flux:chart.legend.indicator class="bg-red-400" />
+        </flux:chart.legend>
+    </div>
+</flux:chart>
+```
+
+## Summary
+
+```blade
+<flux:chart wire:model="data">
+    <flux:chart.summary>
+        <flux:chart.summary.value field="visitors" :format="['notation' => 'compact']" />
+    </flux:chart.summary>
+
+    <flux:chart.viewport class="aspect-[3/1]">
+        <!-- ... -->
+    </flux:chart.viewport>
+</flux:chart>
+```
+
+```blade
+<flux:chart.summary.value field="visitors" fallback="1200" />
+```
+
+## Formatting numbers
+
+```blade
+<flux:chart.axis axis="y" :format="['style' => 'currency', 'currency' => 'USD']" />
+```
+
+## Formatting dates
+
+```blade
+<flux:chart.axis axis="x" field="date" :format="['month' => 'long', 'day' => 'numeric']" />
+```
+
+## Reference
+
+### `flux:chart`
+
+| Prop | Description |
+| --- | --- |
+| `wire:model` | Binds the chart to a Livewire property containing the data to display. |
+| `value` | Array of data points for the chart. Each point should be an associative array with named fields. |
+| `curve` | Default line curve type for all lines. Options: `smooth` (default), `none`. |
+
+### `flux:chart.svg`
+
+| Slot | Description |
+| --- | --- |
+| `default` | Chart visualization components like lines, areas, axes, and interactive elements. |
+
+### `flux:chart.line`
+
+| Prop | Description |
+| --- | --- |
+| `field` | Name of the data field to plot on the y-axis. Required. |
+| `curve` | Line curve type. Options: `smooth` (default), `none`. |
+
+### `flux:chart.area`
+
+| Prop | Description |
+| --- | --- |
+| `field` | Name of the data field to plot on the y-axis. Required. |
+| `curve` | Area curve type. Options: `smooth` (default), `none`. |
+
+### `flux:chart.point`
+
+| Prop | Description |
+| --- | --- |
+| `field` | Name of the data field to plot points for. Required. |
+
+### `flux:chart.axis`
+
+| Prop | Description |
+| --- | --- |
+| `axis` | Axis to configure. Options: `x`, `y`. Required. |
+| `field` | For x-axis, the data field to use for labels. |
+| `format` | Date/number formatting options for axis labels. |
+
+### `flux:chart.axis.mark`
+
+| Prop | Description |
+| --- | --- |
+| `position` | Position of the tick marks. Options: `top`, `bottom`, `left`, `right`. |
+
+### `flux:chart.axis.line`
+
+| Prop | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the axis line. |
+
+### `flux:chart.axis.grid`
+
+| Prop | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the gridlines. |
+
+### `flux:chart.axis.tick`
+
+| Prop | Description |
+| --- | --- |
+| `format` | Date/number formatting options for tick labels. |
+
+### `flux:chart.zero-line`
+
+| Prop | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the zero line. |
+
+### `flux:chart.tooltip`
+
+| Prop | Description |
+| --- | --- |
+| `field` | Data field to display in the tooltip. |
+| `format` | Date/number formatting options for tooltip values. |
+
+### `flux:chart.tooltip.heading`
+
+| Prop | Description |
+| --- | --- |
+| `field` | Data field to display in the tooltip heading. |
+| `format` | Date/number formatting options for tooltip values. |
+
+### `flux:chart.tooltip.value`
+
+| Prop | Description |
+| --- | --- |
+| `field` | Data field to display in the tooltip. |
+| `format` | Date/number formatting options for tooltip values. |
+
+### `flux:chart.cursor`
+
+| Prop | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the cursor line. |
+
+### `flux:chart.summary`
+
+| Slot | Description |
+| --- | --- |
+| `default` | Content to display in the summary section. |
+
+### `flux:chart.summary.value`
+
+| Prop | Description |
+| --- | --- |
+| `field` | Data field to display. |
+| `fallback` | Fallback text if the value is not found or cannot be formatted. |
+| `format` | Date/number formatting options. |
+
+### `flux:chart.legend`
+
+| Prop | Description |
+| --- | --- |
+| `field` | Data field this legend item represents. |
+| `label` | Label text for the legend item. |
+| `format` | Date/number formatting options. |
