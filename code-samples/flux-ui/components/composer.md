@@ -1,15 +1,10 @@
-﻿# Composer - PRO
+# Composer - PRO
 
 Source: https://fluxui.dev/components/composer
 
-## Main
+A configurable message input with support for action buttons and rich text. Ideal for chat interfaces and AI prompts.
 
-```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">form</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> wire:submit</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"send"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:composer</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> wire:model</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"prompt"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> label</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Prompt"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> label:sr-only</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> placeholder</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"How can I help you today?"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">x-slot</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"actionsLeading"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> size</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"sm"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> variant</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"subtle"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> icon</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"paper-clip"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> size</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"sm"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> variant</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"subtle"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> icon</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"slash"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> size</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"sm"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> variant</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"subtle"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> icon</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"adjustments-horizontal"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">x-slot</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">x-slot</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"actionsTrailing"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> size</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"sm"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> variant</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"filled"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> icon</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"microphone"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> type</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"submit"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> size</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"sm"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> variant</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"primary"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> icon</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"paper-airplane"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">x-slot</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:composer</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">form</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
-```
-
-
-## Introduction
+## Basic Example
 
 ```blade
 <form wire:submit="send">
@@ -33,6 +28,7 @@ Source: https://fluxui.dev/components/composer
 ```blade
 <flux:composer wire:model="prompt" label="Prompt" label:sr-only placeholder="How can I help you today?">
     <x-slot name="header">
+        <!-- Header content... -->
         <div class="relative border border-zinc-200 dark:border-zinc-700 rounded-lg overflow-hidden">
             <img src="https://fluxui.dev/img/demo/caleb.png" alt="Profile picture" class="size-14">
             <div class="absolute top-0 right-0 p-1">
@@ -42,11 +38,9 @@ Source: https://fluxui.dev/components/composer
             </div>
         </div>
     </x-slot>
-
     <x-slot name="actionsLeading">
         <!-- ... -->
     </x-slot>
-
     <x-slot name="actionsTrailing">
         <!-- ... -->
     </x-slot>
@@ -60,7 +54,6 @@ Source: https://fluxui.dev/components/composer
     <x-slot name="actionsLeading">
         <flux:button size="sm" variant="ghost" icon="plus" />
     </x-slot>
-
     <x-slot name="actionsTrailing">
         <flux:button size="sm" variant="filled" icon="microphone" />
         <flux:button type="submit" size="sm" variant="primary" icon="paper-airplane" />
@@ -101,13 +94,11 @@ Source: https://fluxui.dev/components/composer
     <x-slot name="input">
         <flux:editor variant="borderless" toolbar="bold italic bullet ordered | link | align" />
     </x-slot>
-
     <x-slot name="actionsLeading">
         <flux:button size="sm" variant="subtle" icon="paper-clip" />
         <flux:button size="sm" variant="subtle" icon="slash" />
         <flux:button size="sm" variant="subtle" icon="adjustments-horizontal" />
     </x-slot>
-
     <x-slot name="actionsTrailing">
         <flux:button size="sm" variant="filled" icon="microphone" />
         <flux:button type="submit" size="sm" variant="primary" icon="paper-airplane" />
@@ -137,16 +128,28 @@ Source: https://fluxui.dev/components/composer
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Binds the composer to a Livewire property. |
-| `name` | Name attribute (also used for validation error detection). |
-| `placeholder` | Placeholder text. |
-| `label` | Label text (wraps in `flux:field` + `flux:label`). |
-| `label:sr-only` | Visually hides the label (a11y friendly). |
-| `description` | Help text. |
-| `description:sr-only` | Visually hides description (a11y friendly). |
-| `rows` | Visible rows. Default: `2`. |
-| `max-rows` | Max auto-expanded rows. |
-| `inline` | If present, shows actions inline with the input. |
-| `submit` | Keyboard submit behavior. Options: `cmd+enter` (default), `enter`. |
-| `disabled` | Disables interaction. |
-| `invalid` | Applies error styling. |
+| wire:model | Binds the composer to a Livewire property. See the wire:model documentation for more information. |
+| name | Name attribute for the composer. Used for validation error detection. |
+| placeholder | Placeholder text displayed when the input is empty. |
+| label | Label text for the composer. When provided, wraps the composer in a flux:field component with an adjacent flux:label component. See the field component. |
+| label:sr-only | Visually hides the label while keeping it accessible to screen readers. |
+| description | Help text displayed near the composer. See the field component. |
+| description:sr-only | Visually hides the description while keeping it accessible to screen readers. |
+| rows | Number of visible text lines for the input area. Default: 2. |
+| max-rows | Maximum number of rows the input can expand to as content grows. |
+| inline | Displays action buttons alongside the input in a single row. |
+| submit | Keyboard behavior for form submission. Options: cmd+enter (default), enter. |
+| disabled | Prevents user interaction with the composer. |
+| invalid | If true, applies error styling to the composer. |
+
+| Slot | Description |
+| --- | --- |
+| input | Custom input content. Use this slot to replace the default textarea with a rich text editor. |
+| header | Content displayed above the input area. Useful for file previews or uploads. |
+| footer | Content displayed below the input area. |
+| actionsLeading | Buttons or actions displayed at the start of the action bar. |
+| actionsTrailing | Buttons or actions displayed at the end of the action bar, typically including the submit button. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-composer | Applied to the root element for styling and identification. |

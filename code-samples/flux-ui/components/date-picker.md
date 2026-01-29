@@ -1,15 +1,10 @@
-﻿# Date picker - PRO
+# Date picker - PRO
 
 Source: https://fluxui.dev/components/date-picker
 
-## Main
+Allow users to select dates or date ranges via a calendar overlay. Perfect for filtering data or scheduling events.
 
-```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:date-picker</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span>
-```
-
-
-## Introduction
+## Basic Example
 
 ```blade
 <flux:date-picker />
@@ -72,10 +67,8 @@ class CreatePost extends Component
 <flux:date-picker mode="range" wire:model="range" />
 ```
 
-```php
-<?php
-
-use Illuminate\Support\Carbon;
+```blade
+<?php use Illuminate\Support\Carbon;
 use Livewire\Component;
 
 class Dashboard extends Component
@@ -92,10 +85,8 @@ class Dashboard extends Component
 }
 ```
 
-```php
-<?php
-
-use Livewire\Component;
+```blade
+<?php use Livewire\Component;
 use Flux\DateRange;
 
 class Dashboard extends Component
@@ -113,6 +104,9 @@ class Dashboard extends Component
 
 ```blade
 <flux:date-picker mode="range" min-range="3" />
+```
+
+```blade
 <flux:date-picker mode="range" max-range="10" />
 ```
 
@@ -136,29 +130,22 @@ class Dashboard extends Component
 ```
 
 ```blade
-<flux:date-picker
-    mode="range"
-    presets="today yesterday thisWeek last7Days thisMonth yearToDate allTime"
-/>
+<flux:date-picker mode="range" presets="today yesterday thisWeek last7Days thisMonth yearToDate allTime" />
 ```
 
 ## All time
 
 ```blade
-<flux:date-picker
-    mode="range"
-    presets="... allTime"
-    :min="auth()->user()->created_at->format('Y-m-d')"
-/>
+<flux:date-picker mode="range" presets="... allTime" :min="auth()->user()->created_at->format('Y-m-d')" />
 ```
 
-```php
+```blade
 use Flux\DateRange;
 
 $this->range = DateRange::allTime(start: auth()->user()->created_at);
 ```
 
-```php
+```blade
 $orders = Order::when($this->range->isNotAllTime(), function ($query) => {
     $query->whereBetween('created_at', $this->range);
 })->get();
@@ -204,6 +191,9 @@ $orders = Order::when($this->range->isNotAllTime(), function ($query) => {
 
 ```blade
 <flux:date-picker open-to="2027-02-01" />
+```
+
+```blade
 <flux:date-picker open-to="2027-02-01" force-open-to />
 ```
 
@@ -225,10 +215,8 @@ $orders = Order::when($this->range->isNotAllTime(), function ($query) => {
 <flux:calendar wire:model.live="range" />
 ```
 
-```php
-<?php
-
-use Livewire\Component;
+```blade
+<?php use Livewire\Component;
 use Flux\DateRange;
 
 class Dashboard extends Component
@@ -239,10 +227,8 @@ class Dashboard extends Component
 
 ## Instantiation
 
-```php
-<?php
-
-use Livewire\Component;
+```blade
+<?php use Livewire\Component;
 use Flux\DateRange;
 
 class Dashboard extends Component
@@ -258,10 +244,8 @@ class Dashboard extends Component
 
 ## Persisting to the session
 
-```php
-<?php
-
-use Livewire\Attributes\Session;
+```blade
+<?php use Livewire\Attributes\Session;
 use Livewire\Component;
 use Flux\DateRange;
 
@@ -274,10 +258,8 @@ class Dashboard extends Component
 
 ## Using with Eloquent
 
-```php
-<?php
-
-use Livewire\Attributes\Computed;
+```blade
+<?php use Livewire\Attributes\Computed;
 use Livewire\Component;
 use App\Models\Order;
 use Flux\DateRange;
@@ -289,35 +271,39 @@ class Dashboard extends Component
     #[Computed]
     public function orders()
     {
-        return $this->range
-            ? Order::whereBetween('created_at', $this->range)->get()
-            : Order::all();
+        return $this->range ? Order::whereBetween('created_at', $this->range)->get() : Order::all();
     }
 }
 ```
 
 ## Available methods
 
-```php
+```blade
 $range = new Flux\DateRange(
     now()->subDays(1),
     now()->addDays(1),
 );
 
+// Get the start and end dates as Carbon instances...
 $start = $range->start();
 $end = $range->end();
 
+// Check if the range contains a date...
 $range->contains(now());
+
+// Get the number of days in the range...
 $range->length();
 
+// Loop over the range by day...
 foreach ($range as $date) {
     // $date is a Carbon instance...
 }
 
+// Get the range as an array of Carbon instances representing each day in the range...
 $range->toArray();
 ```
 
-```php
+```blade
 $orders = Order::whereBetween('created_at', $range)->get();
 ```
 
@@ -331,10 +317,8 @@ $orders = Order::whereBetween('created_at', $range)->get();
 ]
 ```
 
-```php
-<?php
-
-use Livewire\Component;
+```blade
+<?php use Livewire\Component;
 
 class Dashboard extends Component
 {
@@ -351,10 +335,8 @@ class Dashboard extends Component
 }
 ```
 
-```php
-<?php
-
-use Livewire\Component;
+```blade
+<?php use Livewire\Component;
 use Flux\DateRange;
 
 class Dashboard extends Component
@@ -368,8 +350,8 @@ class Dashboard extends Component
 }
 ```
 
-```php
-$this->range->preset();
+```blade
+$this->range->preset(); // This will return a value like `DateRangePreset::LastMonth`...
 ```
 
 ## Reference
@@ -378,52 +360,88 @@ $this->range->preset();
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Binds the date picker to a Livewire property. |
-| `value` | Selected date(s): single (`Y-m-d`) or range (`Y-m-d/Y-m-d`). |
-| `mode` | Options: `single` (default), `range`. |
-| `min-range` | Min selectable days in range mode. |
-| `max-range` | Max selectable days in range mode. |
-| `min` | Earliest selectable date (date string or `today`). |
-| `max` | Latest selectable date (date string or `today`). |
-| `open-to` | Date to open to when no selected date. |
-| `force-open-to` | Force opening to `open-to`. Default: `false`. |
-| `months` | Months shown. Default: `1` (single), `2` (range). |
-| `label` | Label text above picker. |
-| `description` | Help text near picker. |
-| `description:trailing` | Description below picker instead of above. |
-| `badge` | Badge text at end of label. |
-| `placeholder` | Placeholder when no date selected. |
-| `size` | Day cell size. Options: `sm`, default, `lg`, `xl`, `2xl`. |
-| `start-day` | Day of week to start on (`0`..`6`). |
-| `week-numbers` | Show week numbers. |
-| `selectable-header` | Month/year dropdowns. |
-| `with-today` | Today shortcut. |
-| `with-inputs` | Shows inputs for manual entry. |
-| `with-confirmation` | Requires confirmation before applying selection. |
-| `with-presets` | Shows preset ranges. |
-| `presets` | Space-separated list of presets. |
-| `clearable` | Shows clear button when selected. |
-| `disabled` | Disables interaction. |
-| `invalid` | Error styling. |
-| `locale` | Locale (e.g. `fr`, `en-US`, `ja-JP`). |
+| wire:model | Binds the date picker to a Livewire property. See the wire:model documentation for more information. |
+| value | Selected date(s). Format depends on mode: single date (Y-m-d) or range (Y-m-d/Y-m-d). |
+| mode | Selection mode. Options: single (default), range. |
+| min-range | Minimum number of days that can be selected in range mode. |
+| max-range | Maximum number of days that can be selected in range mode. |
+| min | Earliest selectable date. Can be a date string or "today". |
+| max | Latest selectable date. Can be a date string or "today". |
+| open-to | Set the date that the date picker will open to, if there is no selected date. |
+| force-open-to | If true, forces the date picker to open to the open-to date regardless of the selected date. Default: false. |
+| months | Number of months to display. Default: 1 in single mode, 2 in range mode. |
+| label | Label text displayed above the date picker. When provided, wraps the component in a flux:field with an adjacent flux:label. |
+| description | Help text displayed below the date picker. When provided alongside label, appears between the label and date picker within the flux:field wrapper. |
+| description:trailing | The description provided will be displayed below the date picker instead of above it. |
+| badge | Badge text displayed at the end of the flux:label component when the label prop is provided. |
+| placeholder | Placeholder text displayed when no date is selected. Default depends on mode. |
+| size | Size of the calendar day cells. Options: sm, default, lg, xl, 2xl. |
+| start-day | The day of the week to start the calendar on. Options: 0 (Sunday) to 6 (Saturday). Default: based on the user's locale. |
+| week-numbers | If true, displays week numbers in the calendar. |
+| selectable-header | If true, displays month and year dropdowns for quick navigation. |
+| with-today | If true, displays a button to quickly navigate to today's date. |
+| with-inputs | If true, displays date inputs at the top of the calendar for manual date entry. |
+| with-confirmation | If true, requires confirmation before applying the selected date(s). |
+| with-presets | If true, displays preset date ranges. Use with presets to customize available options. |
+| presets | Space-separated list of preset date ranges to display. Default: today yesterday thisWeek last7Days thisMonth yearToDate allTime. |
+| clearable | Displays a clear button when a date is selected. |
+| disabled | Prevents user interaction with the date picker. |
+| invalid | Applies error styling to the date picker. |
+| locale | Set the locale for the date picker. Examples: fr, en-US, ja-JP. |
+
+| Slot | Description |
+| --- | --- |
+| trigger | Custom trigger element to open the date picker. Usually a `flux:date-picker.input` or `flux:date-picker.button`. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-date-picker | Applied to the root element for styling and identification. |
 
 ### `flux:date-picker.input`
 
 | Prop | Description |
 | --- | --- |
-| `label` | Label text above the input. |
-| `description` | Help text near the input. |
-| `placeholder` | Placeholder when no date selected. |
-| `clearable` | Shows clear button when selected. |
-| `disabled` | Disables interaction. |
-| `invalid` | Error styling. |
+| label | Label text displayed above the input. When provided, wraps the input in a flux:field component with an adjacent flux:label component. |
+| description | Help text displayed below the input. When provided alongside label, appears between the label and input within the flux:field wrapper. |
+| placeholder | Placeholder text displayed when no date is selected. |
+| clearable | Displays a clear button when a date is selected. |
+| disabled | Prevents user interaction with the input. |
+| invalid | Applies error styling to the input. |
 
 ### `flux:date-picker.button`
 
 | Prop | Description |
 | --- | --- |
-| `placeholder` | Text shown when no date selected. |
-| `size` | Button size. Options: `sm`, `xs`. |
-| `clearable` | Shows clear button when selected. |
-| `disabled` | Disables interaction. |
-| `invalid` | Error styling. |
+| placeholder | Text displayed when no date is selected. |
+| size | Size of the button. Options: sm, xs. |
+| clearable | Displays a clear button when a date is selected. |
+| disabled | Prevents user interaction with the button. |
+| invalid | Applies error styling to the button. |
+
+### `DateRange Object`
+A specialized object for handling date ranges when using mode="range".
+
+| Method | Description |
+| --- | --- |
+| $range->start() | Get the start date as a Carbon instance. |
+| $range->end() | Get the end date as a Carbon instance. |
+| $range->days() | Get the number of days in the range. |
+| $range->preset() | Get the current preset as a DateRangePreset enum value. |
+| $range->toArray() | Get the range as an array with start and end keys. |
+
+| Static Method | Description |
+| --- | --- |
+| DateRange::today() | Create a DateRange for today. |
+| DateRange::yesterday() | Create a DateRange for yesterday. |
+| DateRange::thisWeek() | Create a DateRange for the current week. |
+| DateRange::lastWeek() | Create a DateRange for the previous week. |
+| DateRange::last7Days() | Create a DateRange for the last 7 days. |
+| DateRange::last30Days() | Create a DateRange for the last 30 days. |
+| DateRange::thisMonth() | Create a DateRange for the current month. |
+| DateRange::lastMonth() | Create a DateRange for the previous month. |
+| DateRange::thisQuarter() | Create a DateRange for the current quarter. |
+| DateRange::lastQuarter() | Create a DateRange for the previous quarter. |
+| DateRange::thisYear() | Create a DateRange for the current year. |
+| DateRange::lastYear() | Create a DateRange for the previous year. |
+| DateRange::yearToDate() | Create a DateRange from January 1st to today. |
+| DateRange::allTime() | Create a DateRange with no limits. |

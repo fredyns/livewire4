@@ -1,15 +1,38 @@
-﻿# Modal
+# Modal
 
 Source: https://fluxui.dev/components/modal
 
-## Main
+Display content in a layer above the main page. Ideal for confirmations, alerts, and forms.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:modal.trigger</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"edit-profile"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Edit profile</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:modal.trigger</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:modal</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"edit-profile"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> class</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"md:w-96"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">div</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> class</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"space-y-6"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">div</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:heading</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> size</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"lg"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Update profile</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:heading</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:text</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> class</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"mt-2"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Make changes to your personal details.</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:text</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">div</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:input</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> label</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Name"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> placeholder</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Your name"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:input</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> label</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Date of birth"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> type</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"date"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">div</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> class</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"flex"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:spacer</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> type</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"submit"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> variant</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"primary"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Save changes</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">div</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">div</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:modal</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
+<flux:modal.trigger name="edit-profile">
+    <flux:button>Edit profile</flux:button>
+</flux:modal.trigger>
+
+<flux:modal name="edit-profile" class="md:w-96">
+    <div class="space-y-6">
+        <div>
+            <flux:heading size="lg">Update profile</flux:heading>
+            <flux:text class="mt-2">Make changes to your personal details.</flux:text>
+        </div>
+
+        <flux:input label="Name" placeholder="Your name" />
+
+        <flux:input label="Date of birth" type="date" />
+
+        <div class="flex">
+            <flux:spacer />
+
+            <flux:button type="submit" variant="primary">Save changes</flux:button>
+        </div>
+    </div>
+</flux:modal>
 ```
 
-
 ## Unique modal names
+If you are placing modals inside a loop, ensure that you are dynamically generating unique modal names. Otherwise, one modal trigger, will trigger all modals of that name on the page causing unexpected behavior.
 
 ```blade
 @foreach ($users as $user)
@@ -20,6 +43,9 @@ Source: https://fluxui.dev/components/modal
 ```
 
 ## Livewire methods
+In addition to triggering modals in your Blade templates, you can also control them directly from Livewire.
+
+Consider a "confirm" modal in your Blade template like so:
 
 ```blade
 <flux:modal name="confirm">
@@ -27,10 +53,9 @@ Source: https://fluxui.dev/components/modal
 </flux:modal>
 ```
 
+You can now open and close this modal from your Livewire component using the following methods:
 ```blade
-<?php
-
-class ShowPost extends \Livewire\Component
+<?php class ShowPost extends \Livewire\Component
 {
     public function delete()
     {
@@ -49,6 +74,7 @@ class ShowPost extends \Livewire\Component
 ```
 
 ## JavaScript methods
+You can also control modals from Alpine directly using Flux's magic methods:
 
 ```blade
 <button x-on:click="$flux.modal('confirm').show()">
@@ -64,6 +90,8 @@ class ShowPost extends \Livewire\Component
 </button>
 ```
 
+Or you can use the `window.Flux` global object to control modals from any JavaScript in your application:
+
 ```blade
 // Control "confirm" modals anywhere on the page...
 Flux.modal('confirm').show()
@@ -75,16 +103,22 @@ Flux.modals().close()
 
 ## Data binding
 
+If you prefer, you can bind a Livewire property directly to a modal to control its states from your Livewire component.
+
+Consider a confirmation modal in your Blade template like so:
+
 ```blade
 <flux:modal wire:model.self="showConfirmModal">
     <!-- ... -->
 </flux:modal>
 ```
 
-```blade
-<?php
+>It's important to add the .self modifier to the wire:model attribute to prevent nested elements from dispatching input events that would interfere with the state of the modal.
 
-class ShowPost extends \Livewire\Component
+You can now open and close this modal from your Livewire component by toggling the `wire:model` property.
+
+```blade
+<?php class ShowPost extends \Livewire\Component
 {
     public $showConfirmModal = false;
 
@@ -95,11 +129,15 @@ class ShowPost extends \Livewire\Component
 }
 ```
 
+One advantage of this approach is being able to control the state of the modal directly from the browser without making a server roundtrip:
+
 ```blade
 <flux:button x-on:click="$wire.showConfirmModal = true">Delete post</flux:button>
 ```
 
 ## Close events
+
+If you need to perform some logic after a modal closes, you can register a close listener like so:
 
 ```blade
 <flux:modal @close="someLivewireAction">
@@ -109,13 +147,19 @@ class ShowPost extends \Livewire\Component
 
 ## Cancel events
 
+If you need to perform some logic after a modal is cancelled, you can register a cancel listener like so:
+
 ```blade
 <flux:modal @cancel="someLivewireAction">
     <!-- ... -->
 </flux:modal>
 ```
 
+>You can also use `wire:cancel` or `x-on:cancel` if you prefer those syntaxes.
+
 ## Disable click outside
+
+By default, clicking outside the modal will close it. If you want to disable this behavior, you can use the `:dismissible="false"` prop.
 
 ```blade
 <flux:modal :dismissible="false">
@@ -124,6 +168,8 @@ class ShowPost extends \Livewire\Component
 ```
 
 ## Confirmation
+
+Prompt a user for confirmation before performing a dangerous action.
 
 ```blade
 <flux:modal.trigger name="delete-profile">
@@ -134,20 +180,16 @@ class ShowPost extends \Livewire\Component
     <div class="space-y-6">
         <div>
             <flux:heading size="lg">Delete project?</flux:heading>
-
             <flux:text class="mt-2">
                 You're about to delete this project.<br>
                 This action cannot be reversed.
             </flux:text>
         </div>
-
         <div class="flex gap-2">
             <flux:spacer />
-
             <flux:modal.close>
                 <flux:button variant="ghost">Cancel</flux:button>
             </flux:modal.close>
-
             <flux:button type="submit" variant="danger">Delete project</flux:button>
         </div>
     </div>
@@ -155,6 +197,8 @@ class ShowPost extends \Livewire\Component
 ```
 
 ## Flyout
+
+Use the flyout prop for a more anchored and long-form dialog.
 
 ```blade
 <flux:modal.trigger name="edit-profile">
@@ -167,10 +211,8 @@ class ShowPost extends \Livewire\Component
             <flux:heading size="lg">Update profile</flux:heading>
             <flux:text class="mt-2">Make changes to your personal details.</flux:text>
         </div>
-
         <flux:input label="Name" placeholder="Your name" />
         <flux:input label="Date of birth" type="date" />
-
         <div class="flex">
             <flux:spacer />
             <flux:button type="submit" variant="primary">Save changes</flux:button>
@@ -179,13 +221,19 @@ class ShowPost extends \Livewire\Component
 </flux:modal>
 ```
 
-## Flyout positioning
+### Flyout positioning
+
+By default, flyouts will open from the right. You can change this behavior by passing "left", or "bottom" into the position prop.
 
 ```blade
 <flux:modal flyout position="left">
     <!-- ... -->
 </flux:modal>
 ```
+
+### Floating flyout
+
+Use the "floating" variant to give your flyout modal a floating appearance.
 
 ```blade
 <flux:modal.trigger name="edit-profile">
@@ -199,12 +247,10 @@ class ShowPost extends \Livewire\Component
         <flux:input label="Name" placeholder="Your name" />
         <flux:input label="Date of birth" type="date" />
     </div>
-
     <x-slot name="footer" class="flex items-center justify-end gap-2">
         <flux:modal.close>
             <flux:button variant="filled">Cancel</flux:button>
         </flux:modal.close>
-
         <flux:button type="submit" variant="primary">Save changes</flux:button>
     </x-slot>
 </flux:modal>
@@ -216,41 +262,67 @@ class ShowPost extends \Livewire\Component
 
 | Prop | Description |
 | --- | --- |
-| `name` | Unique identifier for the modal. Required when using triggers. |
-| `flyout` | If `true`, the modal opens as a flyout. |
-| `variant` | Options: `default`, `floating`, `bare` (legacy: `flyout`). |
-| `position` | Flyout side. Options: `right` (default), `left`, `bottom`. |
-| `dismissible` | If `false`, clicking outside wonâ€™t close. Default: `true`. |
-| `closable` | If `false`, hides the close button. Default: `true`. |
-| `wire:model` | Optional Livewire binding for open state. |
+| name | Unique identifier for the modal. Required when using triggers. |
+| flyout | If true, the modal will open as a flyout. |
+| variant | Visual style of the modal. Options: default, floating, bare (legacy: flyout). |
+| position | For flyout modals, the direction they open from. Options: right (default), left, bottom. |
+| dismissible | If false, prevents closing the modal by clicking outside. Default: true. |
+| closable | If false, hides the close button. Default: true. |
+| wire:model | Optional Livewire property to bind the modal's open state to. |
+
+| Event | Description |
+| --- | --- |
+| close | Triggered when the modal is closed by any means. |
+| cancel | Triggered when the modal is closed by clicking outside or pressing escape. |
+
+| Slot | Description |
+| --- | --- |
+| default | The modal content. |
+
+| Class | Description |
+| --- | --- |
+| w-* | Common use: `md:w-96` for width. |
 
 ### `flux:modal.trigger`
 
 | Prop | Description |
 | --- | --- |
-| `name` | Modal name to open (must match `flux:modal name`). |
-| `shortcut` | Keyboard shortcut to open (e.g. `cmd.k`). |
+| name | Name of the modal to trigger. Must match the modal's name. |
+| shortcut | Keyboard shortcut to open the modal (e.g., cmd.k). |
+
+| Slot | Description |
+| --- | --- |
+| default | The trigger element (e.g., button). |
 
 ### `flux:modal.close`
 
 | Slot | Description |
 | --- | --- |
-| `default` | Close trigger element (e.g. button). |
+| default | The close trigger element (e.g., button). |
 
 ### `Flux::modal()`
 
 | Parameter | Description |
 | --- | --- |
-| `default|name` | Name of the modal to control. |
+| default\|name | Name of the modal to control. |
+
+| Method | Description |
+| --- | --- |
+| close() | Closes the modal. |
 
 ### `Flux::modals()`
 
 | Method | Description |
 | --- | --- |
-| `close()` | Closes all modals on the page. |
+| close() | Closes all modals on the page. |
 
 ### `$flux.modal()`
 
 | Parameter | Description |
 | --- | --- |
-| `default|name` | Name of the modal to control. |
+| default\|name | Name of the modal to control. |
+
+| Method | Description |
+| --- | --- |
+| show() | Shows the modal. |
+| close() | Closes the modal. |

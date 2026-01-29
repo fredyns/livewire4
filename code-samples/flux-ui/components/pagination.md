@@ -2,14 +2,16 @@
 
 Source: https://fluxui.dev/components/pagination
 
-## Main
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#8E908C;--shiki-light-font-style:italic;--shiki-dark:#8E908C;--shiki-dark-font-style:italic"><!-- $orders = Order::paginate() --></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pagination</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> :paginator</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"$orders"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span>
+<!-- $orders = Order::paginate() -->
+<flux:pagination :paginator="$orders" />
 ```
 
-
 ## Simple paginator
+
+Use the simple paginator when working with large datasets where counting the total number of results would be expensive. The simple paginator provides "Previous" and "Next" buttons without displaying the total number of pages or records.
 
 ```blade
 <!-- $orders = Order::simplePaginate() -->
@@ -17,6 +19,8 @@ Source: https://fluxui.dev/components/pagination
 ```
 
 ## Large result set
+
+When working with large result sets, the pagination component automatically adapts to show a reasonable number of page links. It shows the first and last pages, along with a window of pages around the current page, and adds ellipses for any gaps to ensure efficient navigation through numerous pages.
 
 ```blade
 <!-- $orders = Order::paginate(5) -->

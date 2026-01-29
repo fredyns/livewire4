@@ -1,13 +1,21 @@
-﻿# Navbar
+# Navbar
 
 Source: https://fluxui.dev/components/navbar
 
-## Main
+Arrange navigation links vertically or horizontally.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar.item</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> href</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"#"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Home</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar.item</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar.item</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> href</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"#"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Features</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar.item</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar.item</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> href</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"#"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Pricing</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar.item</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar.item</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> href</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"#"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">About</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar.item</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:navbar</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
+<flux:navbar>
+    <flux:navbar.item href="#">Home</flux:navbar.item>
+    <flux:navbar.item href="#">Features</flux:navbar.item>
+    <flux:navbar.item href="#">Pricing</flux:navbar.item>
+    <flux:navbar.item href="#">About</flux:navbar.item>
+</flux:navbar>
 ```
 
+>Discover more about the navbar on the [layout documentation](../layouts/sidebar.md)
 
 ## Detecting the current page
 
@@ -45,10 +53,8 @@ Source: https://fluxui.dev/components/navbar
 <flux:navbar>
     <flux:navbar.item href="#">Dashboard</flux:navbar.item>
     <flux:navbar.item href="#">Transactions</flux:navbar.item>
-
     <flux:dropdown>
         <flux:navbar.item icon:trailing="chevron-down">Account</flux:navbar.item>
-
         <flux:navmenu>
             <flux:navmenu.item href="#">Profile</flux:navmenu.item>
             <flux:navmenu.item href="#">Settings</flux:navmenu.item>
@@ -81,13 +87,12 @@ Source: https://fluxui.dev/components/navbar
 </flux:navlist>
 ```
 
-## Collapsible groups
+## Collapsible Navlist groups
 
 ```blade
 <flux:navlist class="w-64">
     <flux:navlist.item href="#" icon="home">Dashboard</flux:navlist.item>
     <flux:navlist.item href="#" icon="list-bullet">Transactions</flux:navlist.item>
-
     <flux:navlist.group heading="Account" expandable>
         <flux:navlist.item href="#">Profile</flux:navlist.item>
         <flux:navlist.item href="#">Settings</flux:navlist.item>
@@ -117,41 +122,61 @@ Source: https://fluxui.dev/components/navbar
 
 | Slot | Description |
 | --- | --- |
-| `default` | The navigation items. |
+| default | The navigation items. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-navbar | Applied to the root element for styling and identification. |
 
 ### `flux:navbar.item`
 
 | Prop | Description |
 | --- | --- |
-| `href` | URL the item links to. |
-| `current` | Applies active styling when `true` (auto-detected if omitted). |
-| `icon` | Leading icon name. |
-| `icon:trailing` | Trailing icon name. |
-| `badge` | Badge content (string/boolean/slot). |
-| `badge:color` | Badge color (same options as `flux:badge`). |
-| `badge:variant` | Badge variant. Options: `solid`, `outline`. Default: `solid`. |
+| href | URL the item links to. |
+| current | If true, applies active styling to the item. Auto-detected based on current URL if not specified. |
+| icon | Name of the icon to display at the start of the item. |
+| icon:trailing | Name of the icon to display at the end of the item. |
+| badge | Content to display as a badge. Can be a string, boolean, or a slot. |
+| badge:color | Color of the badge. Options: same color options as the color prop on the badge component. |
+| badge:variant | Variant of the badge. Options: solid, outline. Default: solid. |
+
+| Attribute | Description |
+| --- | --- |
+| data-current | Applied when the item is active/current. |
 
 ### `flux:navlist`
 
 | Slot | Description |
 | --- | --- |
-| `default` | The navigation items and groups. |
+| default | The navigation items and groups. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-navlist | Applied to the root element for styling and identification. |
 
 ### `flux:navlist.item`
 
 | Prop | Description |
 | --- | --- |
-| `href` | URL the item links to. |
-| `current` | Applies active styling when `true` (auto-detected if omitted). |
-| `icon` | Leading icon name. |
-| `badge` | Badge content (string/boolean/slot). |
-| `badge:color` | Badge color (same options as `flux:badge`). |
-| `badge:variant` | Badge variant. Options: `solid`, `outline`. Default: `solid`. |
+| href | URL the item links to. |
+| current | If true, applies active styling to the item. Auto-detected based on current URL if not specified. |
+| icon | Name of the icon to display at the start of the item. |
+| badge | Content to display as a badge. Can be a string, boolean, or a slot. |
+| badge:color | Color of the badge. Options: same color options as the color prop on the badge component. |
+| badge:variant | Variant of the badge. Options: solid, outline. Default: solid. |
+
+| Attribute | Description |
+| --- | --- |
+| data-current | Applied when the item is active/current. |
 
 ### `flux:navlist.group`
 
 | Prop | Description |
 | --- | --- |
-| `heading` | Group heading text. |
-| `expandable` | If `true`, makes the group collapsible. |
-| `expanded` | If `true`, expands the group by default (when `expandable`). |
+| heading | Text displayed as the group heading. |
+| expandable | If true, makes the group collapsible. |
+| expanded | If true, expands the group by default when expandable. |
+
+| Slot | Description |
+| --- | --- |
+| default | The group's navigation items. |

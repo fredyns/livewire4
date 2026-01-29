@@ -1,13 +1,12 @@
-﻿# OTP Input
+# OTP Input
 
 Source: https://fluxui.dev/components/otp-input
 
-## Main
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:otp</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> wire:model</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"code"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> length</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"6"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span>
+<flux:otp wire:model="code" length="6" />
 ```
-
 
 ## Example usage
 
@@ -65,6 +64,8 @@ Source: https://fluxui.dev/components/otp-input
 ```
 
 ## Private
+
+masking sensitive value
 
 ```blade
 <flux:otp wire:model="pin" length="4" private label="PIN Code" />
@@ -134,6 +135,10 @@ Source: https://fluxui.dev/components/otp-input
 | `private` | Masks input values. |
 | `submit` | Options: (default), `auto` (submit when all fields are filled). |
 | `autocomplete` | Autocomplete attribute for first input. Default: `one-time-code`. |
+
+| Slot | Description |
+| --- | --- |
+| `default` | Custom input fields and separators. When used, the `length` prop is ignored. |
 
 ### `flux:otp.input`
 

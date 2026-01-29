@@ -1,13 +1,26 @@
-﻿# Kanban - PRO
+# Kanban - PRO
 
 Source: https://fluxui.dev/components/kanban
 
-## Main
+A collection of cards arranged in columns, representing different stages of a workflow.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:kanban</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    @foreach </span><span style="color:#424258;--shiki-dark:#EEFFFF">($this</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">-></span><span style="color:#424258;--shiki-dark:#EEFFFF">columns</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> as </span><span style="color:#424258;--shiki-dark:#EEFFFF">$column)</span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:kanban.column</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:kanban.column.header</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> :heading</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"$column->title"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> :count</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"count($column->cards)"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:kanban.column.cards</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">                @foreach </span><span style="color:#424258;--shiki-dark:#EEFFFF">($column</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">-></span><span style="color:#424258;--shiki-dark:#EEFFFF">cards</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> as </span><span style="color:#424258;--shiki-dark:#EEFFFF">$card)</span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">                    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:kanban.card</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> :heading</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"$card->title"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">                @endforeach</span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">            </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:kanban.column.cards</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:kanban.column</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    @endforeach</span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:kanban</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
-```
+<flux:kanban>
+    @foreach ($this->columns as $column)
+        <flux:kanban.column>
+            <flux:kanban.column.header :heading="$column->title" :count="count($column->cards)" />
 
+            <flux:kanban.column.cards>
+                @foreach ($column->cards as $card)
+                    <flux:kanban.card :heading="$card->title" />
+                @endforeach
+            </flux:kanban.column.cards>
+        </flux:kanban.column>
+    @endforeach
+</flux:kanban>
+```
 
 ## Column actions
 
@@ -17,7 +30,6 @@ Source: https://fluxui.dev/components/kanban
         <x-slot name="actions">
             <flux:dropdown>
                 <flux:button variant="subtle" icon="ellipsis-horizontal" size="sm" />
-
                 <flux:menu>
                     <flux:menu.item icon="plus">New card</flux:menu.item>
                     <flux:menu.item icon="archive-box">Archive column</flux:menu.item>
@@ -25,11 +37,9 @@ Source: https://fluxui.dev/components/kanban
                     <flux:menu.item variant="danger" icon="trash">Delete</flux:menu.item>
                 </flux:menu>
             </flux:dropdown>
-
             <flux:button variant="subtle" icon="plus" size="sm" />
         </x-slot>
     </flux:kanban.column.header>
-
     <flux:kanban.column.cards>
         <!-- ... -->
     </flux:kanban.column.cards>
@@ -41,7 +51,6 @@ Source: https://fluxui.dev/components/kanban
 ```blade
 <flux:kanban.column>
     <flux:kanban.column.header heading="Blacklog" subheading="Ideas and suggestions" />
-
     <flux:kanban.column.cards>
         <!-- ... -->
     </flux:kanban.column.cards>
@@ -53,11 +62,9 @@ Source: https://fluxui.dev/components/kanban
 ```blade
 <flux:kanban.column>
     <flux:kanban.column.header :heading="$column['title']" count="5" />
-
     <flux:kanban.column.cards>
         <!-- ... -->
     </flux:kanban.column.cards>
-
     <flux:kanban.column.footer>
         <form>
             <flux:kanban.card>
@@ -65,12 +72,10 @@ Source: https://fluxui.dev/components/kanban
                     <flux:heading class="flex-1">
                         <input class="w-full outline-none" placeholder="New card...">
                     </flux:heading>
-
                     <flux:button type="submit" variant="filled" size="sm" inset="top bottom" class="-me-1.5">Add</flux:button>
                 </div>
             </flux:kanban.card>
         </form>
-
         <flux:button variant="subtle" icon="plus" size="sm" align="start">
             New card
         </flux:button>
@@ -104,7 +109,6 @@ Source: https://fluxui.dev/components/kanban
 <flux:kanban.card as="button" heading="Update privacy policy in app">
     <x-slot name="footer">
         <flux:icon name="bars-3-bottom-left" variant="micro" class="text-zinc-400" />
-
         <flux:avatar.group>
             <flux:avatar circle size="xs" src="https://unavatar.io/x/calebporzio" />
             <flux:avatar circle size="xs" src="https://unavatar.io/github/hugosaintemarie" />
@@ -121,38 +125,43 @@ Source: https://fluxui.dev/components/kanban
 
 | Slot | Description |
 | --- | --- |
-| `default` | Place multiple `flux:kanban.column` components here to create columns in the kanban board. |
+| default | Place multiple flux:kanban.column components here to create columns in the kanban board. |
 
 ### `flux:kanban.column`
 
 | Slot | Description |
 | --- | --- |
-| `default` | Should contain `flux:kanban.column.header`, `flux:kanban.column.cards`, and optionally `flux:kanban.column.footer`. |
+| default | Should contain a flux:kanban.column.header, a flux:kanban.column.cards, and optionally a flux:kanban.column.footer component. |
 
 ### `flux:kanban.column.header`
 
 | Prop | Description |
 | --- | --- |
-| `heading` | Column header title text. |
-| `subheading` | Optional secondary text below header. |
-| `count` | Optional number shown next to heading (often card count). |
-| `badge` | Optional badge content next to heading. Supports `badge:*` attributes. |
+| heading | The title text to display in the column header. |
+| subheading | Optional secondary text to display below the column header. |
+| count | Optional number to display next to the heading, typically showing the number of cards in the column. |
+| badge | Optional badge text or content to display next to the heading. Supports badge:* attributes for customization. |
+
+| Slot | Description |
+| --- | --- |
+| default | Custom content to display in the header. Will override the heading and count props if provided. |
+| actions | Optional slot for action buttons or dropdowns that appear on the right side of the column header. |
 
 ### `flux:kanban.column.cards`
 
 | Slot | Description |
 | --- | --- |
-| `default` | Place `flux:kanban.card` components here. |
+| default | Place multiple flux:kanban.card components here to populate the column with cards. |
 
 ### `flux:kanban.column.footer`
 
 | Slot | Description |
 | --- | --- |
-| `default` | Footer content (commonly â€œAdd cardâ€ UI). |
+| default | Custom content to display at the bottom of the column, commonly used for "Add card" buttons or forms. |
 
 ### `flux:kanban.card`
 
 | Prop | Description |
 | --- | --- |
-| `heading` | Card title text. |
-| `as` | Render element. Options: `button`, `div` (default). |
+| heading | The title text to display in the card. |
+| as | Element to render the card as. Options: button, div (default). When set to button, the card becomes clickable. |

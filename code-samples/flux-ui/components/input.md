@@ -1,21 +1,31 @@
-﻿# Input
+# Input
 
 Source: https://fluxui.dev/components/input
 
-## Main
+Capture user data with various forms of text input.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:field</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:label</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Username</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:label</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:description</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">This will be publicly displayed.</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:description</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:input</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:error</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"username"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:field</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
+<flux:field>
+    <flux:label>Username</flux:label>
+    <flux:description>This will be publicly displayed.</flux:description>
+    <flux:input />
+    <flux:error name="username" />
+</flux:field>
 ```
 
-
 ## Shorthand
+Because using the field component in its full form can be verbose and repetitive, all form controls in flux allow you pass a label and a description parameter directly. Under the hood, they will be wrapped in a field with an error component automatically.
 
 ```blade
 <flux:input label="Username" description="This will be publicly displayed." />
 ```
 
 ## Class targeting
+Unlike other form components, Flux's input component is composed of two underlying elements: an input element and a wrapper div. The wrapper div is there to add padding where icons should go.
+
+This is typically fine, however, if you need to pass classes into the input component and have them directly applied to the input element, you can do so using the class:input attribute instead of simply class:
 
 ```blade
 <flux:input class="max-w-xs" class:input="font-mono" />
@@ -32,7 +42,7 @@ Source: https://fluxui.dev/components/input
 ## File
 
 ```blade
-<flux:input type="file" wire:model="logo" label="Logo" />
+<flux:input type="file" wire:model="logo" label="Logo"/>
 <flux:input type="file" wire:model="attachments" label="Attachments" multiple />
 ```
 
@@ -68,6 +78,7 @@ Source: https://fluxui.dev/components/input
 ```
 
 ## Icons
+Append or prepend an icon to the inside of a form input.
 
 ```blade
 <flux:input icon="magnifying-glass" placeholder="Search orders" />
@@ -76,6 +87,7 @@ Source: https://fluxui.dev/components/input
 ```
 
 ## Icon buttons
+Append a button to the inside of an input to provide associated functionality.
 
 ```blade
 <flux:input placeholder="Search orders">
@@ -102,16 +114,17 @@ Source: https://fluxui.dev/components/input
 ## Keyboard hint
 
 ```blade
-<flux:input kbd="âŒ˜K" icon="magnifying-glass" placeholder="Search..." />
+<flux:input kbd="⌘K" icon="magnifying-glass" placeholder="Search..."/>
 ```
 
 ## As a button
 
 ```blade
-<flux:input as="button" placeholder="Search..." icon="magnifying-glass" kbd="âŒ˜K" />
+<flux:input as="button" placeholder="Search..." icon="magnifying-glass" kbd="⌘K" />
 ```
 
 ## With buttons
+Attach buttons to the beginning or end of an input element.
 
 ```blade
 <flux:input.group>
@@ -124,7 +137,6 @@ Source: https://fluxui.dev/components/input
         <flux:select.option selected>USD</flux:select.option>
         <!-- ... -->
     </flux:select>
-
     <flux:input placeholder="$99.99" />
 </flux:input.group>
 ```
@@ -148,12 +160,10 @@ Source: https://fluxui.dev/components/input
 ```blade
 <flux:field>
     <flux:label>Website</flux:label>
-
     <flux:input.group>
         <flux:input.group.prefix>https://</flux:input.group.prefix>
         <flux:input wire:model="website" placeholder="example.com" />
     </flux:input.group>
-
     <flux:error name="website" />
 </flux:field>
 ```
@@ -164,42 +174,52 @@ Source: https://fluxui.dev/components/input
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Binds the input to a Livewire property. |
-| `label` | Label text above input (wraps in `flux:field` + `flux:label`). |
-| `description` | Help text above input. |
-| `description:trailing` | Help text below input. |
-| `placeholder` | Placeholder text. |
-| `size` | Options: `sm`, `xs`. |
-| `variant` | Options: `filled`. Default: `outline`. |
-| `disabled` | Disables interaction. |
-| `readonly` | Makes input read-only. |
-| `invalid` | Error styling. |
-| `multiple` | For file inputs, allows multiple files. |
-| `mask` | Input mask pattern using Alpine mask plugin. |
-| `mask:dynamic` | Dynamic mask pattern. |
-| `icon` | Leading icon name. |
-| `icon:trailing` | Trailing icon name. |
-| `kbd` | Keyboard shortcut hint. |
-| `clearable` | Shows clear button when input has content. |
-| `copyable` | Shows copy button (https only). |
-| `viewable` | Password show/hide toggle. |
-| `as` | Render as different element. Options: `button`. Default: `input`. |
-| `class:input` | Classes applied to the input element (not wrapper). |
+| wire:model | Binds the input to a Livewire property. See the wire:model documentation for more information. |
+| label | Label text displayed above the input. When provided, wraps the input in a flux:field component with an adjacent flux:label component. See the field component. |
+| description | Help text displayed above the input. When provided alongside label, appears between the label and input within the flux:field wrapper. See the field component. |
+| description:trailing | Help text displayed below the input. When provided alongside label, appears below the label and input within the flux:field wrapper. See the field component. |
+| placeholder | Placeholder text displayed when the input is empty. |
+| size | Size of the input. Options: sm, xs. |
+| variant | Visual style variant. Options: filled. Default: outline. |
+| disabled | Prevents user interaction with the input. |
+| readonly | Makes the input read-only. |
+| invalid | Applies error styling to the input. |
+| multiple | For file inputs, allows selecting multiple files. |
+| mask | Input mask pattern using Alpine's mask plugin. Example: 99/99/9999. |
+| mask:dynamic | Dynamic input mask pattern using Alpine's mask plugin. Example: $money($input). |
+| icon | Name of the icon displayed at the start of the input. |
+| icon:trailing | Name of the icon displayed at the end of the input. |
+| kbd | Keyboard shortcut hint displayed at the end of the input. |
+| clearable | If true, displays a clear button when the input has content. |
+| copyable | If true, displays a copy button to copy the input's content (https only). |
+| viewable | For password inputs, displays a toggle to show/hide the password. |
+| as | Render the input as a different element. Options: button. Default: input. |
+| class:input | CSS classes applied directly to the input element instead of the wrapper. |
+
+| Slot | Description |
+| --- | --- |
+| icon | Custom content displayed at the start of the input (e.g., icons). |
+| icon:leading | Custom content displayed at the start of the input (e.g., icons). |
+| icon:trailing | Custom content displayed at the end of the input (e.g., buttons). |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-input | Applied to the root element for styling and identification. |
 
 ### `flux:input.group`
 
 | Slot | Description |
 | --- | --- |
-| `default` | Group content (input + prefix/suffix/etc.). |
+| default | The input group content, typically containing an input and prefix/suffix elements. |
 
 ### `flux:input.group.prefix`
 
 | Slot | Description |
 | --- | --- |
-| `default` | Content before the input. |
+| default | Content displayed before the input (e.g., icons, text, buttons). |
 
 ### `flux:input.group.suffix`
 
 | Slot | Description |
 | --- | --- |
-| `default` | Content after the input. |
+| default | Content displayed after the input (e.g., icons, text, buttons). |

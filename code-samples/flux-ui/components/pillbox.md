@@ -1,13 +1,23 @@
-﻿# Pillbox - PRO
+# Pillbox - PRO
 
 Source: https://fluxui.dev/components/pillbox
 
-## Main
+A multi-select component that displays selected items as removable "pills" that expand the input area as needed.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> wire:model</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"selectedTags"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> multiple</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> placeholder</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Choose tags..."</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"design"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Design</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"development"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Development</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"marketing"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Marketing</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"sales"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Sales</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"support"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Support</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"engineering"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Engineering</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"product"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Product</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"operations"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Operations</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox.option</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:pillbox</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
+<flux:pillbox wire:model="selectedTags" multiple placeholder="Choose tags...">
+    <flux:pillbox.option value="design">Design</flux:pillbox.option>
+    <flux:pillbox.option value="development">Development</flux:pillbox.option>
+    <flux:pillbox.option value="marketing">Marketing</flux:pillbox.option>
+    <flux:pillbox.option value="sales">Sales</flux:pillbox.option>
+    <flux:pillbox.option value="support">Support</flux:pillbox.option>
+    <flux:pillbox.option value="engineering">Engineering</flux:pillbox.option>
+    <flux:pillbox.option value="product">Product</flux:pillbox.option>
+    <flux:pillbox.option value="operations">Operations</flux:pillbox.option>
+</flux:pillbox>
 ```
-
 
 ## Small
 
@@ -41,7 +51,7 @@ Source: https://fluxui.dev/components/pillbox
 </flux:pillbox>
 ```
 
-## Custom search placeholder
+### Custom search placeholder
 
 ```blade
 <flux:pillbox multiple searchable search:placeholder="Filter skills...">
@@ -55,19 +65,20 @@ Source: https://fluxui.dev/components/pillbox
 <flux:pillbox multiple placeholder="Choose platforms...">
     <flux:pillbox.option value="github">
         <div class="flex items-center gap-2">
-            <flux:icon.code-bracket variant="mini" class="text-zinc-400" /> GitHub
+            <flux:icon.code-bracket variant="mini" class="text-zinc-400" />
+            GitHub
         </div>
     </flux:pillbox.option>
-
     <flux:pillbox.option value="gitlab">
         <div class="flex items-center gap-2">
-            <flux:icon.server variant="mini" class="text-zinc-400" /> GitLab
+            <flux:icon.server variant="mini" class="text-zinc-400" />
+            GitLab
         </div>
     </flux:pillbox.option>
-
     <flux:pillbox.option value="bitbucket">
         <div class="flex items-center gap-2">
-            <flux:icon.cloud variant="mini" class="text-zinc-400" /> Bitbucket
+            <flux:icon.cloud variant="mini" class="text-zinc-400" />
+            Bitbucket
         </div>
     </flux:pillbox.option>
 </flux:pillbox>
@@ -92,6 +103,10 @@ Source: https://fluxui.dev/components/pillbox
 
 ## Create option
 
+Allow users to the create new options using the `<flux:pillbox.option.create>` component.
+
+Flux will automatically hide the create option when the search input matches an existing item in the list. You can also specify the minimum number of characters required for the create option to appear using the `min-length` prop.
+
 ```blade
 <flux:pillbox wire:model="selectedTags" variant="combobox" multiple>
     <x-slot name="input">
@@ -109,18 +124,26 @@ Source: https://fluxui.dev/components/pillbox
 
 <!--
 public $search = '';
+
 public $selectedTags = [];
 
-public function createProject(){
+public function createProject()
+{
     $tag = Tag::create([
         'name' => $this->search,
     ]);
 
     $this->selectedTags[] = $tag->id;
+
     $this->search = '';
 }
 -->
 ```
+### With backend search
+
+If you're using `:filter="false"`, make sure to adjust your query to always include the newly created item when the search input is cleared.
+
+Flux will automatically disable the create option during requests to prevent duplicate entries and when the list is updated, it performs a uniqueness check on the frontend.
 
 ```blade
 <flux:pillbox wire:model.live="selectedTags" variant="combobox" multiple :filter="false">
@@ -153,7 +176,9 @@ public function tags() {
 -->
 ```
 
-## Loading message
+### Loading message
+
+When then create option is hidden by the frontend but new results aren't available yet, Flux displays a special "Loading..." message. To customize this message, use the `when-loading` prop on the `<flux:pillbox.option.empty>` component.
 
 ```blade
 <flux:pillbox wire:model="selectedTags" variant="combobox" multiple :filter="false">
@@ -167,12 +192,16 @@ public function tags() {
 </flux:pillbox>
 ```
 
+## With validation
+
+When you perform additional validation on the backend, the search input will indicate an invalid state when there are validation errors present. Make sure to reset the error bag when the user updates the input.
+
 ```blade
 <flux:pillbox wire:model.live="selectedTags" variant="combobox" multiple placeholder="Choose tags..." :filter="false">
     <x-slot name="input">
         <flux:pillbox.input wire:model.live="search" placeholder="Choose tags..." />
     </x-slot>
-
+    
     ...
 
     <flux:pillbox.option.create wire:click="createTag" min-length="2">
@@ -183,6 +212,7 @@ public function tags() {
 <!--
 public function createTag() {
     $this->validate(['search' => 'required|unique:tags,name']);
+
     // Create logic...
 }
 
@@ -192,9 +222,13 @@ public function updatedSearch() {
 -->
 ```
 
+### With modal
+
+Use the modal prop to specify a name of a modal and handle more complex creation workflows inside a form.
+
 ```blade
 <flux:pillbox wire:model="projectId" variant="combobox" placeholder="Choose project...">
-    <flux:pillbox.option.create modal="create-tag">Create new</flux:pillbox.option.create>
+    <flux:pillbox.option.create modal="create-tag">Create new</flux:pillbox.option>
 
     @foreach($this->tags as $tag)
         <flux:pillbox.option :value="$tag->id">{{ $tag->name }}</flux:pillbox.option>
@@ -224,54 +258,73 @@ public function updatedSearch() {
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Binds the pillbox to a Livewire property (array for multiple values). |
-| `placeholder` | Text when no pills are selected. |
-| `label` | Label text (wraps in `flux:field` + `flux:label`). |
-| `description` | Help text between label and pillbox. |
-| `size` | Options: `sm`. |
-| `searchable` | Adds a search input inside dropdown. |
-| `search:placeholder` | Placeholder for search when `searchable`. |
-| `filter` | If `false`, disables client-side filtering (for server-side options). |
-| `disabled` | Disables interaction. |
-| `invalid` | Error styling on border. |
+| wire:model | Binds the pillbox to a Livewire property. The model should be an array to store multiple selected values. See the wire:model documentation for more information. |
+| placeholder | Text displayed when no pills are selected. |
+| label | Label text displayed above the pillbox. When provided, wraps the pillbox in a flux:field component with an adjacent flux:label component. See the field component. |
+| description | Help text displayed below the pillbox. When provided alongside label, appears between the label and pillbox within the flux:field wrapper. |
+| size | Size of the pillbox. Options: sm. |
+| searchable | Adds a search input inside the dropdown to filter options. |
+| search:placeholder | Custom placeholder text for the search input when searchable is true. |
+| filter | If false, disables client-side filtering for dynamic server-side options. |
+| disabled | Prevents user interaction with the pillbox. |
+| invalid | Applies error styling to the pillbox border. |
+
+| Slot | Description |
+| --- | --- |
+| default | The pillbox options. Should contain `flux:pillbox.option` components. |
+| trigger | Custom trigger element for the dropdown. Replaces the default pill container. |
+| search | Custom search input for the dropdown. Used when you need to wire up custom search behavior. |
+| empty | Content shown when no options match the search query. Typically the `pillbox.option.empty` component. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-pillbox | Applied to the root element for styling and JavaScript behavior. |
 
 ### `flux:pillbox.option`
 
 | Prop | Description |
 | --- | --- |
-| `value` | Stored value for this option. |
-| `label` | Display text for option. |
-| `selected-label` | Display text when selected. |
-| `disabled` | Disables selection. |
-| `filterable` | If `false`, option wonâ€™t be hidden by search filter. |
+| value | The value associated with this option. This is what gets stored in the model array when selected. |
+| label | Text content displayed for the option. |
+| selected-label | Text content displayed when the option is selected. |
+| disabled | Prevents this option from being selected. |
+| filterable | If false, this option won't be hidden by the search filter. Useful for "no results" messages. |
+
+| Slot | Description |
+| --- | --- |
+| default | The option content. Can include text, icons, images, or any custom HTML. |
 
 ### `flux:pillbox.option.create`
 
 | Prop | Description |
 | --- | --- |
-| `min-length` | Minimum characters before showing create option. |
-| `modal` | Modal name to open when selected. |
-| `wire:click` | Livewire action to call when selected. |
+| min-length | Minimum number of characters required in the search input before displaying the create option. |
+| modal | Name of the modal to open when the option is selected. |
+| wire:click | Livewire action to call when the option is selected. |
 
 ### `flux:pillbox.option.empty`
 
 | Prop | Description |
 | --- | --- |
-| `when-loading` | Message shown while loading options. |
+| when-loading | Message displayed when options are loading. |
+
+| Slot | Description |
+| --- | --- |
+| default | Message displayed when no options are found. |
 
 ### `flux:pillbox.search`
 
 | Prop | Description |
 | --- | --- |
-| `placeholder` | Search input placeholder. Default: `Search...`. |
-| `icon` | Icon in search input. Default: magnifying glass. |
-| `clearable` | Shows clear button. Default: `true`. |
+| placeholder | Placeholder text for the search input. Defaults to "Search...". |
+| icon | Icon to display in the search input. Defaults to magnifying glass. |
+| clearable | If true, shows a clear button when the search input has text. Default: true. |
 
 ### `flux:pillbox.trigger`
 
 | Prop | Description |
 | --- | --- |
-| `placeholder` | Text when no pills are selected. |
-| `invalid` | Error styling on trigger. |
-| `size` | Options: `sm`. |
-| `clearable` | Shows clear-all button in trigger. |
+| placeholder | Text displayed when no pills are selected. |
+| invalid | Applies error styling to the trigger element. |
+| size | Size of the trigger. Options: sm. |
+| clearable | Shows a clear all button in the trigger. |
