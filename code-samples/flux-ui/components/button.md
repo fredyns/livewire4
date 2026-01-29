@@ -1,15 +1,10 @@
-﻿# Button
+# Button
 
 Source: https://fluxui.dev/components/button
 
-## Main
+A powerful and composable button component for your application.
 
-```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Button</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:button</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
-```
-
-
-## Introduction
+## Basic Example
 
 ```blade
 <flux:button>Button</flux:button>
@@ -76,8 +71,6 @@ Source: https://fluxui.dev/components/button
 
 ```blade
 <flux:button wire:click="save" :loading="false">
-    Save changes
-</flux:button>
 ```
 
 ## Full width
@@ -118,10 +111,7 @@ Source: https://fluxui.dev/components/button
 ## As a link
 
 ```blade
-<flux:button
-    href="https://google.com"
-    icon:trailing="arrow-up-right"
->
+<flux:button href="https://google.com" icon:trailing="arrow-up-right" >
     Visit Google
 </flux:button>
 ```
@@ -129,7 +119,7 @@ Source: https://fluxui.dev/components/button
 ## As an input
 
 ```blade
-<flux:input as="button" placeholder="Search..." icon="magnifying-glass" kbd="âŒ˜K" />
+<flux:input as="button" placeholder="Search..." icon="magnifying-glass" kbd="⌘K" />
 ```
 
 ## Square
@@ -153,25 +143,25 @@ Source: https://fluxui.dev/components/button
 
 | Prop | Description |
 | --- | --- |
-| `as` | The HTML tag to render the button as. Options: `button` (default), `a`, `div`. |
-| `href` | The URL to link to when the button is used as an anchor tag. |
-| `type` | The HTML type attribute of the button. Options: `button` (default), `submit`. |
-| `variant` | Visual style of the button. Options: `outline`, `primary`, `filled`, `danger`, `ghost`, `subtle`. Default: `outline`. |
-| `size` | Size of the button. Options: `base` (default), `sm`, `xs`. |
-| `icon` | Name of the icon to display at the start of the button. |
-| `icon:variant` | Visual style of the icon. Options: `outline`, `solid`, `mini`, `micro`. Default: `micro`. |
-| `icon:trailing` | Name of the icon to display at the end of the button. |
-| `square` | If `true`, makes the button square. |
-| `align` | Alignment of the button content. Options: `start`, `center`, `end`. Default: `center`. |
-| `inset` | Add negative margins to specific sides. Options: `top`, `bottom`, `left`, `right`, or any combination of the four. |
-| `loading` | If `true`, shows a loading spinner and disables the button when used with `wire:click` or `type="submit"`. If `false`, no loading spinner. Default: `true`. |
-| `tooltip` | Text to display in a tooltip when hovering over the button. |
-| `tooltip:position` | Position of the tooltip. Options: `top`, `bottom`, `left`, `right`. Default: `top`. |
-| `tooltip:kbd` | Text to display in a keyboard shortcut tooltip when hovering over the button. |
-| `kbd` | Text to display in a keyboard shortcut tooltip when hovering over the button. |
+| as | The HTML tag to render the button as. Options: button (default), a, div. |
+| href | The URL to link to when the button is used as an anchor tag. |
+| type | The HTML type attribute of the button. Options: button (default), submit. |
+| variant | Visual style of the button. Options: outline, primary, filled, danger, ghost, subtle. Default: outline. |
+| size | Size of the button. Options: base (default), sm, xs. |
+| icon | Name of the icon to display at the start of the button. |
+| icon:variant | Visual style of the icon. Options: outline, solid, mini, micro. Default: micro. |
+| icon:trailing | Name of the icon to display at the end of the button. |
+| square | If true, makes the button square. (Useful for icon-only buttons.) |
+| align | Alignment of the button content. Options: start, center, end. Default: center. |
+| inset | Add negative margins to specific sides. Options: top, bottom, left, right, or any combination of the four. |
+| loading | If true, shows a loading spinner and disables the button when used with wire:click or type="submit". If false, the button will not show a loading spinner at all. Default: true. |
+| tooltip | Text to display in a tooltip when hovering over the button. |
+| tooltip:position | Position of the tooltip. Options: top, bottom, left, right. Default: top. |
+| tooltip:kbd | Text to display in a keyboard shortcut tooltip when hovering over the button. |
+| kbd | Text to display in a keyboard shortcut tooltip when hovering over the button. |
 
 ### `flux:button.group`
 
 | Slot | Description |
 | --- | --- |
-| `default` | The buttons to be grouped together. |
+| default | The buttons to be grouped together. |

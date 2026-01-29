@@ -1,15 +1,10 @@
-﻿# Breadcrumbs
+# Breadcrumbs
 
 Source: https://fluxui.dev/components/breadcrumbs
 
-## Main
+Help users navigate and understand their place within your application.
 
-```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:breadcrumbs</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:breadcrumbs.item</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> href</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"#"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Home</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:breadcrumbs.item</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:breadcrumbs.item</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> href</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"#"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Blog</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:breadcrumbs.item</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:breadcrumbs.item</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Post</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:breadcrumbs.item</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:breadcrumbs</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
-```
-
-
-## Introduction
+## Basic Example
 
 ```blade
 <flux:breadcrumbs>
@@ -54,11 +49,9 @@ Source: https://fluxui.dev/components/breadcrumbs
 ```blade
 <flux:breadcrumbs>
     <flux:breadcrumbs.item href="#" icon="home" />
-
     <flux:breadcrumbs.item>
         <flux:dropdown>
             <flux:button icon="ellipsis-horizontal" variant="ghost" size="sm" />
-
             <flux:navmenu>
                 <flux:navmenu.item>Client</flux:navmenu.item>
                 <flux:navmenu.item icon="arrow-turn-down-right">Team</flux:navmenu.item>
@@ -66,7 +59,6 @@ Source: https://fluxui.dev/components/breadcrumbs
             </flux:navmenu>
         </flux:dropdown>
     </flux:breadcrumbs.item>
-
     <flux:breadcrumbs.item>Post</flux:breadcrumbs.item>
 </flux:breadcrumbs>
 ```
@@ -77,13 +69,13 @@ Source: https://fluxui.dev/components/breadcrumbs
 
 | Slot | Description |
 | --- | --- |
-| `default` | The breadcrumb items to display. |
+| default | The breadcrumb items to display. |
 
 ### `flux:breadcrumbs.item`
 
 | Prop | Description |
 | --- | --- |
-| `href` | URL the breadcrumb item links to. If omitted, renders as non-clickable text. |
-| `icon` | Name of the icon to display before the badge text. |
-| `icon:variant` | Icon variant. Options: `outline`, `solid`, `mini`, `micro`. Default: `mini`. |
-| `separator` | Name of the icon to display as the separator. Default: `chevron-right`. |
+| href | URL the breadcrumb item links to. If omitted, renders as non-clickable text. |
+| icon | Name of the icon to display before the badge text. |
+| icon:variant | Icon variant. Options: outline, solid, mini, micro. Default: mini. |
+| separator | Name of the icon to display as the separator. Default: chevron-right. |

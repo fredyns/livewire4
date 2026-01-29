@@ -1,15 +1,10 @@
-﻿# Callout
+# Callout
 
 Source: https://fluxui.dev/components/callout
 
-## Main
+Highlight important information or guide users toward key actions.
 
-```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:callout</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> icon</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"clock"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:callout.heading</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Upcoming maintenance</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:callout.heading</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:callout.text</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#424258;--shiki-dark:#EEFFFF">        Our servers will be undergoing scheduled maintenance this Sunday from 2 AM - 5 AM UTC. Some services may be temporarily unavailable.</span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:callout.link</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> href</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"#"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Learn more</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:callout.link</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:callout.text</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:callout</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
-```
-
-
-## Introduction
+## Basic Example
 
 ```blade
 <flux:callout icon="clock">
@@ -37,7 +32,6 @@ Source: https://fluxui.dev/components/callout
 <flux:callout icon="clock">
     <flux:callout.heading>Subscription expiring soon</flux:callout.heading>
     <flux:callout.text>Your current plan will expire in 3 days. Renew now to avoid service interruption and continue accessing premium features.</flux:callout.text>
-
     <x-slot name="actions">
         <flux:button>Renew now</flux:button>
         <flux:button variant="ghost" href="/pricing">View plans</flux:button>
@@ -50,7 +44,6 @@ Source: https://fluxui.dev/components/callout
 ```blade
 <flux:callout icon="cube" variant="secondary" inline>
     <flux:callout.heading>Your package is delayed</flux:callout.heading>
-
     <x-slot name="actions">
         <flux:button>Track order -></flux:button>
         <flux:button variant="ghost">Reschedule</flux:button>
@@ -60,7 +53,6 @@ Source: https://fluxui.dev/components/callout
 <flux:callout icon="exclamation-triangle" variant="secondary" inline>
     <flux:callout.heading>Payment issue detected</flux:callout.heading>
     <flux:callout.text>Your last payment attempt failed. Update your billing details to prevent service interruption.</flux:callout.text>
-
     <x-slot name="actions">
         <flux:button>Update billing</flux:button>
     </x-slot>
@@ -71,10 +63,7 @@ Source: https://fluxui.dev/components/callout
 
 ```blade
 <flux:callout icon="bell" variant="secondary" inline x-data="{ visible: true }" x-show="visible">
-    <flux:callout.heading class="flex gap-2 @max-md:flex-col items-start">
-        Upcoming meeting <flux:text>10:00 AM</flux:text>
-    </flux:callout.heading>
-
+    <flux:callout.heading class="flex gap-2 @max-md:flex-col items-start">Upcoming meeting <flux:text>10:00 AM</flux:text></flux:callout.heading>
     <x-slot name="controls">
         <flux:button icon="x-mark" variant="ghost" x-on:click="visible = false" />
     </x-slot>
@@ -86,12 +75,10 @@ Source: https://fluxui.dev/components/callout
         <flux:callout icon="finger-print" variant="secondary">
             <flux:callout.heading>Unusual login attempt</flux:callout.heading>
             <flux:callout.text>We detected a login from a new device in <span class="font-medium text-zinc-800 dark:text-white">New York, USA</span>. If this was you, no action is needed. If not, secure your account immediately.</flux:callout.text>
-
             <x-slot name="actions">
                 <flux:button>Change password</flux:button>
                 <flux:button variant="ghost">Review activity</flux:button>
             </x-slot>
-
             <x-slot name="controls">
                 <flux:button icon="x-mark" variant="ghost" x-on:click="visible = false" />
             </x-slot>
@@ -140,21 +127,18 @@ Source: https://fluxui.dev/components/callout
         <!-- Custom icon: https://lucide.dev/icons/alarm-clock -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alarm-clock"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg>
     </x-slot>
-
     <flux:callout.heading>Notification system updated</flux:callout.heading>
-
     <flux:callout.text>
         <p>We've improved our notification system to deliver alerts faster and more reliably.</p>
     </flux:callout.text>
 </flux:callout>
 ```
 
-## Feature spotlight
+## Examples
 
 ```blade
 <flux:callout icon="sparkles" color="purple">
     <flux:callout.heading>Have a question?</flux:callout.heading>
-
     <flux:callout.text>
         Try our new AI assistant, Jeffrey. Let him handle tasks and answer questions for you.
         <flux:callout.link href="#">Learn more</flux:callout.link>
@@ -162,43 +146,34 @@ Source: https://fluxui.dev/components/callout
 </flux:callout>
 ```
 
-## Premium upsell
-
 ```blade
 <flux:callout icon="shield-check" color="blue" inline>
     <flux:callout.heading>API access is restricted</flux:callout.heading>
     <flux:callout.text>Get access to all of our premium features and benefits.</flux:callout.text>
-
     <x-slot name="actions" class="@md:h-full m-0!">
         <flux:button>Upgrade to Pro -></flux:button>
     </x-slot>
 </flux:callout>
 ```
 
-## Upgrade offer
-
 ```blade
 <flux:callout icon="banknotes" color="lime" inline>
     <flux:callout.heading>You could save $4,900/yr on annual billing.</flux:callout.heading>
-
     <x-slot name="actions">
         <flux:button>Switch now -></flux:button>
     </x-slot>
 </flux:callout>
 ```
 
-## Engagement prompt
-
 ```blade
 <flux:callout variant="secondary" icon="user-group">
     <flux:callout.heading>
-        Team collaboration <flux:badge color="purple" size="sm" inset="top bottom">Available with Pro</flux:badge>
+        Team collaboration
+        <flux:badge color="purple" size="sm" inset="top bottom">Available with Pro</flux:badge>
     </flux:callout.heading>
-
     <flux:callout.text>
         <p>Share projects, manage permissions, and collaborate in real time with your team. Upgrade now to access these features.</p>
     </flux:callout.text>
-
     <x-slot name="actions">
         <flux:button>Invite member</flux:button>
         <flux:button variant="ghost" class="@max-md:hidden">Manage team</flux:button>
@@ -212,30 +187,30 @@ Source: https://fluxui.dev/components/callout
 
 | Prop | Description |
 | --- | --- |
-| `icon` | Name of the icon displayed next to the heading (e.g., `clock`). |
-| `icon:variant` | Variant of the icon displayed next to the heading. |
-| `variant` | Options: `secondary`, `success`, `warning`, `danger`. Default: `secondary`. |
-| `color` | Custom color (e.g., `red`, `blue`). |
-| `inline` | If `true`, actions appear inline. Default: `false`. |
-| `heading` | Shorthand for `flux:callout.heading`. |
-| `text` | Shorthand for `flux:callout.text`. |
+| icon | Name of the icon displayed next to the heading (e.g., clock). Explore icons |
+| icon:variant | Variant of the icon displayed next to the heading (e.g., outline). Explore icon variants |
+| variant | Options: secondary, success, warning, danger. Default: secondary |
+| color | Custom color (e.g., red, blue). View available Tailwind colors -> |
+| inline | If true, actions appear inline. Default: false. |
+| heading | Shorthand for flux:callout.heading. |
+| text | Shorthand for flux:callout.text. |
 
 ### `flux:callout.heading`
 
 | Prop | Description |
 | --- | --- |
-| `icon` | Moves the icon inside the heading instead of the callout root. |
-| `icon:variant` | Variant of the icon displayed next to the heading. |
+| icon | Moves the icon inside the heading instead of the callout root. |
+| icon:variant | Variant of the icon displayed next to the heading (e.g., outline). Explore icon variants |
 
 ### `flux:callout.text`
 
 | Slot | Description |
 | --- | --- |
-| `default` | Text content inside the callout. |
+| default | Text content inside the callout. |
 
 ### `flux:callout.link`
 
 | Prop | Description |
 | --- | --- |
-| `href` | The URL the link points to. |
-| `external` | If `true`, opens in a new tab. Default: `false`. |
+| href | The URL the link points to. |
+| external | If true, the link opens in a new tab. Default: false. |

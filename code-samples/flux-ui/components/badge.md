@@ -1,15 +1,10 @@
-﻿# Badge
+# Badge
 
 Source: https://fluxui.dev/components/badge
 
-## Main
+Highlight information like status, category, or count.
 
-```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:badge</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> color</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"lime"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">New</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:badge</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
-```
-
-
-## Introduction
+## Basic Example
 
 ```blade
 <flux:badge color="lime">New</flux:badge>
@@ -103,7 +98,6 @@ Source: https://fluxui.dev/components/badge
 <flux:heading>
     Page builder <flux:badge color="lime" inset="top bottom">New</flux:badge>
 </flux:heading>
-
 <flux:text class="mt-2">Easily author new pages without leaving your browser.</flux:text>
 ```
 
@@ -113,19 +107,19 @@ Source: https://fluxui.dev/components/badge
 
 | Prop | Description |
 | --- | --- |
-| `color` | Badge color (e.g., `zinc`, `red`, `blue`). Default: `zinc`. |
-| `size` | Badge size. Options: `sm`, `lg`. |
-| `rounded` | If present or `true`, makes the badge fully rounded instead of slightly rounded corners. |
-| `variant` | Badge style variant. Options: `solid` (deprecated: `pill`, use `rounded` prop instead). |
-| `icon` | Name of the icon to display before the badge text. |
-| `icon:trailing` | Name of the icon to display after the badge text. |
-| `icon:variant` | Icon variant. Options: `outline`, `solid`, `mini`, `micro`. Default: `mini`. |
-| `as` | HTML element to render the badge as. Options: `button`. Default: `div`. |
-| `inset` | Add negative margins to specific sides. Options: `top`, `bottom`, `left`, `right`, or any combination of the four. |
+| color | Badge color (e.g., zinc, red, blue). Default: zinc. |
+| size | Badge size. Options: sm, lg. |
+| rounded | If present or true, makes the badge fully rounded instead of slightly rounded corners. |
+| variant | Badge style variant. Options: solid (depracated: pill, use rounded prop instead). |
+| icon | Name of the icon to display before the badge text. |
+| icon:trailing | Name of the icon to display after the badge text. |
+| icon:variant | Icon variant. Options: outline, solid, mini, micro. Default: mini. |
+| as | HTML element to render the badge as. Options: button. Default: div. |
+| inset | Add negative margins to specific sides. Options: top, bottom, left, right, or any combination of the four. |
 
 ### `flux:badge.close`
 
 | Prop | Description |
 | --- | --- |
-| `icon` | Name of the icon to display. Default: `x-mark`. |
-| `icon:variant` | Icon variant. Options: `outline`, `solid`, `mini`, `micro`. Default: `mini`. |
+| icon | Name of the icon to display. Default: x-mark. |
+| icon:variant | Icon variant. Options: outline, solid, mini, micro. Default: mini. |

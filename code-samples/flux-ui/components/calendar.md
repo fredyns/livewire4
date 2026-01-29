@@ -1,15 +1,10 @@
-﻿# Calendar - PRO
+# Calendar - PRO
 
 Source: https://fluxui.dev/components/calendar
 
-## Main
+A flexible calendar component for date selection. Supports single dates, multiple dates, and date ranges. Perfect for scheduling and booking systems.
 
-```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:calendar</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span>
-```
-
-
-## Introduction
+## Basic Example
 
 ```blade
 <flux:calendar />
@@ -25,10 +20,8 @@ Source: https://fluxui.dev/components/calendar
 <flux:calendar wire:model="date" />
 ```
 
-```php
-<?php
-
-use Illuminate\Support\Carbon;
+```blade
+<?php use Illuminate\Support\Carbon;
 use Livewire\Component;
 
 class BookAppointment extends Component
@@ -49,20 +42,15 @@ class BookAppointment extends Component
 ```
 
 ```blade
-<flux:calendar
-    multiple
-    value="2026-01-02,2026-01-05,2026-01-15"
-/>
+<flux:calendar multiple value="2026-01-02,2026-01-05,2026-01-15" />
 ```
 
 ```blade
 <flux:calendar multiple wire:model="dates" />
 ```
 
-```php
-<?php
-
-use Illuminate\Support\Carbon;
+```blade
+<?php use Illuminate\Support\Carbon;
 use Livewire\Component;
 
 class RequestTimeOff extends Component
@@ -93,10 +81,8 @@ class RequestTimeOff extends Component
 <flux:calendar mode="range" wire:model="range" />
 ```
 
-```php
-<?php
-
-use Livewire\Component;
+```blade
+<?php use Livewire\Component;
 
 class BookFlight extends Component
 {
@@ -112,10 +98,8 @@ class BookFlight extends Component
 }
 ```
 
-```php
-<?php
-
-use Livewire\Component;
+```blade
+<?php use Livewire\Component;
 use Flux\DateRange;
 
 class BookFlight extends Component
@@ -151,12 +135,7 @@ class BookFlight extends Component
 ## Static
 
 ```blade
-<flux:calendar
-    static
-    value="2026-01-27"
-    size="xs"
-    :navigation="false"
-/>
+<flux:calendar static value="2026-01-27" size="xs" :navigation="false" />
 ```
 
 ## Min/max dates
@@ -231,10 +210,8 @@ class BookFlight extends Component
 <flux:calendar wire:model.live="range" />
 ```
 
-```php
-<?php
-
-use Livewire\Component;
+```blade
+<?php use Livewire\Component;
 use Flux\DateRange;
 
 class Dashboard extends Component
@@ -245,10 +222,8 @@ class Dashboard extends Component
 
 ## Instantiation
 
-```php
-<?php
-
-use Livewire\Component;
+```blade
+<?php use Livewire\Component;
 use Flux\DateRange;
 
 class Dashboard extends Component
@@ -264,10 +239,8 @@ class Dashboard extends Component
 
 ## Persisting to the session
 
-```php
-<?php
-
-use Livewire\Attributes\Session;
+```blade
+<?php use Livewire\Attributes\Session;
 use Livewire\Component;
 use Flux\DateRange;
 
@@ -280,10 +253,8 @@ class Dashboard extends Component
 
 ## Using with Eloquent
 
-```php
-<?php
-
-use Livewire\Attributes\Computed;
+```blade
+<?php use Livewire\Attributes\Computed;
 use Livewire\Component;
 use App\Models\Order;
 use Flux\DateRange;
@@ -295,16 +266,14 @@ class Dashboard extends Component
     #[Computed]
     public function orders()
     {
-        return $this->range
-            ? Order::whereBetween('created_at', $this->range)->get()
-            : Order::all();
+        return $this->range ? Order::whereBetween('created_at', $this->range)->get() : Order::all();
     }
 }
 ```
 
 ## Available methods
 
-```php
+```blade
 $range = new Flux\DateRange(
     now()->subDays(1),
     now()->addDays(1),
@@ -329,7 +298,7 @@ foreach ($range as $date) {
 $range->toArray();
 ```
 
-```php
+```blade
 $orders = Order::whereBetween('created_at', $range)->get();
 ```
 
@@ -339,23 +308,35 @@ $orders = Order::whereBetween('created_at', $range)->get();
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Binds the calendar to a Livewire property. |
-| `value` | Selected date(s). Format depends on mode: single date (`Y-m-d`), multiple dates (comma-separated `Y-m-d`), or range (`Y-m-d/Y-m-d`). |
-| `mode` | Selection mode. Options: `single` (default), `multiple`, `range`. |
-| `min` | Earliest selectable date. Can be a date string or `today`. |
-| `max` | Latest selectable date. Can be a date string or `today`. |
-| `size` | Calendar size. Options: `base` (default), `xs`, `sm`, `lg`, `xl`, `2xl`. |
-| `start-day` | Day of week to start on. Options: `0` (Sunday) to `6` (Saturday). Default: based on locale. |
-| `months` | Number of months to display. Default: `1` for single/multiple, `2` for range mode. |
-| `min-range` | Minimum number of days selectable in range mode. |
-| `max-range` | Maximum number of days selectable in range mode. |
-| `open-to` | Date that the calendar opens to if there is no selected date. |
-| `force-open-to` | If `true`, forces open to `open-to` regardless of selected date. Default: `false`. |
-| `navigation` | If `false`, hides month navigation controls. Default: `true`. |
-| `static` | If `true`, makes the calendar non-interactive. Default: `false`. |
-| `multiple` | If `true`, enables multiple date selection. Default: `false`. |
-| `week-numbers` | If `true`, displays week numbers. Default: `false`. |
-| `selectable-header` | If `true`, displays month/year dropdowns. Default: `false`. |
-| `with-today` | If `true`, displays a shortcut to today. Default: `false`. |
-| `with-inputs` | If `true`, displays date inputs for manual entry. Default: `false`. |
-| `locale` | Locale for the calendar (e.g. `fr`, `en-US`, `ja-JP`). |
+| wire:model | Binds the calendar to a Livewire property. See the wire:model documentation for more information. |
+| value | Selected date(s). Format depends on mode: single date (Y-m-d), multiple dates (comma-separated Y-m-d), or range (Y-m-d/Y-m-d). |
+| mode | Selection mode. Options: single (default), multiple, range. |
+| min | Earliest selectable date. Can be a date string or "today". |
+| max | Latest selectable date. Can be a date string or "today". |
+| size | Calendar size. Options: base (default), xs, sm, lg, xl, 2xl. |
+| start-day | The day of the week to start the calendar on. Options: 0 (Sunday) to 6 (Saturday). Default: based on the user's locale. |
+| months | Number of months to display. Default: 1 for single/multiple modes, 2 for range mode. |
+| min-range | Minimum number of days that can be selected in range mode. |
+| max-range | Maximum number of days that can be selected in range mode. |
+| open-to | Set the date that the calendar will open to, if there is no selected date. |
+| force-open-to | If true, forces the calendar to open to the open-to date regardless of the selected date. Default: false. |
+| navigation | If false, hides month navigation controls. Default: true. |
+| static | If true, makes the calendar non-interactive (display-only). Default: false. |
+| multiple | If true, enables multiple date selection mode. Default: false. |
+| week-numbers | If true, displays week numbers in the calendar. Default: false. |
+| selectable-header | If true, displays month and year dropdowns for quick navigation. Default: false. |
+| with-today | If true, displays a button to quickly navigate to today's date. Default: false. |
+| with-inputs | If true, displays date inputs at the top of the calendar for manual date entry. Default: false. |
+| locale | Set the locale for the calendar. Examples: fr, en-US, ja-JP. |
+
+### `DateRange Object`
+
+| Method | Description |
+| --- | --- |
+| $range->start() | Get the start date as a Carbon instance. |
+| $range->end() | Get the end date as a Carbon instance. |
+| $range->days() | Get the number of days in the range. |
+| $range->contains(date) | Check if the range contains a specific date. |
+| $range->length() | Get the length of the range in days. |
+| $range->toArray() | Get the range as an array with start and end keys. |
+| $range->preset() | Get the current preset as a DateRangePreset enum value, if any. |
