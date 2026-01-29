@@ -1,15 +1,10 @@
-﻿# Checkbox
+# Checkbox
 
 Source: https://fluxui.dev/components/checkbox
 
-## Main
+Select one or multiple options from a set.
 
-```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:field</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> variant</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"inline"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:checkbox</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> wire:model</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"terms"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:label</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">I agree to the terms and conditions</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:label</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:error</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"terms"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:field</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
-```
-
-
-## Introduction
+## Basic Example
 
 ```blade
 <flux:field variant="inline">
@@ -34,24 +29,9 @@ Source: https://fluxui.dev/components/checkbox
 
 ```blade
 <flux:checkbox.group wire:model="subscription" label="Subscription preferences">
-    <flux:checkbox
-        checked
-        value="newsletter"
-        label="Newsletter"
-        description="Receive our monthly newsletter with the latest updates and offers."
-    />
-
-    <flux:checkbox
-        value="updates"
-        label="Product updates"
-        description="Stay informed about new features and product updates."
-    />
-
-    <flux:checkbox
-        value="invitations"
-        label="Event invitations"
-        description="Get invitations to our exclusive events and webinars."
-    />
+    <flux:checkbox checked value="newsletter" label="Newsletter" description="Receive our monthly newsletter with the latest updates and offers." />
+    <flux:checkbox value="updates" label="Product updates" description="Stay informed about new features and product updates." />
+    <flux:checkbox value="invitations" label="Event invitations" description="Get invitations to our exclusive events and webinars." />
 </flux:checkbox.group>
 ```
 
@@ -61,7 +41,6 @@ Source: https://fluxui.dev/components/checkbox
 <flux:fieldset>
     <flux:legend>Languages</flux:legend>
     <flux:description>Choose the languages you want to support.</flux:description>
-
     <div class="flex gap-4 *:gap-x-2">
         <flux:checkbox checked value="english" label="English" />
         <flux:checkbox checked value="spanish" label="Spanish" />
@@ -98,24 +77,9 @@ Source: https://fluxui.dev/components/checkbox
 
 ```blade
 <flux:checkbox.group wire:model="subscription" label="Subscription preferences" variant="cards" class="max-sm:flex-col">
-    <flux:checkbox
-        checked
-        value="newsletter"
-        label="Newsletter"
-        description="Get the latest updates and offers."
-    />
-
-    <flux:checkbox
-        value="updates"
-        label="Product updates"
-        description="Learn about new features and products."
-    />
-
-    <flux:checkbox
-        value="invitations"
-        label="Event invitations"
-        description="Invitatations to exclusive events."
-    />
+    <flux:checkbox checked value="newsletter" label="Newsletter" description="Get the latest updates and offers." />
+    <flux:checkbox value="updates" label="Product updates" description="Learn about new features and products." />
+    <flux:checkbox value="invitations" label="Event invitations" description="Invitatations to exclusive events." />
 </flux:checkbox.group>
 ```
 
@@ -129,24 +93,9 @@ Source: https://fluxui.dev/components/checkbox
 
 ```blade
 <flux:checkbox.group label="Subscription preferences" variant="cards" class="flex-col">
-    <flux:checkbox
-        checked
-        value="newsletter"
-        label="Newsletter"
-        description="Get the latest updates and offers."
-    />
-
-    <flux:checkbox
-        value="updates"
-        label="Product updates"
-        description="Learn about new features and products."
-    />
-
-    <flux:checkbox
-        value="invitations"
-        label="Event invitations"
-        description="Invitatations to exclusive events."
-    />
+    <flux:checkbox checked value="newsletter" label="Newsletter" description="Get the latest updates and offers." />
+    <flux:checkbox value="updates" label="Product updates" description="Learn about new features and products." />
+    <flux:checkbox value="invitations" label="Event invitations" description="Invitatations to exclusive events." />
 </flux:checkbox.group>
 ```
 
@@ -154,27 +103,9 @@ Source: https://fluxui.dev/components/checkbox
 
 ```blade
 <flux:checkbox.group label="Subscription preferences" variant="cards" class="flex-col">
-    <flux:checkbox
-        checked
-        value="newsletter"
-        icon="newspaper"
-        label="Newsletter"
-        description="Get the latest updates and offers."
-    />
-
-    <flux:checkbox
-        value="updates"
-        icon="cube"
-        label="Product updates"
-        description="Learn about new features and products."
-    />
-
-    <flux:checkbox
-        value="invitations"
-        icon="calendar"
-        label="Event invitations"
-        description="Invitatations to exclusive events."
-    />
+    <flux:checkbox checked value="newsletter" icon="newspaper" label="Newsletter" description="Get the latest updates and offers." />
+    <flux:checkbox value="updates" icon="cube" label="Product updates" description="Learn about new features and products." />
+    <flux:checkbox value="invitations" icon="calendar" label="Event invitations" description="Invitatations to exclusive events." />
 </flux:checkbox.group>
 ```
 
@@ -189,7 +120,6 @@ Source: https://fluxui.dev/components/checkbox
             <flux:text size="sm" class="mt-2">Get the latest updates and offers.</flux:text>
         </div>
     </flux:checkbox>
-
     <flux:checkbox value="updates">
         <flux:checkbox.indicator />
         <div class="flex-1">
@@ -197,7 +127,6 @@ Source: https://fluxui.dev/components/checkbox
             <flux:text size="sm" class="mt-2">Learn about new features and products.</flux:text>
         </div>
     </flux:checkbox>
-
     <flux:checkbox value="invitations">
         <flux:checkbox.indicator />
         <div class="flex-1">
@@ -240,30 +169,40 @@ Source: https://fluxui.dev/components/checkbox
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Binds the checkbox to a Livewire property. |
-| `label` | Label text displayed next to the checkbox. |
-| `description` | Help text displayed below the checkbox. |
-| `value` | Value associated with the checkbox when used in a group. |
-| `checked` | Sets the checkbox to be checked by default. |
-| `indeterminate` | Sets the checkbox to an indeterminate state. |
-| `disabled` | Prevents user interaction with the checkbox. |
-| `invalid` | Applies error styling to the checkbox. |
+| wire:model | Binds the checkbox to a Livewire property. See the wire:model documentation for more information. |
+| label | Label text displayed next to the checkbox. When provided, wraps the checkbox in a structure with an adjacent label. |
+| description | Help text displayed below the checkbox. When provided alongside label, appears between the label and checkbox. |
+| value | Value associated with the checkbox when used in a group. When the checkbox is checked, this value will be included in the array returned by the group's wire:model. |
+| checked | Sets the checkbox to be checked by default. |
+| indeterminate | Sets the checkbox to an indeterminate state, represented by a dash instead of a checkmark. Useful for "select all" checkboxes when only some items are selected. |
+| disabled | Prevents user interaction with the checkbox. |
+| invalid | Applies error styling to the checkbox. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-checkbox | Applied to the root element for styling and identification. |
+| data-checked | Applied when the checkbox is checked. |
+| data-indeterminate | Applied when the checkbox is in an indeterminate state. |
 
 ### `flux:checkbox.group`
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Binds the group to a Livewire property (array of selected values). |
-| `label` | Label text displayed above the group. |
-| `description` | Help text displayed below the label. |
-| `variant` | Visual style. Options: `default`, `cards` (Pro), `pills` (Pro), `buttons` (Pro). |
-| `disabled` | Disables all checkboxes in the group. |
-| `invalid` | Applies error styling to all checkboxes. |
+| wire:model | Binds the checkbox group to a Livewire property. The value will be an array of the selected checkboxes' values. See the wire:model documentation for more information. |
+| label | Label text displayed above the checkbox group. When provided, wraps the group in a flux:field component with an adjacent flux:label component. |
+| description | Help text displayed below the group label. When provided alongside label, appears between the label and the checkboxes. |
+| variant | Visual style of the group. Options: default, cards (Pro), pills (Pro), buttons (Pro). |
+| disabled | Prevents user interaction with all checkboxes in the group. |
+| invalid | Applies error styling to all checkboxes in the group. |
+
+| Slot | Description |
+| --- | --- |
+| default | The checkboxes to be grouped together. Can include `flux:checkbox`, `flux:checkbox.all`, and other elements. |
 
 ### `flux:checkbox.all`
 
 | Prop | Description |
 | --- | --- |
-| `label` | Text label displayed next to the checkbox. |
-| `description` | Help text displayed below the checkbox. |
-| `disabled` | Prevents user interaction with the checkbox. |
+| label | Text label displayed next to the checkbox. |
+| description | Help text displayed below the checkbox. |
+| disabled | Prevents user interaction with the checkbox. |
