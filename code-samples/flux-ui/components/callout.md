@@ -195,12 +195,22 @@ Highlight important information or guide users toward key actions.
 | heading | Shorthand for flux:callout.heading. |
 | text | Shorthand for flux:callout.text. |
 
+| Slot | Description |
+| --- | --- |
+| icon | Custom icon displayed next to the heading. |
+| actions | Buttons or links inside the callout (flux:callout.button). |
+| controls | Extra UI elements placed at the top right of the callout (e.g., close button). |
+
 ### `flux:callout.heading`
 
 | Prop | Description |
 | --- | --- |
 | icon | Moves the icon inside the heading instead of the callout root. |
 | icon:variant | Variant of the icon displayed next to the heading (e.g., outline). Explore icon variants |
+
+| Slot | Description |
+| --- | --- |
+| icon | Custom icon displayed next to the heading. |
 
 ### `flux:callout.text`
 

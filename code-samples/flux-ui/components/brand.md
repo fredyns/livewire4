@@ -63,3 +63,9 @@ Display your company or application's logo and name in a clean, consistent way a
 | logo | URL to the image to display as logo, or can pass content via slot. |
 | alt | Alternative text for the logo. |
 | href | URL to navigate to when the brand is clicked. Default: '/'. |
+
+### Slots
+
+| Slot | Description |
+| --- | --- |
+| logo | Custom content for the logo section, typically containing an image, SVG, or custom HTML. |

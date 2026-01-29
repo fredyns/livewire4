@@ -160,6 +160,18 @@ A powerful and composable button component for your application.
 | tooltip:kbd | Text to display in a keyboard shortcut tooltip when hovering over the button. |
 | kbd | Text to display in a keyboard shortcut tooltip when hovering over the button. |
 
+### CSS
+
+| CSS | Description |
+| --- | --- |
+| class | Additional CSS classes applied to the button. Common use: `w-full` for full width. |
+
+### Attribute
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-button | Applied to the root element for styling and identification. |
+
 ### `flux:button.group`
 
 | Slot | Description |

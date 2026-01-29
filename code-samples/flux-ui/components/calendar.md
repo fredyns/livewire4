@@ -329,6 +329,12 @@ $orders = Order::whereBetween('created_at', $range)->get();
 | with-inputs | If true, displays date inputs at the top of the calendar for manual date entry. Default: false. |
 | locale | Set the locale for the calendar. Examples: fr, en-US, ja-JP. |
 
+### Attribute
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-calendar | Applied to the root element for styling and identification. |
+
 ### `DateRange Object`
 
 | Method | Description |
@@ -340,3 +346,18 @@ $orders = Order::whereBetween('created_at', $range)->get();
 | $range->length() | Get the length of the range in days. |
 | $range->toArray() | Get the range as an array with start and end keys. |
 | $range->preset() | Get the current preset as a DateRangePreset enum value, if any. |
+
+### Static Method
+
+| Static Method | Description |
+| --- | --- |
+| DateRange::today() | Create a DateRange for today. |
+| DateRange::yesterday() | Create a DateRange for yesterday. |
+| DateRange::thisWeek() | Create a DateRange for the current week. |
+| DateRange::lastWeek() | Create a DateRange for the previous week. |
+| DateRange::last7Days() | Create a DateRange for the last 7 days. |
+| DateRange::thisMonth() | Create a DateRange for the current month. |
+| DateRange::lastMonth() | Create a DateRange for the previous month. |
+| DateRange::thisYear() | Create a DateRange for the current year. |
+| DateRange::lastYear() | Create a DateRange for the previous year. |
+| DateRange::yearToDate() | Create a DateRange from January 1st to today. |
