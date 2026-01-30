@@ -59,6 +59,10 @@ Consistent typographical components like text and link.
 | color | Color of the text. Options: default, red, orange, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose. Default: default. |
 | inline | If true, the text element will be a span instead of a p. |
 
+| Slot | Description |
+| --- | --- |
+| default | The text content. |
+
 ### `flux:link`
 
 | Prop | Description |
@@ -67,3 +71,7 @@ Consistent typographical components like text and link.
 | variant | Link style variant. Options: default, ghost, subtle. Default: default. |
 | external | If true, the link will open in a new tab. |
 | as | The HTML tag to render the link as. Options: a (default), button. |
+
+| Slot | Description |
+| --- | --- |
+| default | The link content. |

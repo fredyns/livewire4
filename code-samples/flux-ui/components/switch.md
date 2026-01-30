@@ -74,3 +74,11 @@ Source: https://fluxui.dev/components/switch
 | `description` | Help text shown with `label` inside the `flux:field` wrapper. |
 | `align` | Options: `right`\|`start` (default), `left`\|`end`. |
 | `disabled` | Prevents user interaction. |
+
+| Slot | Description |
+| --- | --- |
+| default | Custom content for the switch. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-switch | Applied to the root element for styling and identification. |

@@ -103,3 +103,11 @@ Allow users to select specific times for scheduling events or setting appointmen
 | disabled | Prevents user interaction with the time picker. |
 | invalid | Applies error styling to the time picker. |
 | locale | Set the locale for the time picker. Examples: fr, en-US, ja-JP. |
+
+| Slot | Description |
+| --- | --- |
+| default | Custom content for the time picker. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-time-picker | Applied to the root element for styling and identification. |

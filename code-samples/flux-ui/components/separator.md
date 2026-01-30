@@ -44,3 +44,11 @@ Visually divide sections of content or groups of items.
 | variant | Visual style variant. Options: subtle. Default: standard separator. |
 | text | Optional text to display in the center of the separator. |
 | orientation | Alternative to vertical prop. Options: horizontal, vertical. Default: horizontal. |
+
+| Slot | Description |
+| --- | --- |
+| default | Custom content to display in the center of the separator. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-separator | Applied to the root element for styling and identification. |

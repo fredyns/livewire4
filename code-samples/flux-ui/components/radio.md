@@ -172,6 +172,14 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 | variant | Visual style of the group. Options: default, segmented, cards, pills, buttons. |
 | invalid | Applies error styling to the radio group. |
 
+| Slot | Description |
+| --- | --- |
+| default | The radio buttons to be grouped together. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-radio-group | Applied to the root element for styling and identification. |
+
 ### `flux:radio`
 
 | Prop | Description |
@@ -182,3 +190,16 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 | checked | If true, the radio button is selected by default. |
 | disabled | Prevents user interaction with the radio button. |
 | icon | Name of the icon to display (for segmented variant). |
+
+| Slot | Description |
+| --- | --- |
+| default | Custom content for card variant. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-radio | Applied to the root element for styling and identification. |
+| data-checked | Applied when the radio button is selected. |
+
+### `flux:radio.indicator`
+
+Used for custom radio button layouts in card variant.

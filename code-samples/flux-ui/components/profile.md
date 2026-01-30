@@ -106,3 +106,7 @@ Display a user's profile with an avatar and optional name in a compact, interact
 | chevron | Whether to display a chevron icon (dropdown indicator). Default: true. |
 | icon:trailing | Custom icon to display instead of the chevron. Accepts any icon name. |
 | icon:variant | Icon variant to use for the trailing icon. Options: micro (default), outline. |
+
+| Slot | Description |
+| --- | --- |
+| avatar | Custom content for the avatar section, typically containing a flux:avatar component. |

@@ -227,8 +227,25 @@ Show extra content in a popup on click or hover.
 | hover | If present, the popover opens on hover instead of click. Useful for tooltips and quick previews. |
 | wire:model | Bind the open/closed state to a Livewire property for programmatic control. |
 
+| Slot | Description |
+| --- | --- |
+| default | Must contain exactly one trigger element (button, link, etc.) followed by one `flux:popover` component. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-dropdown | Applied to the root element for styling and identification. |
+| data-open | Applied when the popover is currently open. |
+
 ### `flux:popover`
 
 | Prop | Description |
 | --- | --- |
 | class | Additional CSS classes to apply to the popover container. Useful for setting width constraints like max-w-sm or w-80. |
+
+| Slot | Description |
+| --- | --- |
+| default | The content to display inside the popover. Can include any HTML or Flux components. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-popover | Applied to the root element for styling and identification. |

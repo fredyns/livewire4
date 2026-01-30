@@ -78,12 +78,20 @@ Flux::toast(duration: 0, ...);
 | --- | --- |
 | position | Position of the toast on the screen. Options: bottom end (default), bottom center, bottom start, top end, top center, top start. |
 
+| Slot | Description |
+| --- | --- |
+| default | Custom content for the toast. |
+
 ### `flux:toast.group`
 
 | Prop | Description |
 | --- | --- |
 | position | Position of the toast group on the screen. Options: bottom end (default), bottom center, bottom start, top end, top center, top start. |
 | expanded | If true, always shows the toast stack in an expanded state, making all toasts visible at once. Default: false. |
+
+| Slot | Description |
+| --- | --- |
+| default | The toast components to display in the group. |
 
 ### `Flux::toast()`
 

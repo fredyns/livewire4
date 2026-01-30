@@ -136,11 +136,19 @@ Display structured data in a condensed, searchable format.
 | paginate | A Laravel paginator instance to enable pagination. |
 | container:class | Additional CSS classes applied to the container. Useful for setting height constraints like max-h-80. |
 
+| Slot | Description |
+| --- | --- |
+| default | The table columns and rows. |
+
 ### `flux:table.columns`
 
 | Prop | Description |
 | --- | --- |
 | sticky | When present, makes the header row sticky when scrolling. |
+
+| Slot | Description |
+| --- | --- |
+| default | The table column headers. |
 
 ### `flux:table.column`
 
@@ -151,6 +159,10 @@ Display structured data in a condensed, searchable format.
 | sorted | Indicates this column is currently being sorted. |
 | direction | Sort direction when column is sorted. Options: asc, desc. |
 | sticky | When present, makes the column sticky when scrolling. |
+
+| Slot | Description |
+| --- | --- |
+| default | The column header content. |
 
 ### `flux:table.rows`
 

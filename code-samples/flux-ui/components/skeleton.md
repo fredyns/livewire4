@@ -99,6 +99,10 @@ Source: https://fluxui.dev/components/skeleton
 | --- | --- |
 | `animate` | Options: `shimmer`, `pulse`. Default: no animation. |
 
+| Slot | Description |
+| --- | --- |
+| default | Custom content for the skeleton. |
+
 ### `flux:skeleton.line`
 
 | Prop | Description |
@@ -106,8 +110,16 @@ Source: https://fluxui.dev/components/skeleton
 | `size` | Options: `base`, `lg`. Default: `base`. |
 | `animate` | Options: `shimmer`, `pulse`. Default: none. Can be inherited from `flux:skeleton.group`. |
 
+| Slot | Description |
+| --- | --- |
+| default | Custom content for the skeleton line. |
+
 ### `flux:skeleton.group`
 
 | Prop | Description |
 | --- | --- |
 | `animate` | Sets animation for all skeletons in group. Options: `shimmer`, `pulse`. Default: none. |
+
+| Slot | Description |
+| --- | --- |
+| default | The skeleton components to display in the group. |

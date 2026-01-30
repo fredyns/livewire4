@@ -142,8 +142,16 @@ class Dashboard extends Component
 | track:class | CSS classes applied to the track. |
 | thumb:class | CSS classes applied to the thumb. |
 
+| Slot | Description |
+| --- | --- |
+| default | The slider ticks. Should contain `flux:slider.tick` components. |
+
 ### `flux:slider.tick`
 
 | Prop | Description |
 | --- | --- |
 | value | The value at which the tick should be displayed. |
+
+| Slot | Description |
+| --- | --- |
+| default | Custom label content for the tick. |

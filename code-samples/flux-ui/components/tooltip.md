@@ -73,8 +73,20 @@ Provide additional information when users hover over or focus on an element.
 | interactive | Uses the proper ARIA attributes (aria-expanded and aria-controls) to signal that the tooltip has interactive content. |
 | kbd | Keyboard shortcut hint displayed at the end of the tooltip. |
 
+| Slot | Description |
+| --- | --- |
+| default | The trigger element that displays the tooltip on hover or click. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-tooltip | Applied to the root element for styling and identification. |
+
 ### `flux:tooltip.content`
 
 | Prop | Description |
 | --- | --- |
 | kbd | Keyboard shortcut hint displayed at the end of the tooltip content. |
+
+| Slot | Description |
+| --- | --- |
+| default | The tooltip content. Can include text, HTML, or Flux components. |

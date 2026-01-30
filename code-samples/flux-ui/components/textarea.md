@@ -52,3 +52,11 @@ Capture multi-line text input from users. Ideal for comments, descriptions, and 
 | rows | Number of visible text lines. Use "auto" for automatic height adjustment. Default: 4. |
 | resize | Control how the textarea can be resized. Options: vertical (default), horizontal, both, none. |
 | invalid | If true, applies error styling to the textarea. |
+
+| Slot | Description |
+| --- | --- |
+| default | Custom content for the textarea. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-textarea | Applied to the root element for styling and identification. |

@@ -176,6 +176,10 @@ public function addTab(): void
 | scrollable:scrollbar | Controls scrollbar visibility when tabs are scrollable. Options: hide. |
 | scrollable:fade | Adds a fade effect to the trailing edge when tabs are scrollable. |
 
+| Slot | Description |
+| --- | --- |
+| default | The tab items. Should contain `flux:tab` components. |
+
 ### `flux:tab`
 
 | Prop | Description |
@@ -190,9 +194,17 @@ public function addTab(): void
 | size | Size of the tab (only applies when variant="segmented"). Options: base (default), sm. |
 | disabled | Disables the tab. |
 
+| Slot | Description |
+| --- | --- |
+| default | The tab label content. |
+
 ### `flux:tab.panel`
 
 | Prop | Description |
 | --- | --- |
 | name | Unique identifier matching the associated tab. |
 | selected | If true, the panel is selected by default. |
+
+| Slot | Description |
+| --- | --- |
+| default | The panel content. |

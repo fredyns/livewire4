@@ -366,6 +366,15 @@ public function updatedSearch()
 | disabled | Prevents user interaction with the select. |
 | invalid | Applies error styling to the select. |
 
+| Slot | Description |
+| --- | --- |
+| default | The select options. Should contain `flux:select.option` components. |
+| input | Custom search input for combobox variant. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-select | Applied to the root element for styling and identification. |
+
 ### `flux:select.option`
 
 | Prop | Description |
@@ -375,6 +384,10 @@ public function updatedSearch()
 | selected-label | Text content displayed when the option is selected. |
 | disabled | Prevents selecting the option. |
 
+| Slot | Description |
+| --- | --- |
+| default | The option content. Can include text, icons, images, or any custom HTML. |
+
 ### `flux:select.option.create`
 
 | Prop | Description |
@@ -383,11 +396,19 @@ public function updatedSearch()
 | modal | Name of the modal to open when the option is selected. |
 | wire:click | Livewire action to call when the option is selected. |
 
+| Slot | Description |
+| --- | --- |
+| default | The create option content. |
+
 ### `flux:select.option.empty`
 
 | Prop | Description |
 | --- | --- |
 | when-loading | Message displayed when options are loading. |
+
+| Slot | Description |
+| --- | --- |
+| default | Message displayed when no options are found. |
 
 ### `flux:select.button`
 
