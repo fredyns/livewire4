@@ -37,6 +37,8 @@ Display structured data in a condensed, searchable format.
 
 ## Simple
 
+The primary table example above is a full-featured table with sorting, pagination, etc. Here's a clean example of a simple data table that you can use as a simpler starting point.
+
 ```blade
 <flux:table>
     <flux:table.columns>
@@ -76,6 +78,8 @@ Display structured data in a condensed, searchable format.
 
 ## Pagination
 
+Allow users to navigate through different pages of data by passing in any model paginator to the `paginate` prop.
+
 ```blade
 <!-- $orders = \App\Models\Order::paginate(5) -->
 <flux:table :paginate="$orders">
@@ -84,6 +88,8 @@ Display structured data in a condensed, searchable format.
 ```
 
 ## Sortable
+
+Allow users to sort rows by specific columns using a combination of the `sortable`, `sorted`, and `direction` props.
 
 ```blade
 <flux:table>
@@ -98,6 +104,10 @@ Display structured data in a condensed, searchable format.
 
 ## Sticky header
 
+Keep the header visible during vertical scrolling by adding the `sticky` prop to the `table.columns` component.
+
+>Make sure to set a background color on the header row to prevent content overlap.
+
 ```blade
 <!-- Set the height of the table container... -->
 <flux:table container:class="max-h-80">
@@ -109,6 +119,10 @@ Display structured data in a condensed, searchable format.
 ```
 
 ## Sticky columns
+
+Keep important info visible during horizontal scrolling by adding the `sticky` prop to `table.column` and `table.cell` components.
+
+>Make sure to set a background color on columns and cells to prevent content overlap.
 
 ```blade
 <flux:table container:class="max-h-80">
@@ -136,6 +150,10 @@ Display structured data in a condensed, searchable format.
 | paginate | A Laravel paginator instance to enable pagination. |
 | container:class | Additional CSS classes applied to the container. Useful for setting height constraints like max-h-80. |
 
+| Attribute | Description |
+| --- | --- |
+| data-flux-table | Applied to the root element for styling and identification. |
+
 | Slot | Description |
 | --- | --- |
 | default | The table columns and rows. |
@@ -148,7 +166,7 @@ Display structured data in a condensed, searchable format.
 
 | Slot | Description |
 | --- | --- |
-| default | The table column headers. |
+| default | The table columns. |
 
 ### `flux:table.column`
 
@@ -175,6 +193,11 @@ Display structured data in a condensed, searchable format.
 | Slot | Description |
 | --- | --- |
 | default | The table cells for this row. |
+
+| Prop | Description |
+| --- | --- |
+| key | An alias for wire:key: the unique identifier for the row. |
+| sticky | When present, makes the row sticky when scrolling. |
 
 ### `flux:table.cell`
 

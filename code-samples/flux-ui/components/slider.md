@@ -6,17 +6,23 @@ Select a value using a horizontal slider control.
 
 ## Basic Example
 
+Bind the slider value to a Livewire property using `wire:model`.
+
 ```blade
 <flux:slider wire:model="amount" />
 ```
 
 ## Min/max/step
 
+Use the `min`, `max` and `step` props to configure the slider.
+
 ```blade
 <flux:slider min="0" max="100" step="10" />
 ```
 
 ## Displaying value
+
+To display the current value, add an element with a `wire:text` directive.
 
 ```blade
 <flux:field>
@@ -32,6 +38,8 @@ Select a value using a horizontal slider control.
 
 ## With input
 
+To display an input next to the slider and ensure accessibility, wrap both inside `flux:field`.
+
 ```blade
 <flux:field>
     <flux:label>Corner radius</flux:label>
@@ -44,11 +52,15 @@ Select a value using a horizontal slider control.
 
 ## Big steps
 
+Use the `big-step` prop to define a step size that will be be used when pressing the arrow keys while holding the shift key.
+
 ```blade
 <flux:slider step="1" big-step="10" />
 ```
 
 ## Step marks
+
+Display ticks below the slider to visualize the steps.
 
 ```blade
 <flux:slider min="1" max="5">
@@ -60,6 +72,8 @@ Select a value using a horizontal slider control.
 
 ## Numbered steps
 
+Display numbers below the slider to visualize the steps.
+
 ```blade
 <flux:slider min="1" max="5">
     @foreach (range(1, 5) as $i)
@@ -69,6 +83,8 @@ Select a value using a horizontal slider control.
 ```
 
 ## Custom steps
+
+Display custom labels for specified steps.
 
 ```blade
 <flux:slider min="1" max="5">
@@ -80,19 +96,27 @@ Select a value using a horizontal slider control.
 
 ## Range slider
 
+Select a range of values using two slider thumbs.
+
 ```blade
 <flux:slider range />
 ```
 
 ## Basic usage
 
+Set the initial range using the `value` prop with comma separated values:
+
 ```blade
 <flux:slider range value="20,80" />
 ```
 
+You can also bind the values to a Livewire property using `wire:model`:
+
 ```blade
 <flux:slider range wire:model="range" />
 ```
+
+Now you can access the values from your Livewire component using an array of values:
 
 ```blade
 <?php use Livewire\Component;
@@ -103,9 +127,13 @@ class Dashboard extends Component
 }
 ```
 
+Use `min-steps-between` to set the minimum distance between thumbs. The value is defined in number of steps, where the size of each step is determined by the `step` attribute.
+
 ```blade
 <flux:slider range step="1" min-steps-between="10" />
 ```
+
+To display the selected range, add two elements with a `wire:text` directive.
 
 ```blade
 <div class="relative">
@@ -122,6 +150,8 @@ class Dashboard extends Component
 ```
 
 ## Custom styles
+
+Customize the styles of the slider using the `track:class` and `thumb:class` props.
 
 ```blade
 <flux:slider track:class="h-5" thumb:class="size-5" />

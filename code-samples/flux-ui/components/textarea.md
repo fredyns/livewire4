@@ -24,6 +24,10 @@ Capture multi-line text input from users. Ideal for comments, descriptions, and 
 
 ## Auto-sizing textarea
 
+Using CSS's new `field-sizing` property, the textarea will automatically adjust its height to fit the content by passing in the `rows="auto"` prop.
+
+>This feature is not available in all web browsers. Visit [caniuse.com] to see which browsers support this feature.
+
 ```blade
 <flux:textarea rows="auto" />
 ```

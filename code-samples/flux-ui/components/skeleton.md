@@ -2,6 +2,8 @@
 
 Source: https://fluxui.dev/components/skeleton
 
+Create placeholder content while loading data.
+
 ## Basic Example
 
 ```blade
@@ -28,6 +30,10 @@ Source: https://fluxui.dev/components/skeleton
 ```
 
 ## Examples
+
+Here are some examples of different ways you can use the skeleton component.
+
+### Table
 
 ```blade
 <flux:skeleton.group animate="shimmer">
@@ -69,6 +75,10 @@ Source: https://fluxui.dev/components/skeleton
     </flux:table>
 </flux:skeleton.group>
 ```
+
+### Chart
+
+Use the skeleton component to create a loading state for a chart.
 
 ```blade
 <flux:card class="dark:bg-zinc-800">

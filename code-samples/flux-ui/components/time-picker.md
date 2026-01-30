@@ -41,6 +41,8 @@ Allow users to select specific times for scheduling events or setting appointmen
 
 ## Interval
 
+You can set the interval between the displayed time options by setting the interval attribute to a number of minutes. The default is 30 minutes.
+
 ```blade
 <flux:time-picker interval="60" />
 ```
@@ -66,6 +68,8 @@ Allow users to select specific times for scheduling events or setting appointmen
 ```
 
 ## Open to
+
+Set the time that the time picker will open to. Otherwise, the time picker defaults to the selected time, or the current time.
 
 ```blade
 <flux:time-picker open-to="10:00" />

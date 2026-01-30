@@ -4,10 +4,71 @@ Source: https://fluxui.dev/components/toast
 
 A message that provides feedback to users about an action or event, often temporary and dismissible.
 
-## Basic Example
+To use the Toast component from Livewire, you must include it somewhere on the page; often in your layout file:
 
 ```blade
-Flux::toast(text: 'Changes saved.');
+<body>
+    <!-- ... -->
+
+    <flux:toast />
+</body>
+```
+
+If you are using `wire:navigate` to navigate between pages, you may want to persist the toast component so that toast messages don't suddenly disappear when navigating away from the page.
+
+```blade
+<body>
+    <!-- ... -->
+
+    @persist('toast')
+        <flux:toast />
+    @endpersist
+</body>
+```
+
+Once the toast component is present on the page, you can use the `Flux::toast()` method to trigger a toast message from your Livewire components:
+
+```php
+<?php
+
+namespace App\Livewire;
+
+use Livewire\Component;
+use Flux\Flux;
+
+class EditPost extends Component
+{
+    public function save()
+    {
+        // ...
+
+        Flux::toast('Your changes have been saved.');
+    }
+}
+```
+
+You can also trigger a toast from Alpine directly using Flux's magic methods:
+
+```blade
+<button x-on:click="$flux.toast('Your changes have been saved.')">
+    Save changes
+</button>
+```
+
+## Basic Example
+
+Both $flux and window.Flux support the following method parameter signatures:
+
+```blade
+Flux.toast('Your changes have been saved.')
+
+// Or...
+
+Flux.toast({
+    heading: 'Changes saved',
+    text: 'Your changes have been saved.',
+    variant: 'success',
+})
 ```
 
 ## With heading
@@ -28,6 +89,8 @@ Flux::toast(variant: 'danger', ...);
 ```
 
 ## Positioning
+
+By default, the toast will appear in the bottom right corner of the page. You can customize this position using the `position` prop.
 
 ```blade
 <flux:toast position="top end" />
@@ -52,11 +115,15 @@ Flux::toast(duration: 0, ...);
 
 ## Stack
 
+To show a stack of toasts, you can wrap the `flux:toast` component in a `flux:toast.group` component. By default, toasts in a stack overlap and expand on hover to show each toast vertically.
+
 ```blade
 <flux:toast.group>
     <flux:toast />
 </flux:toast.group>
 ```
+
+Use the `expanded` prop to always show the toast stack in an expanded state, making all toasts visible at once.
 
 ```blade
 <flux:toast.group expanded>
@@ -103,6 +170,21 @@ Flux::toast(duration: 0, ...);
 | duration | Duration in milliseconds. Use 0 for permanent toasts. Default: 5000. |
 
 ### `$flux.toast()`
+
+The Alpine.js magic method used to trigger toasts from Alpine components. It can be used in two ways:
+
+```js
+// Simple usage with just a message...
+$flux.toast('Your changes have been saved')
+
+// Advanced usage with full configuration...
+$flux.toast({
+    heading: 'Success!',
+    text: 'Your changes have been saved',
+    variant: 'success',
+    duration: 3000
+})
+```
 
 | Parameter | Description |
 | --- | --- |

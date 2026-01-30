@@ -4,12 +4,20 @@ Source: https://fluxui.dev/components/tooltip
 
 Provide additional information when users hover over or focus on an element.
 
+>Because tooltips rely on hover states, touch devices like mobile phones often don't show them. Therefore, it is recommended that you convey essential information via the UI rather than relying on a tooltip for mobile users.
+
 ## Basic Example
 
 ```blade
 <flux:tooltip content="Settings">
     <flux:button icon="cog-6-tooth" icon:variant="outline" />
 </flux:tooltip>
+```
+
+As a shorthand, you can pass a tooltip prop into a button component directly.
+
+```blade
+<flux:button tooltip="Settings" ... />
 ```
 
 ## Info tooltip
@@ -48,6 +56,8 @@ Provide additional information when users hover over or focus on an element.
 ```
 
 ## Disabled buttons
+
+By default, tooltips on disabled buttons won't be triggered because pointer events are disabled as well. However, as a workaround, you can target a wrapping element instead of the button directly.
 
 ```blade
 <flux:tooltip content="Cannot merge until reviewed by a team member">

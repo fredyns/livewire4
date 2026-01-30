@@ -46,6 +46,8 @@ Organize content into separate panels within a single container. Easily switch b
 
 ## Scrollable tabs
 
+If your tabs extend beyond the viewport, especially on mobile devices, you should make them `scrollable` to prevent horizontal overflow.
+
 ```blade
 <flux:tab.group>
     <flux:tabs scrollable>
@@ -66,6 +68,12 @@ Organize content into separate panels within a single container. Easily switch b
     <flux:tab.panel name="api">...</flux:tab.panel>
 </flux:tab.group>
 ```
+
+>You can hide the scrollbar by addding `scrollable:scrollbar="hide"`. Note that this will also hide it on desktop, where users may rely on it for horizontal scrolling.
+
+### Fade effect
+
+Use `scrollable:fade` to add a fade effect to the trailing edge. This visual cue indicates that additional tabs are available beyond the visible area.
 
 ```blade
 <flux:tab.group>
@@ -89,6 +97,8 @@ Organize content into separate panels within a single container. Easily switch b
 ```
 
 ## Segmented tabs
+
+Tab through content with visually separated, button-like tabs. Ideal for toggling between views inside a container with a constrained width.
 
 ```blade
 <flux:tabs variant="segmented">
@@ -128,6 +138,8 @@ Organize content into separate panels within a single container. Easily switch b
 ```
 
 ## Dynamic tabs
+
+If you need, you can dynamically generate additional tabs and panels in your Livewire component. Just make sure you use matching names for the new tabs and panels.
 
 ```blade
 <flux:tab.group>
@@ -180,6 +192,10 @@ public function addTab(): void
 | --- | --- |
 | default | The tab items. Should contain `flux:tab` components. |
 
+| Attribute | Description |
+| --- | --- |
+| data-flux-tabs | Applied to the root element for styling and identification. |
+
 ### `flux:tab`
 
 | Prop | Description |
@@ -198,6 +214,11 @@ public function addTab(): void
 | --- | --- |
 | default | The tab label content. |
 
+| Attribute | Description |
+| --- | --- |
+| data-flux-tab | Applied to the tab element for styling and identification. |
+| data-selected | Applied when the tab is selected/active. |
+
 ### `flux:tab.panel`
 
 | Prop | Description |
@@ -208,3 +229,7 @@ public function addTab(): void
 | Slot | Description |
 | --- | --- |
 | default | The panel content. |
+
+| Attribute | Description |
+| --- | --- |
+| data-flux-tab-panel | Applied to the panel element for styling and identification. |
