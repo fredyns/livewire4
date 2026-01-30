@@ -4,6 +4,8 @@ Source: https://fluxui.dev/components/chart
 
 Flux's Chart component is a lightweight, zero-dependency tool for building charts in your Livewire applications. It is designed to be simple but extremely flexible, so that you can assemble and style your charts exactly as you need them.
 
+>Currently, Flux supports line and area charts. Additional chart types are planned for future releases.
+
 ## Basic Example
 
 ```blade
