@@ -1,21 +1,19 @@
-﻿# Textarea
+# Textarea
 
 Source: https://fluxui.dev/components/textarea
 
-## Main
+Capture multi-line text input from users. Ideal for comments, descriptions, and feedback.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:textarea</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span>
+<flux:textarea />
 ```
-
 
 ## With placeholder
 
 ```blade
-<flux:textarea
-    label="Order notes"
-    placeholder="No lettuce, tomato, or onion..."
-/>
+<flux:textarea label="Order notes" placeholder="No lettuce, tomato, or onion..." />
 ```
 
 ## Fixed row height
@@ -45,12 +43,12 @@ Source: https://fluxui.dev/components/textarea
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Binds to a Livewire property. |
-| `placeholder` | Placeholder text. |
-| `label` | Label text. When set, wraps in a `flux:field` with an adjacent `flux:label`. |
-| `description` | Help text used with `label` inside the `flux:field` wrapper. |
-| `description:trailing` | Show description below the textarea instead of above it. |
-| `badge` | Badge text displayed at the end of the label. |
-| `rows` | Number of visible lines. Use `auto` for automatic height. Default: `4`. |
-| `resize` | Options: `vertical` (default), `horizontal`, `both`, `none`. |
-| `invalid` | Apply error styling. |
+| wire:model | Binds the textarea to a Livewire property. See the wire:model documentation for more information. |
+| placeholder | Placeholder text displayed when the textarea is empty. |
+| label | Label text displayed above the textarea. When provided, wraps the textarea in a flux:field component with an adjacent flux:label component. See the field component. |
+| description | Help text displayed below the textarea. When provided alongside label, appears between the label and textarea within the flux:field wrapper. See the field component. |
+| description:trailing | The description provided will be displayed below the textarea instead of above it. |
+| badge | Badge text displayed at the end of the flux:label component when the label prop is provided. |
+| rows | Number of visible text lines. Use "auto" for automatic height adjustment. Default: 4. |
+| resize | Control how the textarea can be resized. Options: vertical (default), horizontal, both, none. |
+| invalid | If true, applies error styling to the textarea. |

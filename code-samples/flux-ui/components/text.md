@@ -1,13 +1,15 @@
-﻿# Text
+# Text
 
 Source: https://fluxui.dev/components/text
 
-## Main
+Consistent typographical components like text and link.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:heading</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Text component</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:heading</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:text</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> class</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"mt-2"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">This is the standard text component for body copy and general content throughout your application.</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:text</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
+<flux:heading>Text component</flux:heading>
+<flux:text class="mt-2">This is the standard text component for body copy and general content throughout your application.</flux:text>
 ```
-
 
 ## Size
 
@@ -29,9 +31,7 @@ Source: https://fluxui.dev/components/text
 ## Link
 
 ```blade
-<flux:text>
-    Visit our <flux:link href="#">documentation</flux:link> for more information.
-</flux:text>
+<flux:text>Visit our <flux:link href="#">documentation</flux:link> for more information.</flux:text>
 ```
 
 ## Link variants
@@ -45,7 +45,7 @@ Source: https://fluxui.dev/components/text
 ## Link as button
 
 ```blade
-<flux:link as="button" wire:click="...">Create new account â†’</flux:link>
+<flux:link as="button" wire:click="...">Create new account →</flux:link>
 ```
 
 ## Reference
@@ -54,16 +54,16 @@ Source: https://fluxui.dev/components/text
 
 | Prop | Description |
 | --- | --- |
-| `size` | Options: `sm`, `default`, `lg`, `xl`. Default: `default`. |
-| `variant` | Options: `strong`, `subtle`. Default: `default`. |
-| `color` | Options: `default`, `red`, `orange`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`. Default: `default`. |
-| `inline` | If `true`, renders as `span` instead of `p`. |
+| size | Size of the text. Options: sm, default, lg, xl. Default: default. |
+| variant | Text variant. Options: strong, subtle. Default: default. |
+| color | Color of the text. Options: default, red, orange, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose. Default: default. |
+| inline | If true, the text element will be a span instead of a p. |
 
 ### `flux:link`
 
 | Prop | Description |
 | --- | --- |
-| `href` | URL the link points to. Required. |
-| `variant` | Options: `default`, `ghost`, `subtle`. Default: `default`. |
-| `external` | If `true`, opens in a new tab. |
-| `as` | Options: `a` (default), `button`. |
+| href | The URL that the link points to. Required. |
+| variant | Link style variant. Options: default, ghost, subtle. Default: default. |
+| external | If true, the link will open in a new tab. |
+| as | The HTML tag to render the link as. Options: a (default), button. |

@@ -1,13 +1,14 @@
-﻿# Toast - PRO
+# Toast - PRO
 
 Source: https://fluxui.dev/components/toast
 
-## Main
+A message that provides feedback to users about an action or event, often temporary and dismissible.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">body</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#8E908C;--shiki-light-font-style:italic;--shiki-dark:#8E908C;--shiki-dark-font-style:italic">    <!-- ... --></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:toast</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">body</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
+Flux::toast(text: 'Changes saved.');
 ```
-
 
 ## With heading
 
@@ -75,27 +76,27 @@ Flux::toast(duration: 0, ...);
 
 | Prop | Description |
 | --- | --- |
-| `position` | Options: `bottom end` (default), `bottom center`, `bottom start`, `top end`, `top center`, `top start`. |
+| position | Position of the toast on the screen. Options: bottom end (default), bottom center, bottom start, top end, top center, top start. |
 
 ### `flux:toast.group`
 
 | Prop | Description |
 | --- | --- |
-| `position` | Options: `bottom end` (default), `bottom center`, `bottom start`, `top end`, `top center`, `top start`. |
-| `expanded` | If `true`, always expands the stack. Default: `false`. |
+| position | Position of the toast group on the screen. Options: bottom end (default), bottom center, bottom start, top end, top center, top start. |
+| expanded | If true, always shows the toast stack in an expanded state, making all toasts visible at once. Default: false. |
 
 ### `Flux::toast()`
 
 | Parameter | Description |
 | --- | --- |
-| `heading` | Optional heading text. |
-| `text` | Main toast text. |
-| `variant` | Options: `success`, `warning`, `danger`. |
-| `duration` | Milliseconds. Use `0` for permanent. Default: `5000`. |
+| heading | Optional heading text for the toast. |
+| text | Main content text of the toast. |
+| variant | Visual style. Options: success, warning, danger. |
+| duration | Duration in milliseconds. Use 0 for permanent toasts. Default: 5000. |
 
 ### `$flux.toast()`
 
 | Parameter | Description |
 | --- | --- |
-| `message` | Shorthand: toast body text. |
-| `options` | Object containing `heading`, `text`, `variant`, `duration`. |
+| message | A string containing the toast message. When using this simple form, the message becomes the toast's text content. |
+| options | Alternatively, an object containing: - heading: Optional title text - text: Main message text - variant: Visual style (success, warning, danger) - duration: Display time in milliseconds |

@@ -1,13 +1,14 @@
-﻿# Profile
+# Profile
 
 Source: https://fluxui.dev/components/profile
 
-## Main
+Display a user's profile with an avatar and optional name in a compact, interactive component.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:profile</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> avatar</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"https://unavatar.io/x/calebporzio"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span>
+<flux:profile avatar="https://unavatar.io/x/calebporzio" />
 ```
-
 
 ## With name
 
@@ -47,11 +48,7 @@ Source: https://fluxui.dev/components/profile
 ## Custom trailing icon
 
 ```blade
-<flux:profile
-    icon:trailing="chevron-up-down"
-    avatar="https://unavatar.io/x/calebporzio"
-    name="Caleb Porzio"
-/>
+<flux:profile icon:trailing="chevron-up-down" avatar="https://unavatar.io/x/calebporzio" name="Caleb Porzio" />
 ```
 
 ## Examples
@@ -59,29 +56,21 @@ Source: https://fluxui.dev/components/profile
 ```blade
 <flux:dropdown align="end">
     <flux:profile avatar="https://unavatar.io/x/calebporzio" />
-
     <flux:navmenu class="max-w-[12rem]">
         <div class="px-2 py-1.5">
             <flux:text size="sm">Signed in as</flux:text>
             <flux:heading class="mt-1! truncate">caleb@example.com</flux:heading>
         </div>
-
         <flux:navmenu.separator />
-
         <div class="px-2 py-1.5">
             <flux:text size="sm" class="pl-7">Teams</flux:text>
         </div>
-
         <flux:navmenu.item href="#" icon="check" class="text-zinc-800 dark:text-white truncate">Personal</flux:navmenu.item>
         <flux:navmenu.item href="#" indent class="text-zinc-800 dark:text-white truncate">Wireable LLC</flux:navmenu.item>
-
         <flux:navmenu.separator />
-
         <flux:navmenu.item href="/dashboard" icon="key" class="text-zinc-800 dark:text-white">Licenses</flux:navmenu.item>
         <flux:navmenu.item href="/account" icon="user" class="text-zinc-800 dark:text-white">Account</flux:navmenu.item>
-
         <flux:navmenu.separator />
-
         <flux:navmenu.item href="/logout" icon="arrow-right-start-on-rectangle" class="text-zinc-800 dark:text-white">Logout</flux:navmenu.item>
     </flux:navmenu>
 </flux:dropdown>
@@ -90,16 +79,13 @@ Source: https://fluxui.dev/components/profile
 ```blade
 <flux:dropdown position="top" align="start">
     <flux:profile avatar="https://unavatar.io/x/calebporzio" name="Caleb Porzio" />
-
     <flux:menu>
         <flux:menu.radio.group>
             <flux:menu.radio checked>Caleb Porzio</flux:menu.radio>
             <flux:menu.radio>Hugo Sainte-Marie</flux:menu.radio>
             <flux:menu.radio>Josh Hanley</flux:menu.radio>
         </flux:menu.radio.group>
-
         <flux:menu.separator />
-
         <flux:menu.item icon="arrow-right-start-on-rectangle">Logout</flux:menu.item>
     </flux:menu>
 </flux:dropdown>
@@ -111,12 +97,12 @@ Source: https://fluxui.dev/components/profile
 
 | Prop | Description |
 | --- | --- |
-| `name` | User name displayed next to avatar. |
-| `avatar` | Avatar image URL (or provide via `avatar` slot). |
-| `avatar:name` | Name used for avatar initials generation. |
-| `avatar:color` | Color for avatar (see Avatar color options). |
-| `circle` | Circular avatar. Default: `false`. |
-| `initials` | Initials when no avatar image (auto from name if omitted). |
-| `chevron` | Show chevron dropdown indicator. Default: `true`. |
-| `icon:trailing` | Custom trailing icon instead of chevron. |
-| `icon:variant` | Trailing icon variant. Options: `micro` (default), `outline`. |
+| name | User's name to display next to the avatar. |
+| avatar | URL to the image to display as avatar, or can pass content via avatar named slot. |
+| avatar:name | Name to use for avatar initial generation. |
+| avatar:color | Color to use for the avatar. (See Avatar color documentation for available options.) |
+| circle | Whether to display a circular avatar. Default: false. |
+| initials | Custom initials to display when no avatar image is provided. Automatically generated from name if not provided. |
+| chevron | Whether to display a chevron icon (dropdown indicator). Default: true. |
+| icon:trailing | Custom icon to display instead of the chevron. Accepts any icon name. |
+| icon:variant | Icon variant to use for the trailing icon. Options: micro (default), outline. |

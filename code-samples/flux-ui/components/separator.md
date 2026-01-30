@@ -1,13 +1,14 @@
-﻿# Separator
+# Separator
 
 Source: https://fluxui.dev/components/separator
 
-## Main
+Visually divide sections of content or groups of items.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:separator</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span>
+<flux:separator />
 ```
-
 
 ## With text
 
@@ -39,7 +40,7 @@ Source: https://fluxui.dev/components/separator
 
 | Prop | Description |
 | --- | --- |
-| `vertical` | Vertical separator (default is horizontal). |
-| `variant` | Options: `subtle` (default is standard). |
-| `text` | Optional centered text. |
-| `orientation` | Alternative to `vertical`. Options: `horizontal`, `vertical`. Default: `horizontal`. |
+| vertical | Displays a vertical separator. Default is horizontal. |
+| variant | Visual style variant. Options: subtle. Default: standard separator. |
+| text | Optional text to display in the center of the separator. |
+| orientation | Alternative to vertical prop. Options: horizontal, vertical. Default: horizontal. |

@@ -1,39 +1,26 @@
-﻿# Radio
+# Radio
 
 Source: https://fluxui.dev/components/radio
 
-## Main
+Select one option from a set of mutually exclusive choices. Perfect for single-choice questions and settings.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:radio.group</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> wire:model</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"payment"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> label</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Select your payment method"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:radio</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"cc"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> label</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Credit Card"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> checked</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:radio</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"paypal"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> label</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Paypal"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:radio</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> value</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"ach"</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> label</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"Bank transfer"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"> /></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:radio.group</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
+<flux:radio.group wire:model="payment" label="Select your payment method">
+    <flux:radio value="cc" label="Credit Card" checked />
+    <flux:radio value="paypal" label="Paypal" />
+    <flux:radio value="ach" label="Bank transfer" />
+</flux:radio.group>
 ```
-
 
 ## With descriptions
 
 ```blade
 <flux:radio.group label="Role">
-    <flux:radio
-        name="role"
-        value="administrator"
-        label="Administrator"
-        description="Administrator users can perform any action."
-        checked
-    />
-
-    <flux:radio
-        name="role"
-        value="editor"
-        label="Editor"
-        description="Editor users have the ability to read, create, and update."
-    />
-
-    <flux:radio
-        name="role"
-        value="viewer"
-        label="Viewer"
-        description="Viewer users only have the ability to read. Create, and update are restricted."
-    />
+    <flux:radio name="role" value="administrator" label="Administrator" description="Administrator users can perform any action." checked />
+    <flux:radio name="role" value="editor" label="Editor" description="Editor users have the ability to read, create, and update." />
+    <flux:radio name="role" value="viewer" label="Viewer" description="Viewer users only have the ability to read. Create, and update are restricted." />
 </flux:radio.group>
 ```
 
@@ -42,26 +29,10 @@ Source: https://fluxui.dev/components/radio
 ```blade
 <flux:fieldset>
     <flux:legend>Role</flux:legend>
-
     <flux:radio.group>
-        <flux:radio
-            value="administrator"
-            label="Administrator"
-            description="Administrator users can perform any action."
-            checked
-        />
-
-        <flux:radio
-            value="editor"
-            label="Editor"
-            description="Editor users have the ability to read, create, and update."
-        />
-
-        <flux:radio
-            value="viewer"
-            label="Viewer"
-            description="Viewer users only have the ability to read. Create, and update are restricted."
-        />
+        <flux:radio value="administrator" label="Administrator" description="Administrator users can perform any action." checked />
+        <flux:radio value="editor" label="Editor" description="Editor users have the ability to read, create, and update." />
+        <flux:radio value="viewer" label="Viewer" description="Viewer users only have the ability to read. Create, and update are restricted." />
     </flux:radio.group>
 </flux:fieldset>
 ```
@@ -151,7 +122,6 @@ Source: https://fluxui.dev/components/radio
             <flux:text size="sm" class="mt-2">4-10 business days</flux:text>
         </div>
     </flux:radio>
-
     <flux:radio value="fast">
         <flux:radio.indicator />
         <div class="flex-1">
@@ -159,7 +129,6 @@ Source: https://fluxui.dev/components/radio
             <flux:text size="sm" class="mt-2">2-5 business days</flux:text>
         </div>
     </flux:radio>
-
     <flux:radio value="next-day">
         <flux:radio.indicator />
         <div class="flex-1">
@@ -197,19 +166,19 @@ Source: https://fluxui.dev/components/radio
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Binds the selection to a Livewire property. |
-| `label` | Label text displayed above the group (wraps in `flux:field` + `flux:label`). |
-| `description` | Help text between label and group. |
-| `variant` | Options: `default`, `segmented`, `cards`, `pills`, `buttons`. |
-| `invalid` | Error styling. |
+| wire:model | Binds the radio group selection to a Livewire property. See the wire:model documentation for more information. |
+| label | Label text displayed above the radio group. When provided, wraps the radio group in a flux:field component with an adjacent flux:label component. See the field component. |
+| description | Help text displayed below the radio group. When provided alongside label, appears between the label and radio group within the flux:field wrapper. See the field component. |
+| variant | Visual style of the group. Options: default, segmented, cards, pills, buttons. |
+| invalid | Applies error styling to the radio group. |
 
 ### `flux:radio`
 
 | Prop | Description |
 | --- | --- |
-| `label` | Label text for the radio (wraps in `flux:field` + `flux:label`). |
-| `description` | Help text for the radio. |
-| `value` | Value when used in a group. |
-| `checked` | Selected by default. |
-| `disabled` | Disables interaction. |
-| `icon` | Icon name (for segmented variant). |
+| label | Label text displayed above the radio button. When provided, wraps the radio button in a flux:field component with an adjacent flux:label component. See the field component. |
+| description | Help text displayed below the radio button. When provided alongside label, appears between the label and radio button within the flux:field wrapper. See the field component. |
+| value | Value associated with the radio button when used in a group. |
+| checked | If true, the radio button is selected by default. |
+| disabled | Prevents user interaction with the radio button. |
+| icon | Name of the icon to display (for segmented variant). |

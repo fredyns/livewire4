@@ -1,13 +1,23 @@
-﻿# Tabs - PRO
+# Tabs - PRO
 
 Source: https://fluxui.dev/components/tabs
 
-## Main
+Organize content into separate panels within a single container. Easily switch between sections without leaving the page.
+
+## Basic Example
 
 ```blade
-<span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"><</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab.group</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tabs</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> wire:model</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"tab"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"profile"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Profile</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"account"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Account</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">        <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"billing"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">Billing</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    </</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tabs</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab.panel</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"profile"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">...</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab.panel</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab.panel</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"account"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">...</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab.panel</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF">    <</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab.panel</span><span style="color:#D050A3;--shiki-dark:#75FFC7"> name</span><span style="color:#88DDFF;--shiki-dark:#88DDFF">=</span><span style="color:#0EB0A9;--shiki-dark:#FF9BDE">"billing"</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span><span style="color:#424258;--shiki-dark:#EEFFFF">...</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab.panel</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span><span class="line"><span style="color:#3B9FEC;--shiki-dark:#88DDFF"></</span><span style="color:#157FD2;--shiki-dark:#81E6FF">flux:tab.group</span><span style="color:#3B9FEC;--shiki-dark:#88DDFF">></span></span>
+<flux:tab.group>
+    <flux:tabs>
+        <flux:tab name="profile">Profile</flux:tab>
+        <flux:tab name="account">Account</flux:tab>
+        <flux:tab name="billing">Billing</flux:tab>
+    </flux:tabs>
+    <flux:tab.panel name="profile">Profile content</flux:tab.panel>
+    <flux:tab.panel name="account">Account content</flux:tab.panel>
+    <flux:tab.panel name="billing">Billing content</flux:tab.panel>
+</flux:tab.group>
 ```
-
 
 ## With icons
 
@@ -18,7 +28,6 @@ Source: https://fluxui.dev/components/tabs
         <flux:tab name="account" icon="cog-6-tooth">Account</flux:tab>
         <flux:tab name="billing" icon="banknotes">Billing</flux:tab>
     </flux:tabs>
-
     <flux:tab.panel name="profile">...</flux:tab.panel>
     <flux:tab.panel name="account">...</flux:tab.panel>
     <flux:tab.panel name="billing">...</flux:tab.panel>
@@ -48,7 +57,6 @@ Source: https://fluxui.dev/components/tabs
         <flux:tab name="integrations">Integrations</flux:tab>
         <flux:tab name="api">API</flux:tab>
     </flux:tabs>
-
     <flux:tab.panel name="profile">...</flux:tab.panel>
     <flux:tab.panel name="account">...</flux:tab.panel>
     <flux:tab.panel name="billing">...</flux:tab.panel>
@@ -70,7 +78,6 @@ Source: https://fluxui.dev/components/tabs
         <flux:tab name="integrations">Integrations</flux:tab>
         <flux:tab name="api">API</flux:tab>
     </flux:tabs>
-
     <flux:tab.panel name="profile">...</flux:tab.panel>
     <flux:tab.panel name="account">...</flux:tab.panel>
     <flux:tab.panel name="billing">...</flux:tab.panel>
@@ -128,16 +135,26 @@ Source: https://fluxui.dev/components/tabs
         @foreach($tabs as $id => $tab)
             <flux:tab :name="$id">{{ $tab }}</flux:tab>
         @endforeach
-
         <flux:tab icon="plus" wire:click="addTab" action>Add tab</flux:tab>
     </flux:tabs>
-
     @foreach($tabs as $id => $tab)
         <flux:tab.panel :name="$id">
             <!-- ... -->
         </flux:tab.panel>
     @endforeach
 </flux:tab.group>
+
+<!-- Livewire component example code...
+public array $tabs = [
+    'tab-1' => 'Tab #1',
+    'tab-2' => 'Tab #2',
+];
+
+public function addTab(): void
+{
+    $id = 'tab-' . str()->random();
+    $this->tabs[$id] = 'Tab #' . count($this->tabs) + 1;
+} -->
 ```
 
 ## Reference
@@ -146,36 +163,36 @@ Source: https://fluxui.dev/components/tabs
 
 | Slot | Description |
 | --- | --- |
-| `default` | The tabs and panels. |
+| default | The tabs and panels components. |
 
 ### `flux:tabs`
 
 | Prop | Description |
 | --- | --- |
-| `wire:model` | Bind the active tab to a Livewire property. |
-| `variant` | Options: `default`, `segmented`, `pills`. |
-| `size` | Options: `base` (default), `sm`. |
-| `scrollable` | Enables horizontal scrolling. |
-| `scrollable:scrollbar` | Options: `hide`. |
-| `scrollable:fade` | Adds a fade effect to the trailing edge. |
+| wire:model | Binds the active tab to a Livewire property. See wire:model documentation |
+| variant | Visual style of the tabs. Options: default, segmented, pills. |
+| size | Size of the tabs. Options: base (default), sm. |
+| scrollable | Enables horizontal scrolling. |
+| scrollable:scrollbar | Controls scrollbar visibility when tabs are scrollable. Options: hide. |
+| scrollable:fade | Adds a fade effect to the trailing edge when tabs are scrollable. |
 
 ### `flux:tab`
 
 | Prop | Description |
 | --- | --- |
-| `name` | Unique identifier used to match a panel. |
-| `icon` | Leading icon name. |
-| `icon:trailing` | Trailing icon name. |
-| `icon:variant` | Options: `outline`, `solid`, `mini`, `micro`. |
-| `selected` | Select by default. |
-| `action` | Make tab behave like an action button. |
-| `accent` | Apply accent styling. |
-| `size` | Only when `variant="segmented"`. Options: `base` (default), `sm`. |
-| `disabled` | Disable the tab. |
+| name | Unique identifier for the tab, used to match with its panel. |
+| icon | Name of the icon to display at the start of the tab. |
+| icon:trailing | Name of the icon to display at the end of the tab. |
+| icon:variant | Variant of the icon. Options: outline, solid, mini, micro. |
+| selected | If true, the tab is selected by default. |
+| action | Converts the tab to an action button (used for "Add tab" functionality). |
+| accent | If true, applies accent color styling to the tab. |
+| size | Size of the tab (only applies when variant="segmented"). Options: base (default), sm. |
+| disabled | Disables the tab. |
 
 ### `flux:tab.panel`
 
 | Prop | Description |
 | --- | --- |
-| `name` | Unique identifier matching its tab. |
-| `selected` | Select by default. |
+| name | Unique identifier matching the associated tab. |
+| selected | If true, the panel is selected by default. |
