@@ -23,6 +23,7 @@ yarn-error.log
 /.zed
 
 /.private
+/tmp
 docker-compose.yaml
 *.bak
 *.bkp
