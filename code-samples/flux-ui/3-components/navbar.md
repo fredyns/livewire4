@@ -15,7 +15,7 @@ Arrange navigation links vertically or horizontally.
 </flux:navbar>
 ```
 
->Discover more about the navbar on the [layout documentation](../layouts/sidebar.md)
+>Discover more about the navbar on the [layout documentation](../2-layouts/sidebar.md)
 
 ## Detecting the current page
 
