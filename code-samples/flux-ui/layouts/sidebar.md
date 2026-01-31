@@ -2,7 +2,9 @@
 
 Source: https://fluxui.dev/layouts/sidebar
 
-## Main
+Use a sidebar navigation layout to keep your application content front and center.
+
+## Basic Example
 
 ```blade
 <head>
@@ -93,6 +95,8 @@ Source: https://fluxui.dev/layouts/sidebar
 ```
 
 ## Secondary header
+
+Use a top header for secondary navigation.
 
 ```blade
 <head>
@@ -193,6 +197,8 @@ Source: https://fluxui.dev/layouts/sidebar
 
 ## Collapsible sidebar
 
+Make your app feel more spacious with a collapsible sidebar.
+
 ```blade
 <head>
     <!-- ... -->
@@ -291,11 +297,23 @@ Source: https://fluxui.dev/layouts/sidebar
 | `stashable` | Deprecated. Use `collapsible="mobile"` instead. When present, allows the sidebar to be toggled on/off on smaller screens. |
 | `persist` | Controls whether the collapsed state is saved to localStorage. Defaults to `true` (desktop collapsed state persists across sessions). Set to `false` to disable persistence. |
 
+| Slot | Description |
+| --- | --- |
+| `default` | Content to display within the sidebar, typically including header, navigation, and footer sections. |
+
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the sidebar. Common uses: bg-zinc-50, border-r, etc. |
+
 ### `flux:sidebar.header`
 
 | Slot | Description |
 | --- | --- |
 | `default` | Content for the sidebar header, typically containing brand and collapse button. |
+
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the header container. |
 
 ### `flux:sidebar.brand`
 
@@ -306,6 +324,10 @@ Source: https://fluxui.dev/layouts/sidebar
 | `logo:dark` | The URL or path to the logo image for dark mode. |
 | `name` | The brand name to display next to the logo. |
 
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the brand link. |
+
 ### `flux:sidebar.collapse`
 
 | Prop | Description |
@@ -313,17 +335,29 @@ Source: https://fluxui.dev/layouts/sidebar
 | `inset` | Positioning of the collapse button. Space-separated values like `"left"`, `"right"`, `"top"`, `"bottom"`, or combinations like `"left top bottom"`. |
 | `tooltip` | Tooltip text shown on hover. Defaults to `"Toggle sidebar"`. |
 
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the collapse button. |
+
 ### `flux:sidebar.search`
 
 | Prop | Description |
 | --- | --- |
 | `placeholder` | Placeholder text for the search input. |
 
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the search container. |
+
 ### `flux:sidebar.nav`
 
 | Slot | Description |
 | --- | --- |
 | `default` | Navigation items and groups to display. |
+
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the navigation container. |
 
 ### `flux:sidebar.item`
 
@@ -335,6 +369,14 @@ Source: https://fluxui.dev/layouts/sidebar
 | `current` | When present, indicates this is the currently active item. |
 | `tooltip` | Tooltip text shown when sidebar is collapsed. Defaults to the item's text content. |
 
+| Slot | Description |
+| --- | --- |
+| `default` | The text content of the navigation item. |
+
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the item link. |
+
 ### `flux:sidebar.group`
 
 | Prop | Description |
@@ -343,6 +385,14 @@ Source: https://fluxui.dev/layouts/sidebar
 | `expandable` | When present, allows the group to be expanded/collapsed. |
 | `icon` | The icon to display before the group heading instead of the default chevron icon. Groups without an icon specified will be hidden when the sidebar is collapsed. |
 | `expanded` | Controls the initial expanded state. Defaults to `true`. |
+
+| Slot | Description |
+| --- | --- |
+| `default` | The navigation items within this group. |
+
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the group container. |
 
 ### `flux:sidebar.spacer`
 
@@ -357,6 +407,10 @@ Source: https://fluxui.dev/layouts/sidebar
 | `avatar` | The URL or path to the user's avatar image. |
 | `name` | The user's display name. |
 
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the profile container. |
+
 ### `flux:sidebar.toggle`
 
 | Prop | Description |
@@ -364,8 +418,16 @@ Source: https://fluxui.dev/layouts/sidebar
 | `icon` | The icon to display in the toggle button (e.g., bars-2, x-mark). |
 | `inset` | Positioning of the toggle button (e.g., left). |
 
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the toggle button. Common uses: lg:hidden to show only on mobile. |
+
 ### `flux:main`
 
 | Prop | Description |
 | --- | --- |
 | `container` | When present, constrains the main content to a container width. |
+
+| Slot | Description |
+| --- | --- |
+| `default` | Content to display within the main content area. |

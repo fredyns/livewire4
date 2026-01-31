@@ -2,7 +2,9 @@
 
 Source: https://fluxui.dev/layouts/header
 
-## Main
+A full-width top navigation layout for your application.
+
+## Basic Example
 
 ```blade
 <head>
@@ -105,6 +107,8 @@ Source: https://fluxui.dev/layouts/header
 ```
 
 ## Secondary sidebar
+
+Use a sidebar for secondary navigation.
 
 ```blade
 <head>
@@ -234,6 +238,14 @@ Source: https://fluxui.dev/layouts/header
 | `sticky` | When present, makes the header sticky when scrolling. |
 | `container` | When present, constrains the header content to a container width. |
 
+| Slot | Description |
+| --- | --- |
+| `default` | Content to display within the header, typically including branding, navigation, and user profile elements. |
+
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the header. Common uses: bg-zinc-50, border-b, sticky, etc. |
+
 ### `flux:sidebar.toggle`
 
 | Attribute | Description |
@@ -241,8 +253,16 @@ Source: https://fluxui.dev/layouts/header
 | `icon` | The icon to display in the toggle button (e.g., bars-2, x-mark). |
 | `inset` | Positioning of the toggle button (e.g., left). |
 
+| CSS | Description |
+| --- | --- |
+| `class` | Additional CSS classes applied to the toggle button. Common uses: lg:hidden to show only on mobile. |
+
 ### `flux:main`
 
 | Prop | Description |
 | --- | --- |
 | `container` | When present, constrains the main content to a container width. |
+
+| Slot | Description |
+| --- | --- |
+| `default` | Content to display within the main content area. |
