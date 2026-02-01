@@ -1,0 +1,87 @@
+# Translation Table
+
+Local mirrored doc -> source URL
+
+Missing source lines: 0
+
+| Local | Source |
+| --- | --- |
+| [advanced/contribution-guide.md](./advanced/contribution-guide.md) | [https://livewire.laravel.com/docs/4.x/contribution-guide](https://livewire.laravel.com/docs/4.x/contribution-guide) |
+| [advanced/csp.md](./advanced/csp.md) | [https://livewire.laravel.com/docs/4.x/csp](https://livewire.laravel.com/docs/4.x/csp) |
+| [advanced/hydration.md](./advanced/hydration.md) | [https://livewire.laravel.com/docs/4.x/hydration](https://livewire.laravel.com/docs/4.x/hydration) |
+| [advanced/javascript.md](./advanced/javascript.md) | [https://livewire.laravel.com/docs/4.x/javascript](https://livewire.laravel.com/docs/4.x/javascript) |
+| [advanced/morphing.md](./advanced/morphing.md) | [https://livewire.laravel.com/docs/4.x/morphing](https://livewire.laravel.com/docs/4.x/morphing) |
+| [advanced/nesting.md](./advanced/nesting.md) | [https://livewire.laravel.com/docs/4.x/understanding-nesting](https://livewire.laravel.com/docs/4.x/understanding-nesting) |
+| [advanced/security.md](./advanced/security.md) | [https://livewire.laravel.com/docs/4.x/security](https://livewire.laravel.com/docs/4.x/security) |
+| [advanced/synthesizers.md](./advanced/synthesizers.md) | [https://livewire.laravel.com/docs/4.x/synthesizers](https://livewire.laravel.com/docs/4.x/synthesizers) |
+| [advanced/troubleshooting.md](./advanced/troubleshooting.md) | [https://livewire.laravel.com/docs/4.x/troubleshooting](https://livewire.laravel.com/docs/4.x/troubleshooting) |
+| [blade-directives/island.md](./blade-directives/island.md) | [https://livewire.laravel.com/docs/4.x/directive-island](https://livewire.laravel.com/docs/4.x/directive-island) |
+| [blade-directives/persist.md](./blade-directives/persist.md) | [https://livewire.laravel.com/docs/4.x/directive-persist](https://livewire.laravel.com/docs/4.x/directive-persist) |
+| [blade-directives/placeholder.md](./blade-directives/placeholder.md) | [https://livewire.laravel.com/docs/4.x/directive-placeholder](https://livewire.laravel.com/docs/4.x/directive-placeholder) |
+| [blade-directives/teleport.md](./blade-directives/teleport.md) | [https://livewire.laravel.com/docs/4.x/directive-teleport](https://livewire.laravel.com/docs/4.x/directive-teleport) |
+| [essentials/actions.md](./essentials/actions.md) | [https://livewire.laravel.com/docs/4.x/actions](https://livewire.laravel.com/docs/4.x/actions) |
+| [essentials/components.md](./essentials/components.md) | [https://livewire.laravel.com/docs/4.x/components](https://livewire.laravel.com/docs/4.x/components) |
+| [essentials/events.md](./essentials/events.md) | [https://livewire.laravel.com/docs/4.x/events](https://livewire.laravel.com/docs/4.x/events) |
+| [essentials/forms.md](./essentials/forms.md) | [https://livewire.laravel.com/docs/4.x/forms](https://livewire.laravel.com/docs/4.x/forms) |
+| [essentials/lifecycle-hooks.md](./essentials/lifecycle-hooks.md) | [https://livewire.laravel.com/docs/4.x/lifecycle-hooks](https://livewire.laravel.com/docs/4.x/lifecycle-hooks) |
+| [essentials/nesting.md](./essentials/nesting.md) | [https://livewire.laravel.com/docs/4.x/nesting](https://livewire.laravel.com/docs/4.x/nesting) |
+| [essentials/pages.md](./essentials/pages.md) | [https://livewire.laravel.com/docs/4.x/pages](https://livewire.laravel.com/docs/4.x/pages) |
+| [essentials/properties.md](./essentials/properties.md) | [https://livewire.laravel.com/docs/4.x/properties](https://livewire.laravel.com/docs/4.x/properties) |
+| [essentials/testing.md](./essentials/testing.md) | [https://livewire.laravel.com/docs/4.x/testing](https://livewire.laravel.com/docs/4.x/testing) |
+| [features/alpine.md](./features/alpine.md) | [https://livewire.laravel.com/docs/4.x/alpine](https://livewire.laravel.com/docs/4.x/alpine) |
+| [features/computed-properties.md](./features/computed-properties.md) | [https://livewire.laravel.com/docs/4.x/computed-properties](https://livewire.laravel.com/docs/4.x/computed-properties) |
+| [features/downloads.md](./features/downloads.md) | [https://livewire.laravel.com/docs/4.x/downloads](https://livewire.laravel.com/docs/4.x/downloads) |
+| [features/events.md](./features/events.md) | [https://livewire.laravel.com/docs/4.x/events](https://livewire.laravel.com/docs/4.x/events) |
+| [features/forms.md](./features/forms.md) | [https://livewire.laravel.com/docs/4.x/forms](https://livewire.laravel.com/docs/4.x/forms) |
+| [features/islands.md](./features/islands.md) | [https://livewire.laravel.com/docs/4.x/islands](https://livewire.laravel.com/docs/4.x/islands) |
+| [features/lazy.md](./features/lazy.md) | [https://livewire.laravel.com/docs/4.x/lazy](https://livewire.laravel.com/docs/4.x/lazy) |
+| [features/loading-states.md](./features/loading-states.md) | [https://livewire.laravel.com/docs/4.x/loading-states](https://livewire.laravel.com/docs/4.x/loading-states) |
+| [features/navigate.md](./features/navigate.md) | [https://livewire.laravel.com/docs/4.x/navigate](https://livewire.laravel.com/docs/4.x/navigate) |
+| [features/pagination.md](./features/pagination.md) | [https://livewire.laravel.com/docs/4.x/pagination](https://livewire.laravel.com/docs/4.x/pagination) |
+| [features/redirects.md](./features/redirects.md) | [https://livewire.laravel.com/docs/4.x/redirecting](https://livewire.laravel.com/docs/4.x/redirecting) |
+| [features/styles.md](./features/styles.md) | [https://livewire.laravel.com/docs/4.x/styles](https://livewire.laravel.com/docs/4.x/styles) |
+| [features/teleport.md](./features/teleport.md) | [https://livewire.laravel.com/docs/4.x/teleport](https://livewire.laravel.com/docs/4.x/teleport) |
+| [features/uploads.md](./features/uploads.md) | [https://livewire.laravel.com/docs/4.x/uploads](https://livewire.laravel.com/docs/4.x/uploads) |
+| [features/url.md](./features/url.md) | [https://livewire.laravel.com/docs/4.x/url](https://livewire.laravel.com/docs/4.x/url) |
+| [features/validation.md](./features/validation.md) | [https://livewire.laravel.com/docs/4.x/validation](https://livewire.laravel.com/docs/4.x/validation) |
+| [html-directives/wire-bind.md](./html-directives/wire-bind.md) | [https://livewire.laravel.com/docs/4.x/wire-bind](https://livewire.laravel.com/docs/4.x/wire-bind) |
+| [html-directives/wire-click.md](./html-directives/wire-click.md) | [https://livewire.laravel.com/docs/4.x/wire-click](https://livewire.laravel.com/docs/4.x/wire-click) |
+| [html-directives/wire-cloak.md](./html-directives/wire-cloak.md) | [https://livewire.laravel.com/docs/4.x/wire-cloak](https://livewire.laravel.com/docs/4.x/wire-cloak) |
+| [html-directives/wire-confirm.md](./html-directives/wire-confirm.md) | [https://livewire.laravel.com/docs/4.x/wire-confirm](https://livewire.laravel.com/docs/4.x/wire-confirm) |
+| [html-directives/wire-current.md](./html-directives/wire-current.md) | [https://livewire.laravel.com/docs/4.x/wire-current](https://livewire.laravel.com/docs/4.x/wire-current) |
+| [html-directives/wire-dirty.md](./html-directives/wire-dirty.md) | [https://livewire.laravel.com/docs/4.x/wire-dirty](https://livewire.laravel.com/docs/4.x/wire-dirty) |
+| [html-directives/wire-ignore.md](./html-directives/wire-ignore.md) | [https://livewire.laravel.com/docs/4.x/wire-ignore](https://livewire.laravel.com/docs/4.x/wire-ignore) |
+| [html-directives/wire-init.md](./html-directives/wire-init.md) | [https://livewire.laravel.com/docs/4.x/wire-init](https://livewire.laravel.com/docs/4.x/wire-init) |
+| [html-directives/wire-intersect.md](./html-directives/wire-intersect.md) | [https://livewire.laravel.com/docs/4.x/wire-intersect](https://livewire.laravel.com/docs/4.x/wire-intersect) |
+| [html-directives/wire-loading.md](./html-directives/wire-loading.md) | [https://livewire.laravel.com/docs/4.x/wire-loading](https://livewire.laravel.com/docs/4.x/wire-loading) |
+| [html-directives/wire-model.md](./html-directives/wire-model.md) | [https://livewire.laravel.com/docs/4.x/wire-model](https://livewire.laravel.com/docs/4.x/wire-model) |
+| [html-directives/wire-navigate.md](./html-directives/wire-navigate.md) | [https://livewire.laravel.com/docs/4.x/wire-navigate](https://livewire.laravel.com/docs/4.x/wire-navigate) |
+| [html-directives/wire-offline.md](./html-directives/wire-offline.md) | [https://livewire.laravel.com/docs/4.x/wire-offline](https://livewire.laravel.com/docs/4.x/wire-offline) |
+| [html-directives/wire-poll.md](./html-directives/wire-poll.md) | [https://livewire.laravel.com/docs/4.x/wire-poll](https://livewire.laravel.com/docs/4.x/wire-poll) |
+| [html-directives/wire-ref.md](./html-directives/wire-ref.md) | [https://livewire.laravel.com/docs/4.x/wire-ref](https://livewire.laravel.com/docs/4.x/wire-ref) |
+| [html-directives/wire-replace.md](./html-directives/wire-replace.md) | [https://livewire.laravel.com/docs/4.x/wire-replace](https://livewire.laravel.com/docs/4.x/wire-replace) |
+| [html-directives/wire-show.md](./html-directives/wire-show.md) | [https://livewire.laravel.com/docs/4.x/wire-show](https://livewire.laravel.com/docs/4.x/wire-show) |
+| [html-directives/wire-sort.md](./html-directives/wire-sort.md) | [https://livewire.laravel.com/docs/4.x/wire-sort](https://livewire.laravel.com/docs/4.x/wire-sort) |
+| [html-directives/wire-stream.md](./html-directives/wire-stream.md) | [https://livewire.laravel.com/docs/4.x/wire-stream](https://livewire.laravel.com/docs/4.x/wire-stream) |
+| [html-directives/wire-submit.md](./html-directives/wire-submit.md) | [https://livewire.laravel.com/docs/4.x/wire-submit](https://livewire.laravel.com/docs/4.x/wire-submit) |
+| [html-directives/wire-text.md](./html-directives/wire-text.md) | [https://livewire.laravel.com/docs/4.x/wire-text](https://livewire.laravel.com/docs/4.x/wire-text) |
+| [html-directives/wire-transition.md](./html-directives/wire-transition.md) | [https://livewire.laravel.com/docs/4.x/wire-transition](https://livewire.laravel.com/docs/4.x/wire-transition) |
+| [php-attributes/async.md](./php-attributes/async.md) | [https://livewire.laravel.com/docs/4.x/attribute-async](https://livewire.laravel.com/docs/4.x/attribute-async) |
+| [php-attributes/computed.md](./php-attributes/computed.md) | [https://livewire.laravel.com/docs/4.x/attribute-computed](https://livewire.laravel.com/docs/4.x/attribute-computed) |
+| [php-attributes/defer.md](./php-attributes/defer.md) | [https://livewire.laravel.com/docs/4.x/attribute-defer](https://livewire.laravel.com/docs/4.x/attribute-defer) |
+| [php-attributes/isolate.md](./php-attributes/isolate.md) | [https://livewire.laravel.com/docs/4.x/attribute-isolate](https://livewire.laravel.com/docs/4.x/attribute-isolate) |
+| [php-attributes/js.md](./php-attributes/js.md) | [https://livewire.laravel.com/docs/4.x/attribute-js](https://livewire.laravel.com/docs/4.x/attribute-js) |
+| [php-attributes/json.md](./php-attributes/json.md) | [https://livewire.laravel.com/docs/4.x/attribute-json](https://livewire.laravel.com/docs/4.x/attribute-json) |
+| [php-attributes/layout.md](./php-attributes/layout.md) | [https://livewire.laravel.com/docs/4.x/attribute-layout](https://livewire.laravel.com/docs/4.x/attribute-layout) |
+| [php-attributes/lazy.md](./php-attributes/lazy.md) | [https://livewire.laravel.com/docs/4.x/attribute-lazy](https://livewire.laravel.com/docs/4.x/attribute-lazy) |
+| [php-attributes/locked.md](./php-attributes/locked.md) | [https://livewire.laravel.com/docs/4.x/attribute-locked](https://livewire.laravel.com/docs/4.x/attribute-locked) |
+| [php-attributes/modelable.md](./php-attributes/modelable.md) | [https://livewire.laravel.com/docs/4.x/attribute-modelable](https://livewire.laravel.com/docs/4.x/attribute-modelable) |
+| [php-attributes/on.md](./php-attributes/on.md) | [https://livewire.laravel.com/docs/4.x/attribute-on](https://livewire.laravel.com/docs/4.x/attribute-on) |
+| [php-attributes/reactive.md](./php-attributes/reactive.md) | [https://livewire.laravel.com/docs/4.x/attribute-reactive](https://livewire.laravel.com/docs/4.x/attribute-reactive) |
+| [php-attributes/renderless.md](./php-attributes/renderless.md) | [https://livewire.laravel.com/docs/4.x/attribute-renderless](https://livewire.laravel.com/docs/4.x/attribute-renderless) |
+| [php-attributes/session.md](./php-attributes/session.md) | [https://livewire.laravel.com/docs/4.x/attribute-session](https://livewire.laravel.com/docs/4.x/attribute-session) |
+| [php-attributes/title.md](./php-attributes/title.md) | [https://livewire.laravel.com/docs/4.x/attribute-title](https://livewire.laravel.com/docs/4.x/attribute-title) |
+| [php-attributes/transition.md](./php-attributes/transition.md) | [https://livewire.laravel.com/docs/4.x/attribute-transition](https://livewire.laravel.com/docs/4.x/attribute-transition) |
+| [php-attributes/url.md](./php-attributes/url.md) | [https://livewire.laravel.com/docs/4.x/attribute-url](https://livewire.laravel.com/docs/4.x/attribute-url) |
+| [php-attributes/validate.md](./php-attributes/validate.md) | [https://livewire.laravel.com/docs/4.x/attribute-validate](https://livewire.laravel.com/docs/4.x/attribute-validate) |
+
