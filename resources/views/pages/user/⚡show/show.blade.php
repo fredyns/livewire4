@@ -94,12 +94,32 @@
 
                 <!-- Roles & Permissions -->
                 <flux:card>
-                    <flux:heading size="lg" level="2">{{ __('Roles') }}</flux:heading>
+                    <flux:heading size="lg" level="2">{{ __('Web Roles') }}</flux:heading>
 
                     <div class="mt-6">
-                        @if ($this->roles->count() > 0)
+                        @if ($this->webRoles->count() > 0)
                             <div class="flex flex-wrap gap-2">
-                                @foreach ($this->roles as $role)
+                                @foreach ($this->webRoles as $role)
+                                    <flux:badge size="lg" color="blue">
+                                        {{ $role->name }}
+                                    </flux:badge>
+                                @endforeach
+                            </div>
+                        @else
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                {{ __('No roles assigned') }}
+                            </p>
+                        @endif
+                    </div>
+                </flux:card>
+
+                <flux:card>
+                    <flux:heading size="lg" level="2">{{ __('API Roles') }}</flux:heading>
+
+                    <div class="mt-6">
+                        @if ($this->apiRoles->count() > 0)
+                            <div class="flex flex-wrap gap-2">
+                                @foreach ($this->apiRoles as $role)
                                     <flux:badge size="lg" color="blue">
                                         {{ $role->name }}
                                     </flux:badge>
@@ -156,6 +176,9 @@
                     <flux:heading size="lg" level="2">{{ __('Actions') }}</flux:heading>
 
                     <div class="mt-6 space-y-2">
+                        <flux:button href="{{ route('user.assign', $user) }}" variant="ghost" class="w-full">
+                            {{ __('Assign Roles') }}
+                        </flux:button>
                         <flux:button href="{{ route('user.edit', $user) }}" variant="primary" class="w-full">
                             {{ __('Edit User') }}
                         </flux:button>

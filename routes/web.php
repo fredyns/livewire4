@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::livewire('/users/create', 'pages::user.create')->name('user.create');
     Route::livewire('/users/{user}', 'pages::user.show')->name('user.show');
     Route::livewire('/users/{user}/edit', 'pages::user.edit')->name('user.edit');
+    Route::livewire('/users/{user}/assign', 'pages::user.assign')->name('user.assign');
 
 });
 

@@ -25,9 +25,15 @@ new class extends Component {
     }
 
     #[Computed]
-    public function roles()
+    public function webRoles()
     {
         return $this->user->webRoles()->get();
+    }
+
+    #[Computed]
+    public function apiRoles()
+    {
+        return $this->user->apiRoles()->get();
     }
 
     public function render(): View
