@@ -1,455 +1,639 @@
 # Events
 
-source: https://livewire.laravel.com/docs/4.x/events
+**Source URL:** https://livewire.laravel.com/docs/4.x/events
 
-Livewire offers a robust event system that you can use to communicate between different components on the page. Because it uses browser events under the hood, you can also use Livewire's event system to communicate with Alpine components or even plain, vanilla JavaScript.To trigger an event, you may use the `dispatch()` method from anywhere inside your component and listen for that event from any other component on the page.
+## Overview
 
-#
+Livewire offers a robust event system that you can use to communicate between different components on the page. Because it uses browser events under the hood, you can also use Livewire's event system to communicate with Alpine components or even plain, vanilla JavaScript.
 
-# Dispatching events
+To trigger an event, you may use the `dispatch()` method from anywhere inside your component and listen for that event from any other component on the page.
 
-To dispatch an event from a Livewire component, call `dispatch()`, passing the event name and any additional data you want to send along with the event.
+## Dispatching Events
 
+To dispatch an event from a Livewire component, you can call the `dispatch()` method, passing it the event name and any additional data you want to send along with the event.
 
+### Example: Dispatching an Event
 
 ```php
-<?php// resources/views/components/post/ÃƒÂ¢Ã…Â¡Ã‚Â¡create.blade.phpuse Livewire\Component;new class extends Component{    public function save()    {        // ...        $this->dispatch('post-created');    }};
+<?php // resources/views/components/post/⚡create.blade.php
 
+use Livewire\Component;
+
+new class extends Component {
+    public function save()
+    {
+        // ...
+
+        $this->dispatch('post-created'); 
+    }
+};
 ```
 
+In this example, when the `dispatch()` method is called, the `post-created` event will be dispatched, and every other component on the page that is listening for this event will be notified.
 
+### Passing Data with Events
 
-Pass additional data:
-
-
+You can pass additional data with the event by passing the data as the second parameter to the `dispatch()` method:
 
 ```php
 $this->dispatch('post-created', title: $post->title);
-
 ```
 
+## Listening for Events
 
+To listen for an event in a Livewire component, add the `#[On]` attribute above the method you want to be called when a given event is dispatched:
 
-#
-
-# Listening for events
-
-To listen for an event in a Livewire component, add the `#[On]` attribute above the method you want to be called when a given event is dispatched.
-
-
+**Important:** Make sure you import attribute classes. For example, the `#[On()]` attribute requires the following import: `use Livewire\Attributes\On;`
 
 ```php
-<?php// resources/views/components/ÃƒÂ¢Ã…Â¡Ã‚Â¡dashboard.blade.phpuse Livewire\Attributes\On;use Livewire\Component;new class extends Component{    #[On('post-created')]    public function updatePostList($title)    {        // ...    }};
+<?php // resources/views/components/⚡dashboard.blade.php
 
+use Livewire\Component;
+use Livewire\Attributes\On; 
+
+new class extends Component {
+    #[On('post-created')] 
+    public function updatePostList($title)
+    {
+        // ...
+    }
+};
 ```
 
+Now, when the `post-created` event is dispatched from `post.create`, a network request will be triggered and the `updatePostList()` action will be invoked.
 
+As you can see, additional data sent with the event will be provided to the action as its first argument.
 
-#
+## Listening for Dynamic Event Names
 
-# Listening for dynamic event names
+Occasionally, you may want to dynamically generate event listener names at run-time using data from your component.
 
-You can dynamically generate event listener names at run-time.Dispatching with an ID:
-
-
+For example, if you wanted to scope an event listener to a specific Eloquent model, you could append the model's ID to the event name when dispatching like so:
 
 ```php
-$this->dispatch("post-updated.{$post->id}");
+<?php // resources/views/components/post/⚡edit.blade.php
 
+use Livewire\Component;
+
+new class extends Component {
+    public function update()
+    {
+        // ...
+
+        $this->dispatch("post-updated.{$post->id}"); 
+    }
+};
 ```
 
-
-
-Listening for the specific model:
-
-
+And then listen for that specific model:
 
 ```php
-#[On('post-updated.{post.id}')]public function refreshPost(){    // ...}
+<?php // resources/views/components/post/⚡show.blade.php
 
+use Livewire\Attributes\On; 
+use Livewire\Component;
+use App\Models\Post;
+
+new class extends Component {
+    public Post $post;
+
+    #[On('post-updated.{post.id}')] 
+    public function refreshPost()
+    {
+        // ...
+    }
+};
 ```
 
+If the above `$post` model had an ID of 3, the `refreshPost()` method would only be triggered by an event named: `post-updated.3`.
 
+## Listening for Events from Specific Child Components
 
-#
-
-# Listening for events from specific child components
-
-You can listen for events directly on individual child components in your Blade template:
-
-
+Livewire allows you to listen for events directly on individual child components in your Blade template like so:
 
 ```blade
-<div>    <livewire:edit-post @saved="$refresh">        <!-- ... -->    </livewire:edit-post></div>
+<div>
+    <livewire:edit-post @saved="$refresh">
 
+    <!-- ... -->
+</div>
 ```
 
+In the above scenario, if the `edit-post` child component dispatches a `saved` event, the parent's `$refresh` will be called and the parent will be refreshed.
 
-
-Instead of `$refresh`, you can pass any method:
-
-
+Instead of passing `$refresh`, you can pass any method you normally would to something like `wire:click`. Here's an example of calling a `close()` method that might do something like close a modal dialog:
 
 ```blade
 <livewire:edit-post @saved="close">
-
 ```
 
-
-
-If the child dispatched parameters (e.g. `$this->dispatch('saved', postId: 1)`), you can forward those values:
-
-
+If the child dispatched parameters along with the request, for example `$this->dispatch('saved', postId: 1)`, you can forward those values to the parent method using the following syntax:
 
 ```blade
 <livewire:edit-post @saved="close($event.detail.postId)">
-
 ```
 
+## Using JavaScript to Interact with Events
 
+Livewire's event system becomes much more powerful when you interact with it from JavaScript inside your application. This unlocks the ability for any other JavaScript in your app to communicate with Livewire components on the page.
 
-#
+### Listening for Events Inside Component Scripts
 
-# Using Java
-
-Script to interact with events
-
-#
-
-#
-
-# Listening for events inside component scripts
-
-
-
-```html
-<script>    this.$on('post-created', () => {        // ...    })</script>
-
-```
-
-
-
-#
-
-#
-
-# Dispatching events from component scripts
-
-
-
-```html
-<script>    this.$dispatch('post-created')</script>
-
-```
-
-
-
-To dispatch only to the component where the script resides (no bubbling), use `dispatchSelf()`:
-
-
-
-```js
-this.$dispatchSelf('post-created')
-
-```
-
-
-
-Pass parameters via an object:
-
-
-
-```html
-<script>    this.$dispatch('post-created', { refreshPosts: true })</script>
-
-```
-
-
-
-Receive the parameter in Livewire:
-
-
-
-```php
-#[On('post-created')]public function handleNewPost($refreshPosts = false){    // ...}
-
-```
-
-
-
-Or in JavaScript via `event.detail`:
-
-
-
-```html
-<script>    this.$on('post-created', (event) => {        let refreshPosts = event.detail.refreshPosts        // ...    })</script>
-
-```
-
-
-
-#
-
-#
-
-# Listening for Livewire events from global Java
-
-ScriptListen globally using `Livewire.on`:
-
-
-
-```html
-<script>    document.addEventListener('livewire:init', () => {        let cleanup = Livewire.on('post-created', (event) => {            // ...        })        // cleanup() will un-register the above event listener...        cleanup()    })</script>
-
-```
-
-
-
-#
-
-# Events in Alpine
-
-Listen for a Livewire event in Alpine:
-
-
-
-```html
-<div x-on:post-created="..."></div>
-
-```
-
-
-
-Listen globally:
-
-
-
-```html
-<div x-on:post-created.window="..."></div>
-
-```
-
-
-
-Access data with `$event.detail`:
-
-
-
-```html
-<div x-on:post-created="notify('New post: ' + $event.detail.title)"></div>
-
-```
-
-
-
-Dispatch from Alpine:
-
-
-
-```html
-<button x-on:click="$dispatch('post-created')">...</button>
-
-```
-
-
-
-With data:
-
-
-
-```html
-<button x-on:click="$dispatch('post-created', { title: 'Post Title' })">...</button>
-
-```
-
-
-
-If you are using events to call behavior on a parent from a child, you can instead call the action directly from the child using `$parent` in your Blade template:
-
-
+You can easily listen for the `post-created` event inside your component's template from a `<script>` tag like so:
 
 ```blade
-<button wire:click="$parent.showCreatePostForm()">Create Post</button>
-
+<script>
+    this.$on('post-created', () => {
+        //
+    });
+</script>
 ```
 
+The above snippet would listen for the `post-created` from the component it's registered within. If the component is no longer on the page, the event listener will no longer be triggered.
 
+### Dispatching Events from Component Scripts
 
-#
+Additionally, you can dispatch events from within a component's `<script>` tag like so:
 
-# Dispatching directly to another component
+```blade
+<script>
+    this.$dispatch('post-created');
+</script>
+```
 
-If you want to communicate directly between components, you can use the `dispatch()->to()` modifier:
+When the above script is run, the `post-created` event will be dispatched to the component it's defined within.
 
+To dispatch the event only to the component where the script resides and not other components on the page (preventing the event from "bubbling" up), you can use `dispatchSelf()`:
 
+```javascript
+this.$dispatchSelf('post-created');
+```
+
+You can pass any additional parameters to the event by passing an object as a second argument to `dispatch()`:
+
+```blade
+<script>
+    this.$dispatch('post-created', { refreshPosts: true });
+</script>
+```
+
+You can now access those event parameters from both your Livewire class and also other JavaScript event listeners.
+
+Here's an example of receiving the `refreshPosts` parameter within a Livewire class:
 
 ```php
-$this->dispatch('post-created')->to(component: Dashboard::class);
+use Livewire\Attributes\On;
 
+// ...
+
+#[On('post-created')]
+public function handleNewPost($refreshPosts = false)
+{
+    //
+}
 ```
 
+You can also access the `refreshPosts` parameter from a JavaScript event listener from the event's `detail` property:
 
+```blade
+<script>
+    this.$on('post-created', (event) => {
+        let refreshPosts = event.detail.refreshPosts
 
-#
+        // ...
+    });
+</script>
+```
 
-# Dispatching a component event to itself
+## Listening for Livewire Events from Global JavaScript
+
+Alternatively, you can listen for Livewire events globally using `Livewire.on` from any script in your application:
+
+```blade
+<script>
+    document.addEventListener('livewire:init', () => {
+       Livewire.on('post-created', (event) => {
+           //
+       });
+    });
+</script>
+```
+
+The above snippet would listen for the `post-created` event dispatched from any component on the page.
+
+If you wish to remove this event listener for any reason, you can do so using the returned cleanup function:
+
+```blade
+<script>
+    document.addEventListener('livewire:init', () => {
+        let cleanup = Livewire.on('post-created', (event) => {
+            //
+        });
+
+        // Calling "cleanup()" will un-register the above event listener...
+        cleanup();
+    });
+</script>
+```
+
+## Events in Alpine
+
+Because Livewire events are plain browser events under the hood, you can use Alpine to listen for them or even dispatch them.
+
+### Listening for Livewire Events in Alpine
+
+For example, we may easily listen for the `post-created` event using Alpine:
+
+```blade
+<div x-on:post-created="..."></div>
+```
+
+The above snippet would listen for the `post-created` event from any Livewire components that are children of the HTML element that the `x-on` directive is assigned to.
+
+To listen for the event from any Livewire component on the page, you can add `.window` to the listener:
+
+```blade
+<div x-on:post-created.window="..."></div>
+```
+
+If you want to access additional data that was sent with the event, you can do so using `$event.detail`:
+
+```blade
+<div x-on:post-created="notify('New post: ' + $event.detail.title)"></div>
+```
+
+### Dispatching Livewire Events from Alpine
+
+Any event dispatched from Alpine is capable of being intercepted by a Livewire component.
+
+For example, we may easily dispatch the `post-created` event from Alpine:
+
+```blade
+<button x-on:click="$dispatch('post-created')">...</button>
+```
+
+Like Livewire's `dispatch()` method, you can pass additional data along with the event by passing the data as the second parameter to the method:
+
+```blade
+<button x-on:click="$dispatch('post-created', { title: 'Post Title' })">...</button>
+```
+
+## Dispatching Directly to Another Component
+
+If you want to use events for communicating directly between two components on the page, you can use the `dispatch()->to()` modifier.
+
+Below is an example of the `post.create` component dispatching the `post-created` event directly to the `dashboard` component, skipping any other components listening for that specific event:
+
+```php
+<?php // resources/views/components/post/⚡create.blade.php
+
+use Livewire\Component;
+
+new class extends Component {
+    public function save()
+    {
+        // ...
+
+        $this->dispatch('post-created')->to(component: Dashboard::class);
+    }
+};
+```
+
+## Dispatching a Component Event to Itself
 
 Using the `dispatch()->self()` modifier, you can restrict an event to only being intercepted by the component it was triggered from:
 
-
-
 ```php
-$this->dispatch('post-created')->to(self: true);
+<?php // resources/views/components/post/⚡create.blade.php
 
+use Livewire\Component;
+
+new class extends Component {
+    public function save()
+    {
+        // ...
+
+        $this->dispatch('post-created')->to(self: true);
+    }
+};
 ```
 
+## Dispatching Events from Blade Templates
 
-
-#
-
-# Dispatching events from Blade templates
-
-Dispatch an event using the `$dispatch` JavaScript function:
-
-
+You can dispatch events directly from your Blade templates using the `$dispatch` JavaScript function. This is useful when you want to trigger an event from a user interaction, such as a button click:
 
 ```blade
-<button wire:click="$dispatch('show-post-modal', { id: {{ $post->id }} })">    EditPost</button>
-
+<button wire:click="$dispatch('show-post-modal', { id: {{ $post->id }} })">
+    Edit Post
+</button>
 ```
 
+In this example, when the button is clicked, the `show-post-modal` event will be dispatched with the specified data.
 
-
-Dispatch to another component using `$dispatchTo()`:
-
-
+If you want to dispatch an event directly to another component you can use the `$dispatchTo()` JavaScript function:
 
 ```blade
-<button wire:click="$dispatchTo('posts', 'show-post-modal', { id: {{ $post->id }} })">    EditPost</button>
-
+<button wire:click="$dispatchTo('posts', 'show-post-modal', { id: {{ $post->id }} })">
+    Edit Post
+</button>
 ```
 
+In this example, when the button is clicked, the `show-post-modal` event will be dispatched directly to the `Posts` component.
 
+## Testing Dispatched Events
 
-#
-
-# Testing dispatched events
-
-Assert an event was dispatched:
-
-
+To test events dispatched by your component, use the `assertDispatched()` method in your Livewire test. This method checks that a specific event has been dispatched during the component's lifecycle:
 
 ```php
-<?phpnamespace Tests\Feature;use App\Livewire\CreatePost;use Illuminate\Foundation\Testing\RefreshDatabase;use Livewire\Livewire;class CreatePostTest extends TestCase{    use RefreshDatabase;    public function test_it_dispatches_post_created_event()    {        Livewire::test(CreatePost::class)            ->call('save')            ->assertDispatched('post-created');    }}
+<?php
 
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Livewire\CreatePost;
+use Livewire\Livewire;
+
+class CreatePostTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_it_dispatches_post_created_event()
+    {
+        Livewire::test(CreatePost::class)
+            ->call('save')
+            ->assertDispatched('post-created');
+    }
+}
 ```
 
+In this example, the test ensures that the `post-created` event is dispatched with the specified data when the `save()` method is called on the `post.create` component.
 
+## Testing Event Listeners
 
-#
-
-# Testing Event Listeners
-
-Dispatch and assert the listener updates:
-
-
+To test event listeners, you can dispatch events from the test environment and assert that the expected actions are performed in response to the event:
 
 ```php
-<?phpnamespace Tests\Feature;use App\Livewire\Dashboard;use Illuminate\Foundation\Testing\RefreshDatabase;use Livewire\Livewire;class DashboardTest extends TestCase{    use RefreshDatabase;    public function test_it_updates_post_count_when_a_post_is_created()    {        Livewire::test(Dashboard::class)            ->assertSee('Posts created: 0')            ->dispatch('post-created')            ->assertSee('Posts created: 1');    }}
+<?php
 
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Livewire\Dashboard;
+use Livewire\Livewire;
+
+class DashboardTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_it_updates_post_count_when_a_post_is_created()
+    {
+        Livewire::test(Dashboard::class)
+            ->assertSee('Posts created: 0')
+            ->dispatch('post-created')
+            ->assertSee('Posts created: 1');
+    }
+}
 ```
 
+In this example, the test dispatches the `post-created` event, then checks that the dashboard component properly handles the event and displays the updated count.
 
+## Real-Time Events Using Laravel Echo
 
-#
+Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.
 
-# Real-time events using Laravel Echo
+**Important:** This feature assumes you have installed Laravel Echo and the `window.Echo` object is globally available in your application.
 
-#
+### Listening for Echo Events
 
-#
-
-# Listening for Echo events
-
-Example Laravel event:
-
-
+Imagine you have an event in your Laravel application named `OrderShipped`:
 
 ```php
-<?phpnamespace App\Events;use App\Models\Order;use Illuminate\Broadcasting\Channel;use Illuminate\Broadcasting\InteractsWithSockets;use Illuminate\Contracts\Broadcasting\ShouldBroadcast;use Illuminate\Foundation\Events\Dispatchable;use Illuminate\Queue\SerializesModels;class OrderShipped implements ShouldBroadcast{    use Dispatchable, InteractsWithSockets, SerializesModels;    public Order $order;    public function broadcastOn()    {        return new Channel('orders');    }}
+<?php
 
+namespace App\Events;
+
+use App\Models\Order;
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
+
+class OrderShipped implements ShouldBroadcast
+{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public Order $order;
+
+    public function broadcastOn()
+    {
+        return new Channel('orders');
+    }
+}
 ```
 
-
-
-Listen via Livewire:
-
-
+You might dispatch this event from another part of your application like so:
 
 ```php
-<?phpuse Livewire\Attributes\On;use Livewire\Component;new class extends Component{    public $showNewOrderNotification = false;    #[On('echo:orders,OrderShipped')]    public function notifyNewOrder()    {        $this->showNewOrderNotification = true;    }};
+use App\Events\OrderShipped;
 
+OrderShipped::dispatch();
 ```
 
+If you were to listen for this event in JavaScript using only Laravel Echo, it would look something like this:
 
+```javascript
+Echo.channel('orders')
+    .listen('OrderShipped', e => {
+        console.log(e.order)
+    })
+```
 
-If channel names are dynamic, use `getListeners()`:
+Assuming you have Laravel Echo installed and configured, you can listen for this event from inside a Livewire component.
 
-
+Below is an example of an `order-tracker` component that is listening for the `OrderShipped` event in order to show users a visual indication of a new order:
 
 ```php
-public function getListeners(){    return [        "echo:orders.{$this->order->id},OrderShipped" => 'notifyShipped',    ];}
+<?php // resources/views/components/⚡order-tracker.blade.php
 
+use Livewire\Attributes\On; 
+use Livewire\Component;
+
+new class extends Component {
+    public $showNewOrderNotification = false;
+
+    #[On('echo:orders,OrderShipped')]
+    public function notifyNewOrder()
+    {
+        $this->showNewOrderNotification = true;
+    }
+
+    // ...
+};
 ```
 
+### Dynamic Channel Names
 
-
-Or dynamic event syntax:
-
-
+If you have Echo channels with variables embedded in them (such as an Order ID), you can define listeners via the `getListeners()` method instead of the `#[On]` attribute:
 
 ```php
-#[On('echo:orders.{order.id},OrderShipped')]public function notifyNewOrder($event){    $order = Order::find($event['orderId']);    // ...}
+<?php // resources/views/components/⚡order-tracker.blade.php
 
+use Livewire\Attributes\On; 
+use Livewire\Component;
+use App\Models\Order;
+
+new class extends Component {
+    public Order $order;
+
+    public $showOrderShippedNotification = false;
+
+    public function getListeners()
+    {
+        return [
+            "echo:orders.{$this->order->id},OrderShipped" => 'notifyShipped',
+        ];
+    }
+
+    public function notifyShipped()
+    {
+        $this->showOrderShippedNotification = true;
+    }
+
+    // ...
+};
 ```
 
-
-
-#
-
-#
-
-# Customizing broadcast event names with `broadcast
-
-As()`If you customize the broadcast name, you must prefix it with a dot (`.`) when listening:
-
-
+Or, if you prefer, you can use the dynamic event name syntax:
 
 ```php
-#[On('echo:scores,.score.submitted')]public function handleScoreSubmitted($event){    $this->scores[] = $event['score'];}
-
+#[On('echo:orders.{order.id},OrderShipped')]
+public function notifyNewOrder()
+{
+    $this->showNewOrderNotification = true;
+}
 ```
 
+### Accessing Event Payload
 
-
-#
-
-#
-
-# Private & presence channels
-
-You may listen to events broadcast to private and presence channels (ensure authentication callbacks are configured):
-
-
+If you need to access the event payload, you can do so via the passed in `$event` parameter:
 
 ```php
-public function getListeners(){    return [        // Public:        'echo:orders,OrderShipped' => 'notifyNewOrder',        // Private:        'echo-private:orders,OrderShipped' => 'notifyNewOrder',        // Presence:        'echo-presence:orders,OrderShipped' => 'notifyNewOrder',        'echo-presence:orders,here' => 'notifyNewOrder',        'echo-presence:orders,joining' => 'notifyNewOrder',        'echo-presence:orders,leaving' => 'notifyNewOrder',    ];}
+#[On('echo:orders.{order.id},OrderShipped')]
+public function notifyNewOrder($event)
+{
+    $order = Order::find($event['orderId']);
 
+    //
+}
 ```
 
+## Customizing Broadcast Event Names with broadcastAs()
 
+By default, Laravel broadcasts events using the event class name. However, you can customize the broadcast event name by implementing the `broadcastAs()` method in your event class.
 
-#
+For example, if you have a `ScoreSubmitted` event but want to broadcast it as `score.submitted`:
 
-# See also
-- [Nesting](../advanced/nesting.md) ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Communicate between parent and child components- [Actions](actions.md) ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Trigger events from component actions- [Alpine](../features/alpine.md) ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Dispatch and listen for events with Alpine- [On Attribute](../php-attributes/on.md) ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Listen for events using the `#[On]` attribute
+```php
+<?php
+
+namespace App\Events;
+
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
+
+class ScoreSubmitted implements ShouldBroadcast
+{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public function broadcastOn()
+    {
+        return new Channel('scores');
+    }
+
+    public function broadcastAs(): string
+    {
+        return 'score.submitted';
+    }
+}
+```
+
+When listening for this event in a Livewire component, you should use the custom broadcast name returned by `broadcastAs()` instead of the class name. **Important:** When using a custom broadcast name, you must prefix it with a dot (.) to distinguish it from namespaced event class names:
+
+```php
+<?php
+
+namespace App\Livewire;
+
+use Livewire\Attributes\On;
+use Livewire\Component;
+
+class ScoreBoard extends Component
+{
+    public $scores = [];
+
+    #[On('echo:scores,.score.submitted')]
+    public function handleScoreSubmitted($event)
+    {
+        $this->scores[] = $event['score'];
+    }
+}
+```
+
+In the above example, the Livewire component listens for `.score.submitted` (the custom broadcast name prefixed with a dot) rather than `ScoreSubmitted` (the class name).
+
+You can also use the custom broadcast name with dynamic channel names:
+
+```php
+#[On('echo:scores.{game.id},.score.submitted')]
+public function handleScoreSubmitted($event)
+{
+    $this->scores[] = $event['score'];
+}
+```
+
+## Private & Presence Channels
+
+You may also listen to events broadcast to private and presence channels:
+
+```php
+<?php // resources/views/components/⚡order-tracker.blade.php
+
+use Livewire\Component;
+
+new class extends Component {
+    public $showNewOrderNotification = false;
+
+    public function getListeners()
+    {
+        return [
+            // Public Channel
+            "echo:orders,OrderShipped" => 'notifyNewOrder',
+
+            // Private Channel
+            "echo-private:orders,OrderShipped" => 'notifyNewOrder',
+
+            // Presence Channel
+            "echo-presence:orders,OrderShipped" => 'notifyNewOrder',
+            "echo-presence:orders,here" => 'notifyNewOrder',
+            "echo-presence:orders,joining" => 'notifyNewOrder',
+            "echo-presence:orders,leaving" => 'notifyNewOrder',
+        ];
+    }
+
+    public function notifyNewOrder()
+    {
+        $this->showNewOrderNotification = true;
+    }
+};
+```
+
+## See Also
+
+- [Nesting](./nesting.md) — Communicate between parent and child components
+- [Actions](./actions.md) — Trigger events from component actions
+- [Alpine](../features/alpine.md) — Dispatch and listen for events with Alpine
+- [On Attribute](../php-attributes/on.md) — Listen for events using the `#[On]` attribute
