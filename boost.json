@@ -1,11 +1,9 @@
 {
     "agents": [
-        "phpstorm"
+        "cursor"
     ],
-    "editors": [
-        "phpstorm"
-    ],
-    "guidelines": [
-        "laravel/fortify"
+    "guidelines": true,
+    "packages": [
+        "spatie/boost-spatie-guidelines"
     ]
 }
