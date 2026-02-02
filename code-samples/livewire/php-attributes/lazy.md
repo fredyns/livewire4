@@ -1,4 +1,6 @@
-# Lazysource: https://livewire.laravel.com/docs/4.x/attribute-lazy
+# Lazy
+
+source: https://livewire.laravel.com/docs/4.x/attribute-lazy
 
 The `#[Lazy]` attribute makes a component load only when it becomes visible in the viewport, preventing slow components from blocking the initial page render.
 

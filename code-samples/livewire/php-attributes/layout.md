@@ -1,4 +1,6 @@
-# Layoutsource: https://livewire.laravel.com/docs/4.x/attribute-layout
+# Layout
+
+source: https://livewire.laravel.com/docs/4.x/attribute-layout
 
 The `#[Layout]` attribute specifies which Blade layout a full-page component should use, allowing you to customize layouts on a per-component basis.
 

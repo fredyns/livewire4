@@ -1,4 +1,6 @@
-# wire:showsource: https://livewire.laravel.com/docs/4.x/wire-show
+# wire:show
+
+source: https://livewire.laravel.com/docs/4.x/wire-show
 
 Livewire
 

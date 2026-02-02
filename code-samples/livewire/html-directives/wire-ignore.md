@@ -1,4 +1,6 @@
-# wire:ignoresource: https://livewire.laravel.com/docs/4.x/wire-ignore
+# wire:ignore
+
+source: https://livewire.laravel.com/docs/4.x/wire-ignore
 
 Livewire
 

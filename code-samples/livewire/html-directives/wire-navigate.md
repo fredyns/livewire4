@@ -1,4 +1,6 @@
-# wire:navigatesource: https://livewire.laravel.com/docs/4.x/wire-navigate
+# wire:navigate
+
+source: https://livewire.laravel.com/docs/4.x/wire-navigate
 
 Livewire
 

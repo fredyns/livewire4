@@ -1,12 +1,14 @@
-# CSPsource: https://livewire.laravel.com/docs/4.x/csp
+# CSP
+
+source: https://livewire.laravel.com/docs/4.x/csp
 
 Livewire offers a CSP-safe build that allows you to use Livewire applications in environments with strict Content Security Policy (CSP) headers that prohibit `'unsafe-eval'`.
 
 #
 
-# What is Content Security Policy (CSP)?CSP is a security standard that helps prevent attacks like XSS and code injection by controlling which resources a browser may load and execute.One of the most restrictive CSP directives is `'unsafe-eval'`. When omitted, it prevents Java
+# What is Content Security Policy (CSP)?
 
-Script from executing dynamic code through `eval()`, `new Function()`, and similar constructs.
+CSP is a security standard that helps prevent attacks like XSS and code injection by controlling which resources a browser may load and execute.One of the most restrictive CSP directives is `'unsafe-eval'`. When omitted, it prevents JavaScript from executing dynamic code through `eval()`, `new Function()`, and similar constructs.
 
 #
 

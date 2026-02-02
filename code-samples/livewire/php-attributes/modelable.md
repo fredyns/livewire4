@@ -1,4 +1,6 @@
-# Modelablesource: https://livewire.laravel.com/docs/4.x/attribute-modelable
+# Modelable
+
+source: https://livewire.laravel.com/docs/4.x/attribute-modelable
 
 The `#[Modelable]` attribute designates a property in a child component that can be bound to from a parent component using `wire:model`.
 

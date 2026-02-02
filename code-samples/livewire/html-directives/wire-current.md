@@ -1,4 +1,6 @@
-# wire:currentsource: https://livewire.laravel.com/docs/4.x/wire-current
+# wire:current
+
+source: https://livewire.laravel.com/docs/4.x/wire-current
 
 The `wire:current` directive allows you to easily detect and style currently active links on a page.Livewire automatically adds a `data-current` attribute to all `wire:navigate` links that match the current page. You can style these links directly with Tailwind's `data-current:` variant or CSS, without needing the `wire:current` directive.Learn more about automatic `data-current`.
 

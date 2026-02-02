@@ -1,4 +1,6 @@
-# Paginationsource: https://livewire.laravel.com/docs/4.x/pagination
+# Pagination
+
+source: https://livewire.laravel.com/docs/4.x/pagination
 
 Laravel
 

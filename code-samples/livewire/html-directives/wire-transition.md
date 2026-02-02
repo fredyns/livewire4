@@ -1,4 +1,6 @@
-# wire:transitionsource: https://livewire.laravel.com/docs/4.x/wire-transition
+# wire:transition
+
+source: https://livewire.laravel.com/docs/4.x/wire-transition
 
 `wire:transition
 

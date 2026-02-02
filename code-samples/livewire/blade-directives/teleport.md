@@ -1,4 +1,6 @@
-# @teleportsource: https://livewire.laravel.com/docs/4.x/directive-teleport
+# @teleport
+
+source: https://livewire.laravel.com/docs/4.x/directive-teleport
 
 The `@teleport` directive renders a portion of your template in a different location in the DOM, outside the component's normal placement.
 

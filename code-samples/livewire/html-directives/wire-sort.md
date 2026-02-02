@@ -1,4 +1,6 @@
-# wire:sortsource: https://livewire.laravel.com/docs/4.x/wire-sort
+# wire:sort
+
+source: https://livewire.laravel.com/docs/4.x/wire-sort
 
 Livewire provides powerful drag-and-drop sorting capabilities through the `wire:sort` and `wire:sort:item` directives.With these tools, you can make lists of elements sortable with smooth animations Ã¢â‚¬â€ all handled for you out of the box.
 

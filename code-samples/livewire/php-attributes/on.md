@@ -1,4 +1,6 @@
-# Onsource: https://livewire.laravel.com/docs/4.x/attribute-on
+# On
+
+source: https://livewire.laravel.com/docs/4.x/attribute-on
 
 The `#[On]` attribute allows a component to listen for events and execute a method when those events are dispatched.
 

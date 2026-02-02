@@ -1,4 +1,6 @@
-# wire:textsource: https://livewire.laravel.com/docs/4.x/wire-text
+# wire:text
+
+source: https://livewire.laravel.com/docs/4.x/wire-text
 
 `wire:text
 

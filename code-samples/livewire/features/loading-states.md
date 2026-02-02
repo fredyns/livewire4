@@ -1,4 +1,6 @@
-# Loading Statessource: https://livewire.laravel.com/docs/4.x/loading-states
+# Loading States
+
+source: https://livewire.laravel.com/docs/4.x/loading-states
 
 When a user interacts with your Livewire components, providing visual feedback during network requests is essential for a good user experience. Livewire automatically adds a `data-loading` attribute to any element that triggers a network request, making it easy to style loading states.Livewire also provides the [`wire:loading`](../html-directives/wire-loading.md) directive for toggling elements during requests. While `wire:loading` is simpler for basic show/hide scenarios, it has more limitations (requiring `wire:target` for specificity, doesn't work well with events across components, etc.). For most use cases, you should prefer using `data-loading` selectors as demonstrated in this guide.
 

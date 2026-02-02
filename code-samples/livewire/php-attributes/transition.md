@@ -1,4 +1,6 @@
-# Transitionsource: https://livewire.laravel.com/docs/4.x/attribute-transition
+# Transition
+
+source: https://livewire.laravel.com/docs/4.x/attribute-transition
 
 The `#[Transition]` attribute configures view transition behavior for action methods, allowing you to set transition types or skip transitions entirely.
 

@@ -1,4 +1,6 @@
-# wire:cloaksource: https://livewire.laravel.com/docs/4.x/wire-cloak
+# wire:cloak
+
+source: https://livewire.laravel.com/docs/4.x/wire-cloak
 
 `wire:cloak
 

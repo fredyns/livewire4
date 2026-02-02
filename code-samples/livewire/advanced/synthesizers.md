@@ -1,4 +1,6 @@
-# Synthesizerssource: https://livewire.laravel.com/docs/4.x/synthesizers
+# Synthesizers
+
+source: https://livewire.laravel.com/docs/4.x/synthesizers
 
 Because Livewire components are dehydrated (serialized) into JSON and hydrated back into PHP between requests, component properties must be JSON-serializable.PHP serializes primitive values easily, but more sophisticated property types (models, collections, Carbon instances, Stringables, etc.) require a more robust system.Livewire provides an extension point called ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSynthesizersÃƒÂ¢Ã¢â€šÂ¬Ã‚Â so you can support custom property types.Before using Synthesizers, itÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s helpful to understand hydration:
 

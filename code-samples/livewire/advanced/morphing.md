@@ -1,4 +1,6 @@
-# Morphingsource: https://livewire.laravel.com/docs/4.x/morphing
+# Morphing
+
+source: https://livewire.laravel.com/docs/4.x/morphing
 
 When a Livewire component updates the browser's DOM, it does so in an intelligent way we call ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œmorphingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â. Instead of replacing a component's HTML with newly rendered HTML every time a component is updated, Livewire compares the current HTML with the new HTML, identifies differences, and makes surgical changes only where needed.This preserves existing, unchanged elements (event listeners, focus state, input values) and improves performance compared to wiping and re-rendering the DOM on every update.
 

@@ -1,4 +1,6 @@
-# wire:replacesource: https://livewire.laravel.com/docs/4.x/wire-replace
+# wire:replace
+
+source: https://livewire.laravel.com/docs/4.x/wire-replace
 
 Livewire
 

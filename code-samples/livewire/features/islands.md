@@ -1,4 +1,6 @@
-# Islandssource: https://livewire.laravel.com/docs/4.x/islands
+# Islands
+
+source: https://livewire.laravel.com/docs/4.x/islands
 
 Islands allow you to create isolated regions within a Livewire component that update independently. When an action occurs inside an island, only that island re-renders Ã¢â‚¬â€ not the entire component.This gives you the performance benefits of breaking components into smaller pieces without the overhead of creating separate child components, managing props, or dealing with component communication.
 

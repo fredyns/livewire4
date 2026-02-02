@@ -1,4 +1,6 @@
-# wire:offlinesource: https://livewire.laravel.com/docs/4.x/wire-offline
+# wire:offline
+
+source: https://livewire.laravel.com/docs/4.x/wire-offline
 
 In real-time applications, it can be helpful to provide a visual indication that the user's device is no longer connected to the internet.For example, if you have built a blogging platform on Livewire, you may want to notify your users if they are offline so that they don't draft an entire blog post without the ability for Livewire to save it to the database.Livewire provides the `wire:offline` directive for such cases.By adding `wire:offline` to an element inside a Livewire component, it will be hidden by default and become visible when the user loses connection:
 

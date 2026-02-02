@@ -1,4 +1,6 @@
-# File Uploadssource: https://livewire.laravel.com/docs/4.x/uploads
+# File Uploads
+
+source: https://livewire.laravel.com/docs/4.x/uploads
 
 Livewire offers powerful support for uploading files within your components.First, add the `WithFileUploads` trait to your component. Once this trait has been added to your component, you can use `wire:model` on file inputs as if they were any other input type and Livewire will take care of the rest.Here's an example of a simple component that handles uploading a photo:
 

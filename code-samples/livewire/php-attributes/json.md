@@ -1,4 +1,6 @@
-# Jsonsource: https://livewire.laravel.com/docs/4.x/attribute-json
+# Json
+
+source: https://livewire.laravel.com/docs/4.x/attribute-json
 
 The `#[Json]` attribute marks an action as a JSON endpoint, returning data directly to JavaScript.Validation errors trigger a promise rejection with structured error data.This is ideal for actions consumed by JavaScript rather than rendered in Blade.
 

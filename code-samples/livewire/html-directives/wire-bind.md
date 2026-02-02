@@ -1,4 +1,6 @@
-# wire:bindsource: https://livewire.laravel.com/docs/4.x/wire-bind
+# wire:bind
+
+source: https://livewire.laravel.com/docs/4.x/wire-bind
 
 `wire:bind
 

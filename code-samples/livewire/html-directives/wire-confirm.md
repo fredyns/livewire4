@@ -1,4 +1,6 @@
-# wire:confirmsource: https://livewire.laravel.com/docs/4.x/wire-confirm
+# wire:confirm
+
+source: https://livewire.laravel.com/docs/4.x/wire-confirm
 
 Before performing dangerous actions in Livewire, you may want to provide your users with some sort of visual confirmation.Livewire makes this easy to do by adding `wire:confirm` in addition to any action (`wire:click`, `wire:submit`, etc.).
 

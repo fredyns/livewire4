@@ -1,4 +1,6 @@
-# Redirectingsource: https://livewire.laravel.com/docs/4.x/redirecting
+# Redirecting
+
+source: https://livewire.laravel.com/docs/4.x/redirecting
 
 After a user performs some action Ã¢â‚¬â€ like submitting a form Ã¢â‚¬â€ you may want to redirect them to another page in your application.Because Livewire requests aren't standard full-page browser requests, standard HTTP redirects won't work. Instead, you need to trigger redirects via JavaScript.Fortunately, Livewire exposes a simple `$this->redirect()` helper method to use within your components. Internally, Livewire will handle the process of redirecting on the frontend.If you prefer, you can use Laravel's built-in redirect utilities within your components as well.
 

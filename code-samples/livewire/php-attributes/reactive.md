@@ -1,4 +1,6 @@
-# Reactivesource: https://livewire.laravel.com/docs/4.x/attribute-reactive
+# Reactive
+
+source: https://livewire.laravel.com/docs/4.x/attribute-reactive
 
 The `#[Reactive]` attribute makes a child component's property automatically update when the parent changes the value being passed in.
 

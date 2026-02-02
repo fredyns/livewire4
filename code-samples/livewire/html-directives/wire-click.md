@@ -1,4 +1,6 @@
-# wire:clicksource: https://livewire.laravel.com/docs/4.x/wire-click
+# wire:click
+
+source: https://livewire.laravel.com/docs/4.x/wire-click
 
 Livewire provides a simple `wire:click` directive for calling component methods (aka actions) when a user clicks a specific element on the page.For example, given the `ShowInvoice` component below:
 

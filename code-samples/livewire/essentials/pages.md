@@ -1,4 +1,6 @@
-# Pagessource: https://livewire.laravel.com/docs/4.x/pages
+# Pages
+
+source: https://livewire.laravel.com/docs/4.x/pages
 
 Livewire components can be used as entire pages by assigning them directly to routes. This allows you to build complete application pages using Livewire components, with additional capabilities like custom layouts, page titles, and route parameters.
 

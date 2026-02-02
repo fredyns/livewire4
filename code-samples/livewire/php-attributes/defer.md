@@ -1,4 +1,6 @@
-# Defersource: https://livewire.laravel.com/docs/4.x/attribute-defer
+# Defer
+
+source: https://livewire.laravel.com/docs/4.x/attribute-defer
 
 The `#[Defer]` attribute makes a component load immediately after the initial page load is complete, preventing slow components from blocking the page render.
 

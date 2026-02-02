@@ -1,4 +1,6 @@
-# Stylessource: https://livewire.laravel.com/docs/4.x/styles
+# Styles
+
+source: https://livewire.laravel.com/docs/4.x/styles
 
 Livewire allows you to include component-specific styles directly in your single-file and multi-file components. These styles are automatically scoped to your component, preventing them from leaking into other parts of your application.This approach mirrors how `<script>` tags work in Livewire components, giving you a cohesive way to keep your component's PHP, HTML, JavaScript, and CSS all in one place.
 

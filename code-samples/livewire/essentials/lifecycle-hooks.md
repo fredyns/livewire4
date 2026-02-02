@@ -1,4 +1,6 @@
-# Lifecycle Hookssource: https://livewire.laravel.com/docs/4.x/lifecycle-hooks
+# Lifecycle Hooks
+
+source: https://livewire.laravel.com/docs/4.x/lifecycle-hooks
 
 Livewire provides a variety of lifecycle hooks that allow you to execute code at specific points during a component's lifecycle. These hooks enable you to perform actions before or after particular events, such as initializing the component, updating properties, or rendering the template.Available hooks include:
 - `mount()`- `hydrate()`- `boot()`- `updating()`- `updated()`- `rendering()`- `render()`- `rendered()`- `dehydrate()`- `exception($e, $stopPropagation)`

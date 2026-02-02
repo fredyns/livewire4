@@ -1,4 +1,6 @@
-# Lazy Loadingsource: https://livewire.laravel.com/docs/4.x/lazy
+# Lazy Loading
+
+source: https://livewire.laravel.com/docs/4.x/lazy
 
 Livewire allows you to lazy load components that would otherwise slow down the initial page load.
 

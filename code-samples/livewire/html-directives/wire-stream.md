@@ -1,4 +1,6 @@
-# wire:streamsource: https://livewire.laravel.com/docs/4.x/wire-stream
+# wire:stream
+
+source: https://livewire.laravel.com/docs/4.x/wire-stream
 
 Livewire allows you to stream content to a web page before a request is complete via the `wire:stream` API.This is an extremely useful feature for things like AI chat-bots which stream responses as they are generated.Livewire currently does not support using `wire:stream` with Laravel Octane.
 

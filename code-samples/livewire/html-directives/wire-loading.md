@@ -1,4 +1,6 @@
-# wire:loadingsource: https://livewire.laravel.com/docs/4.x/wire-loading
+# wire:loading
+
+source: https://livewire.laravel.com/docs/4.x/wire-loading
 
 Loading indicators are an important part of crafting good user interfaces. They give users visual feedback when a request is being made to the server, so they know they are waiting for a process to complete.While `wire:loading` is great for simple show/hide scenarios, Livewire v4 introduces automatic `data-loading` attributes on elements that trigger network requests. This approach is often simpler and more flexibleÃ¢â‚¬â€you can style loading states directly with Tailwind without needing `wire:target` directives, and it works seamlessly even when dispatching events to other components.Learn more about data-loading.
 

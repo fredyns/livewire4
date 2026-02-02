@@ -1,4 +1,6 @@
-# Urlsource: https://livewire.laravel.com/docs/4.x/attribute-url
+# Url
+
+source: https://livewire.laravel.com/docs/4.x/attribute-url
 
 The `#[Url]` attribute stores a property's value in the URL's query string, allowing users to share and bookmark specific states of a page.
 

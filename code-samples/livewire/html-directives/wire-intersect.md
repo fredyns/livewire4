@@ -1,4 +1,6 @@
-# wire:intersectsource: https://livewire.laravel.com/docs/4.x/wire-intersect
+# wire:intersect
+
+source: https://livewire.laravel.com/docs/4.x/wire-intersect
 
 Livewire
 

@@ -1,4 +1,6 @@
-# Actionssource: https://livewire.laravel.com/docs/4.x/actions
+# Actions
+
+source: https://livewire.laravel.com/docs/4.x/actions
 
 Livewire actions are methods on your component that can be triggered by frontend interactions like clicking a button or submitting a form.
 

@@ -1,4 +1,6 @@
-# wire:dirtysource: https://livewire.laravel.com/docs/4.x/wire-dirty
+# wire:dirty
+
+source: https://livewire.laravel.com/docs/4.x/wire-dirty
 
 In a traditional HTML page containing a form, the form is only ever submitted when the user presses the "Submit" button.However, Livewire is capable of much more than traditional form submissions. You can validate form inputs in real-time or even save the form as a user types.In these "real-time" update scenarios, it can be helpful to signal to your users when a form or subset of a form has been changed, but hasn't been saved to the database.When a form contains un-saved input, that form is considered "dirty". It only becomes "clean" when a network request has been triggered to synchronize the server state with the client-side state.
 

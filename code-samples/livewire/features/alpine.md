@@ -1,4 +1,6 @@
-# Alpinesource: https://livewire.laravel.com/docs/4.x/alpine
+# Alpine
+
+source: https://livewire.laravel.com/docs/4.x/alpine
 
 [AlpineJS](https://alpinejs.dev/
 

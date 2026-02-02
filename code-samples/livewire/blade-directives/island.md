@@ -1,4 +1,6 @@
-# @islandsource: https://livewire.laravel.com/docs/4.x/directive-island
+# @island
+
+source: https://livewire.laravel.com/docs/4.x/directive-island
 
 The `@island` directive creates isolated regions within a component that update independently, without re-rendering the entire component.
 

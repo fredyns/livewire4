@@ -1,4 +1,6 @@
-# Teleportsource: https://livewire.laravel.com/docs/4.x/teleport
+# Teleport
+
+source: https://livewire.laravel.com/docs/4.x/teleport
 
 Livewire allows you to teleport part of your template to another part of the DOM on the page entirely.This is useful for things like nested dialogs. When nesting one dialog inside of another, the z-index of the parent modal is applied to the nested modal. This can cause problems with styling backdrops and overlays.To avoid this problem, you can use Livewire's `@teleport` directive to render each nested modal as siblings in the rendered DOM.This functionality is powered by Alpine's `x-teleport` directive.
 

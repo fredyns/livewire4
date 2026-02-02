@@ -1,4 +1,6 @@
-# Contribution Guidesource: https://livewire.laravel.com/docs/4.x/contribution-guide
+# Contribution Guide
+
+source: https://livewire.laravel.com/docs/4.x/contribution-guide
 
 This guide explains how to contribute to Livewire by submitting new features, fixing failing tests, or resolving bugs.
 

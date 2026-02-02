@@ -1,4 +1,6 @@
-# Titlesource: https://livewire.laravel.com/docs/4.x/attribute-title
+# Title
+
+source: https://livewire.laravel.com/docs/4.x/attribute-title
 
 The `#[Title]` attribute sets the page title for full-page Livewire components.
 

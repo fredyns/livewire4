@@ -1,4 +1,6 @@
-# Navigatesource: https://livewire.laravel.com/docs/4.x/navigate
+# Navigate
+
+source: https://livewire.laravel.com/docs/4.x/navigate
 
 Many modern web applications are built as "single page applications" (SPAs). In these applications, each page rendered by the application no longer requires a full browser page reload, avoiding the overhead of re-downloading JavaScript and CSS assets on every request.The alternative to a single page application is a multi-page application. In these applications, every time a user clicks a link, an entirely new HTML page is requested and rendered in the browser.While most PHP applications have traditionally been multi-page applications, Livewire offers a single page application experience via a simple attribute you can add to links in your application: `wire:navigate`.
 

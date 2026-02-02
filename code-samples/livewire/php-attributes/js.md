@@ -1,4 +1,6 @@
-# Jssource: https://livewire.laravel.com/docs/4.x/attribute-js
+# Js
+
+source: https://livewire.laravel.com/docs/4.x/attribute-js
 
 The `#[Js]` attribute designates methods that return JavaScript code to be executed on the client-side.Methods marked with `#[Js]` can be called directly from your templates without making a server request.
 

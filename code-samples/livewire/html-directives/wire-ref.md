@@ -1,4 +1,6 @@
-# wire:refsource: https://livewire.laravel.com/docs/4.x/wire-ref
+# wire:ref
+
+source: https://livewire.laravel.com/docs/4.x/wire-ref
 
 Refs in Livewire provide a way to name, then target an individual element or component inside Livewire.They're useful for dispatching events or streaming content to a specific element.They're a tidy alternative, but conceptually similar, to using something like classes/ids to target elements.Here are a list of use-cases:
 - Dispatching an event to a specific component- Targeting an element using `$refs`- Streaming content to a specific elementLet's walk through each of these.

@@ -1,4 +1,6 @@
-# Eventssource: https://livewire.laravel.com/docs/4.x/events
+# Events
+
+source: https://livewire.laravel.com/docs/4.x/events
 
 Livewire offers a robust event system that you can use to communicate between different components on the page. Because it uses browser events under the hood, you can also use Livewire's event system to communicate with Alpine components or even plain, vanilla JavaScript.To trigger an event, you may use the `dispatch()` method from anywhere inside your component and listen for that event from any other component on the page.
 

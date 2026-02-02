@@ -1,4 +1,6 @@
-# Lockedsource: https://livewire.laravel.com/docs/4.x/attribute-locked
+# Locked
+
+source: https://livewire.laravel.com/docs/4.x/attribute-locked
 
 The `#[Locked]` attribute prevents properties from being modified on the client-side, protecting sensitive data like model IDs from tampering by users.
 

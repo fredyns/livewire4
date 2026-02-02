@@ -1,4 +1,6 @@
-# Troubleshootingsource: https://livewire.laravel.com/docs/4.x/troubleshooting
+# Troubleshooting
+
+source: https://livewire.laravel.com/docs/4.x/troubleshooting
 
 Here are some common errors and scenarios you may encounter in your Livewire apps.
 

@@ -1,4 +1,6 @@
-# Isolatesource: https://livewire.laravel.com/docs/4.x/attribute-isolate
+# Isolate
+
+source: https://livewire.laravel.com/docs/4.x/attribute-isolate
 
 The `#[Isolate]` attribute prevents a component's requests from being bundled with other component updates, allowing it to execute in parallel.
 

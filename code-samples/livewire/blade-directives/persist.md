@@ -1,4 +1,6 @@
-# @persistsource: https://livewire.laravel.com/docs/4.x/directive-persist
+# @persist
+
+source: https://livewire.laravel.com/docs/4.x/directive-persist
 
 The `@persist` directive preserves elements across page navigations when using `wire:navigate`, maintaining their state and avoiding re-initialization.
 

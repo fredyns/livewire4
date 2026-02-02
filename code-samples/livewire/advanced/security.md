@@ -1,4 +1,6 @@
-# Securitysource: https://livewire.laravel.com/docs/4.x/security
+# Security
+
+source: https://livewire.laravel.com/docs/4.x/security
 
 Livewire has internal security features, but application code must still validate and authorize actions and treat client-provided values as untrusted user input.
 

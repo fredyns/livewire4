@@ -1,4 +1,6 @@
-# @placeholdersource: https://livewire.laravel.com/docs/4.x/directive-placeholder
+# @placeholder
+
+source: https://livewire.laravel.com/docs/4.x/directive-placeholder
 
 The `@placeholder` directive displays custom content while lazy or deferred components and islands are loading.
 

@@ -1,4 +1,6 @@
-# wire:pollsource: https://livewire.laravel.com/docs/4.x/wire-poll
+# wire:poll
+
+source: https://livewire.laravel.com/docs/4.x/wire-poll
 
 Polling is a technique used in web applications to "poll" the server (send requests on a regular interval) for updates.It's a simple way to keep a page up-to-date without the need for a more sophisticated technology like WebSockets.
 

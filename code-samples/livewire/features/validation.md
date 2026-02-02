@@ -1,4 +1,6 @@
-# Validationsource: https://livewire.laravel.com/docs/4.x/validation
+# Validation
+
+source: https://livewire.laravel.com/docs/4.x/validation
 
 Livewire aims to make validating a user's input and giving them feedback as pleasant as possible. By building on top of Laravel's validation features, Livewire leverages your existing knowledge while also providing you with robust, additional features like real-time validation.Here's an example `CreatePost` component that demonstrates the most basic validation workflow in Livewire:
 

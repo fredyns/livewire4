@@ -1,4 +1,6 @@
-# Hydrationsource: https://livewire.laravel.com/docs/4.x/hydration
+# Hydration
+
+source: https://livewire.laravel.com/docs/4.x/hydration
 
 Using Livewire can feel like attaching a server-side PHP class directly to the browser. In reality, Livewire renders static HTML, listens for browser events, and makes stateless AJAX requests to invoke server-side code.Because each request is stateless, Livewire must re-create the last-known state of a component before making updates. It does this by taking ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œsnapshotsÃƒÂ¢Ã¢â€šÂ¬Ã‚Â of component state after each update (ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œdehydrationÃƒÂ¢Ã¢â€šÂ¬Ã‚Â), and re-creating the component from snapshots (ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œhydrationÃƒÂ¢Ã¢â€šÂ¬Ã‚Â).
 

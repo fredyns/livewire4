@@ -1,4 +1,6 @@
-# URL Query Parameterssource: https://livewire.laravel.com/docs/4.x/url
+# URL Query Parameters
+
+source: https://livewire.laravel.com/docs/4.x/url
 
 Livewire allows you to store component properties in the URL's query string. For example, you may want a `$search` property in your component to be included in the URL: `https://example.com/users?search=bob`.This is particularly useful for things like filtering, sorting, and pagination, as it allows users to share and bookmark specific states of a page.
 

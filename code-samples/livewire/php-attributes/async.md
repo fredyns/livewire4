@@ -1,4 +1,6 @@
-# Asyncsource: https://livewire.laravel.com/docs/4.x/attribute-async
+# Async
+
+source: https://livewire.laravel.com/docs/4.x/attribute-async
 
 The `#[Async]` attribute allows actions to run in parallel without being queued, making them execute immediately even if other requests are in-flight.
 
