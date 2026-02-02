@@ -1,12 +1,19 @@
+# LIVEWIRE DOCUMENTATIONsource: https://livewire.laravel.com/docs/4.x/Livewire 
+
+ 
 # LIVEWIRE DOCUMENTATION
+ 
+source: https://livewire.laravel.com/docs/4.x/
+ 
+Livewire allows you to build dynamic, reactive interfaces using only PHP—no JavaScript required. Instead of writing frontend code in JavaScript frameworks, you write simple PHP classes and Blade templates, and Livewire handles all the complex JavaScript behind the scenes.To demonstrate, we'll build a simple post creation form with real-time validation. You'll see how Livewire can validate inputs and update the page dynamically without writing a single line of JavaScript or manually handling AJAX requests.
 
-source: https://livewire.laravel.com/docs/4.x/Livewire 
-
-Livewire allows you to build dynamic, reactive interfaces using only PHP—no JavaScript required. Instead of writing frontend code in JavaScript frameworks, you write simple PHP classes and Blade templates, and Livewire handles all the complex JavaScript behind the scenes.To demonstrate, we'll build a simple post creation form with real-time validation. You'll see how Livewire can validate inputs and update the page dynamically without writing a single line of JavaScript or manually handling AJAX requests.#
+#
 
 # Table Of Content
 
-##
+#
+
+#
 
 # Essentials
 - **[Components]** [Components](./essentials/components.md)
@@ -19,9 +26,12 @@ Livewire allows you to build dynamic, reactive interfaces using only PHP—no Ja
 - **[Nesting Components]** [Nesting Components](./essentials/nesting.md)
 - **[Testing]** [Testing](./essentials/testing.md)
 
-##
+#
 
-# Features- **[Alpine]** [Alpine](./features/alpine.md)
+#
+
+# Features
+- **[Alpine]** [Alpine](./features/alpine.md)
 - **[Styles]** [Styles](./features/styles.md)
 - **[Navigate]** [Navigate](./features/navigate.md)
 - **[Islands]** [Islands](./features/islands.md)
@@ -36,9 +46,12 @@ Livewire allows you to build dynamic, reactive interfaces using only PHP—no Ja
 - **[File Downloads]** [File Downloads](./features/downloads.md)
 - **[Teleport]** [Teleport](./features/teleport.md)
 
-##
+#
 
-# HTML Directives- **[wire:bind]** [wire:bind](./html-directives/wire-bind.md)
+#
+
+# HTML Directives
+- **[wire:bind]** [wire:bind](./html-directives/wire-bind.md)
 - **[wire:click]** [wire:click](./html-directives/wire-click.md)
 - **[wire:submit]** [wire:submit](./html-directives/wire-submit.md)
 - **[wire:model]** [wire:model](./html-directives/wire-model.md)
@@ -61,9 +74,12 @@ Livewire allows you to build dynamic, reactive interfaces using only PHP—no Ja
 - **[wire:stream]** [wire:stream](./html-directives/wire-stream.md)
 - **[wire:text]** [wire:text](./html-directives/wire-text.md)
 
-##
+#
 
-# PHP Attributes- **[Async]** [Async](./php-attributes/async.md)
+#
+
+# PHP Attributes
+- **[Async]** [Async](./php-attributes/async.md)
 - **[Computed]** [Computed](./php-attributes/computed.md)
 - **[Defer]** [Defer](./php-attributes/defer.md)
 - **[Isolate]** [Isolate](./php-attributes/isolate.md)
@@ -82,16 +98,22 @@ Livewire allows you to build dynamic, reactive interfaces using only PHP—no Ja
 - **[Url]** [Url](./php-attributes/url.md)
 - **[Validate]** [Validate](./php-attributes/validate.md)
 
-##
+#
 
-# Blade Directives- **[@island]** [@island](./blade-directives/island.md)
+#
+
+# Blade Directives
+- **[@island]** [@island](./blade-directives/island.md)
 - **[@placeholder]** [@placeholder](./blade-directives/placeholder.md)
 - **[@persist]** [@persist](./blade-directives/persist.md)
 - **[@teleport]** [@teleport](./blade-directives/teleport.md)
 
-##
+#
 
-# Advanced- **[Morphing]** [Morphing](./advanced/morphing.md)
+#
+
+# Advanced
+- **[Morphing]** [Morphing](./advanced/morphing.md)
 - **[Hydration]** [Hydration](./advanced/hydration.md)
 - **[Nesting]** [Nesting](./advanced/nesting.md)
 - **[Troubleshooting]** [Troubleshooting](./advanced/troubleshooting.md)

@@ -1,93 +1,149 @@
-# Computed
+# Computedsource: https://livewire.laravel.com/docs/4.x/attribute-computed
 
-source: https://livewire.laravel.com/docs/4.x/attribute-computedThe `#[Computed]` attribute allows you to create derived properties that are cached during a request, providing a performance advantage when accessing expensive operations multiple times.#
+The `#[Computed]` attribute allows you to create derived properties that are cached during a request, providing a performance advantage when accessing expensive operations multiple times.
 
-# Basic usageApply the `#[Computed]` attribute to any method to turn it into a cached property:
+#
 
-```
+# Basic usage
 
-php<?php// resources/views/components/user/⚡show.blade.phpuse Livewire\Attributes\Computed;use Livewire\Component;use App\Models\User;new class extends Component {    public $userId;    #[Computed]    public function user()    {        return User::find($this->userId);    }    public function follow()    {        Auth::user()->follow($this->user);    }};
+Apply the `#[Computed]` attribute to any method to turn it into a cached property:
 
-```
 
-```
 
-blade<div>    <h1>{{ $this->user->name }}</h1>    <span>{{ $this->user->email }}</span>    <button wire:click="follow">Follow</button></div>
-
-```
-
-The `user()` method is accessed like a property using `$this->user`. The first time it's called, the result is cached and reused for the rest of the request.Unlike normal properties, computed properties must be accessed via `$this` in your template (for example, `$this->posts` instead of `$posts`).#
-
-# Performance advantageComputed properties cache their result for the duration of a request.If you access `$this->posts` multiple times, the underlying method only executes once:
+```php
+<?php// resources/views/components/user/Ã¢Å¡Â¡show.blade.phpuse Livewire\Attributes\Computed;use Livewire\Component;use App\Models\User;new class extends Component {    public $userId;    #[Computed]    public function user()    {        return User::find($this->userId);    }    public function follow()    {        Auth::user()->follow($this->user);    }};
 
 ```
 
-php<?php// resources/views/components/post/⚡index.blade.phpuse Illuminate\Support\Facades\Auth;use Livewire\Attributes\Computed;use Livewire\Component;new class extends Component {    #[Computed]    public function posts()    {        return Auth::user()->posts; // Only queries database once    }};
+
+
+
+
+```blade
+<div>    <h1>{{ $this->user->name }}</h1>    <span>{{ $this->user->email }}</span>    <button wire:click="follow">Follow</button></div>
 
 ```
 
-This allows you to freely access derived values without worrying about performance implications.#
 
-# Busting the cacheIf the underlying data changes during a request, you can clear the cache using `unset()`:
+
+The `user()` method is accessed like a property using `$this->user`. The first time it's called, the result is cached and reused for the rest of the request.Unlike normal properties, computed properties must be accessed via `$this` in your template (for example, `$this->posts` instead of `$posts`).
+
+#
+
+# Performance advantage
+
+Computed properties cache their result for the duration of a request.If you access `$this->posts` multiple times, the underlying method only executes once:
+
+
+
+```php
+<?php// resources/views/components/post/Ã¢Å¡Â¡index.blade.phpuse Illuminate\Support\Facades\Auth;use Livewire\Attributes\Computed;use Livewire\Component;new class extends Component {    #[Computed]    public function posts()    {        return Auth::user()->posts; // Only queries database once    }};
+
+```
+
+
+
+This allows you to freely access derived values without worrying about performance implications.
+
+#
+
+# Busting the cache
+
+If the underlying data changes during a request, you can clear the cache using `unset()`:
+
+
+
+```php
+<?php// resources/views/components/post/Ã¢Å¡Â¡index.blade.phpuse Illuminate\Support\Facades\Auth;use Livewire\Attributes\Computed;use Livewire\Component;new class extends Component {    #[Computed]    public function posts()    {        return Auth::user()->posts;    }    public function createPost()    {        if ($this->posts->count() > 10) {            throw new \Exception('Maximum post count exceeded');        }        Auth::user()->posts()->create(...);        unset($this->posts); // Clear cache    }};
 
 ```
 
-php<?php// resources/views/components/post/⚡index.blade.phpuse Illuminate\Support\Facades\Auth;use Livewire\Attributes\Computed;use Livewire\Component;new class extends Component {    #[Computed]    public function posts()    {        return Auth::user()->posts;    }    public function createPost()    {        if ($this->posts->count() > 10) {            throw new \Exception('Maximum post count exceeded');        }        Auth::user()->posts()->create(...);        unset($this->posts); // Clear cache    }};
+
+
+After creating a new post, `unset($this->posts)` clears the cache so the next access retrieves the updated data.
+
+#
+
+# Caching between requests
+
+By default, computed properties only cache within a single request.To cache across multiple requests, use the `persist` parameter:
+
+
+
+```php
+#[Computed(persist: true)]public function user(){    return User::find($this->userId);}
 
 ```
 
-After creating a new post, `unset($this->posts)` clears the cache so the next access retrieves the updated data.#
 
-# Caching between requestsBy default, computed properties only cache within a single request.To cache across multiple requests, use the `persist` parameter:
-
-```
-
-php#[Computed(persist: true)]public function user(){    return User::find($this->userId);}
-
-```
 
 This caches the value for 3600 seconds (1 hour). You can customize the duration:
 
+
+
+```php
+#[Computed(persist: true, seconds: 7200)] // 2 hours
+
 ```
 
-php#[Computed(persist: true, seconds: 7200)] // 2 hours
 
-```
 
 #
 
-# Caching across all componentsTo share cached values across all component instances in your application, use the `cache` parameter:
+# Caching across all components
+
+To share cached values across all component instances in your application, use the `cache` parameter:
+
+
+
+```php
+use Livewire\Attributes\Computed;use App\Models\Post;#[Computed(cache: true)]public function posts(){    return Post::all();}
 
 ```
 
-phpuse Livewire\Attributes\Computed;use App\Models\Post;#[Computed(cache: true)]public function posts(){    return Post::all();}
 
-```
 
 You can optionally set a custom cache key:
 
+
+
+```php
+#[Computed(cache: true, key: 'homepage-posts')]
+
 ```
 
-php#[Computed(cache: true, key: 'homepage-posts')]
 
-```
 
 #
 
-# When to useComputed properties are especially useful when:- Conditionally accessing expensive data
+# When to use
+
+Computed properties are especially useful when:
+- Conditionally accessing expensive data
 - Only query the database if the value is actually used in the template- Using inline templates
 - No opportunity to pass data via `render()`- Omitting the render method
 - Following v4's single-file component convention- Accessing the same value multiple times
-- Automatic caching prevents redundant queries#
+- Automatic caching prevents redundant queries
 
-# LimitationsComputed properties cannot be used on `Livewire\Form` objects.Attempting to access them via `$form->property` will result in an error.#
+#
 
-# Learn moreFor detailed information about computed properties, caching strategies, and advanced use cases, see the Computed Properties documentation.#
+# Limitations
+
+Computed properties cannot be used on `Livewire\Form` objects.Attempting to access them via `$form->property` will result in an error.
+
+#
+
+# Learn more
+
+For detailed information about computed properties, caching strategies, and advanced use cases, see the Computed Properties documentation.
+
+#
 
 # Reference
 
-```
 
-text#[Computed(    bool $persist = false,    int $seconds = 3600,    bool $cache = false,    ?string $key = null,    mixed $tags = null,)]
+
+```text
+#[Computed(    bool $persist = false,    int $seconds = 3600,    bool $cache = false,    ?string $key = null,    mixed $tags = null,)]
 
 ```

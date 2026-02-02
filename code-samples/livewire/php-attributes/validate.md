@@ -1,18 +1,24 @@
 # Validate
 =====================================
 
-### Source
+#
 
-https://livewire.laravel.com/docs/4.x/attribute-validate
+#
 
-## Basic Usage
+# Sourcehttps://livewire.laravel.com/docs/4.x/attribute-validate
+
+#
+
+# Basic Usage
 ---------------
 
 Apply the `#[Validate]` attribute to properties that need validation:
 
+
+
 ```php
 <?php
-// resources/views/components/post/⚡create.blade.php
+// resources/views/components/post/Ã¢Å¡Â¡create.blade.php
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -50,25 +56,36 @@ new class extends Component {
 </div>
 ```
 
+
+
 With `#[Validate]`, Livewire automatically validates properties on each update, providing instant feedback to users.
 
-## How it Works
+#
+
+# How it Works
 ----------------
 
 When you add `#[Validate]` to a property:
 
-1. Automatic validation - Property is validated every time it's updated
-2. Real-time feedback - Users see validation errors immediately
-3. Manual validation - You still call `$this->validate()` before saving to ensure all properties are validated
+1. Automatic validation
+- Property is validated every time it's updated
+2. Real-time feedback
+- Users see validation errors immediately
+3. Manual validation
+- You still call `$this->validate()` before saving to ensure all properties are validated
 
-## Real-time Validation
+#
+
+# Real-time Validation
 ----------------------
 
 By default, `#[Validate]` validates properties as they're updated:
 
+
+
 ```php
 <?php
-// resources/views/components/⚡registration.blade.php
+// resources/views/components/Ã¢Å¡Â¡registration.blade.php
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -91,16 +108,22 @@ new class extends Component {
 </div>
 ```
 
+
+
 As users fill out the form, they receive immediate validation feedback.
 
-## Disabling Auto-validation
+#
+
+# Disabling Auto-validation
 ---------------------------
 
 To validate only when explicitly calling `$this->validate()`, use `onUpdate: false`:
 
+
+
 ```php
 <?php
-// resources/views/components/post/⚡create.blade.php
+// resources/views/components/post/Ã¢Å¡Â¡create.blade.php
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -124,31 +147,47 @@ new class extends Component {
 };
 ```
 
+
+
 Now validation only runs when `save()` is called, not on every property update.
 
-## Custom Attribute Names
+#
+
+# Custom Attribute Names
 -------------------------
 
 Customize the field name in validation messages:
+
+
 
 ```php
 #[Validate('required', as: 'date of birth')]
 public $dob;
 ```
 
+
+
 Error message will be "The date of birth field is required" instead of "The dob field is required".
 
-## Custom Validation Messages
+#
+
+# Custom Validation Messages
 ---------------------------
 
 Override default validation messages:
+
+
 
 ```php
 #[Validate('required', message: 'Please provide a post title')]
 public $title;
 ```
 
+
+
 For multiple rules, use multiple attributes:
+
+
 
 ```php
 #[Validate('required', message: 'Please provide a post title')]
@@ -156,14 +195,20 @@ For multiple rules, use multiple attributes:
 public $title;
 ```
 
-## Array Validation
+
+
+#
+
+# Array Validation
 ------------------
 
 Validate array properties and their children:
 
+
+
 ```php
 <?php
-// resources/views/components/⚡task-list.blade.php
+// resources/views/components/Ã¢Å¡Â¡task-list.blade.php
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -182,14 +227,20 @@ new class extends Component {
 };
 ```
 
+
+
 This validates both the array itself and each individual task.
 
-## Limitations
+#
+
+# Limitations
 --------------
 
 PHP attributes can't use Laravel's Rule objects directly.
 
 For complex rules like `Rule::exists()`, use a `rules()` method instead:
+
+
 
 ```php
 protected function rules()
@@ -200,7 +251,11 @@ protected function rules()
 }
 ```
 
-## When to Use
+
+
+#
+
+# When to Use
 --------------
 
 Use `#[Validate]` when:
@@ -208,21 +263,23 @@ Use `#[Validate]` when:
 * Building forms with real-time validation feedback
 * Co-locating validation rules with property definitions
 * Creating simple, readable validation logic
-* Implementing inline validation for better UX
-
-Use `rules()` method when:
+* Implementing inline validation for better UXUse `rules()` method when:
 
 * You need Laravel's Rule objects
 * Rules depend on dynamic values
 * You're working with complex conditional validation
 * You prefer centralized rule definition
 
-## Example: Contact Form
+#
+
+# Example: Contact Form
 -----------------------
+
+
 
 ```php
 <?php
-// resources/views/pages/⚡contact.blade.php
+// resources/views/pages/Ã¢Å¡Â¡contact.blade.php
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -246,7 +303,7 @@ new class extends Component {
     {
         $validated = $this->validate();
 
-        Mail::to('[email protected]')->send(new ContactMessage($validated));
+        Mail::to('[emailÃ‚Â protected]')->send(new ContactMessage($validated));
 
         session()->flash('success', 'Message sent successfully!');
 
@@ -286,15 +343,23 @@ new class extends Component {
 </div>
 ```
 
+
+
 Users get immediate feedback as they fill out the form, with friendly field names and helpful error messages.
 
-## Learn More
+#
+
+# Learn More
 --------------
 
 For comprehensive documentation on validation (including form objects, custom rules, and testing), see the Validation documentation.
 
-## Reference
+#
+
+# Reference
 -------------
+
+
 
 ```text
 #[Validate(

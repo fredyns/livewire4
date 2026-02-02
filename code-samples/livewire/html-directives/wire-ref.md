@@ -1,73 +1,111 @@
-# wire:ref
+# wire:refsource: https://livewire.laravel.com/docs/4.x/wire-ref
 
-source: https://livewire.laravel.com/docs/4.x/wire-refRefs in Livewire provide a way to name, then target an individual element or component inside Livewire.They're useful for dispatching events or streaming content to a specific element.They're a tidy alternative, but conceptually similar, to using something like classes/ids to target elements.Here are a list of use-cases:- Dispatching an event to a specific component- Targeting an element using `$refs`- Streaming content to a specific elementLet's walk through each of these.#
+Refs in Livewire provide a way to name, then target an individual element or component inside Livewire.They're useful for dispatching events or streaming content to a specific element.They're a tidy alternative, but conceptually similar, to using something like classes/ids to target elements.Here are a list of use-cases:
+- Dispatching an event to a specific component- Targeting an element using `$refs`- Streaming content to a specific elementLet's walk through each of these.
 
-# Dispatching eventsRefs are a great way to target specific child components within Livewire's event system.Consider the following Livewire modal component that listens for a `close` event:
+#
+
+# Dispatching events
+
+Refs are a great way to target specific child components within Livewire's event system.Consider the following Livewire modal component that listens for a `close` event:
+
+
+
+```php
+<?phpnew class extends Livewire\Component {    public bool $isOpen = false;    // ...    #[On('close')]    public function close()    {        $this->isOpen = false;    }};?><div wire:show="isOpen">    {{ $slot }}</div>
 
 ```
 
-php<?phpnew class extends Livewire\Component {    public bool $isOpen = false;    // ...    #[On('close')]    public function close()    {        $this->isOpen = false;    }};?><div wire:show="isOpen">    {{ $slot }}</div>
 
-```
 
 By adding `wire:ref` to the component tag, you can now dispatch the `close` event directly to it using the `ref:` parameter:
 
+
+
+```php
+<?phpnew class extends Livewire\Component {    public function save()    {        // ...        $this->dispatch('close')->to(ref: 'modal');    }};?><div>    <!-- ... -->    <livewire:modal wire:ref="modal">        <!-- ... -->        <button wire:click="save">Save</button>    </livewire:modal></div>
+
 ```
 
-php<?phpnew class extends Livewire\Component {    public function save()    {        // ...        $this->dispatch('close')->to(ref: 'modal');    }};?><div>    <!-- ... -->    <livewire:modal wire:ref="modal">        <!-- ... -->        <button wire:click="save">Save</button>    </livewire:modal></div>
 
-```
 
 #
 
-# Accessing DOM elementsWhen you add `wire:ref` to an HTML element, you can access it via the `$refs` magic property.Consider a character counter that updates in real-time:
+# Accessing DOM elements
+
+When you add `wire:ref` to an HTML element, you can access it via the `$refs` magic property.Consider a character counter that updates in real-time:
+
+
+
+```blade
+<div>    <textarea wire:model="message" wire:ref="message"></textarea>    Characters: <span wire:ref="count">0</span>    <!-- ... --></div><script>    this.$refs.message.addEventListener('input', (e) => {        this.$refs.count.textContent = e.target.value.length    })</script>
 
 ```
 
-blade<div>    <textarea wire:model="message" wire:ref="message"></textarea>    Characters: <span wire:ref="count">0</span>    <!-- ... --></div><script>    this.$refs.message.addEventListener('input', (e) => {        this.$refs.count.textContent = e.target.value.length    })</script>
 
-```
 
 #
 
-# Accessing $wireIf you wish to access `$wire` for a component with a ref, you can do so via the `.$wire` property on the element:
+# Accessing $wire
+
+If you wish to access `$wire` for a component with a ref, you can do so via the `.$wire` property on the element:
+
+
+
+```blade
+<div>    <!-- ... -->    <livewire:modal wire:ref="modal">        <!-- ... -->        <button wire:click="save()">Save</button>    </livewire:modal></div><script>    this.$intercept('save', ({ onFinish }) => {        onFinish(() => {            this.$refs.modal.$wire.close()        })    })</script>
 
 ```
 
-blade<div>    <!-- ... -->    <livewire:modal wire:ref="modal">        <!-- ... -->        <button wire:click="save()">Save</button>    </livewire:modal></div><script>    this.$intercept('save', ({ onFinish }) => {        onFinish(() => {            this.$refs.modal.$wire.close()        })    })</script>
 
-```
 
 #
 
-# Streaming contentLivewire supports streaming content directly to elements within a component using CSS selectors; however, `wire:ref` is a more convenient and discoverable approach.Consider the following component that streams an answer directly from an LLM as it's generated:
+# Streaming content
+
+Livewire supports streaming content directly to elements within a component using CSS selectors; however, `wire:ref` is a more convenient and discoverable approach.Consider the following component that streams an answer directly from an LLM as it's generated:
+
+
+
+```php
+<?phpnew class extends Livewire\Component {    public $question = '';    public function ask()    {        Ai::ask($this->question, function ($chunk) {            $this->stream($chunk)->to(ref: 'answer');        });        $this->reset('question');    }};?><div>    <input type="text" wire:model="question">    <button wire:click="ask"></button>    <h2>Answer:</h2>    <p wire:ref="answer"></p></div>
 
 ```
 
-php<?phpnew class extends Livewire\Component {    public $question = '';    public function ask()    {        Ai::ask($this->question, function ($chunk) {            $this->stream($chunk)->to(ref: 'answer');        });        $this->reset('question');    }};?><div>    <input type="text" wire:model="question">    <button wire:click="ask"></button>    <h2>Answer:</h2>    <p wire:ref="answer"></p></div>
 
-```
 
 #
 
-# Dynamic refsRefs work perfectly in loops and other dynamic contexts.Example with multiple modal instances:
+# Dynamic refs
+
+Refs work perfectly in loops and other dynamic contexts.Example with multiple modal instances:
+
+
+
+```blade
+@foreach($users as $index => $user)    <livewire:modal        wire:key="{{ $user->id }}"        wire:ref="{{ 'user-modal-' . $user->id }}"    >        <!-- ... -->    </livewire>@endforeach
 
 ```
 
-blade@foreach($users as $index => $user)    <livewire:modal        wire:key="{{ $user->id }}"        wire:ref="{{ 'user-modal-' . $user->id }}"    >        <!-- ... -->    </livewire>@endforeach
 
-```
 
 #
 
-# Scoping behaviorRefs are scoped to the current component.This means you can target any element within the component, but not elements in other components on the page.If multiple elements have the same ref name within a component, the first one encountered will be used.#
+# Scoping behavior
+
+Refs are scoped to the current component.This means you can target any element within the component, but not elements in other components on the page.If multiple elements have the same ref name within a component, the first one encountered will be used.
+
+#
 
 # Reference
 
+
+
+```text
+wire:ref="name"
+
 ```
 
-textwire:ref="name"
 
-```
 
 This directive has no modifiers.
