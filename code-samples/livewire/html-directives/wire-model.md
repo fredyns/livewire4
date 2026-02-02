@@ -2,7 +2,9 @@
 
 source: https://livewire.laravel.com/docs/4.x/wire-model
 
-Livewire makes it easy to bind a component property's value with form inputs using `wire:model`.Here is a simple example of using `wire:model` to bind the `$title` and `$content` properties with form inputs in a "Create Post" component:
+Livewire makes it easy to bind a component property's value with form inputs using `wire:model`.
+
+Here is a simple example of using `wire:model` to bind the `$title` and `$content` properties with form inputs in a "Create Post" component:
 
 
 

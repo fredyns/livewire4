@@ -2,9 +2,9 @@
 
 source: https://livewire.laravel.com/docs/4.x/alpine
 
-[AlpineJS](https://alpinejs.dev/
+[AlpineJS](https://alpinejs.dev/) is a lightweight JavaScript library that makes it easy to add client-side interactivity to your web pages. It was originally built to complement tools like Livewire where a more JavaScript-centric utility is helpful for sprinkling interactivity around your app.
 
-) is a lightweight JavaScript library that makes it easy to add client-side interactivity to your web pages. It was originally built to complement tools like Livewire where a more JavaScript-centric utility is helpful for sprinkling interactivity around your app.Livewire ships with Alpine out of the box so there is no need to install it into your project separately.The best place to learn about using AlpineJS is [the Alpine documentation](https://alpinejs.dev).
+Livewire ships with Alpine out of the box so there is no need to install it into your project separately. The best place to learn about using AlpineJS is [the Alpine documentation](https://alpinejs.dev).
 
 #
 

@@ -2,13 +2,17 @@
 
 source: https://livewire.laravel.com/docs/4.x/events
 
-Livewire offers a robust event system that you can use to communicate between different components on the page. Because it uses browser events under the hood, you can also use Livewire's event system to communicate with Alpine components or even plain, vanilla JavaScript.To trigger an event, you may use the `dispatch()` method from anywhere inside your component and listen for that event from any other component on the page.
+Livewire offers a robust event system that you can use to communicate between different components on the page. Because it uses browser events under the hood, you can also use Livewire's event system to communicate with Alpine components or even plain, vanilla JavaScript.
+
+To trigger an event, you may use the `dispatch()` method from anywhere inside your component and listen for that event from any other component on the page.
 
 #
 
 # Dispatching events
 
-To dispatch an event from a Livewire component, call the `dispatch()` method, passing it the event name and any additional data you want to send along with the event.Example dispatching a `post-created` event from a `post.create` component:
+To dispatch an event from a Livewire component, call the `dispatch()` method, passing it the event name and any additional data you want to send along with the event.
+
+Example dispatching a `post-created` event from a `post.create` component:
 
 
 
@@ -19,7 +23,9 @@ To dispatch an event from a Livewire component, call the `dispatch()` method, pa
 
 
 
-In this example, when the `dispatch()` method is called, the `post-created` event will be dispatched, and every other component on the page that is listening for this event will be notified.You can pass additional data with the event by passing the data as additional named parameters:
+In this example, when the `dispatch()` method is called, the `post-created` event will be dispatched, and every other component on the page that is listening for this event will be notified.
+
+You can pass additional data with the event by passing the data as additional named parameters:
 
 
 
@@ -34,7 +40,9 @@ $this->dispatch('post-created', title: $post->title);
 
 # Listening for events
 
-To listen for an event in a Livewire component, add the `#[On]` attribute above the method you want to be called when a given event is dispatched.Make sure you import any attribute classes. For example, `#[On()]` requires `use Livewire\Attributes\On;`.
+To listen for an event in a Livewire component, add the `#[On]` attribute above the method you want to be called when a given event is dispatched.
+
+Make sure you import any attribute classes. For example, `#[On()]` requires `use Livewire\Attributes\On;`.
 
 
 
@@ -45,7 +53,9 @@ To listen for an event in a Livewire component, add the `#[On]` attribute above 
 
 
 
-Now, when the `post-created` event is dispatched from `post.create`, a network request will be triggered and the `updatePostList()` action will be invoked.As you can see, additional data sent with the event will be provided to the action as its first argument.
+Now, when the `post-created` event is dispatched from `post.create`, a network request will be triggered and the `updatePostList()` action will be invoked.
+
+As you can see, additional data sent with the event will be provided to the action as its first argument.
 
 #
 
@@ -53,7 +63,9 @@ Now, when the `post-created` event is dispatched from `post.create`, a network r
 
 # Listening for dynamic event names
 
-Occasionally, you may want to dynamically generate event listener names at run-time using data from your component.For example, if you wanted to scope an event listener to a specific Eloquent model, you could append the model's ID to the event name when dispatching:
+Occasionally, you may want to dynamically generate event listener names at run-time using data from your component.
+
+For example, if you wanted to scope an event listener to a specific Eloquent model, you could append the model's ID to the event name when dispatching:
 
 
 
@@ -118,9 +130,9 @@ If the child dispatched parameters along with the request (for example: `$this->
 
 #
 
-# Using Java
+# Using JavaScript
 
-Script to interact with eventsLivewire's event system becomes much more powerful when you interact with it from JavaScript inside your application. This unlocks the ability for any other JavaScript in your app to communicate with Livewire components on the page.
+Livewire's event system becomes much more powerful when you interact with it from JavaScript inside your application. This unlocks the ability for any other JavaScript in your app to communicate with Livewire components on the page.
 
 #
 
@@ -139,7 +151,9 @@ You can listen for the `post-created` event inside your component's template fro
 
 
 
-The above snippet listens for the `post-created` event from the component it's registered within. If the component is no longer on the page, the event listener will no longer be triggered.Read more about using JavaScript inside your Livewire components.
+The above snippet listens for the `post-created` event from the component it's registered within. If the component is no longer on the page, the event listener will no longer be triggered.
+
+Read more about using JavaScript inside your Livewire components.
 
 #
 
@@ -158,7 +172,9 @@ You can dispatch events from within a component's `<script>` tag:
 
 
 
-When the above script is run, the `post-created` event will be dispatched to the component it's defined within.To dispatch the event only to the component where the script resides and not other components on the page (preventing the event from "bubbling" up), you can use `dispatchSelf()`:
+When the above script is run, the `post-created` event will be dispatched to the component it's defined within.
+
+To dispatch the event only to the component where the script resides and not other components on the page (preventing the event from "bubbling" up), you can use `dispatchSelf()`:
 
 
 
@@ -180,7 +196,9 @@ You can pass additional parameters to the event by passing an object as a second
 
 
 
-You can now access those event parameters from both your Livewire class and also other JavaScript event listeners.Receiving the `refreshPosts` parameter within a Livewire class:
+You can now access those event parameters from both your Livewire class and also other JavaScript event listeners.
+
+Receiving the `refreshPosts` parameter within a Livewire class:
 
 
 
@@ -208,9 +226,9 @@ Read more about using JavaScript inside your Livewire components.
 
 #
 
-# Listening for Livewire events from global Java
+# Listening for Livewire events from global JavaScript
 
-ScriptAlternatively, you can listen for Livewire events globally using `Livewire.on` from any script in your application:
+Alternatively, you can listen for Livewire events globally using `Livewire.on` from any script in your application:
 
 
 
@@ -221,7 +239,9 @@ ScriptAlternatively, you can listen for Livewire events globally using `Livewire
 
 
 
-The above snippet listens for the `post-created` event dispatched from any component on the page.If you wish to remove this event listener for any reason, you can do so using the returned cleanup function:
+The above snippet listens for the `post-created` event dispatched from any component on the page.
+
+If you wish to remove this event listener for any reason, you can do so using the returned cleanup function:
 
 
 
@@ -255,7 +275,9 @@ Listen for the `post-created` event using Alpine:
 
 
 
-The above snippet would listen for the `post-created` event from any Livewire components that are children of the HTML element that the `x-on` directive is assigned to.To listen for the event from any Livewire component on the page, add `.window` to the listener:
+The above snippet would listen for the `post-created` event from any Livewire components that are children of the HTML element that the `x-on` directive is assigned to.
+
+To listen for the event from any Livewire component on the page, add `.window` to the listener:
 
 
 
@@ -283,7 +305,9 @@ If you want to access additional data that was sent with the event, you can do s
 
 # Dispatching Livewire events from Alpine
 
-Any event dispatched from Alpine is capable of being intercepted by a Livewire component.Dispatch the `post-created` event from Alpine:
+Any event dispatched from Alpine is capable of being intercepted by a Livewire component.
+
+Dispatch the `post-created` event from Alpine:
 
 
 
@@ -322,7 +346,9 @@ Learn more about `$parent`.
 
 # Dispatching directly to another component
 
-If you want to use events for communicating directly between two components on the page, you can use the `dispatch()->to()` modifier.Example of `post.create` dispatching the `post-created` event directly to the `dashboard` component:
+If you want to use events for communicating directly between two components on the page, you can use the `dispatch()->to()` modifier.
+
+Example of `post.create` dispatching the `post-created` event directly to the `dashboard` component:
 
 
 
@@ -352,7 +378,9 @@ Using the `dispatch()->self()` modifier, you can restrict an event to only being
 
 # Dispatching events from Blade templates
 
-You can dispatch events directly from your Blade templates using the `$dispatch` JavaScript function.Example triggering an event from a user interaction:
+You can dispatch events directly from your Blade templates using the `$dispatch` JavaScript function.
+
+Example triggering an event from a user interaction:
 
 
 
@@ -410,7 +438,11 @@ To test event listeners, you can dispatch events from the test environment and a
 
 # Real-time events using Laravel Echo
 
-Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.This feature assumes you have installed Laravel Echo and the `window.Echo` object is globally available in your application.For more information on installing Echo, check out the Laravel Echo documentation.
+Livewire pairs nicely with Laravel Echo to provide real-time functionality on your web-pages using WebSockets.
+
+This feature assumes you have installed Laravel Echo and the `window.Echo` object is globally available in your application.
+
+For more information on installing Echo, check out the Laravel Echo documentation.
 
 #
 
@@ -451,7 +483,9 @@ Echo.channel('orders')    .listen('OrderShipped', e => {        console.log(e.or
 
 
 
-Assuming you have Laravel Echo installed and configured, you can listen for this event from inside a Livewire component.Example `order-tracker` component listening for the `OrderShipped` event to show users a visual indication of a new order:
+Assuming you have Laravel Echo installed and configured, you can listen for this event from inside a Livewire component.
+
+Example `order-tracker` component listening for the `OrderShipped` event to show users a visual indication of a new order:
 
 
 
@@ -501,7 +535,11 @@ If you need to access the event payload, you can do so via the passed-in `$event
 
 # Customizing broadcast event names with broadcast
 
-As()By default, Laravel broadcasts events using the event class name.However, you can customize the broadcast event name by implementing the `broadcastAs()` method in your event class.Example broadcasting `ScoreSubmitted` as `score.submitted`:
+By default, Laravel broadcasts events using the event class name.
+
+However, you can customize the broadcast event name by implementing the `broadcastAs()` method in your event class.
+
+Example broadcasting `ScoreSubmitted` as `score.submitted`:
 
 
 
@@ -512,7 +550,9 @@ As()By default, Laravel broadcasts events using the event class name.However, yo
 
 
 
-When listening for this event in a Livewire component, you should use the custom broadcast name returned by `broadcastAs()` instead of the class name.Important: When using a custom broadcast name, you must prefix it with a dot (`.`) to distinguish it from namespaced event class names. This is a Laravel Echo convention.
+When listening for this event in a Livewire component, you should use the custom broadcast name returned by `broadcastAs()` instead of the class name.
+
+**Important:** When using a custom broadcast name, you must prefix it with a dot (`.`) to distinguish it from namespaced event class names. This is a Laravel Echo convention.
 
 
 
@@ -540,7 +580,9 @@ You can also use the custom broadcast name with dynamic channel names:
 
 # Private & presence channels
 
-You may also listen to events broadcast to private and presence channels.Before proceeding, ensure you have defined Authentication Callbacks for your broadcast channels.
+You may also listen to events broadcast to private and presence channels.
+
+Before proceeding, ensure you have defined Authentication Callbacks for your broadcast channels.
 
 
 

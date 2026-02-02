@@ -8,7 +8,11 @@ Loading indicators are an important part of crafting good user interfaces. They 
 
 # Basic usage
 
-Livewire provides a simple yet extremely powerful syntax for controlling loading indicators: `wire:loading`.Adding `wire:loading` to any element will hide it by default (using `display: none` in CSS) and show it when a request is sent to the server.Basic example:
+Livewire provides a simple yet extremely powerful syntax for controlling loading indicators: `wire:loading`.
+
+Adding `wire:loading` to any element will hide it by default (using `display: none` in CSS) and show it when a request is sent to the server.
+
+Basic example:
 
 
 

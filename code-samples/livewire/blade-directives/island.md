@@ -89,8 +89,17 @@ The `wire:island` directive scopes updates to specific islands.
 
 #
 
-# Why use islands?Islands provide performance isolation without the overhead of creating separate child components, managing props, or dealing with component communication.Use islands when:
-- You want to isolate expensive computations- You need independent update regions within one component- You want simpler architecture than nested componentsLearn more: 
+# Why use islands?
+
+Islands provide performance isolation without the overhead of creating separate child components, managing props, or dealing with component communication.
+
+Use islands when:
+
+- You want to isolate expensive computations
+- You need independent update regions within one component
+- You want simpler architecture than nested components
+
+Learn more: 
 
 #
 

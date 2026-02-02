@@ -9,7 +9,11 @@ Livewire allows you to lazy load components that would otherwise slow down the i
 # Lazy vs Defer
 
 Livewire provides two ways to delay component loading:
-- Lazy loading (`lazy`): Components load when they become visible in the viewport (when the user scrolls to them)- Deferred loading (`defer`): Components load immediately after the initial page load is completeBoth approaches prevent slow components from blocking your initial page render, but differ in when the component actually loads.
+
+- **Lazy loading** (`lazy`): Components load when they become visible in the viewport (when the user scrolls to them)
+- **Deferred loading** (`defer`): Components load immediately after the initial page load is complete
+
+Both approaches prevent slow components from blocking your initial page render, but differ in when the component actually loads.
 
 #
 

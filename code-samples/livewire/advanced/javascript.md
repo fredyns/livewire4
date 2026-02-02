@@ -1,6 +1,10 @@
-# Java
+# JavaScript
 
-Scriptsource: https://livewire.laravel.com/docs/4.x/javascriptLivewire and Alpine provide plenty of utilities for building dynamic components directly in HTML, however sometimes itÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s helpful to execute plain JavaScript.The examples use bare `<script>` tags (works for single-file and multi-file components). For class-based components (Blade view separate from the PHP class), wrap scripts with `@script`:
+source: https://livewire.laravel.com/docs/4.x/javascript
+
+Livewire and Alpine provide plenty of utilities for building dynamic components directly in HTML, however sometimes it's helpful to execute plain JavaScript.
+
+The examples use bare `<script>` tags (works for single-file and multi-file components). For class-based components (Blade view separate from the PHP class), wrap scripts with `@script`:
 
 
 
@@ -15,7 +19,9 @@ Scriptsource: https://livewire.laravel.com/docs/4.x/javascriptLivewire and Alpin
 
 # Component scripts
 
-You can add `<script>` tags directly inside your component template. Livewire handles the execution timing so they run at the correct time without needing `document.addEventListener('...')` wrappers.Example:
+You can add `<script>` tags directly inside your component template. Livewire handles the execution timing so they run at the correct time without needing `document.addEventListener('...')` wrappers.
+
+Example:
 
 
 

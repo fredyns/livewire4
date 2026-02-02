@@ -26,15 +26,17 @@ With `#[Defer]`, the component initially renders as an empty `<div></div>`, then
 # Lazy vs Defer
 
 Livewire provides two ways to delay component loading:
-- Lazy loading (`#[Lazy]`)
-- Components load when they become visible in the viewport (when the user scrolls to them)- Deferred loading (`#[Defer]`)
-- Components load immediately after the initial page load is completeBoth prevent slow components from blocking your initial page render, but differ in when the component actually loads.
+
+- **Lazy loading** (`#[Lazy]`): Components load when they become visible in the viewport (when the user scrolls to them)
+- **Deferred loading** (`#[Defer]`): Components load immediately after the initial page load is complete
+
+Both prevent slow components from blocking your initial page render, but differ in when the component actually loads.
 
 #
 
 # Rendering placeholders
 
-By default, Livewire renders an empty `<div></div>` before the component loads.You can provide a custom placeholder using the `placeholder()` method:
+By default, Livewire renders an empty `<div></div>` before the component loads. You can provide a custom placeholder using the `placeholder()` method:
 
 
 
@@ -45,13 +47,13 @@ By default, Livewire renders an empty `<div></div>` before the component loads.Y
 
 
 
-Users will see the loading spinner until the component fully loads.If your placeholder's root element is a `<div>`, your component must also use a `<div>` element.
+Users will see the loading spinner until the component fully loads. If your placeholder's root element is a `<div>`, your component must also use a `<div>` element.
 
 #
 
 # Bundling requests
 
-By default, deferred components load in parallel with independent network requests.To bundle multiple deferred components into a single request, use the `bundle` parameter:
+By default, deferred components load in parallel with independent network requests. To bundle multiple deferred components into a single request, use the `bundle` parameter:
 
 
 
@@ -102,7 +104,11 @@ If a component has `#[Defer]` but you want to load it immediately in certain cas
 
 # When to use
 
-Use `#[Defer]` when:- Components contain slow operations (database queries, API calls) that would delay page load- The component is always visible on initial page load (if it's below the fold, use `#[Lazy]` instead)- You want to improve perceived performance by showing the page faster
+Use `#[Defer]` when:
+
+- Components contain slow operations (database queries, API calls) that would delay page load
+- The component is always visible on initial page load (if it's below the fold, use `#[Lazy]` instead)
+- You want to improve perceived performance by showing the page faster
 
 #
 

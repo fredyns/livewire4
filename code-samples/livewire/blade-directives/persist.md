@@ -19,7 +19,9 @@ Wrap an element with `@persist` and provide a unique name to preserve it across 
 
 
 
-When navigating to a new page that also contains a persisted element with the same name, Livewire reuses the existing DOM element instead of creating a new one. For an audio player, this means playback continues uninterrupted.The `@persist` directive only works when navigation is handled by Livewire's `wire:navigate` feature. Standard page loads will not preserve elements.
+When navigating to a new page that also contains a persisted element with the same name, Livewire reuses the existing DOM element instead of creating a new one. For an audio player, this means playback continues uninterrupted.
+
+The `@persist` directive only works when navigation is handled by Livewire's `wire:navigate` feature. Standard page loads will not preserve elements.
 
 #
 

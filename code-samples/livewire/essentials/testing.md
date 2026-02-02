@@ -2,7 +2,9 @@
 
 source: https://livewire.laravel.com/docs/4.x/testing
 
-Livewire components are simple to test. Because they are just Laravel classes under the hood, they can be tested using Laravel's existing testing tools. Livewire also provides additional utilities to make testing your components easier.This guide uses Pest as the recommended framework, though PHPUnit works too.
+Livewire components are simple to test. Because they are just Laravel classes under the hood, they can be tested using Laravel's existing testing tools. Livewire also provides additional utilities to make testing your components easier.
+
+This guide uses Pest as the recommended framework, though PHPUnit works too.
 
 #
 

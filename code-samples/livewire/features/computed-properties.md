@@ -2,13 +2,19 @@
 
 source: https://livewire.laravel.com/docs/4.x/computed-properties
 
-Computed properties are a way to create "derived" properties in Livewire. Like accessors on an Eloquent model, computed properties allow you to access values and memoize them for future access during the request.Computed properties are particularly useful in combination with component's public properties.
+Computed properties are a way to create "derived" properties in Livewire. Like accessors on an Eloquent model, computed properties allow you to access values and memoize them for future access during the request.
+
+Computed properties are particularly useful in combination with component's public properties.
 
 #
 
 # Basic usage
 
-To create a computed property, add the `#[Computed]` attribute above any method in your Livewire component. Once the attribute has been added to the method, you can access it like any other property.Make sure you import any attribute classes. For example, `#[Computed]` requires `use Livewire\Attributes\Computed;`.Example `show-user` component with a computed `user()` property derived from `$userId`:
+To create a computed property, add the `#[Computed]` attribute above any method in your Livewire component. Once the attribute has been added to the method, you can access it like any other property.
+
+Make sure you import any attribute classes. For example, `#[Computed]` requires `use Livewire\Attributes\Computed;`.
+
+Example `show-user` component with a computed `user()` property derived from `$userId`:
 
 
 
