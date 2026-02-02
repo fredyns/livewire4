@@ -98,7 +98,7 @@
 
                                         <flux:menu>
                                             <flux:menu.item
-                                                href="{{-- route('user.show', $user) --}}"
+                                                href="{{ route('user.show', $user) }}"
                                                 icon="eye"
                                             >
                                                 {{ __('View') }}
