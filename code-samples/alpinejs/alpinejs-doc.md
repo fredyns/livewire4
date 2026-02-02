@@ -68,32 +68,23 @@ Think of it like Tailwind for JavaScript — a set of low-level utility directiv
 ### Plugins
 | Plugin | File | URL |
 |--------|------|-----|
-| Collapse | [plugins/collapse.md](./plugins/collapse.md) | https://alpinejs.dev/plugins/collapse |
+| Mask | [plugins/mask.md](./plugins/mask.md) | https://alpinejs.dev/plugins/mask |
 | Intersect | [plugins/intersect.md](./plugins/intersect.md) | https://alpinejs.dev/plugins/intersect |
+| Resize | [plugins/resize.md](./plugins/resize.md) | https://alpinejs.dev/plugins/resize |
 | Persist | [plugins/persist.md](./plugins/persist.md) | https://alpinejs.dev/plugins/persist |
 | Focus | [plugins/focus.md](./plugins/focus.md) | https://alpinejs.dev/plugins/focus |
-| Mask | [plugins/mask.md](./plugins/mask.md) | https://alpinejs.dev/plugins/mask |
-| Morph | [plugins/morph.md](./plugins/morph.md) | https://alpinejs.dev/plugins/morph |
-| Navigate | [plugins/navigate.md](./plugins/navigate.md) | https://alpinejs.dev/plugins/navigate |
-| History | [plugins/history.md](./plugins/history.md) | https://alpinejs.dev/plugins/history |
+| Collapse | [plugins/collapse.md](./plugins/collapse.md) | https://alpinejs.dev/plugins/collapse |
 | Anchor | [plugins/anchor.md](./plugins/anchor.md) | https://alpinejs.dev/plugins/anchor |
-| UI | [plugins/ui.md](./plugins/ui.md) | https://alpinejs.dev/plugins/ui |
-| CSP | [plugins/csp.md](./plugins/csp.md) | https://alpinejs.dev/plugins/csp |
+| Morph | [plugins/morph.md](./plugins/morph.md) | https://alpinejs.dev/plugins/morph |
+| Sort | [plugins/sort.md](./plugins/sort.md) | https://alpinejs.dev/plugins/sort |
 
 ### Advanced
 | Topic | File | URL |
 |-------|------|-----|
-| Understanding Reactivity | [advanced/reactivity.md](./advanced/reactivity.md) | https://alpinejs.dev/advanced/reactivity |
-| Extracting Components | [advanced/extracting-components.md](./advanced/extracting-components.md) | https://alpinejs.dev/advanced/extracting-components |
-| Extending Alpine | [advanced/extending.md](./advanced/extending.md) | https://alpinejs.dev/advanced/extending |
-| Caching | [advanced/caching.md](./advanced/caching.md) | https://alpinejs.dev/advanced/caching |
-| Performance | [advanced/performance.md](./advanced/performance.md) | https://alpinejs.dev/advanced/performance |
-
-### UI Components
-| Component | File | URL |
-|-----------|------|-----|
-| Dropdown | [components/dropdown.md](./components/dropdown.md) | https://alpinejs.dev/component/dropdown |
-| Modal | [components/modal.md](./components/modal.md) | https://alpinejs.dev/component/modal |
+| CSP | [advanced/csp.md](./advanced/csp.md) | https://alpinejs.dev/advanced/csp |
+| Reactivity | [advanced/reactivity.md](./advanced/reactivity.md) | https://alpinejs.dev/advanced/reactivity |
+| Extending | [advanced/extending.md](./advanced/extending.md) | https://alpinejs.dev/advanced/extending |
+| Async | [advanced/async.md](./advanced/async.md) | https://alpinejs.dev/advanced/async |
 
 ---
 
