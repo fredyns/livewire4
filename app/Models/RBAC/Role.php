@@ -21,6 +21,8 @@ use Illuminate\Support\Str;
  * @property string $guard_name Authentication guard (web, sanctum, etc.)
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
+ *
+ * @method static Role findOrCreate(string $name, string $guardName)
  */
 class Role extends \Spatie\Permission\Models\Role
 {
@@ -56,7 +58,6 @@ class Role extends \Spatie\Permission\Models\Role
      */
     protected array $searchableFields = [
         'name',
-        'guard_name',
     ];
 
     /**

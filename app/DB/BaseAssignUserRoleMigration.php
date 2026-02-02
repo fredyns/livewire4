@@ -33,7 +33,7 @@ abstract class BaseAssignUserRoleMigration extends BaseRbacMigration
     {
         foreach ($this->assignments() as $userEmail => $roleEnums) {
             $user = User::where('email', $userEmail)->first();
-            $user?->assignRoles($roleEnums);
+            $user?->addRoleNames($roleEnums);
         }
     }
 
@@ -44,7 +44,7 @@ abstract class BaseAssignUserRoleMigration extends BaseRbacMigration
     {
         foreach ($this->assignments() as $userEmail => $roleEnums) {
             $user = User::where('email', $userEmail)->first();
-            $user?->revokeRoles($roleEnums);
+            $user?->removeRoleNames($roleEnums);
         }
     }
 }

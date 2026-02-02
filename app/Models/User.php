@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\AuthGuard;
 use App\Enums\UserRole;
 use App\Helpers\S3;
 use App\Models\RBAC\Role;
@@ -160,22 +161,37 @@ class User extends Authenticatable
     }
 
     /**
-     * @param  Role[]|UserRole[]  $roles
+     * @param  string[]|UserRole[]  $roles
      */
-    public function assignRoles(array $roles): void
+    public function addRoleNames(array $roles): void
     {
         foreach ($roles as $role) {
-            $this->assignRole($role, 'web');
-            $this->assignRole($role, 'sanctum');
+            $this->addRoleName($role);
         }
     }
 
-    public function assignRole(Role|UserRole $role, string $guardName = 'web'): void
+    public function addRoleName(UserRole|string $role): void
     {
         if ($role instanceof UserRole) {
-            $role = Role::findOrCreate($role->value, $guardName);
+            $role = $role->value;
         }
 
+        foreach (AuthGuard::values() as $guardName) {
+            $role = Role::findOrCreate($role, $guardName);
+            $this->addRole($role);
+        }
+    }
+
+    public function addRoleID(string $roleID): void
+    {
+        $role = Role::find($roleID);
+        if ($role) {
+            $this->addRole($role);
+        }
+    }
+
+    public function addRole(Role $role): void
+    {
         $tableNames = config('permission.table_names');
         $columnNames = config('permission.column_names');
         $pivotRole = $columnNames['role_pivot_key'] ?? 'role_id';
@@ -198,25 +214,39 @@ class User extends Authenticatable
     }
 
     /**
-     * @param  Role[]|UserRole[]  $roles
+     * @param  UserRole[]|string[]  $roles
      */
-    public function revokeRoles(array $roles): void
+    public function removeRoleNames(array $roles): void
     {
         foreach ($roles as $role) {
-            $this->revokeRole($role, 'web');
-            $this->revokeRole($role, 'sanctum');
+            $this->removeRoleName($role);
         }
     }
 
-    public function revokeRole(Role|UserRole $role, string $guardName = 'web'): void
+    public function removeRoleName(UserRole|string $role): void
     {
         if ($role instanceof UserRole) {
-            $role = Role::where('name', $role->value)->where('guard_name', $guardName)->first();
-            if (! $role) {
-                return;
-            }
+            $role = $role->value;
         }
 
+        $roles = Role::where('name', $role)->get();
+        if ($roles->count() > 0) {
+            foreach ($roles as $role) {
+                $this->removeRole($role);
+            }
+        }
+    }
+
+    public function removeRoleID(string $roleID): void
+    {
+        $role = Role::find($roleID);
+        if ($role) {
+            $this->removeRole($role);
+        }
+    }
+
+    public function removeRole(Role $role): void
+    {
         $tableNames = config('permission.table_names');
         $columnNames = config('permission.column_names');
         $pivotRole = $columnNames['role_pivot_key'] ?? 'role_id';
@@ -235,5 +265,13 @@ class User extends Authenticatable
     public function webRoles(): BelongsToMany
     {
         return $this->roles()->where('guard_name', 'web');
+    }
+
+    /**
+     * A model may have multiple roles.
+     */
+    public function apiRoles(): BelongsToMany
+    {
+        return $this->roles()->where('guard_name', 'sanctum');
     }
 }
