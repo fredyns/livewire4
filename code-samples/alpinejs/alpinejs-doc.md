@@ -17,12 +17,10 @@ Think of it like Tailwind for JavaScript — a set of low-level utility directiv
 | Topic | File | URL |
 |-------|------|-----|
 | Start Here | [start-here.md](./start-here.md) | https://alpinejs.dev/start-here |
-| Upgrade From V2 | [upgrade-guide.md](./upgrade-guide.md) | https://alpinejs.dev/upgrade-guide |
 
 ### Essentials
 | Topic | File | URL |
 |-------|------|-----|
-| Installation | [essentials/installation.md](./essentials/installation.md) | https://alpinejs.dev/essentials/installation |
 | State | [essentials/state.md](./essentials/state.md) | https://alpinejs.dev/essentials/state |
 | Templating | [essentials/templating.md](./essentials/templating.md) | https://alpinejs.dev/essentials/templating |
 | Events | [essentials/events.md](./essentials/events.md) | https://alpinejs.dev/essentials/events |
@@ -61,23 +59,11 @@ Think of it like Tailwind for JavaScript — a set of low-level utility directiv
 | $id | [magics/id.md](./magics/id.md) | https://alpinejs.dev/magics/id |
 
 ### Global Properties
-| Property | File | URL |
-|----------|------|-----|
-| Alpine.data | [globals/data.md](./globals/data.md) | https://alpinejs.dev/globals/Alpine.data |
-| Alpine.store | [globals/store.md](./globals/store.md) | https://alpinejs.dev/globals/Alpine.store |
-| Alpine.effect | [globals/effect.md](./globals/effect.md) | https://alpinejs.dev/globals/Alpine.effect |
-| Alpine.reactive | [globals/reactive.md](./globals/reactive.md) | https://alpinejs.dev/globals/Alpine.reactive |
-| Alpine.entangle | [globals/entangle.md](./globals/entangle.md) | https://alpinejs.dev/globals/Alpine.entangle |
-| Alpine.throttle | [globals/throttle.md](./globals/throttle.md) | https://alpinejs.dev/globals/Alpine.throttle |
-| Alpine.debounce | [globals/debounce.md](./globals/debounce.md) | https://alpinejs.dev/globals/Alpine.debounce |
-| Alpine.setEvaluator | [globals/set-evaluator.md](./globals/set-evaluator.md) | https://alpinejs.dev/globals/Alpine.setEvaluator |
-| Alpine.mergeProxies | [globals/merge-proxies.md](./globals/merge-proxies.md) | https://alpinejs.dev/globals/Alpine.mergeProxies |
-| Alpine.plugin | [globals/plugin.md](./globals/plugin.md) | https://alpinejs.dev/globals/Alpine.plugin |
-| Alpine.prefix | [globals/prefix.md](./globals/prefix.md) | https://alpinejs.dev/globals/Alpine.prefix |
-| Alpine.addInitSelector | [globals/add-init-selector.md](./globals/add-init-selector.md) | https://alpinejs.dev/globals/Alpine.addInitSelector |
-| Alpine.addScopeFunction | [globals/add-scope-function.md](./globals/add-scope-function.md) | https://alpinejs.dev/globals/Alpine.addScopeFunction |
-| Alpine.addMagicProperty | [globals/add-magic-property.md](./globals/add-magic-property.md) | https://alpinejs.dev/globals/Alpine.addMagicProperty |
-| Alpine.interceptors | [globals/interceptors.md](./globals/interceptors.md) | https://alpinejs.dev/globals/Alpine.interceptors |
+| Property                | File                                                             | URL                                                  |
+|-------------------------|------------------------------------------------------------------|------------------------------------------------------|
+| Alpine.data()           | [globals/data.md](./globals/data.md)                             | https://alpinejs.dev/globals/alpine-data             |
+| Alpine.store()          | [globals/store.md](./globals/store.md)                           | https://alpinejs.dev/globals/alpine-store            |
+| Alpine.bind()           | [globals/bind.md](./globals/bind.md)                             | https://alpinejs.dev/globals/alpine-bind             |
 
 ### Plugins
 | Plugin | File | URL |
