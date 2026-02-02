@@ -34,8 +34,6 @@ Livewire allows you to build dynamic, reactive interfaces using only PHP—no Ja
 | Redirecting | [features/redirects.md](./features/redirects.md) | [https://livewire.laravel.com/docs/4.x/redirecting](https://livewire.laravel.com/docs/4.x/redirecting) |
 | File Downloads | [features/downloads.md](./features/downloads.md) | [https://livewire.laravel.com/docs/4.x/downloads](https://livewire.laravel.com/docs/4.x/downloads) |
 | Teleport | [features/teleport.md](./features/teleport.md) | [https://livewire.laravel.com/docs/4.x/teleport](https://livewire.laravel.com/docs/4.x/teleport) |
-| Events | [features/events.md](./features/events.md) | [https://livewire.laravel.com/docs/4.x/events](https://livewire.laravel.com/docs/4.x/events) |
-| Forms | [features/forms.md](./features/forms.md) | [https://livewire.laravel.com/docs/4.x/forms](https://livewire.laravel.com/docs/4.x/forms) |
 | **HTML Directives** | | |
 | wire:bind | [html-directives/wire-bind.md](./html-directives/wire-bind.md) | [https://livewire.laravel.com/docs/4.x/wire-bind](https://livewire.laravel.com/docs/4.x/wire-bind) |
 | wire:click | [html-directives/wire-click.md](./html-directives/wire-click.md) | [https://livewire.laravel.com/docs/4.x/wire-click](https://livewire.laravel.com/docs/4.x/wire-click) |
