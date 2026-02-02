@@ -25,10 +25,10 @@
                 </div>
             </div>
             <div class="flex gap-2">
-                <flux:button href="{{-- route('user.edit', $user) --}}" variant="primary" icon="pencil">
+                <flux:button href="{{ route('user.edit', $user) }}" variant="primary" icon="pencil">
                     {{ __('Edit') }}
                 </flux:button>
-                <flux:button href="{{-- route('user.index') --}}" variant="ghost" icon="arrow-left">
+                <flux:button href="{{ route('user.index') }}" variant="ghost" icon="arrow-left">
                     {{ __('Back') }}
                 </flux:button>
             </div>
@@ -156,7 +156,7 @@
                     <flux:heading size="lg" level="2">{{ __('Actions') }}</flux:heading>
 
                     <div class="mt-6 space-y-2">
-                        <flux:button href="{{-- route('user.edit', $user) --}}" variant="primary" class="w-full">
+                        <flux:button href="{{ route('user.edit', $user) }}" variant="primary" class="w-full">
                             {{ __('Edit User') }}
                         </flux:button>
                         <flux:button variant="ghost" class="w-full">

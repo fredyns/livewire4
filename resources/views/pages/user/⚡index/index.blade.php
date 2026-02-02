@@ -104,7 +104,7 @@
                                                 {{ __('View') }}
                                             </flux:menu.item>
                                             <flux:menu.item
-                                                href="{{-- route('user.edit', $user) --}}"
+                                                href="{{ route('user.edit', $user) }}"
                                                 icon="pencil"
                                             >
                                                 {{ __('Edit') }}
