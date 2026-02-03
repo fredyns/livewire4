@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pages\RBAC\Role;
 
+use App\Enums\AuthGuard;
 use App\Models\RBAC\Role;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Log;
@@ -15,6 +16,7 @@ new class extends Component
     use WithPagination;
 
     public string $search = '';
+    public string $guardName = '';
     public string $sortField = 'created_at';
     public string $sortDirection = 'desc';
 
@@ -29,6 +31,7 @@ new class extends Component
     public function resetSearch(): void
     {
         $this->search = '';
+        $this->guardName = '';
         $this->resetPage();
     }
 
@@ -53,16 +56,31 @@ new class extends Component
     }
 
     #[Computed]
+    public function guards()
+    {
+        return AuthGuard::cases();
+    }
+
+    #[Computed]
     public function roles()
     {
         Log::debug('Fetching roles', [
             'search_term' => $this->normalizedSearch(),
+            'guard_name' => $this->guardName,
             'sort_field' => $this->sortField,
             'sort_direction' => $this->sortDirection,
             'page' => $this->getPage(),
         ]);
 
         $query = Role::search($this->normalizedSearch());
+
+        if ($this->guardName) {
+            if (in_array($this->guardName, AuthGuard::values())) {
+                $query->where('guard_name', $this->guardName);
+            } else {
+                $this->guardName = '';
+            }
+        }
 
         $query->orderBy($this->sortField, $this->sortDirection);
 

@@ -13,7 +13,7 @@
             </flux:button>
         </div>
 
-        <!-- Search Bar -->
+        <!-- Search Bar and Filters -->
         <div class="flex gap-2">
             <flux:input
                 wire:model.live.debounce.500ms="search"
@@ -24,6 +24,16 @@
                 clearable
                 @clear="resetSearch"
             />
+            <flux:select
+                wire:model.live="guardName"
+                placeholder="{{ __('All Guards') }}"
+                class="w-48"
+            >
+                <flux:select.option value="">{{ __('All Guards') }}</flux:select.option>
+                @foreach($this->guards as $guard)
+                    <flux:select.option value="{{ $guard->value }}">{{ $guard->name }}</flux:select.option>
+                @endforeach
+            </flux:select>
         </div>
 
         <!-- Roles Table -->
