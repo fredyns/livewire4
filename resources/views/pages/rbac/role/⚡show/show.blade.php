@@ -67,22 +67,46 @@
                 </flux:card>
 
                 <!-- Permissions -->
+                @php
+                    $basicActions = ['index', 'create', 'show', 'update', 'delete'];
+                @endphp
                 <flux:card>
                     <flux:heading size="lg" level="2">{{ __('Permissions') }}</flux:heading>
 
                     @if($this->groupedPermissions)
                         <div class="mt-6 space-y-6">
                             @foreach($this->groupedPermissions as $group)
+                                @php
+                                    $actions = $group['actions'];
+                                    $existedBasicActions = array_intersect($basicActions, $actions);
+                                    $hasBasicActions = count($existedBasicActions) > 0;
+                                    $otherActions = array_diff($actions, $basicActions);
+                                    $hasOtherActions = count($otherActions) > 0;
+                                    sort($otherActions);
+                                @endphp
                                 <div>
                                     <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
                                         {{ ucfirst(str_replace('.', ' / ', $group['controller'])) }}
                                     </h3>
-                                    <div class="flex flex-wrap gap-2">
-                                        @foreach($group['actions'] as $action)
-                                            <flux:badge color="blue">
-                                                {{ $action }}
-                                            </flux:badge>
-                                        @endforeach
+                                    <div class="space-y-3">
+                                        @if($hasBasicActions)
+                                            <div class="flex flex-wrap gap-3">
+                                                @foreach($existedBasicActions as $action)
+                                                    <flux:badge size="sm" color="indigo" inset="top bottom">
+                                                        {{ $action }}
+                                                    </flux:badge>
+                                                @endforeach
+                                            </div>
+                                        @endif
+                                        @if($hasOtherActions)
+                                            <div class="flex flex-wrap gap-3">
+                                                @foreach($otherActions as $action)
+                                                    <flux:badge size="sm" color="indigo" inset="top bottom">
+                                                        {{ $action }}
+                                                    </flux:badge>
+                                                @endforeach
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach
