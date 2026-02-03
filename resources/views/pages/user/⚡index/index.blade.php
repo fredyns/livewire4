@@ -110,6 +110,12 @@
                                                 {{ __('Edit') }}
                                             </flux:menu.item>
                                             <flux:menu.item
+                                                href="{{ route('user.assign', $user) }}"
+                                                icon="shield-check"
+                                            >
+                                                {{ __('Assign Roles') }}
+                                            </flux:menu.item>
+                                            <flux:menu.item
                                                 wire:click="delete({{ $user->id }})"
                                                 wire:confirm="{{ __('Are you sure you want to delete this user?') }}"
                                                 variant="danger"
