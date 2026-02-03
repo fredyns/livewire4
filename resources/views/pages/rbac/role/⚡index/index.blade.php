@@ -82,13 +82,14 @@
 
                                         <flux:menu>
                                             <flux:menu.item
-                                                href="{{-- route('role.show', $role) --}}"
+                                                href="{{ route('rbac.role.show', $role) }}"
                                                 icon="eye"
+                                                wire:navigate
                                             >
                                                 {{ __('View') }}
                                             </flux:menu.item>
                                             <flux:menu.item
-                                                href="{{-- route('role.edit', $role) --}}"
+                                                href="{{-- route('rbac.role.edit', $role) --}}"
                                                 icon="pencil"
                                             >
                                                 {{ __('Edit') }}
