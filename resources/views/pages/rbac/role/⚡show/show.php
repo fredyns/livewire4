@@ -2,6 +2,7 @@
 
 use App\Models\RBAC\Role;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
@@ -58,6 +59,32 @@ new class extends Component
         }
 
         return $grouped;
+    }
+
+    /**
+     * @throws AuthorizationException
+     */
+    public function delete(): void
+    {
+        try {
+            $this->authorize('delete', $this->role);
+
+            Log::info('Deleting role from show page', ['role_id' => $this->role->id, 'user_id' => auth()->id()]);
+
+            DB::transaction(function () {
+                $this->role->permissions()->detach();
+                $this->role->delete();
+            });
+
+            session()->flash('message', 'Role deleted successfully.');
+            $this->redirectRoute('rbac.role.index');
+        } catch (AuthorizationException $e) {
+            Log::warning('Unauthorized delete attempt (show page)', ['role_id' => $this->role->id, 'user_id' => auth()->id()]);
+            throw $e;
+        } catch (\Exception $e) {
+            Log::error('Error deleting role (show page)', ['role_id' => $this->role->id, 'error' => $e->getMessage()]);
+            session()->flash('error', 'Failed to delete role.');
+        }
     }
 
     public function render(): View

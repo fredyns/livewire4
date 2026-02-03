@@ -5,6 +5,7 @@ namespace App\Livewire\Pages\RBAC\Role;
 use App\Enums\AuthGuard;
 use App\Models\RBAC\Role;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
@@ -97,7 +98,11 @@ new class extends Component
 
             Log::info('Deleting role', ['role_id' => $role->id, 'user_id' => auth()->id()]);
 
-            $role->delete();
+            DB::transaction(function () use ($role) {
+                $role->permissions()->detach();
+                $role->delete();
+            });
+
             session()->flash('message', 'Role deleted successfully.');
             Log::info('Role deleted successfully', ['role_id' => $role->id]);
         } catch (AuthorizationException $e) {

@@ -12,6 +12,14 @@
                 <flux:button href="{{ route('rbac.role.edit', $role) }}" variant="primary" icon="pencil" wire:navigate>
                     {{ __('Edit') }}
                 </flux:button>
+                <flux:button
+                    wire:click="delete"
+                    wire:confirm="{{ __('Are you sure you want to delete this role?') }}"
+                    variant="danger"
+                    icon="trash"
+                >
+                    {{ __('Delete') }}
+                </flux:button>
                 <flux:button href="{{ route('rbac.role.index') }}" variant="ghost" icon="arrow-left" wire:navigate>
                     {{ __('Back') }}
                 </flux:button>
@@ -130,6 +138,15 @@
                     <div class="mt-6 space-y-2">
                         <flux:button href="{{ route('rbac.role.edit', $role) }}" variant="primary" class="w-full" wire:navigate>
                             {{ __('Edit Role') }}
+                        </flux:button>
+                        <flux:button
+                            wire:click="delete"
+                            wire:confirm="{{ __('Are you sure you want to delete this role?') }}"
+                            variant="danger"
+                            class="w-full"
+                            icon="trash"
+                        >
+                            {{ __('Delete Role') }}
                         </flux:button>
                     </div>
                 </flux:card>
