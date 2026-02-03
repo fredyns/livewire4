@@ -50,36 +50,6 @@
                             @enderror
                         </div>
 
-                        <!-- Password Field -->
-                        <div>
-                            <flux:input
-                                wire:model="password"
-                                label="{{ __('Password') }}"
-                                type="password"
-                                placeholder="{{ __('Leave blank to keep current password') }}"
-                            />
-                            @error('password')
-                                <span class="mt-2 block text-sm text-red-600 dark:text-red-400">
-                                    {{ $message }}
-                                </span>
-                            @enderror
-                        </div>
-
-                        <!-- Password Confirmation Field -->
-                        <div>
-                            <flux:input
-                                wire:model="password_confirmation"
-                                label="{{ __('Confirm Password') }}"
-                                type="password"
-                                placeholder="{{ __('Confirm new password') }}"
-                            />
-                            @error('password_confirmation')
-                                <span class="mt-2 block text-sm text-red-600 dark:text-red-400">
-                                    {{ $message }}
-                                </span>
-                            @enderror
-                        </div>
-
                         <!-- Form Actions -->
                         <div class="flex gap-2 pt-4">
                             <flux:button type="submit" variant="primary">
@@ -110,13 +80,6 @@
                             <p class="font-semibold text-neutral-900 dark:text-neutral-100">{{ __('Email') }}</p>
                             <p class="mt-1 text-neutral-600 dark:text-neutral-400">
                                 {{ __('Must be a valid email address and unique in the system') }}
-                            </p>
-                        </div>
-
-                        <div>
-                            <p class="font-semibold text-neutral-900 dark:text-neutral-100">{{ __('Password') }}</p>
-                            <p class="mt-1 text-neutral-600 dark:text-neutral-400">
-                                {{ __('Optional. If provided, minimum 8 characters and must match confirmation') }}
                             </p>
                         </div>
                     </div>

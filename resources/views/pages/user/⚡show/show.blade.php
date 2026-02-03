@@ -182,8 +182,8 @@
                         <flux:button href="{{ route('user.edit', $user) }}" variant="primary" class="w-full">
                             {{ __('Edit User') }}
                         </flux:button>
-                        <flux:button variant="ghost" class="w-full">
-                            {{ __('Reset Password') }}
+                        <flux:button href="{{ route('user.change-password', $user) }}" variant="ghost" class="w-full">
+                            {{ __('Change Password') }}
                         </flux:button>
                     </div>
                 </flux:card>

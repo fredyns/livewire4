@@ -3,7 +3,6 @@
 use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
@@ -13,8 +12,6 @@ use Livewire\Component;
  * @property User $user The user instance
  * @property string $name
  * @property string $email
- * @property string|null $password
- * @property string|null $password_confirmation
  */
 new class extends Component
 {
@@ -23,12 +20,6 @@ new class extends Component
 
     #[Validate('required|email|max:255|unique:users,email')]
     public string $email = '';
-
-    #[Validate('nullable|string|min:8|confirmed')]
-    public ?string $password = null;
-
-    #[Validate('nullable|string|min:8')]
-    public ?string $password_confirmation = null;
 
     public User $user;
 
@@ -49,22 +40,12 @@ new class extends Component
         try {
             $rules = [
                 'name' => 'required|string|min:3|max:255',
-                'email' => 'required|email|max:255|unique:users,email,' . $this->user->id,
-                'password' => 'nullable|string|min:8|confirmed',
-                'password_confirmation' => 'nullable|string|min:8',
+                'email' => 'required|email|max:255|unique:users,email,'.$this->user->id,
             ];
 
             $data = $this->validate($rules);
 
             Log::info('Updating user', ['user_id' => $this->user->id, 'updated_by' => Auth::id()]);
-
-            if ($data['password']) {
-                $data['password'] = Hash::make($data['password']);
-            } else {
-                unset($data['password']);
-            }
-
-            unset($data['password_confirmation']);
 
             $this->user->fill($data);
             $this->user->save();
@@ -86,6 +67,6 @@ new class extends Component
     {
         return $this->view([
             'user' => $this->user,
-        ])->title('Edit ' . $this->user->name);
+        ])->title('Edit '.$this->user->name);
     }
 };
