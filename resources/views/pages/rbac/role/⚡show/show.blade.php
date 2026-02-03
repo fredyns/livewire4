@@ -65,6 +65,36 @@
                         </div>
                     </div>
                 </flux:card>
+
+                <!-- Permissions -->
+                <flux:card>
+                    <flux:heading size="lg" level="2">{{ __('Permissions') }}</flux:heading>
+
+                    @if($this->groupedPermissions)
+                        <div class="mt-6 space-y-6">
+                            @foreach($this->groupedPermissions as $group)
+                                <div>
+                                    <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+                                        {{ ucfirst(str_replace('.', ' / ', $group['controller'])) }}
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($group['actions'] as $action)
+                                            <flux:badge color="blue">
+                                                {{ $action }}
+                                            </flux:badge>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="mt-6 text-center py-8">
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                {{ __('No permissions assigned') }}
+                            </p>
+                        </div>
+                    @endif
+                </flux:card>
             </div>
 
             <!-- Sidebar -->
