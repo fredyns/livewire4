@@ -21,6 +21,9 @@
                     <flux:sidebar.item icon="home" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>
                         {{ __('Users') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="shield-check" :href="route('rbac.role.index')" :current="request()->routeIs('rbac.role.index')" wire:navigate>
+                        {{ __('Roles') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
 
             </flux:sidebar.nav>

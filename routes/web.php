@@ -41,6 +41,9 @@ Route::middleware(['auth'])->group(function () {
     Route::livewire('/users/{user}/change-password', 'pages::user.change-password')->name('user.change-password');
     Route::livewire('/users/{user}/assign', 'pages::user.assign')->name('user.assign');
 
+    // RBAC - Roles
+    Route::livewire('/rbac/roles', 'pages::rbac.role.index')->name('rbac.role.index');
+
 });
 
 require __DIR__.'/settings.php';
