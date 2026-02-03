@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
     // RBAC - Roles
     Route::livewire('/rbac/roles', 'pages::rbac.role.index')->name('rbac.role.index');
     Route::livewire('/rbac/roles/create', 'pages::rbac.role.create')->name('rbac.role.create');
+    Route::livewire('/rbac/roles/{role}/edit', 'pages::rbac.role.edit')->name('rbac.role.edit');
     Route::livewire('/rbac/roles/{role}', 'pages::rbac.role.show')->name('rbac.role.show');
 
 });

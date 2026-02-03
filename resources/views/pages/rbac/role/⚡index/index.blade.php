@@ -89,8 +89,9 @@
                                                 {{ __('View') }}
                                             </flux:menu.item>
                                             <flux:menu.item
-                                                href="{{-- route('rbac.role.edit', $role) --}}"
+                                                href="{{ route('rbac.role.edit', $role) }}"
                                                 icon="pencil"
+                                                wire:navigate
                                             >
                                                 {{ __('Edit') }}
                                             </flux:menu.item>

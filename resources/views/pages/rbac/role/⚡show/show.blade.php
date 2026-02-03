@@ -9,7 +9,7 @@
                 </p>
             </div>
             <div class="flex gap-2">
-                <flux:button href="{{-- route('rbac.role.edit', $role) --}}" variant="primary" icon="pencil">
+                <flux:button href="{{ route('rbac.role.edit', $role) }}" variant="primary" icon="pencil" wire:navigate>
                     {{ __('Edit') }}
                 </flux:button>
                 <flux:button href="{{ route('rbac.role.index') }}" variant="ghost" icon="arrow-left" wire:navigate>
@@ -128,7 +128,7 @@
                     <flux:heading size="lg" level="2">{{ __('Actions') }}</flux:heading>
 
                     <div class="mt-6 space-y-2">
-                        <flux:button href="{{-- route('rbac.role.edit', $role) --}}" variant="primary" class="w-full">
+                        <flux:button href="{{ route('rbac.role.edit', $role) }}" variant="primary" class="w-full" wire:navigate>
                             {{ __('Edit Role') }}
                         </flux:button>
                     </div>
