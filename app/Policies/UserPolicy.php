@@ -28,7 +28,7 @@ class UserPolicy
 
     public function delete(User $user, User $model): bool
     {
-        return true;
+        return $user->id != $model->id;
     }
 
     public function restore(User $user, User $model): bool
@@ -38,6 +38,6 @@ class UserPolicy
 
     public function forceDelete(User $user, User $model): bool
     {
-        return true;
+        return $user->id != $model->id;
     }
 }
