@@ -11,15 +11,17 @@ use Livewire\Component;
 
 /**
  * @property string $name
- * @property string $guardName
+ * @property string[] $guardNames
  */
 new class extends Component
 {
-    #[Validate('required|string|min:3|max:255|unique:rbac_roles,name')]
+    #[Validate('required|string|min:3|max:255')]
     public string $name = '';
 
-    #[Validate('required|string')]
-    public string $guardName = AuthGuard::WEB->value;
+    /**
+     * @var string[]
+     */
+    public array $guardNames = [];
 
     /**
      * @throws AuthorizationException
@@ -27,6 +29,8 @@ new class extends Component
     public function mount(): void
     {
         $this->authorize('create', Role::class);
+
+        $this->guardNames = AuthGuard::values();
     }
 
     #[Computed]
@@ -38,23 +42,47 @@ new class extends Component
     public function save(): void
     {
         try {
-            $data = $this->validate();
-
-            if (! in_array($data['guardName'], AuthGuard::values())) {
-                $this->guardName = AuthGuard::WEB->value;
-                $data['guardName'] = $this->guardName;
-            }
-
-            Log::info('Creating new role', ['created_by' => auth()->id(), 'name' => $data['name'], 'guard_name' => $data['guardName']]);
-
-            $role = Role::create([
-                'name' => $data['name'],
-                'guard_name' => $data['guardName'],
+            $data = $this->validate([
+                'name' => 'required|string|min:3|max:255',
+                'guardNames' => 'required|array|min:1',
+                'guardNames.*' => 'required|string|in:'.implode(',', AuthGuard::values()),
             ]);
 
-            session()->flash('message', 'Role created successfully.');
+            $created = 0;
 
-            $this->redirectRoute('rbac.role.show', ['role' => $role]);
+            foreach ($data['guardNames'] as $guardName) {
+                $exists = Role::query()
+                    ->where('name', $data['name'])
+                    ->where('guard_name', $guardName)
+                    ->exists();
+
+                if ($exists) {
+                    continue;
+                }
+
+                Role::create([
+                    'name' => $data['name'],
+                    'guard_name' => $guardName,
+                ]);
+
+                $created++;
+            }
+
+            Log::info('Creating new roles', [
+                'created_by' => auth()->id(),
+                'name' => $data['name'],
+                'guards' => $data['guardNames'],
+                'created_count' => $created,
+            ]);
+
+            if ($created === 0) {
+                session()->flash('error', 'No roles were created (they may already exist).');
+                return;
+            }
+
+            session()->flash('message', $created === 1 ? 'Role created successfully.' : "{$created} roles created successfully.");
+
+            $this->redirectRoute('rbac.role.index');
         } catch (\Illuminate\Validation\ValidationException $e) {
             Log::warning('Validation failed on role creation', ['errors' => $e->errors()]);
             throw $e;

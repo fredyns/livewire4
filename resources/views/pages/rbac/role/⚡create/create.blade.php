@@ -34,16 +34,23 @@
                         </div>
 
                         <div>
-                            <flux:select
-                                wire:model="guardName"
-                                label="{{ __('Guard') }}"
-                                required
-                            >
-                                @foreach($this->guards as $guard)
-                                    <flux:select.option value="{{ $guard->value }}">{{ $guard->label() }}</flux:select.option>
-                                @endforeach
-                            </flux:select>
-                            @error('guardName')
+                            <div class="space-y-2">
+                                <p class="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                                    {{ __('Guards') }}
+                                </p>
+
+                                <div class="space-y-2">
+                                    @foreach($this->guards as $guard)
+                                        <flux:checkbox
+                                            wire:model="guardNames"
+                                            value="{{ $guard->value }}"
+                                            :label="$guard->label()"
+                                        />
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            @error('guardNames')
                                 <span class="mt-2 block text-sm text-red-600 dark:text-red-400">
                                     {{ $message }}
                                 </span>
