@@ -1,0 +1,3 @@
+- Open the running app in a browser with Chrome DevTools available for inspection when UI behavior needs verification.
+- When you need the app URL, read it from the project's `.env` instead of guessing.
+- After implementing a skill/feature, use the `code-samples/` folder as a reference for patterns and consistency.
