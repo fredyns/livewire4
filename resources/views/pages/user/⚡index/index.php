@@ -18,6 +18,8 @@ new class extends Component
     use WithPagination;
 
     public string $search = '';
+    public string $sortField = 'created_at';
+    public string $sortDirection = 'desc';
 
     /**
      * @throws AuthorizationException
@@ -30,6 +32,17 @@ new class extends Component
     public function resetSearch(): void
     {
         $this->search = '';
+        $this->resetPage();
+    }
+
+    public function updateSort(string $field): void
+    {
+        if ($this->sortField === $field) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortField = $field;
+            $this->sortDirection = 'asc';
+        }
         $this->resetPage();
     }
 
@@ -49,10 +62,11 @@ new class extends Component
     #[Computed]
     public function users(): array|LengthAwarePaginator
     {
-        return User::search($this->normalizedSearch())
-            ->latest()
-            ->paginate(10)
-            ->withQueryString();
+        $query = User::search($this->normalizedSearch());
+
+        $query->orderBy($this->sortField, $this->sortDirection);
+
+        return $query->paginate(10)->withQueryString();
     }
 
     /**

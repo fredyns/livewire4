@@ -29,7 +29,7 @@
         <!-- Users Table -->
         <div class="relative overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-700">
             <!-- Loading Spinner -->
-            <div wire:loading.delay.shortest wire:target="gotoPage,nextPage,previousPage" style="min-height: 400px;" class="absolute inset-0 z-10 flex items-center justify-center bg-white/50 dark:bg-neutral-900/50 backdrop-blur-sm rounded-lg">
+            <div wire:loading.delay.shortest wire:target="gotoPage,nextPage,previousPage,search,updateSort" style="min-height: 400px;" class="absolute inset-0 z-10 flex items-center justify-center bg-white/50 dark:bg-neutral-900/50 backdrop-blur-sm rounded-lg">
                 <div class="flex flex-col items-center justify-center gap-3 mt-3">
                     <div class="size-10 animate-spin rounded-full border-4 border-neutral-200 border-t-blue-500 dark:border-neutral-700 dark:border-t-blue-400"></div>
                     <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">{{ __('Loading...') }}</span>
@@ -37,10 +37,10 @@
             </div>
             <flux:table>
                 <flux:table.columns>
-                    <flux:table.column style="padding-left: 12px !important;">{{ __('Name') }}</flux:table.column>
-                    <flux:table.column>{{ __('Email') }}</flux:table.column>
+                    <flux:table.column sortable :sorted="$sortField === 'name'" :direction="$sortDirection" wire:click="updateSort('name')" style="padding-left: 12px !important;">{{ __('Name') }}</flux:table.column>
+                    <flux:table.column sortable :sorted="$sortField === 'email'" :direction="$sortDirection" wire:click="updateSort('email')">{{ __('Email') }}</flux:table.column>
                     <flux:table.column>{{ __('Roles') }}</flux:table.column>
-                    <flux:table.column>{{ __('Created') }}</flux:table.column>
+                    <flux:table.column sortable :sorted="$sortField === 'created_at'" :direction="$sortDirection" wire:click="updateSort('created_at')">{{ __('Created') }}</flux:table.column>
                     <flux:table.column align="end" style="padding-right: 12px !important;">{{ __('Actions') }}</flux:table.column>
                 </flux:table.columns>
 
