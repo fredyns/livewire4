@@ -39,7 +39,7 @@
         <!-- Roles Table -->
         <div class="relative overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-700">
             <!-- Loading Spinner -->
-            <div wire:loading.delay.shortest wire:target="gotoPage,nextPage,previousPage" style="min-height: 400px;"
+            <div wire:loading.delay.shortest wire:target="gotoPage,nextPage,previousPage,search,guardName" style="min-height: 400px;"
                  class="absolute inset-0 z-10 flex items-center justify-center bg-white/50 dark:bg-neutral-900/50 backdrop-blur-sm rounded-lg">
                 <div class="flex flex-col items-center justify-center gap-3 mt-3">
                     <div class="size-10 animate-spin rounded-full border-4 border-neutral-200 border-t-blue-500 dark:border-neutral-700 dark:border-t-blue-400"></div>
