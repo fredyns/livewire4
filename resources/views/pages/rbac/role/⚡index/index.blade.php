@@ -31,7 +31,7 @@
             >
                 <flux:select.option value="">{{ __('All Guards') }}</flux:select.option>
                 @foreach($this->guards as $guard)
-                    <flux:select.option value="{{ $guard->value }}">{{ $guard->name }}</flux:select.option>
+                    <flux:select.option value="{{ $guard->value }}">{{ $guard->label() }}</flux:select.option>
                 @endforeach
             </flux:select>
         </div>
