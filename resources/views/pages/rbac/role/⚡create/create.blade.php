@@ -1,0 +1,100 @@
+<section>
+    <div class="flex h-full w-full flex-1 flex-col gap-4">
+        <!-- Header -->
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">{{ __('Create Role') }}</h1>
+                <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    {{ __('Add a new role to the system') }}
+                </p>
+            </div>
+            <flux:button href="{{ route('rbac.role.index') }}" variant="ghost" icon="arrow-left" wire:navigate>
+                {{ __('Back') }}
+            </flux:button>
+        </div>
+
+        <!-- Form -->
+        <div class="grid gap-6 lg:grid-cols-3">
+            <div class="lg:col-span-2">
+                <flux:card>
+                    <form wire:submit="save" class="space-y-6">
+                        <div>
+                            <flux:input
+                                wire:model="name"
+                                label="{{ __('Name') }}"
+                                type="text"
+                                placeholder="{{ __('Enter role name') }}"
+                                required
+                            />
+                            @error('name')
+                                <span class="mt-2 block text-sm text-red-600 dark:text-red-400">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <flux:select
+                                wire:model="guardName"
+                                label="{{ __('Guard') }}"
+                                required
+                            >
+                                @foreach($this->guards as $guard)
+                                    <flux:select.option value="{{ $guard->value }}">{{ $guard->label() }}</flux:select.option>
+                                @endforeach
+                            </flux:select>
+                            @error('guardName')
+                                <span class="mt-2 block text-sm text-red-600 dark:text-red-400">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="flex gap-2 pt-4">
+                            <flux:button type="submit" variant="primary">
+                                {{ __('Create Role') }}
+                            </flux:button>
+                            <flux:button href="{{ route('rbac.role.index') }}" variant="ghost" wire:navigate>
+                                {{ __('Cancel') }}
+                            </flux:button>
+                        </div>
+                    </form>
+                </flux:card>
+            </div>
+
+            <div>
+                <flux:card>
+                    <flux:heading size="lg" level="2">{{ __('Requirements') }}</flux:heading>
+
+                    <div class="mt-6 space-y-4 text-sm">
+                        <div>
+                            <p class="font-semibold text-neutral-900 dark:text-neutral-100">{{ __('Name') }}</p>
+                            <p class="mt-1 text-neutral-600 dark:text-neutral-400">
+                                {{ __('Minimum 3 characters, maximum 255') }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-neutral-900 dark:text-neutral-100">{{ __('Guard') }}</p>
+                            <p class="mt-1 text-neutral-600 dark:text-neutral-400">
+                                {{ __('Select where this role is used (web or sanctum)') }}
+                            </p>
+                        </div>
+                    </div>
+                </flux:card>
+            </div>
+        </div>
+
+        <!-- Flash Messages -->
+        @if (session('message'))
+            <flux:toast>
+                {{ session('message') }}
+            </flux:toast>
+        @endif
+
+        @if (session('error'))
+            <flux:toast variant="danger">
+                {{ session('error') }}
+            </flux:toast>
+        @endif
+    </div>
+</section>

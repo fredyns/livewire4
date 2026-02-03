@@ -8,7 +8,7 @@
                     {{ __('Manage system roles and permissions') }}
                 </p>
             </div>
-            <flux:button href="{{-- route('role.create') --}}" icon="plus">
+            <flux:button href="{{ route('rbac.role.create') }}" icon="plus" wire:navigate>
                 {{ __('Create Role') }}
             </flux:button>
         </div>
