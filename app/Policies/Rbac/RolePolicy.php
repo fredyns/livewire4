@@ -53,12 +53,12 @@ class RolePolicy
      */
     public function update(User $user, Role $role): bool
     {
-        if ($user->hasRole(UserRole::SUPER_ADMIN->value)) {
-            return true;
-        }
-
         if ($role->isProtected()) {
             return false;
+        }
+
+        if ($user->hasRole(UserRole::SUPER_ADMIN->value)) {
+            return true;
         }
 
         return $user->can('rbac.roles.update');
@@ -69,6 +69,10 @@ class RolePolicy
      */
     public function delete(User $user, Role $role): bool
     {
+        if ($role->isProtected()) {
+            return false;
+        }
+
         // Prevent deletion of roles that have users assigned
         if ($role->users()->count() > 0) {
             return false;
