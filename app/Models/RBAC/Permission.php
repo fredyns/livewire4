@@ -4,7 +4,9 @@ namespace App\Models\RBAC;
 
 use App\Models\Traits\ModelDocBlocks;
 use App\Models\Traits\Searchable;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 
 /**
@@ -53,7 +55,6 @@ class Permission extends \Spatie\Permission\Models\Permission
      */
     protected array $searchableFields = [
         'name',
-        'guard_name',
     ];
 
     /**
@@ -66,5 +67,21 @@ class Permission extends \Spatie\Permission\Models\Permission
                 $model->id = (string) Str::uuid();
             }
         });
+    }
+
+    /**
+     * Get users that have this permission assigned.
+     */
+    public function users(): BelongsToMany
+    {
+        $tableNames = config('permission.table_names');
+        $columnNames = config('permission.column_names');
+
+        return $this->belongsToMany(
+            User::class,
+            $tableNames['model_has_permissions'],
+            $columnNames['permission_pivot_key'] ?? 'permission_id',
+            $columnNames['model_morph_key'] ?? 'model_id'
+        )->where($tableNames['model_has_permissions'].'.model_type', User::class);
     }
 }

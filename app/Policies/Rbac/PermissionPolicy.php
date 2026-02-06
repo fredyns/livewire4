@@ -3,8 +3,8 @@
 namespace App\Policies\Rbac;
 
 use App\Enums\UserRole;
+use App\Models\RBAC\Permission;
 use App\Models\User;
-use Spatie\Permission\Models\Permission;
 
 class PermissionPolicy
 {

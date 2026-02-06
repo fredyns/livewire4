@@ -18,11 +18,14 @@
                 </flux:sidebar.group>
 
                 <flux:sidebar.group :heading="__('System')" class="grid">
-                    <flux:sidebar.item icon="home" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>
+                    <flux:sidebar.item icon="users" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>
                         {{ __('Users') }}
                     </flux:sidebar.item>
                     <flux:sidebar.item icon="shield-check" :href="route('rbac.role.index')" :current="request()->routeIs('rbac.role.index')" wire:navigate>
                         {{ __('Roles') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="key" :href="route('rbac.permission.index')" :current="request()->routeIs('rbac.permission.*')" wire:navigate>
+                        {{ __('Permissions') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
 

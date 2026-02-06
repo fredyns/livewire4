@@ -44,8 +44,14 @@ Route::middleware(['auth'])->group(function () {
     // RBAC - Roles
     Route::livewire('/rbac/roles', 'pages::rbac.role.index')->name('rbac.role.index');
     Route::livewire('/rbac/roles/create', 'pages::rbac.role.create')->name('rbac.role.create');
-    Route::livewire('/rbac/roles/{role}', 'pages::rbac.role.show')->name('rbac.role.show');
     Route::livewire('/rbac/roles/{role}/edit', 'pages::rbac.role.edit')->name('rbac.role.edit');
+    Route::livewire('/rbac/roles/{role}', 'pages::rbac.role.show')->name('rbac.role.show');
+
+    // RBAC - Permissions
+    Route::livewire('/rbac/permissions', 'pages::rbac.permission.index')->name('rbac.permission.index');
+    Route::livewire('/rbac/permissions/create', 'pages::rbac.permission.create')->name('rbac.permission.create');
+    Route::livewire('/rbac/permissions/{permission}/edit', 'pages::rbac.permission.edit')->name('rbac.permission.edit');
+    Route::livewire('/rbac/permissions/{permission}', 'pages::rbac.permission.show')->name('rbac.permission.show');
 
 });
 
