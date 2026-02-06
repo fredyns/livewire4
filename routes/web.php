@@ -60,4 +60,8 @@ require __DIR__.'/settings.php';
 // API Documentation
 if (! app()->isProduction()) {
     Route::get('/api/docs', fn () => redirect('/api/documentation'));
+
+    Route::middleware(['guest'])->group(function () {
+        Route::livewire('/login-as', 'pages::auth.login-as')->name('login-as');
+    });
 }
