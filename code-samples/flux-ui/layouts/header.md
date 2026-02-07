@@ -110,7 +110,7 @@ A full-width top navigation layout for your application.
 
 Use a sidebar for secondary navigation.
 
-```blade
+```html
 <head>
     <!-- ... -->
 
