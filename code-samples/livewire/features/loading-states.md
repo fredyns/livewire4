@@ -14,7 +14,7 @@ Livewire automatically adds a `data-loading` attribute to any element that trigg
 
 Here's a simple example using a button with `wire:click`:
 
-```blade
+```html
 <button wire:click="save" class="data-loading:opacity-50">
     Save Changes
 </button>
@@ -33,7 +33,7 @@ The `data-loading` attribute is automatically added to elements that trigger net
 
 Importantly, the attribute is added even when dispatching events that are handled by other components:
 
-```blade
+```html
 <button wire:click="$dispatch('refresh-stats')">
     Refresh
 </button>
@@ -49,7 +49,7 @@ Tailwind v4 and above provides powerful selectors for working with the `data-loa
 
 Use Tailwind's `data-loading:` variant to apply styles when an element is loading:
 
-```blade
+```html
 <button wire:click="save" class="data-loading:opacity-50">
     Save
 </button>
@@ -59,7 +59,7 @@ Use Tailwind's `data-loading:` variant to apply styles when an element is loadin
 
 To show an element only while loading is active, use the `not-data-loading:hidden` variant:
 
-```blade
+```html
 <button wire:click="save">
     Save
 </button>
@@ -75,7 +75,7 @@ This approach is preferred over `hidden data-loading:block` because it works reg
 
 You can style child elements when a parent has the `data-loading` attribute using the `in-data-loading:` variant:
 
-```blade
+```html
 <button wire:click="save">
     <span class="in-data-loading:hidden">Save</span>
     <span class="not-in-data-loading:hidden">Saving...</span>
@@ -88,7 +88,7 @@ You can style child elements when a parent has the `data-loading` attribute usin
 
 Style parent elements when they contain a child with `data-loading` using the `has-data-loading:` variant:
 
-```blade
+```html
 <div class="has-data-loading:opacity-50">
     <button wire:click="save">Save</button>
 </div>
@@ -100,7 +100,7 @@ When the button is clicked, the entire parent div will become semi-transparent.
 
 You can style sibling elements using Tailwind's peer utility with the `peer-data-loading:` variant:
 
-```blade
+```html
 <div>
     <button wire:click="save" class="peer">
         Save
@@ -116,7 +116,7 @@ You can style sibling elements using Tailwind's peer utility with the `peer-data
 
 For more advanced styling needs, you can use arbitrary variants to target specific elements:
 
-```blade
+```html
 <!-- Style all direct children when loading -->
 <div class="[&[data-loading]>*]:opacity-50" wire:click="save">
     <span>Child 1</span>

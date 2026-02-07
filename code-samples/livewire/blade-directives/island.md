@@ -48,7 +48,7 @@ When the "Refresh" button is clicked, only the island re-renders—the rest of t
 
 Defer an island's initial render until after the page loads using the `lazy` parameter:
 
-```blade
+```html
 @island(lazy: true)
     <div>
         Revenue: {{ $this->revenue }}
@@ -62,7 +62,7 @@ The island displays a loading state initially, then fetches its content in a sep
 
 By default, lazy waits until the island is visible in the viewport. Use `defer` to load immediately after page load:
 
-```blade
+```html
 {{-- Loads when scrolled into view --}}
 @island(lazy: true)
     <!-- ... -->
@@ -78,7 +78,7 @@ By default, lazy waits until the island is visible in the viewport. Use `defer` 
 
 Use `@placeholder` to customize what displays while loading:
 
-```blade
+```html
 @island(lazy: true)
     @placeholder
         <div class="animate-pulse">
@@ -96,7 +96,7 @@ Use `@placeholder` to customize what displays while loading:
 
 Give islands names to target them from elsewhere in your component:
 
-```blade
+```html
 @island(name: 'revenue')
     <div>Revenue: {{ $this->revenue }}</div>
 @endisland
@@ -119,7 +119,7 @@ Use islands when:
 
 ## Reference
 
-```blade
+```html
 @island(
     ?string $name = null,
     bool $lazy = false,

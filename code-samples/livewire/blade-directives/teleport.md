@@ -10,7 +10,7 @@ The `@teleport` directive renders a portion of your template in a different loca
 
 Wrap content with `@teleport` and specify where to render it using a CSS selector:
 
-```blade
+```html
 <div>
     <div x-data="{ open: false }">
         <button @click="open = ! open">Toggle Modal</button>
@@ -44,7 +44,7 @@ Teleporting is useful for nested modals, dropdowns, and popovers where parent st
 
 **Without teleporting:**
 
-```blade
+```html
 <div style="z-index: 10;">
     <!-- Parent modal with z-index: 10 -->
 
@@ -57,7 +57,7 @@ Teleporting is useful for nested modals, dropdowns, and popovers where parent st
 
 **With teleporting:**
 
-```blade
+```html
 <div style="z-index: 10;">
     <!-- Parent modal -->
 
@@ -74,7 +74,7 @@ Teleporting is useful for nested modals, dropdowns, and popovers where parent st
 
 ### Modal Dialogs
 
-```blade
+```html
 @teleport('body')
     <div class="fixed inset-0 bg-black/50" x-show="showModal">
         <div class="modal">
@@ -86,7 +86,7 @@ Teleporting is useful for nested modals, dropdowns, and popovers where parent st
 
 ### Dropdown Menus
 
-```blade
+```html
 @teleport('body')
     <div class="absolute" x-show="open" style="top: {{ $top }}px; left: {{ $left }}px;">
         <!-- Dropdown items... -->
@@ -96,7 +96,7 @@ Teleporting is useful for nested modals, dropdowns, and popovers where parent st
 
 ### Toast Notifications
 
-```blade
+```html
 @teleport('#notifications-container')
     <div class="toast">
         {{ $message }}
@@ -112,7 +112,7 @@ Teleporting is useful for nested modals, dropdowns, and popovers where parent st
 
 Valid:
 
-```blade
+```html
 @teleport('body')
     <div>
         <h2>Title</h2>
@@ -123,7 +123,7 @@ Valid:
 
 Invalid:
 
-```blade
+```html
 @teleport('body')
     <h2>Title</h2>
     <p>Content</p>
@@ -132,7 +132,7 @@ Invalid:
 
 ## Reference
 
-```blade
+```html
 @teleport(string $selector)
     <!-- Content -->
 @endteleport

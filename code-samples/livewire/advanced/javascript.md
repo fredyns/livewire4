@@ -14,7 +14,7 @@ You can add `<script>` tags directly inside your component template to execute J
 
 Because these scripts are handled by Livewire, they execute at the perfect timeâ€”after the page has loaded, but before the Livewire component renders. This means you no longer need to wrap scripts in `document.addEventListener('...')`.
 
-```blade
+```html
 <div>
     ...
 </div>
@@ -26,7 +26,7 @@ Because these scripts are handled by Livewire, they execute at the perfect timeâ
 
 Here's an example registering a JavaScript action:
 
-```blade
+```html
 <div>
     <button wire:click="$js.increment">+</button>
 </div>
@@ -44,7 +44,7 @@ When you add `<script>` tags inside your component, you automatically have acces
 
 Example using `setInterval` to refresh the component every 2 seconds:
 
-```blade
+```html
 <script>
     setInterval(() => {
         $wire.$refresh()
@@ -85,7 +85,7 @@ $wire.$el.querySelector('.modal')
 
 Use `@assets` to load entire script and style assets with the component:
 
-```blade
+```html
 <div>
     <input type="text" data-picker>
 </div>

@@ -8,7 +8,7 @@ Livewire offers a `wire:init` directive to run an action as soon as the componen
 
 ## Basic Usage
 
-```blade
+```html
 <div wire:init="loadPosts">
     <!-- ... -->
 </div>

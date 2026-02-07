@@ -128,7 +128,7 @@ window.dispatchEvent(new CustomEvent('user-logged-in'));
 
 Instead of using the attribute, you can listen for events directly on child components in your Blade template:
 
-```blade
+```html
 <livewire:post.edit @saved="$refresh" />
 ```
 
@@ -136,7 +136,7 @@ This listens for the `saved` event from the `post.edit` child component and refr
 
 You can also call specific methods:
 
-```blade
+```html
 <livewire:post.edit @saved="handleSave($event.id)" />
 ```
 

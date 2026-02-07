@@ -33,7 +33,7 @@ class ShowInvoice extends Component
 
 You can trigger the `download()` method from the class above when a user clicks a "Download Invoice" button by adding `wire:click="download"`:
 
-```blade
+```html
 <button type="button" wire:click="download">
     Download Invoice
 </button>
@@ -43,7 +43,7 @@ You can trigger the `download()` method from the class above when a user clicks 
 
 You can pass parameters to actions directly in the `wire:click` directive:
 
-```blade
+```html
 <button wire:click="delete({{ $post->id }})">Delete</button>
 ```
 
@@ -55,7 +55,7 @@ When the button is clicked, the `delete()` method will be called with the post's
 
 When using `wire:click` on `<a>` tags, you must append `.prevent` to prevent the default link behavior. Otherwise, the browser will navigate to the provided href.
 
-```blade
+```html
 <a href="#" wire:click.prevent="show">View Details</a>
 ```
 
@@ -63,7 +63,7 @@ When using `wire:click` on `<a>` tags, you must append `.prevent` to prevent the
 
 Use `.renderless` to skip re-rendering the component after the action completes. This is useful for actions that only perform side effects (like logging or analytics):
 
-```blade
+```html
 <button wire:click.renderless="trackClick">Track Event</button>
 ```
 
@@ -71,7 +71,7 @@ Use `.renderless` to skip re-rendering the component after the action completes.
 
 By default, updating content may change the scroll position. Use `.preserve-scroll` to maintain the current scroll position:
 
-```blade
+```html
 <button wire:click.preserve-scroll="loadMore">Load More</button>
 ```
 
@@ -79,7 +79,7 @@ By default, updating content may change the scroll position. Use `.preserve-scro
 
 By default, Livewire queues actions within the same component. Use `.async` to allow actions to run in parallel:
 
-```blade
+```html
 <button wire:click.async="process">Process</button>
 ```
 

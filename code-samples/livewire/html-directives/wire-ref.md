@@ -73,7 +73,7 @@ When you add `wire:ref` to an HTML element, you can access it via the `$refs` ma
 
 Consider a character counter that updates in real-time:
 
-```blade
+```html
 <div>
     <textarea wire:model="message" wire:ref="message"></textarea>
 
@@ -93,7 +93,7 @@ Consider a character counter that updates in real-time:
 
 If you wish to access `$wire` for a component with a ref, you can do so via the `.$wire` property on the element:
 
-```blade
+```html
 <div>
     <!-- ... -->
 
@@ -153,7 +153,7 @@ Refs work perfectly in loops and other dynamic contexts.
 
 Here's an example with multiple modal instances:
 
-```blade
+```html
 @foreach($users as $index => $user)
     <livewire:modal
         wire:key="{{ $user->id }}"

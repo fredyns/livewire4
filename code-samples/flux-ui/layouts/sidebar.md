@@ -6,7 +6,7 @@ Use a sidebar navigation layout to keep your application content front and cente
 
 ## Basic Example
 
-```blade
+```html
 <head>
     <!-- ... -->
 
@@ -98,7 +98,7 @@ Use a sidebar navigation layout to keep your application content front and cente
 
 Use a top header for secondary navigation.
 
-```blade
+```html
 <head>
     <!-- ... -->
 
@@ -199,7 +199,7 @@ Use a top header for secondary navigation.
 
 Make your app feel more spacious with a collapsible sidebar.
 
-```blade
+```html
 <head>
     <!-- ... -->
 

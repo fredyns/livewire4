@@ -106,7 +106,7 @@ Now, if there are ten revenue components on the page, all ten will load via a si
 
 Instead of the attribute, you can lazy-load specific component instances using the `lazy` parameter:
 
-```blade
+```html
 <livewire:revenue lazy />
 ```
 
@@ -116,7 +116,7 @@ This is useful when you only want certain instances of a component to be lazy-lo
 
 If a component has `#[Lazy]` but you want to load it immediately in certain cases, you can override it:
 
-```blade
+```html
 <livewire:revenue :lazy="false" />
 ```
 

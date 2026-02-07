@@ -43,7 +43,7 @@ The browser tab will display "Create Post" as the page title.
 
 For the `#[Title]` attribute to work, your layout file must include a `$title` variable:
 
-```blade
+```html
 <!-- resources/views/components/layouts/app.blade.php -->
 
 <!DOCTYPE html>

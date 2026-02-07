@@ -30,7 +30,7 @@ class CreatePost extends Component
 }
 ```
 
-```blade
+```html
 <form wire:submit="save">
     <label>
         <span>Title</span>
@@ -64,7 +64,7 @@ However, there are occasions where you may want to update the server more freque
 
 To send property updates to the server as a user types into an input-field, you can append the `.live` modifier to `wire:model`:
 
-```blade
+```html
 <input type="text" wire:model.live="title">
 ```
 
@@ -74,7 +74,7 @@ By default, when using `wire:model.live`, Livewire adds a 150 millisecond deboun
 
 You can customize this timing by appending `.debounce.Xms` after `.live`. Here is an example of changing the debounce to 250 milliseconds:
 
-```blade
+```html
 <input type="text" wire:model.live.debounce.250ms="title">
 ```
 
@@ -82,13 +82,13 @@ You can customize this timing by appending `.debounce.Xms` after `.live`. Here i
 
 The `.blur` modifier delays syncing until the user clicks away from the input:
 
-```blade
+```html
 <input type="text" wire:model.blur="title">
 ```
 
 To also send a network request on blur, add `.live`:
 
-```blade
+```html
 <input type="text" wire:model.blur.live="title">
 ```
 
@@ -96,7 +96,7 @@ To also send a network request on blur, add `.live`:
 
 The `.change` modifier triggers on the change event, which is useful for select elements:
 
-```blade
+```html
 <select wire:model.change="state">...</select>
 
 <!-- With network request -->
@@ -107,7 +107,7 @@ The `.change` modifier triggers on the change event, which is useful for select 
 
 The `.enter` modifier syncs when the user presses the Enter key:
 
-```blade
+```html
 <input type="text" wire:model.enter="search">
 
 <!-- With network request -->
@@ -120,13 +120,13 @@ Livewire supports most native input elements out of the box. Here's a comprehens
 
 ### Text Inputs
 
-```blade
+```html
 <input type="text" wire:model="title">
 ```
 
 ### Textarea Inputs
 
-```blade
+```html
 <textarea wire:model="content"></textarea>
 ```
 
@@ -134,7 +134,7 @@ If the "content" value is initialized with a string, Livewire will fill the text
 
 ### Single Checkbox
 
-```blade
+```html
 <input type="checkbox" wire:model="receiveUpdates">
 ```
 
@@ -146,7 +146,7 @@ When the `$receiveUpdates` value is false, the checkbox will be unchecked. When 
 public $updateTypes = [];
 ```
 
-```blade
+```html
 <input type="checkbox" value="email" wire:model="updateTypes">
 <input type="checkbox" value="sms" wire:model="updateTypes">
 <input type="checkbox" value="notification" wire:model="updateTypes">
@@ -156,14 +156,14 @@ If the user checks the first two boxes, `$updateTypes` will be: `["email", "sms"
 
 ### Radio Buttons
 
-```blade
+```html
 <input type="radio" value="yes" wire:model="receiveUpdates">
 <input type="radio" value="no" wire:model="receiveUpdates">
 ```
 
 ### Select Dropdowns
 
-```blade
+```html
 <select wire:model="state">
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -175,7 +175,7 @@ When a specific state is selected, the `$state` property will be set to the sele
 
 ### Dynamic Select Options
 
-```blade
+```html
 <select wire:model="state">
     @foreach (\App\Models\State::all() as $state)
         <option value="{{ $state->id }}">{{ $state->label }}</option>
@@ -185,7 +185,7 @@ When a specific state is selected, the `$state` property will be set to the sele
 
 ### Placeholder Option
 
-```blade
+```html
 <select wire:model="state">
     <option disabled value="">Select a state...</option>
 
@@ -199,7 +199,7 @@ When a specific state is selected, the `$state` property will be set to the sele
 
 When one select menu depends on another, add `wire:key` to the dependent select:
 
-```blade
+```html
 <!-- States select menu... -->
 <select wire:model.live="selectedState">
     @foreach (State::all() as $state)
@@ -217,7 +217,7 @@ When one select menu depends on another, add `wire:key` to the dependent select:
 
 ### Multi-Select Dropdowns
 
-```blade
+```html
 <select wire:model="states" multiple>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -233,7 +233,7 @@ By default, `wire:model` only listens for input/change events that originate dir
 
 In rare cases where you want `wire:model` to also respond to events bubbling up from child elements, you can use the `.deep` modifier:
 
-```blade
+```html
 <div wire:model.deep="value">
     <input type="text"> <!-- Changes here will update $value -->
 </div>

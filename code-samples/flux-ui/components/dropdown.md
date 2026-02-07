@@ -6,7 +6,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Basic Example
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon:trailing="chevron-down">Options</flux:button>
 
@@ -38,7 +38,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Navigation menus
 
-```blade
+```html
 <flux:dropdown position="bottom" align="end">
     <flux:profile avatar="/img/demo/user.png" name="Olivia Martin" />
     <flux:navmenu>
@@ -53,7 +53,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Positioning
 
-```blade
+```html
 <flux:dropdown position="top" align="start">
     <!-- More positions... -->
     <flux:dropdown position="right" align="center">
@@ -63,13 +63,13 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Offset & gap
 
-```blade
+```html
 <flux:dropdown offset="-15" gap="2">
 ```
 
 ## Keyboard hints
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon:trailing="chevron-down">Options</flux:button>
     <flux:menu>
@@ -82,7 +82,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Checkbox items
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon:trailing="chevron-down">Permissions</flux:button>
     <flux:menu>
@@ -95,7 +95,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Radio items
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon:trailing="chevron-down">Sort by</flux:button>
     <flux:menu>
@@ -110,7 +110,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Groups
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon:trailing="chevron-down">Options</flux:button>
     <flux:menu>
@@ -127,7 +127,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Groups with headings
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon:trailing="chevron-down">Options</flux:button>
     <flux:menu>
@@ -147,7 +147,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Submenus
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon:trailing="chevron-down">Options</flux:button>
     <flux:menu>
@@ -169,7 +169,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 
 ## Keep open
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon:trailing="chevron-down">Filter</flux:button>
     <flux:menu keep-open>
@@ -180,7 +180,7 @@ A composable dropdown component that can handle both simple navigation menus as 
 </flux:dropdown>
 ```
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon:trailing="chevron-down">Filters</flux:button>
     <flux:menu >

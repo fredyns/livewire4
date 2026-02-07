@@ -36,7 +36,7 @@ class ShowPost extends Component
 }
 ```
 
-```blade
+```html
 <div>
     <button x-on:click="$wire.likes++" wire:click="like">❤️ Like</button>
 

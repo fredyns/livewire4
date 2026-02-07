@@ -34,7 +34,7 @@ class Wizard extends Component
 }
 ```
 
-```blade
+```html
 <div>
     <div wire:transition="content">
         Step {{ $step }}

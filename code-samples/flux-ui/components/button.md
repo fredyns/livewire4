@@ -6,13 +6,13 @@ A powerful and composable button component for your application.
 
 ## Basic Example
 
-```blade
+```html
 <flux:button>Button</flux:button>
 ```
 
 ## Variants
 
-```blade
+```html
 <flux:button>Default</flux:button>
 <flux:button variant="primary">Primary</flux:button>
 <flux:button variant="filled">Filled</flux:button>
@@ -23,7 +23,7 @@ A powerful and composable button component for your application.
 
 ## Colors
 
-```blade
+```html
 <flux:button variant="primary" color="zinc">Zinc</flux:button>
 <flux:button variant="primary" color="red">Red</flux:button>
 <flux:button variant="primary" color="orange">Orange</flux:button>
@@ -46,7 +46,7 @@ A powerful and composable button component for your application.
 
 ## Sizes
 
-```blade
+```html
 <flux:button>Base</flux:button>
 <flux:button size="sm">Small</flux:button>
 <flux:button size="xs">Extra small</flux:button>
@@ -54,7 +54,7 @@ A powerful and composable button component for your application.
 
 ## Icons
 
-```blade
+```html
 <flux:button icon="ellipsis-horizontal" />
 <flux:button icon="arrow-down-tray">Export</flux:button>
 <flux:button icon:trailing="chevron-down">Open</flux:button>
@@ -63,25 +63,25 @@ A powerful and composable button component for your application.
 
 ## Loading
 
-```blade
+```html
 <flux:button wire:click="save">
     Save changes
 </flux:button>
 ```
 
-```blade
+```html
 <flux:button wire:click="save" :loading="false">
 ```
 
 ## Full width
 
-```blade
+```html
 <flux:button variant="primary" class="w-full">Send invite</flux:button>
 ```
 
 ## Button groups
 
-```blade
+```html
 <flux:button.group>
     <flux:button>Oldest</flux:button>
     <flux:button>Newest</flux:button>
@@ -91,7 +91,7 @@ A powerful and composable button component for your application.
 
 ## Icon group
 
-```blade
+```html
 <flux:button.group>
     <flux:button icon="bars-3-bottom-left"></flux:button>
     <flux:button icon="bars-3"></flux:button>
@@ -101,7 +101,7 @@ A powerful and composable button component for your application.
 
 ## Attached button
 
-```blade
+```html
 <flux:button.group>
     <flux:button>New product</flux:button>
     <flux:button icon="chevron-down"></flux:button>
@@ -110,7 +110,7 @@ A powerful and composable button component for your application.
 
 ## As a link
 
-```blade
+```html
 <flux:button href="https://google.com" icon:trailing="arrow-up-right" >
     Visit Google
 </flux:button>
@@ -118,19 +118,19 @@ A powerful and composable button component for your application.
 
 ## As an input
 
-```blade
+```html
 <flux:input as="button" placeholder="Search..." icon="magnifying-glass" kbd="⌘K" />
 ```
 
 ## Square
 
-```blade
+```html
 <flux:button square>...</flux:button>
 ```
 
 ## Inset
 
-```blade
+```html
 <div class="flex justify-between">
     <flux:heading>Post successfully created.</flux:heading>
     <flux:button size="sm" icon="x-mark" variant="ghost" inset />

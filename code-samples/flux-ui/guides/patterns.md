@@ -12,7 +12,7 @@ Props and attributes are indistinguishable on the surface, however, we've found 
 
 For example, the following component uses a prop called `variant` as well as a bespoke `x-on:change.prevent` attribute:
 
-```blade
+```html
 <flux:button variant="primary" x-on:change.prevent="...">
 ```
 
@@ -30,7 +30,7 @@ Most flux components apply Tailwind classes to their underlying elements, howeve
 
 Here's an example of making a button full width by passing in the `w-full` Tailwind utility class:
 
-```blade
+```html
 <flux:button class="w-full">
 ```
 
@@ -46,7 +46,7 @@ Occasionally, you may run into conflicts when passing in a Tailwind utility that
 
 For example, you may try to customize the background color of a button by passing in the `bg-zinc-800` Tailwind utility class:
 
-```blade
+```html
 <flux:button class="bg-zinc-800 hover:bg-zinc-700">
 ```
 
@@ -60,7 +60,7 @@ Because both classes exist on the element, the one defined last in CSS wins.
 
 Tailwind's important (`!`) modifier is the simplest way to resolve these conflicts:
 
-```blade
+```html
 <flux:button class="bg-zinc-800! hover:bg-zinc-700!">
 ```
 
@@ -82,7 +82,7 @@ In these cases flux will often split up the forwarded attributes into two groups
 
 For example consider passing in the following `class` and `autofocus` attributes:
 
-```blade
+```html
 <flux:input class="w-full" autofocus>
 ```
 
@@ -102,7 +102,7 @@ First up is "variant". Any component that offers an alternate visual style uses 
 
 Here's a list of a few common component variants:
 
-```blade
+```html
 <flux:button variant="primary" /><flux:input variant="filled" /><flux:modal variant="flyout" /><flux:badge variant="solid" /><flux:select variant="combobox" /><flux:separator variant="subtle" /><flux:tabs variant="segmented" />
 ```
 
@@ -116,13 +116,13 @@ Flux uses [Heroicons](https://heroicons.com/) for its icon collection. Heroicons
 
 Here's a handful of components you can pass icons into:
 
-```blade
+```html
 <flux:button icon="magnifying-glass" /><flux:input icon="magnifying-glass" /><flux:tab icon="cog-6-tooth" /><flux:badge icon="user" /><flux:breadcrumbs.item icon="home" /><flux:navlist.item icon="user" /><flux:navbar.item icon="user" /><flux:menu.item icon="plus" />
 ```
 
 Occasionally, if a component supports adding an icon to the end of an element instead of the beginning by default, you can pass the `icon:trailing` prop as well:
 
-```blade
+```html
 <flux:button icon:trailing="chevron-down" /><flux:input icon:trailing="credit-card" /><flux:badge icon:trailing="x-mark" /><flux:navbar.item icon:trailing="chevron-down" />
 ```
 
@@ -132,13 +132,13 @@ Some components offer size variations through the `size` prop.
 
 Here are a few components that can be sized-down:
 
-```blade
+```html
 <flux:button size="sm" /><flux:select size="sm" /><flux:input size="sm" /><flux:tabs size="sm" />
 ```
 
 Here are a few that can be sized up for larger visual contexts:
 
-```blade
+```html
 <flux:heading size="lg" /><flux:badge size="lg" />
 ```
 
@@ -146,7 +146,7 @@ Here are a few that can be sized up for larger visual contexts:
 
 Similar to the `icon` prop, many components allow you to add decorative hints for keyboard shortcuts using the `kbd` prop:
 
-```blade
+```html
 <flux:button kbd="⌘S" /><flux:tooltip kbd="D" /><flux:input kbd="⌘K" /><flux:menu.item kbd="⌘E" /><flux:command.item kbd="⌘N" />
 ```
 
@@ -156,7 +156,7 @@ Certain components offer the `inset` prop which makes it easy to add the exact a
 
 This is extremely useful for putting a button or a badge inline with other text and not stretching the entire height of the container.
 
-```blade
+```html
 <flux:badge inset="top bottom"><flux:button variant="ghost" inset="left">
 ```
 
@@ -166,13 +166,13 @@ Occasionally, one component will wrap another and expose it as a simple prop.
 
 For example, here is the Button component that allows you to set the icon using the simple `icon` prop instead of passing an entire Icon component into the Button as a child:
 
-```blade
+```html
 <flux:button icon="bell" />
 ```
 
 This is often a more desirable alternative to composing the entire component like so:
 
-```blade
+```html
 <flux:button> <flux:icon.bell /></flux:button>
 ```
 
@@ -180,7 +180,7 @@ However, when using the `icon` prop, you are unable to add additional props to t
 
 In these cases, flux will often expose nested props via prefixes like so:
 
-```blade
+```html
 <flux:button icon="bell" icon:variant="solid" />
 ```
 
@@ -192,7 +192,7 @@ However, you may want to enforce that its value remains false for a specific ins
 
 In these cases, you can use Laravel's dynamic prop syntax (`:`) and pass in `false`.
 
-```blade
+```html
 <flux:navbar.item :current="false">
 ```
 
@@ -202,13 +202,13 @@ Sometimes a component arrangement is both common and verbose enough that it warr
 
 For example, here's a full input field:
 
-```blade
+```html
 <flux:field> <flux:label>Email</flux:label> <flux:input wire:model="email" type="email" /> <flux:error name="email" /></flux:field>
 ```
 
 This can be shortened to the following:
 
-```blade
+```html
 <flux:input type="email" wire:model="email" label="Email" />
 ```
 
@@ -220,13 +220,13 @@ You'll also encounter this pattern with tooltips and buttons.
 
 Here's a long-form toolip:
 
-```blade
+```html
 <flux:tooltip content="Settings"> <flux:button icon="cog-6-tooth" /></flux:tooltip>
 ```
 
 Because the above is often repetitive, you can shorten it to a simple tooltip prop:
 
-```blade
+```html
 <flux:button icon="cog-6-tooth" tooltip="Settings" />
 ```
 
@@ -236,13 +236,13 @@ In Livewire you are used to adding `wire:model` directly to input elements insid
 
 In Flux, the experience is no different. Here are some common components you will often be adding `wire:model` to:
 
-```blade
+```html
 <flux:input wire:model="email" /><flux:checkbox wire:model="terms" /><flux:switch wire:model.live="enabled" /><flux:textarea wire:model="content" /><flux:select wire:model="state" />
 ```
 
 In addition to these common ones you'd expect, here are a few other components you can control via `wire:model`:
 
-```blade
+```html
 <flux:checkbox.group wire:model="notifications"><flux:radio.group wire:model="payment"><flux:tabs wire:model="activeTab">
 ```
 
@@ -254,13 +254,13 @@ When a Flux component can be "grouped", but is otherwise a stand-alone component
 
 All of the following components can be used on their own, or grouped together:
 
-```blade
+```html
 <flux:button.group> <flux:button /></flux:button.group><flux:input.group> <flux:input /></flux:input.group><flux:checkbox.group> <flux:checkbox /></flux:checkbox.group><flux:radio.group> <flux:radio /></flux:radio.group>
 ```
 
 Alternatively, if a component can NOT be used on its own, but can be grouped, the wrapper will often be the main name of the component, and each child will have a `.item` suffix:
 
-```blade
+```html
 <flux:accordion> <flux:accordion.item /></flux:accordion><flux:menu> <flux:menu.item /></flux:menu><flux:breadcrumbs> <flux:breadcrumbs.item /></flux:breadcrumbs><flux:navbar> <flux:navbar.item /></flux:navbar><flux:navlist> <flux:navlist.item /></flux:navlist><flux:navmenu> <flux:navmenu.item /></flux:navmenu><flux:command> <flux:command.item /></flux:command><flux:autocomplete> <flux:autocomplete.item /></flux:autocomplete>
 ```
 
@@ -272,7 +272,7 @@ However, for components that are larger or more "primitive" feeling than the oth
 
 For example, this is flux's field component:
 
-```blade
+```html
 <flux:field> <flux:label></flux:label> <flux:description></flux:description> <flux:error></flux:error></flux:field>
 ```
 
@@ -288,7 +288,7 @@ As painful as it is, sometimes for something to "feel right", you have to abando
 
 For example, the flux:tabs component doesn't follow the aforementioned rules:
 
-```blade
+```html
 <flux:tab.group> <flux:tabs> <flux:tab> </flux:tabs> <flux:tab.panel></flux:tab.group>
 ```
 
@@ -300,7 +300,7 @@ However, there are times where there is no substitute and slots are the perfect 
 
 To demonstrate, consider the following input component with an x-mark icon:
 
-```blade
+```html
 <flux:input icon:trailing="x-mark" />
 ```
 
@@ -308,7 +308,7 @@ If you wanted to wrap the icon in a clickable button to perform an action there 
 
 Here is the above, rewritten with a wrapping button:
 
-```blade
+```html
 <flux:input> <x-slot name="iconTrailing"> <flux:button icon="x-mark" size="sm" variant="subtle" wire:click="clear" /> </x-slot></flux:input>
 ```
 
@@ -324,6 +324,6 @@ However, those expressions are not supported inside the opening tag of a Blade o
 
 Instead, you must stay within the confines of the Blade component dynamic attribute syntax:
 
-```blade
+```html
 <!-- Conditional attributes: --><input @if ($disabled) disabled @endif><flux:input :disabled="$disabled">
 ```

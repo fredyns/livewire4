@@ -10,7 +10,7 @@ The `@persist` directive preserves elements across page navigations when using `
 
 Wrap an element with `@persist` and provide a unique name to preserve it across page visits:
 
-```blade
+```html
 @persist('player')
     <audio src="{{ $episode->file }}" controls></audio>
 @endpersist
@@ -24,7 +24,7 @@ When navigating to a new page that also contains a persisted element with the sa
 
 ### Audio/Video Players
 
-```blade
+```html
 @persist('podcast-player')
     <audio src="{{ $episode->audio_url }}" controls></audio>
 @endpersist
@@ -32,7 +32,7 @@ When navigating to a new page that also contains a persisted element with the sa
 
 ### Chat Widgets
 
-```blade
+```html
 @persist('support-chat')
     <div id="chat-widget">
         <!-- Chat interface... -->
@@ -42,7 +42,7 @@ When navigating to a new page that also contains a persisted element with the sa
 
 ### Third-Party Widgets
 
-```blade
+```html
 @persist('analytics-widget')
     <div id="analytics-dashboard">
         <!-- Complex widget that's expensive to initialize... -->
@@ -54,7 +54,7 @@ When navigating to a new page that also contains a persisted element with the sa
 
 Persisted elements should typically be placed outside Livewire components, commonly in your main layout:
 
-```blade
+```html
 <!-- resources/views/layouts/app.blade.php -->
 
 <!DOCTYPE html>
@@ -87,7 +87,7 @@ Persisted elements should typically be placed outside Livewire components, commo
 
 For scrollable persisted elements, add `wire:scroll` to maintain scroll position:
 
-```blade
+```html
 @persist('scrollable-list')
     <div class="overflow-y-scroll" wire:scroll>
         <!-- Scrollable content... -->
@@ -99,7 +99,7 @@ For scrollable persisted elements, add `wire:scroll` to maintain scroll position
 
 Inside persisted elements, use `wire:current` instead of server-side conditionals to highlight active links:
 
-```blade
+```html
 @persist('navigation')
     <nav>
         <a href="/dashboard" wire:navigate wire:current="font-bold">Dashboard</a>
@@ -119,7 +119,7 @@ When navigating with `wire:navigate`:
 
 ## Reference
 
-```blade
+```html
 @persist(string $key)
     <!-- Content -->
 @endpersist

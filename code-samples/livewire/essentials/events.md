@@ -111,7 +111,7 @@ If the above `$post` model had an ID of 3, the `refreshPost()` method would only
 
 Livewire allows you to listen for events directly on individual child components in your Blade template like so:
 
-```blade
+```html
 <div>
     <livewire:edit-post @saved="$refresh">
 
@@ -123,13 +123,13 @@ In the above scenario, if the `edit-post` child component dispatches a `saved` e
 
 Instead of passing `$refresh`, you can pass any method you normally would to something like `wire:click`. Here's an example of calling a `close()` method that might do something like close a modal dialog:
 
-```blade
+```html
 <livewire:edit-post @saved="close">
 ```
 
 If the child dispatched parameters along with the request, for example `$this->dispatch('saved', postId: 1)`, you can forward those values to the parent method using the following syntax:
 
-```blade
+```html
 <livewire:edit-post @saved="close($event.detail.postId)">
 ```
 
@@ -141,7 +141,7 @@ Livewire's event system becomes much more powerful when you interact with it fro
 
 You can easily listen for the `post-created` event inside your component's template from a `<script>` tag like so:
 
-```blade
+```html
 <script>
     this.$on('post-created', () => {
         //
@@ -155,7 +155,7 @@ The above snippet would listen for the `post-created` from the component it's re
 
 Additionally, you can dispatch events from within a component's `<script>` tag like so:
 
-```blade
+```html
 <script>
     this.$dispatch('post-created');
 </script>
@@ -171,7 +171,7 @@ this.$dispatchSelf('post-created');
 
 You can pass any additional parameters to the event by passing an object as a second argument to `dispatch()`:
 
-```blade
+```html
 <script>
     this.$dispatch('post-created', { refreshPosts: true });
 </script>
@@ -195,7 +195,7 @@ public function handleNewPost($refreshPosts = false)
 
 You can also access the `refreshPosts` parameter from a JavaScript event listener from the event's `detail` property:
 
-```blade
+```html
 <script>
     this.$on('post-created', (event) => {
         let refreshPosts = event.detail.refreshPosts
@@ -209,7 +209,7 @@ You can also access the `refreshPosts` parameter from a JavaScript event listene
 
 Alternatively, you can listen for Livewire events globally using `Livewire.on` from any script in your application:
 
-```blade
+```html
 <script>
     document.addEventListener('livewire:init', () => {
        Livewire.on('post-created', (event) => {
@@ -223,7 +223,7 @@ The above snippet would listen for the `post-created` event dispatched from any 
 
 If you wish to remove this event listener for any reason, you can do so using the returned cleanup function:
 
-```blade
+```html
 <script>
     document.addEventListener('livewire:init', () => {
         let cleanup = Livewire.on('post-created', (event) => {
@@ -244,7 +244,7 @@ Because Livewire events are plain browser events under the hood, you can use Alp
 
 For example, we may easily listen for the `post-created` event using Alpine:
 
-```blade
+```html
 <div x-on:post-created="..."></div>
 ```
 
@@ -252,13 +252,13 @@ The above snippet would listen for the `post-created` event from any Livewire co
 
 To listen for the event from any Livewire component on the page, you can add `.window` to the listener:
 
-```blade
+```html
 <div x-on:post-created.window="..."></div>
 ```
 
 If you want to access additional data that was sent with the event, you can do so using `$event.detail`:
 
-```blade
+```html
 <div x-on:post-created="notify('New post: ' + $event.detail.title)"></div>
 ```
 
@@ -268,13 +268,13 @@ Any event dispatched from Alpine is capable of being intercepted by a Livewire c
 
 For example, we may easily dispatch the `post-created` event from Alpine:
 
-```blade
+```html
 <button x-on:click="$dispatch('post-created')">...</button>
 ```
 
 Like Livewire's `dispatch()` method, you can pass additional data along with the event by passing the data as the second parameter to the method:
 
-```blade
+```html
 <button x-on:click="$dispatch('post-created', { title: 'Post Title' })">...</button>
 ```
 
@@ -322,7 +322,7 @@ new class extends Component {
 
 You can dispatch events directly from your Blade templates using the `$dispatch` JavaScript function. This is useful when you want to trigger an event from a user interaction, such as a button click:
 
-```blade
+```html
 <button wire:click="$dispatch('show-post-modal', { id: {{ $post->id }} })">
     Edit Post
 </button>
@@ -332,7 +332,7 @@ In this example, when the button is clicked, the `show-post-modal` event will be
 
 If you want to dispatch an event directly to another component you can use the `$dispatchTo()` JavaScript function:
 
-```blade
+```html
 <button wire:click="$dispatchTo('posts', 'show-post-modal', { id: {{ $post->id }} })">
     Edit Post
 </button>

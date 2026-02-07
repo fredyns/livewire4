@@ -16,7 +16,7 @@ One of the most restrictive CSP directives is `'unsafe-eval'`, which when omitte
 
 By default, Livewire uses `new Function()` declarations to compile and execute JavaScript expressions from HTML attributes:
 
-```blade
+```html
 <button wire:click="$set('count', count + 1)">Increment</button>
 <div wire:show="user.role === 'admin'">Admin panel</div>
 ```
@@ -37,7 +37,7 @@ In your `config/livewire.php` file, set the `csp_safe` option to true:
 
 ### Basic Livewire Expressions
 
-```blade
+```html
 <button wire:click="increment">+</button>
 <button wire:click="decrement">-</button>
 <input wire:model="name">
@@ -46,7 +46,7 @@ In your `config/livewire.php` file, set the `csp_safe` option to true:
 
 ### Method Calls with Parameters
 
-```blade
+```html
 <button wire:click="updateUser('John', 25)">Update User</button>
 <button wire:click="setCount(42)">Set Count</button>
 <button wire:click="saveData({ name: 'John', age: 30 })">Save Object</button>
@@ -54,7 +54,7 @@ In your `config/livewire.php` file, set the `csp_safe` option to true:
 
 ### Property Access and Updates
 
-```blade
+```html
 <input wire:model="user.name">
 <input wire:model="settings.theme">
 <button wire:click="$set('user.active', true)">Activate</button>
@@ -63,7 +63,7 @@ In your `config/livewire.php` file, set the `csp_safe` option to true:
 
 ### Basic Expressions in Alpine
 
-```blade
+```html
 <div x-data="{ count: 0, name: 'Livewire' }" wire:ignore>
     <button x-on:click="count++">Increment</button>
     <span x-text="count"></span>
@@ -76,21 +76,21 @@ In your `config/livewire.php` file, set the `csp_safe` option to true:
 
 ### Complex JavaScript Expressions
 
-```blade
+```html
 <button wire:click="items.filter(i => i.active).length">Count Active</button>
 <div wire:show="users.some(u => u.role === 'admin')">Has Admin</div>
 ```
 
 ### Template Literals and Advanced Syntax
 
-```blade
+```html
 <div x-text="`Hello ${name}`">Bad</div>
 <div x-data="{ ...defaults }">Bad</div>
 ```
 
 ### Dynamic Property Access
 
-```blade
+```html
 <div wire:show="user[dynamicProperty]">Bad</div>
 <button wire:click="this[methodName]()">Bad</button>
 ```
@@ -99,7 +99,7 @@ In your `config/livewire.php` file, set the `csp_safe` option to true:
 
 For complex Alpine expressions, use `Alpine.data()` or move logic to methods:
 
-```blade
+```html
 <div x-data="users">
     <div x-show="hasActiveAdmins">Admin panel available</div>
     <span x-text="activeUserCount">0</span>

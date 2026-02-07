@@ -6,7 +6,7 @@ A configurable message input with support for action buttons and rich text. Idea
 
 ## Basic Example
 
-```blade
+```html
 <form wire:submit="send">
     <flux:composer wire:model="prompt" label="Prompt" label:sr-only placeholder="How can I help you today?">
         <x-slot name="actionsLeading">
@@ -25,7 +25,7 @@ A configurable message input with support for action buttons and rich text. Idea
 
 ## With header
 
-```blade
+```html
 <flux:composer wire:model="prompt" label="Prompt" label:sr-only placeholder="How can I help you today?">
     <x-slot name="header">
         <!-- Header content... -->
@@ -49,7 +49,7 @@ A configurable message input with support for action buttons and rich text. Idea
 
 ## Inline
 
-```blade
+```html
 <flux:composer wire:model="prompt" rows="1" inline label="Prompt" label:sr-only placeholder="How can I help you today?">
     <x-slot name="actionsLeading">
         <flux:button size="sm" variant="ghost" icon="plus" />
@@ -63,7 +63,7 @@ A configurable message input with support for action buttons and rich text. Idea
 
 ## Input variant
 
-```blade
+```html
 <flux:composer variant="input" label="Message" placeholder="What's on your mind?">
     <!-- ... -->
 </flux:composer>
@@ -71,7 +71,7 @@ A configurable message input with support for action buttons and rich text. Idea
 
 ## Height
 
-```blade
+```html
 <flux:composer rows="4" max-rows="8" ...>
     <!-- ... -->
 </flux:composer>
@@ -79,7 +79,7 @@ A configurable message input with support for action buttons and rich text. Idea
 
 ## Submit behavior
 
-```blade
+```html
 <form wire:submit="send">
     <flux:composer wire:model="prompt" submit="enter" ...>
         <!-- ... -->
@@ -89,7 +89,7 @@ A configurable message input with support for action buttons and rich text. Idea
 
 ## Rich text
 
-```blade
+```html
 <flux:composer wire:model="prompt" rows="3" label="Prompt" label:sr-only placeholder="How can I help you today?">
     <x-slot name="input">
         <flux:editor variant="borderless" toolbar="bold italic bullet ordered | link | align" />
@@ -108,7 +108,7 @@ A configurable message input with support for action buttons and rich text. Idea
 
 ## Disabled
 
-```blade
+```html
 <flux:composer disabled ...>
     <!-- ... -->
 </flux:composer>
@@ -116,7 +116,7 @@ A configurable message input with support for action buttons and rich text. Idea
 
 ## Invalid
 
-```blade
+```html
 <flux:composer wire:model="prompt" label="Prompt" label:sr-only ...>
     <!-- ... -->
 </flux:composer>

@@ -8,7 +8,7 @@ Select a value using a horizontal slider control.
 
 Bind the slider value to a Livewire property using `wire:model`.
 
-```blade
+```html
 <flux:slider wire:model="amount" />
 ```
 
@@ -16,7 +16,7 @@ Bind the slider value to a Livewire property using `wire:model`.
 
 Use the `min`, `max` and `step` props to configure the slider.
 
-```blade
+```html
 <flux:slider min="0" max="100" step="10" />
 ```
 
@@ -24,7 +24,7 @@ Use the `min`, `max` and `step` props to configure the slider.
 
 To display the current value, add an element with a `wire:text` directive.
 
-```blade
+```html
 <flux:field>
     <flux:label>
         Corner radius
@@ -40,7 +40,7 @@ To display the current value, add an element with a `wire:text` directive.
 
 To display an input next to the slider and ensure accessibility, wrap both inside `flux:field`.
 
-```blade
+```html
 <flux:field>
     <flux:label>Corner radius</flux:label>
     <div class="flex items-center gap-4 -mt-2">
@@ -54,7 +54,7 @@ To display an input next to the slider and ensure accessibility, wrap both insid
 
 Use the `big-step` prop to define a step size that will be be used when pressing the arrow keys while holding the shift key.
 
-```blade
+```html
 <flux:slider step="1" big-step="10" />
 ```
 
@@ -62,7 +62,7 @@ Use the `big-step` prop to define a step size that will be be used when pressing
 
 Display ticks below the slider to visualize the steps.
 
-```blade
+```html
 <flux:slider min="1" max="5">
     @foreach (range(1, 5) as $i)
         <flux:slider.tick :value="$i" />
@@ -74,7 +74,7 @@ Display ticks below the slider to visualize the steps.
 
 Display numbers below the slider to visualize the steps.
 
-```blade
+```html
 <flux:slider min="1" max="5">
     @foreach (range(1, 5) as $i)
         <flux:slider.tick :value="$i">{{ $i }}</flux:slider.tick>
@@ -86,7 +86,7 @@ Display numbers below the slider to visualize the steps.
 
 Display custom labels for specified steps.
 
-```blade
+```html
 <flux:slider min="1" max="5">
     <flux:slider.tick value="1">Low</flux:slider.tick>
     <flux:slider.tick value="3">Mid</flux:slider.tick>
@@ -98,7 +98,7 @@ Display custom labels for specified steps.
 
 Select a range of values using two slider thumbs.
 
-```blade
+```html
 <flux:slider range />
 ```
 
@@ -106,19 +106,19 @@ Select a range of values using two slider thumbs.
 
 Set the initial range using the `value` prop with comma separated values:
 
-```blade
+```html
 <flux:slider range value="20,80" />
 ```
 
 You can also bind the values to a Livewire property using `wire:model`:
 
-```blade
+```html
 <flux:slider range wire:model="range" />
 ```
 
 Now you can access the values from your Livewire component using an array of values:
 
-```blade
+```html
 <?php use Livewire\Component;
 
 class Dashboard extends Component
@@ -129,13 +129,13 @@ class Dashboard extends Component
 
 Use `min-steps-between` to set the minimum distance between thumbs. The value is defined in number of steps, where the size of each step is determined by the `step` attribute.
 
-```blade
+```html
 <flux:slider range step="1" min-steps-between="10" />
 ```
 
 To display the selected range, add two elements with a `wire:text` directive.
 
-```blade
+```html
 <div class="relative">
     <flux:field>
         <flux:label>
@@ -153,7 +153,7 @@ To display the selected range, add two elements with a `wire:text` directive.
 
 Customize the styles of the slider using the `track:class` and `thumb:class` props.
 
-```blade
+```html
 <flux:slider track:class="h-5" thumb:class="size-5" />
 ```
 

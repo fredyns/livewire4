@@ -68,7 +68,7 @@ new #[Isolate] class extends Component {
 };
 ```
 
-```blade
+```html
 <div wire:poll.5s>
     Status: {{ $this->checkStatus() }}
 </div>

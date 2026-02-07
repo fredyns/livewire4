@@ -6,7 +6,7 @@ Display content in a layer above the main page. Ideal for confirmations, alerts,
 
 ## Basic Example
 
-```blade
+```html
 <flux:modal.trigger name="edit-profile">
     <flux:button>Edit profile</flux:button>
 </flux:modal.trigger>
@@ -34,7 +34,7 @@ Display content in a layer above the main page. Ideal for confirmations, alerts,
 ## Unique modal names
 If you are placing modals inside a loop, ensure that you are dynamically generating unique modal names. Otherwise, one modal trigger, will trigger all modals of that name on the page causing unexpected behavior.
 
-```blade
+```html
 @foreach ($users as $user)
     <flux:modal :name="'edit-profile-'.$user->id">
         ...
@@ -47,14 +47,14 @@ In addition to triggering modals in your Blade templates, you can also control t
 
 Consider a "confirm" modal in your Blade template like so:
 
-```blade
+```html
 <flux:modal name="confirm">
     <!-- ... -->
 </flux:modal>
 ```
 
 You can now open and close this modal from your Livewire component using the following methods:
-```blade
+```html
 <?php class ShowPost extends \Livewire\Component
 {
     public function delete()
@@ -76,7 +76,7 @@ You can now open and close this modal from your Livewire component using the fol
 ## JavaScript methods
 You can also control modals from Alpine directly using Flux's magic methods:
 
-```blade
+```html
 <button x-on:click="$flux.modal('confirm').show()">
     Open modal
 </button>
@@ -92,7 +92,7 @@ You can also control modals from Alpine directly using Flux's magic methods:
 
 Or you can use the `window.Flux` global object to control modals from any JavaScript in your application:
 
-```blade
+```html
 // Control "confirm" modals anywhere on the page...
 Flux.modal('confirm').show()
 Flux.modal('confirm').close()
@@ -107,7 +107,7 @@ If you prefer, you can bind a Livewire property directly to a modal to control i
 
 Consider a confirmation modal in your Blade template like so:
 
-```blade
+```html
 <flux:modal wire:model.self="showConfirmModal">
     <!-- ... -->
 </flux:modal>
@@ -117,7 +117,7 @@ Consider a confirmation modal in your Blade template like so:
 
 You can now open and close this modal from your Livewire component by toggling the `wire:model` property.
 
-```blade
+```html
 <?php class ShowPost extends \Livewire\Component
 {
     public $showConfirmModal = false;
@@ -131,7 +131,7 @@ You can now open and close this modal from your Livewire component by toggling t
 
 One advantage of this approach is being able to control the state of the modal directly from the browser without making a server roundtrip:
 
-```blade
+```html
 <flux:button x-on:click="$wire.showConfirmModal = true">Delete post</flux:button>
 ```
 
@@ -139,7 +139,7 @@ One advantage of this approach is being able to control the state of the modal d
 
 If you need to perform some logic after a modal closes, you can register a close listener like so:
 
-```blade
+```html
 <flux:modal @close="someLivewireAction">
     <!-- ... -->
 </flux:modal>
@@ -149,7 +149,7 @@ If you need to perform some logic after a modal closes, you can register a close
 
 If you need to perform some logic after a modal is cancelled, you can register a cancel listener like so:
 
-```blade
+```html
 <flux:modal @cancel="someLivewireAction">
     <!-- ... -->
 </flux:modal>
@@ -161,7 +161,7 @@ If you need to perform some logic after a modal is cancelled, you can register a
 
 By default, clicking outside the modal will close it. If you want to disable this behavior, you can use the `:dismissible="false"` prop.
 
-```blade
+```html
 <flux:modal :dismissible="false">
     <!-- ... -->
 </flux:modal>
@@ -171,7 +171,7 @@ By default, clicking outside the modal will close it. If you want to disable thi
 
 Prompt a user for confirmation before performing a dangerous action.
 
-```blade
+```html
 <flux:modal.trigger name="delete-profile">
     <flux:button variant="danger">Delete</flux:button>
 </flux:modal.trigger>
@@ -200,7 +200,7 @@ Prompt a user for confirmation before performing a dangerous action.
 
 Use the flyout prop for a more anchored and long-form dialog.
 
-```blade
+```html
 <flux:modal.trigger name="edit-profile">
     <flux:button>Edit profile</flux:button>
 </flux:modal.trigger>
@@ -225,7 +225,7 @@ Use the flyout prop for a more anchored and long-form dialog.
 
 By default, flyouts will open from the right. You can change this behavior by passing "left", or "bottom" into the position prop.
 
-```blade
+```html
 <flux:modal flyout position="left">
     <!-- ... -->
 </flux:modal>
@@ -235,7 +235,7 @@ By default, flyouts will open from the right. You can change this behavior by pa
 
 Use the "floating" variant to give your flyout modal a floating appearance.
 
-```blade
+```html
 <flux:modal.trigger name="edit-profile">
     <flux:button>Edit profile</flux:button>
 </flux:modal.trigger>

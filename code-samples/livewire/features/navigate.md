@@ -28,7 +28,7 @@ Route::livewire('/users', 'pages::show-users');
 
 By adding `wire:navigate` to each link in a navigation menu on each page, Livewire will prevent the standard handling of the link click and replace it with its own, faster version:
 
-```blade
+```html
 <nav>
     <a href="/" wire:navigate>Dashboard</a>
     <a href="/posts" wire:navigate>Posts</a>
@@ -68,7 +68,7 @@ Surprisingly, the time between a user pressing down and lifting up on the mouse 
 
 If you want an even more aggressive approach to prefetching, you may use the `.hover` modifier on a link:
 
-```blade
+```html
 <a href="/posts" wire:navigate.hover>Posts</a>
 ```
 
@@ -86,7 +86,7 @@ By wrapping an element with `@persist` and providing it with a name, when a new 
 
 Here is an example of an `<audio>` player element being persisted across pages using `@persist`:
 
-```blade
+```html
 @persist('player')
     <audio src="{{ $episode->file }}" controls></audio>
 @endpersist
@@ -96,7 +96,7 @@ If the above HTML appears on both pages â€” the current page, and the next one â
 
 Please be aware that the persisted element must be placed outside your Livewire components. A common practice is to position the persisted element in your main layout, such as `resources/views/layouts/app.blade.php`:
 
-```blade
+```html
 <!-- resources/views/layouts/app.blade.php -->
 
 <!DOCTYPE html>
@@ -129,7 +129,7 @@ Please be aware that the persisted element must be placed outside your Livewire 
 
 You might be used to highlighting the currently active page link in a navbar using server-side Blade like so:
 
-```blade
+```html
 <nav>
     <a href="/" class="@if (request->is('/')) font-bold text-zinc-800 @endif">Dashboard</a>
     <a href="/posts" class="@if (request->is('/posts')) font-bold text-zinc-800 @endif">Posts</a>
@@ -143,7 +143,7 @@ However, this will not work inside persisted elements as they are re-used betwee
 
 Livewire automatically adds a `data-current` attribute to any `wire:navigate` link that matches the current page. This allows you to style active links with CSS or Tailwind without any additional directives:
 
-```blade
+```html
 <nav>
     <a href="/dashboard" wire:navigate class="data-current:font-bold data-current:text-zinc-800">Dashboard</a>
     <a href="/posts" wire:navigate class="data-current:font-bold data-current:text-zinc-800">Posts</a>
@@ -164,7 +164,7 @@ You can also use plain CSS to style active links:
 
 If you would like to disable this behavior while still using `wire:navigate`, you may add the `wire:current.ignore` directive:
 
-```blade
+```html
 <a href="/posts" wire:navigate wire:current.ignore>Posts</a>
 ```
 
@@ -172,7 +172,7 @@ If you would like to disable this behavior while still using `wire:navigate`, yo
 
 Alternatively, you can use Livewire's `wire:current` directive to add CSS classes to the currently active link:
 
-```blade
+```html
 <nav>
     <a href="/dashboard" ... wire:current="font-bold text-zinc-800">Dashboard</a>
     <a href="/posts" ... wire:current="font-bold text-zinc-800">Posts</a>
@@ -190,7 +190,7 @@ By default, Livewire will preserve the scroll position of a page when navigating
 
 To do this, you must add `wire:navigate:scroll` to the element containing a scrollbar like so:
 
-```blade
+```html
 @persist('sidebar')
 <div class="overflow-y-scroll" wire:navigate:scroll>
     <!-- ... -->
@@ -285,7 +285,7 @@ This creates a problem for analytics software such as Fathom Analytics. These to
 
 Tools like Google Analytics are smart enough to handle this automatically, however, when using Fathom Analytics, you must add `data-spa="auto"` to your script tag to ensure each page visit is tracked properly:
 
-```blade
+```html
 <head>
     <!-- ... -->
 
@@ -327,7 +327,7 @@ Listening to this event is useful for things like initializing third-party libra
 
 If two pages include the same `<script>` tag in the `<head>`, that script will only be run on the initial page visit and not on subsequent page visits:
 
-```blade
+```html
 <!-- Page one -->
 <head>
     <script src="/app.js"></script>
@@ -345,7 +345,7 @@ If a subsequent page includes a new `<script>` tag in the `<head>` that was not 
 
 In the below example, page two includes a new JavaScript library for a third-party tool. When the user navigates to page two, that library will be evaluated:
 
-```blade
+```html
 <!-- Page one -->
 <head>
     <script src="/app.js"></script>
@@ -368,7 +368,7 @@ But, now that you are using `wire:navigate` and each page visit is no longer a f
 
 To prevent this, you may add `data-navigate-track` to a `<script>` tag in `<head>`:
 
-```blade
+```html
 <!-- Page one -->
 <head>
     <script src="/app.js?id=123" data-navigate-track></script>
@@ -384,7 +384,7 @@ When a user visits page two, Livewire will detect a fresh JavaScript asset and t
 
 If you are using Laravel's Vite plug-in to bundle and serve your assets, Livewire adds `data-navigate-track` to the rendered HTML asset tags automatically. You can continue referencing your assets and scripts like normal:
 
-```blade
+```html
 <head>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -398,7 +398,7 @@ Livewire will automatically inject `data-navigate-track` onto the rendered HTML 
 
 Because Livewire replaces the entire contents of the `<body>` on every new page, all `<script>` tags on the new page will be run:
 
-```blade
+```html
 <!-- Page one -->
 <body>
     <script>
@@ -416,7 +416,7 @@ Because Livewire replaces the entire contents of the `<body>` on every new page,
 
 If you have a `<script>` tag in the body that you only want to be run once, you can add the `data-navigate-once` attribute to the `<script>` tag and Livewire will only run it on the initial page visit:
 
-```blade
+```html
 <script data-navigate-once>
     console.log('Runs only on page one')
 </script>

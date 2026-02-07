@@ -45,7 +45,7 @@ Without lazy loading, this component would delay the loading of the entire page 
 
 To enable lazy loading, you can pass the `lazy` parameter into the component:
 
-```blade
+```html
 <livewire:revenue lazy />
 ```
 
@@ -154,7 +154,7 @@ By default, lazy-loaded components aren't fully loaded until they enter the brow
 
 If you'd rather load components immediately after the page is loaded, without waiting for them to enter the viewport, you can use the `defer` parameter instead:
 
-```blade
+```html
 <livewire:revenue defer />
 ```
 
@@ -185,7 +185,7 @@ In general, you can treat lazy components the same as normal components, since y
 
 For example, here's a scenario where you might pass a time interval into the Revenue component from a parent component:
 
-```blade
+```html
 <input type="date" wire:model="start">
 <input type="date" wire:model="end">
 
@@ -227,7 +227,7 @@ However, unlike a normal component load, a lazy component has to serialize or "d
 
 For example, you might want to pass in an Eloquent model to the revenue component like so:
 
-```blade
+```html
 <livewire:revenue lazy :$user />
 ```
 
@@ -273,7 +273,7 @@ class Revenue extends Component
 
 You can override these defaults when rendering a component:
 
-```blade
+```html
 {{-- Disable lazy loading --}}
 <livewire:revenue :lazy="false" />
 
@@ -312,13 +312,13 @@ Now, if there are ten Revenue components on the same page, when the page loads, 
 
 You can also enable bundling inline when rendering a component using the `bundle` modifier:
 
-```blade
+```html
 <livewire:revenue lazy.bundle />
 ```
 
 This also works with deferred components:
 
-```blade
+```html
 <livewire:revenue defer.bundle />
 ```
 

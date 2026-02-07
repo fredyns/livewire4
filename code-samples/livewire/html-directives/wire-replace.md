@@ -14,7 +14,7 @@ This is most useful in the context of working with third-party javascript librar
 
 Below is an example of wrapping a web component with a shadow DOM `wire:replace` so that Livewire completely replaces the element allowing the custom element to handle its own life-cycle:
 
-```blade
+```html
 <form>
     <!-- ... -->
 
@@ -31,7 +31,7 @@ Below is an example of wrapping a web component with a shadow DOM `wire:replace`
 
 You can also instruct Livewire to replace the target element as well as all children with `wire:replace.self`:
 
-```blade
+```html
 <div x-data="{open: false}" wire:replace.self>
   <!-- Ensure that the "open" state is reset to false on each render -->
 </div>

@@ -6,7 +6,7 @@ Choose a single option from a dropdown list.
 
 ## Basic Example
 
-```blade
+```html
 <flux:select wire:model="industry" placeholder="Choose industry...">
     <flux:select.option>Photography</flux:select.option>
     <flux:select.option>Design services</flux:select.option>
@@ -20,7 +20,7 @@ Choose a single option from a dropdown list.
 
 ## Small
 
-```blade
+```html
 <flux:select size="sm" placeholder="Choose industry...">
     <flux:select.option>Photography</flux:select.option>
     <flux:select.option>Design services</flux:select.option>
@@ -34,7 +34,7 @@ Choose a single option from a dropdown list.
 
 ## Custom select
 
-```blade
+```html
 <flux:select variant="listbox" placeholder="Choose industry...">
     <flux:select.option>Photography</flux:select.option>
     <flux:select.option>Design services</flux:select.option>
@@ -50,7 +50,7 @@ Choose a single option from a dropdown list.
 
 If you need full control over the button used to trigger the custom select, you can use the `button` slot to render it yourself.
 
-```blade
+```html
 <flux:select variant="listbox">
     <x-slot name="button">
         <flux:select.button class="rounded-full!" placeholder="Choose industry..." :invalid="$errors->has('...')" />
@@ -62,7 +62,7 @@ If you need full control over the button used to trigger the custom select, you 
 
 ### Clearable
 
-```blade
+```html
 <flux:select variant="listbox" clearable>
     ...
 </flux:select>
@@ -70,7 +70,7 @@ If you need full control over the button used to trigger the custom select, you 
 
 ### Options with images/icons
 
-```blade
+```html
 <flux:select variant="listbox" placeholder="Select role...">
     <flux:select.option>
         <div class="flex items-center gap-2">
@@ -103,7 +103,7 @@ If you need full control over the button used to trigger the custom select, you 
 
 The searchable select variant makes navigating large option lists easier for your users.
 
-```blade
+```html
 <flux:select variant="listbox" searchable placeholder="Choose industries...">
     <flux:select.option>Photography</flux:select.option>
     <flux:select.option>Design services</flux:select.option>
@@ -119,7 +119,7 @@ The searchable select variant makes navigating large option lists easier for you
 
 If you need full control over the search field inside the listbox, you can use the search `slot` to render it yourself.
 
-```blade
+```html
 <flux:select variant="listbox" searchable>
     <x-slot name="search">
         <flux:select.search class="px-4" placeholder="Search industries..." />
@@ -130,7 +130,7 @@ If you need full control over the search field inside the listbox, you can use t
 
 ## Multiple select
 
-```blade
+```html
 <flux:select variant="listbox" multiple placeholder="Choose industries...">
     <flux:select.option>Photography</flux:select.option>
     <flux:select.option>Design services</flux:select.option>
@@ -146,7 +146,7 @@ If you need full control over the search field inside the listbox, you can use t
 
 By default, when more than one option is selected, the suffix " selected" will be appended to the number of selected options. You can customize this language by passing a `selected-suffix` prop to the select component.
 
-```blade
+```html
 <flux:select variant="listbox" selected-suffix="industries selected" multiple>
     ...
 </flux:select>
@@ -154,7 +154,7 @@ By default, when more than one option is selected, the suffix " selected" will b
 
 If you pass a custom suffix, and need localization, you can use the `__()` helper function to translate the suffix:
 
-```blade
+```html
 <flux:select variant="listbox" selected-suffix="{{ __('industries selected') }}" multiple>
     ...
 </flux:select>
@@ -164,7 +164,7 @@ If you pass a custom suffix, and need localization, you can use the `__()` helpe
 
 If you prefer a checkbox indicator instead of the default checkmark icon, you can use the `indicator="checkbox"` prop.
 
-```blade
+```html
 <flux:select variant="listbox" indicator="checkbox" multiple>
     ...
 </flux:select>
@@ -174,7 +174,7 @@ If you prefer a checkbox indicator instead of the default checkmark icon, you ca
 
 By default, a searchable select will clear the search input when the user selects an option. If you want to disable this behavior, you can use the clear="close" prop to only clear the search input when the user closes the select.
 
-```blade
+```html
 <flux:select variant="listbox" searchable multiple clear="close">
     ...
 </flux:select>
@@ -184,7 +184,7 @@ By default, a searchable select will clear the search input when the user select
 
 A versatile combobox that can be used for anything from basic autocomplete to complex multi-selects.
 
-```blade
+```html
 <flux:select variant="combobox" placeholder="Choose industry...">
     <flux:select.option>Photography</flux:select.option>
     <flux:select.option>Design services</flux:select.option>
@@ -198,7 +198,7 @@ A versatile combobox that can be used for anything from basic autocomplete to co
 
 ### The input slot
 
-```blade
+```html
 <flux:select variant="combobox">
     <x-slot name="input">
         <flux:select.input x-model="search" :invalid="$errors->has('...')" />
@@ -211,7 +211,7 @@ A versatile combobox that can be used for anything from basic autocomplete to co
 
 If you want to dynamically generate options on the server, you can use the `:filter="false"` prop to disable client-side filtering.
 
-```blade
+```html
 <flux:select wire:model="userId" variant="combobox" :filter="false">
     <x-slot name="input">
         <flux:select.input wire:model.live="search" />
@@ -242,7 +242,7 @@ Allow users to the create new options using the `<flux:select.option.create>` co
 
 Flux will automatically hide the create option when the search input matches an existing item in the list. You can also specify the minimum number of characters required for the create option to appear using the `min-length` prop.
 
-```blade
+```html
 <flux:select wire:model="projectId" variant="combobox">
     <x-slot name="input">
         <flux:select.input wire:model="search" placeholder="Start typing..." />
@@ -273,7 +273,7 @@ If you're using `:filter="false"`, make sure to adjust your query to always incl
 
 Flux will automatically disable the create option during requests to prevent duplicate entries and when the list is updated, it performs a uniqueness check on the frontend.
 
-```blade
+```html
 <flux:select wire:model="projectId" variant="combobox" :filter="false">
     <x-slot name="input">
         <flux:select.input wire:model.live="search" placeholder="Start typing..." />
@@ -317,7 +317,7 @@ public function createProject()
 
 When then create option is hidden by the frontend but new results aren't available yet, Flux displays a special "Loading..." message. To customize this message, use the `when-loading` prop on the `<flux:select.option.empty>` component.
 
-```blade
+```html
 <flux:select wire:model="projectId" variant="combobox" :filter="false">
     ...
     <x-slot name="empty">
@@ -332,7 +332,7 @@ When then create option is hidden by the frontend but new results aren't availab
 
 When you perform additional validation on the backend, the search input will indicate an invalid state when there are validation errors present. Make sure to reset the error bag when the user updates the input.
 
-```blade
+```html
 <flux:select wire:model="projectId" variant="combobox" :filter="false">
     <x-slot name="input">
         <flux:select.input wire:model.live="search" placeholder="Start typing..." />
@@ -359,7 +359,7 @@ public function updatedSearch()
 
 Use the `modal` prop to specify a name of a modal and handle more complex creation workflows inside a form.
 
-```blade
+```html
 <flux:select wire:model="projectId" variant="listbox">
     @foreach($this->projects as $project)
         <flux:select.option :value="$project->id">{{ $project->name }}</flux:select.option>

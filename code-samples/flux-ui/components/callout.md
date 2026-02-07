@@ -6,7 +6,7 @@ Highlight important information or guide users toward key actions.
 
 ## Basic Example
 
-```blade
+```html
 <flux:callout icon="clock">
     <flux:callout.heading>Upcoming maintenance</flux:callout.heading>
 
@@ -19,7 +19,7 @@ Highlight important information or guide users toward key actions.
 
 ## Icon inside heading
 
-```blade
+```html
 <flux:callout>
     <flux:callout.heading icon="newspaper">Policy update</flux:callout.heading>
     <flux:callout.text>We've updated our Terms of Service and Privacy Policy. Please review them to stay informed.</flux:callout.text>
@@ -28,7 +28,7 @@ Highlight important information or guide users toward key actions.
 
 ## With actions
 
-```blade
+```html
 <flux:callout icon="clock">
     <flux:callout.heading>Subscription expiring soon</flux:callout.heading>
     <flux:callout.text>Your current plan will expire in 3 days. Renew now to avoid service interruption and continue accessing premium features.</flux:callout.text>
@@ -41,7 +41,7 @@ Highlight important information or guide users toward key actions.
 
 ## Inline actions
 
-```blade
+```html
 <flux:callout icon="cube" variant="secondary" inline>
     <flux:callout.heading>Your package is delayed</flux:callout.heading>
     <x-slot name="actions">
@@ -61,7 +61,7 @@ Highlight important information or guide users toward key actions.
 
 ## Dismissible
 
-```blade
+```html
 <flux:callout icon="bell" variant="secondary" inline x-data="{ visible: true }" x-show="visible">
     <flux:callout.heading class="flex gap-2 @max-md:flex-col items-start">Upcoming meeting <flux:text>10:00 AM</flux:text></flux:callout.heading>
     <x-slot name="controls">
@@ -89,7 +89,7 @@ Highlight important information or guide users toward key actions.
 
 ## Variants
 
-```blade
+```html
 <flux:callout variant="secondary" icon="information-circle" heading="Your account has been successfully created." />
 <flux:callout variant="success" icon="check-circle" heading="Your account is verified and ready to use." />
 <flux:callout variant="warning" icon="exclamation-circle" heading="Please verify your account to unlock all features." />
@@ -98,7 +98,7 @@ Highlight important information or guide users toward key actions.
 
 ## Colors
 
-```blade
+```html
 <flux:callout color="zinc" ... />
 <flux:callout color="red" ... />
 <flux:callout color="orange" ... />
@@ -121,7 +121,7 @@ Highlight important information or guide users toward key actions.
 
 ## Custom icon
 
-```blade
+```html
 <flux:callout>
     <x-slot name="icon">
         <!-- Custom icon: https://lucide.dev/icons/alarm-clock -->
@@ -136,7 +136,7 @@ Highlight important information or guide users toward key actions.
 
 ## Examples
 
-```blade
+```html
 <flux:callout icon="sparkles" color="purple">
     <flux:callout.heading>Have a question?</flux:callout.heading>
     <flux:callout.text>
@@ -146,7 +146,7 @@ Highlight important information or guide users toward key actions.
 </flux:callout>
 ```
 
-```blade
+```html
 <flux:callout icon="shield-check" color="blue" inline>
     <flux:callout.heading>API access is restricted</flux:callout.heading>
     <flux:callout.text>Get access to all of our premium features and benefits.</flux:callout.text>
@@ -156,7 +156,7 @@ Highlight important information or guide users toward key actions.
 </flux:callout>
 ```
 
-```blade
+```html
 <flux:callout icon="banknotes" color="lime" inline>
     <flux:callout.heading>You could save $4,900/yr on annual billing.</flux:callout.heading>
     <x-slot name="actions">
@@ -165,7 +165,7 @@ Highlight important information or guide users toward key actions.
 </flux:callout>
 ```
 
-```blade
+```html
 <flux:callout variant="secondary" icon="user-group">
     <flux:callout.heading>
         Team collaboration

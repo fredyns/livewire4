@@ -6,17 +6,17 @@ Allow users to select dates or date ranges via a calendar overlay. Perfect for f
 
 ## Basic Example
 
-```blade
+```html
 <flux:date-picker />
 ```
 
 ## Basic usage
 
-```blade
+```html
 <flux:date-picker value="2026-01-27" />
 ```
 
-```blade
+```html
 <flux:date-picker wire:model="date" />
 ```
 
@@ -45,7 +45,7 @@ class CreatePost extends Component
 
 ## Input trigger
 
-```blade
+```html
 <flux:date-picker wire:model="date">
     <x-slot name="trigger">
         <flux:date-picker.input />
@@ -55,19 +55,19 @@ class CreatePost extends Component
 
 ## Range picker
 
-```blade
+```html
 <flux:date-picker mode="range" />
 ```
 
-```blade
+```html
 <flux:date-picker mode="range" value="2026-01-02/2026-01-06" />
 ```
 
-```blade
+```html
 <flux:date-picker mode="range" wire:model="range" />
 ```
 
-```blade
+```html
 <?php use Illuminate\Support\Carbon;
 use Livewire\Component;
 
@@ -85,7 +85,7 @@ class Dashboard extends Component
 }
 ```
 
-```blade
+```html
 <?php use Livewire\Component;
 use Flux\DateRange;
 
@@ -102,17 +102,17 @@ class Dashboard extends Component
 
 ## Range limits
 
-```blade
+```html
 <flux:date-picker mode="range" min-range="3" />
 ```
 
-```blade
+```html
 <flux:date-picker mode="range" max-range="10" />
 ```
 
 ## Range with inputs
 
-```blade
+```html
 <flux:date-picker mode="range">
     <x-slot name="trigger">
         <div class="flex flex-col sm:flex-row gap-6 sm:gap-4">
@@ -125,27 +125,27 @@ class Dashboard extends Component
 
 ## Presets
 
-```blade
+```html
 <flux:date-picker mode="range" with-presets />
 ```
 
-```blade
+```html
 <flux:date-picker mode="range" presets="today yesterday thisWeek last7Days thisMonth yearToDate allTime" />
 ```
 
 ## All time
 
-```blade
+```html
 <flux:date-picker mode="range" presets="... allTime" :min="auth()->user()->created_at->format('Y-m-d')" />
 ```
 
-```blade
+```html
 use Flux\DateRange;
 
 $this->range = DateRange::allTime(start: auth()->user()->created_at);
 ```
 
-```blade
+```html
 $orders = Order::when($this->range->isNotAllTime(), function ($query) => {
     $query->whereBetween('created_at', $this->range);
 })->get();
@@ -153,69 +153,69 @@ $orders = Order::when($this->range->isNotAllTime(), function ($query) => {
 
 ## Custom range preset
 
-```blade
+```html
 <flux:date-picker mode="range" presets="... custom" />
 ```
 
 ## Unavailable dates
 
-```blade
+```html
 <flux:date-picker unavailable="2026-01-26,2026-01-28" />
 ```
 
 ## With today shortcut
 
-```blade
+```html
 <flux:date-picker with-today />
 ```
 
 ## Selectable header
 
-```blade
+```html
 <flux:date-picker selectable-header />
 ```
 
 ## Fixed weeks
 
-```blade
+```html
 <flux:date-picker fixed-weeks />
 ```
 
 ## Start day
 
-```blade
+```html
 <flux:date-picker start-day="1" />
 ```
 
 ## Open to
 
-```blade
+```html
 <flux:date-picker open-to="2027-02-01" />
 ```
 
-```blade
+```html
 <flux:date-picker open-to="2027-02-01" force-open-to />
 ```
 
 ## Week numbers
 
-```blade
+```html
 <flux:date-picker week-numbers />
 ```
 
 ## Localization
 
-```blade
+```html
 <flux:date-picker locale="ja-JP" />
 ```
 
 ## The DateRange object
 
-```blade
+```html
 <flux:calendar wire:model.live="range" />
 ```
 
-```blade
+```html
 <?php use Livewire\Component;
 use Flux\DateRange;
 
@@ -227,7 +227,7 @@ class Dashboard extends Component
 
 ## Instantiation
 
-```blade
+```html
 <?php use Livewire\Component;
 use Flux\DateRange;
 
@@ -244,7 +244,7 @@ class Dashboard extends Component
 
 ## Persisting to the session
 
-```blade
+```html
 <?php use Livewire\Attributes\Session;
 use Livewire\Component;
 use Flux\DateRange;
@@ -258,7 +258,7 @@ class Dashboard extends Component
 
 ## Using with Eloquent
 
-```blade
+```html
 <?php use Livewire\Attributes\Computed;
 use Livewire\Component;
 use App\Models\Order;
@@ -278,7 +278,7 @@ class Dashboard extends Component
 
 ## Available methods
 
-```blade
+```html
 $range = new Flux\DateRange(
     now()->subDays(1),
     now()->addDays(1),
@@ -303,13 +303,13 @@ foreach ($range as $date) {
 $range->toArray();
 ```
 
-```blade
+```html
 $orders = Order::whereBetween('created_at', $range)->get();
 ```
 
 ## Range presets
 
-```blade
+```html
 [
     'start' => null,
     'end' => null,
@@ -317,7 +317,7 @@ $orders = Order::whereBetween('created_at', $range)->get();
 ]
 ```
 
-```blade
+```html
 <?php use Livewire\Component;
 
 class Dashboard extends Component
@@ -335,7 +335,7 @@ class Dashboard extends Component
 }
 ```
 
-```blade
+```html
 <?php use Livewire\Component;
 use Flux\DateRange;
 
@@ -350,7 +350,7 @@ class Dashboard extends Component
 }
 ```
 
-```blade
+```html
 $this->range->preset(); // This will return a value like `DateRangePreset::LastMonth`...
 ```
 

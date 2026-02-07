@@ -8,7 +8,7 @@ Provide additional information when users hover over or focus on an element.
 
 ## Basic Example
 
-```blade
+```html
 <flux:tooltip content="Settings">
     <flux:button icon="cog-6-tooth" icon:variant="outline" />
 </flux:tooltip>
@@ -16,13 +16,13 @@ Provide additional information when users hover over or focus on an element.
 
 As a shorthand, you can pass a tooltip prop into a button component directly.
 
-```blade
+```html
 <flux:button tooltip="Settings" ... />
 ```
 
 ## Info tooltip
 
-```blade
+```html
 <flux:heading class="flex items-center gap-2">
     Tax identification number
     <flux:tooltip toggleable>
@@ -37,7 +37,7 @@ As a shorthand, you can pass a tooltip prop into a button component directly.
 
 ## Position
 
-```blade
+```html
 <flux:tooltip content="Settings" position="top">
     <flux:button icon="cog-6-tooth" icon:variant="outline" />
 </flux:tooltip>
@@ -59,7 +59,7 @@ As a shorthand, you can pass a tooltip prop into a button component directly.
 
 By default, tooltips on disabled buttons won't be triggered because pointer events are disabled as well. However, as a workaround, you can target a wrapping element instead of the button directly.
 
-```blade
+```html
 <flux:tooltip content="Cannot merge until reviewed by a team member">
     <div>
         <flux:button disabled icon="arrow-turn-down-right">Merge pull request</flux:button>

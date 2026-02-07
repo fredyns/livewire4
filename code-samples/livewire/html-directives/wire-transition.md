@@ -21,7 +21,7 @@ class ShowPost extends Component
 }
 ```
 
-```blade
+```html
 <div>
     <button wire:click="$toggle('showComments')">Toggle comments</button>
 
@@ -41,7 +41,7 @@ When the comments appear or disappear, the browser will smoothly crossfade them 
 
 By default, Livewire assigns the `view-transition-name: match-element` to elements with `wire:transition`. You can provide a custom name to enable more advanced transition effects:
 
-```blade
+```html
 <div wire:transition="sidebar">...</div>
 ```
 

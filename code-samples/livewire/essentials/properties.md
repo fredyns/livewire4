@@ -94,7 +94,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div>
     <input type="text" wire:model="todo" placeholder="Todo..."> 
 
@@ -546,7 +546,7 @@ new class extends Component {
 
 Here's how you would access these todos from the Blade view:
 
-```blade
+```html
 <ul>
     @foreach ($this->todos as $todo)
         <li wire:key="{{ $loop->index }}">{{ $todo }}</li>

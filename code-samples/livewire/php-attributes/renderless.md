@@ -33,7 +33,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div>
     <h1>{{ $post->title }}</h1>
     <p>{{ $post->content }}</p>
@@ -86,7 +86,7 @@ new class extends Component {
 
 You can also skip rendering directly from the element using the `.renderless` modifier:
 
-```blade
+```html
 <button type="button" wire:click.renderless="incrementViewCount">
     Track View
 </button>

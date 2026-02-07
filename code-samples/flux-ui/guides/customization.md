@@ -10,7 +10,7 @@ The first level of customization is simply passing your own Tailwind classes int
 
 This often works well for things like custom width:
 
-```blade
+```html
 <flux:select class="max-w-md">
 ```
 
@@ -18,7 +18,7 @@ However, there are times where your one-off Tailwind class conflicts with Flux's
 
 For example, here's how you might attempt to customize the background color of a button:
 
-```blade
+```html
 <flux:button class="bg-zinc-800 hover:bg-zinc-700">
 ```
 
@@ -30,7 +30,7 @@ However, because flux applies its own bg-* attributes, both classes will be rend
 
 The simplest way to resolve these conflicts is using Tailwind's important (!) modifier like so:
 
-```blade
+```html
 <flux:button class="bg-zinc-800! hover:bg-zinc-700!">
 ```
 

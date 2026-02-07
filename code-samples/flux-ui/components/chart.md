@@ -8,7 +8,7 @@ Flux's Chart component is a lightweight, zero-dependency tool for building chart
 
 ## Basic Example
 
-```blade
+```html
 <flux:chart wire:model="data" class="aspect-3/1">
     <flux:chart.svg>
         <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" />
@@ -35,7 +35,7 @@ Flux's Chart component is a lightweight, zero-dependency tool for building chart
 
 ## Data structure
 
-```blade
+```html
 <?php use Livewire\Component;
 
 class Dashboard extends Component
@@ -49,21 +49,21 @@ class Dashboard extends Component
 }
 ```
 
-```blade
+```html
 <flux:chart wire:model="data" />
 ```
 
-```blade
+```html
 <flux:chart :value="$this->data" />
 ```
 
-```blade
+```html
 <flux:chart :value="[1, 2, 3, 4, 5]" />
 ```
 
 ## Line chart
 
-```blade
+```html
 <flux:chart wire:model="data" class="aspect-[3/1]">
     <flux:chart.svg>
         <flux:chart.line field="memory" class="text-pink-500" />
@@ -82,7 +82,7 @@ class Dashboard extends Component
 
 ## Area chart
 
-```blade
+```html
 <flux:chart wire:model="data" class="aspect-3/1">
     <flux:chart.svg>
         <flux:chart.line field="stock" class="text-blue-500 dark:text-blue-400" curve="none" />
@@ -105,7 +105,7 @@ class Dashboard extends Component
 
 ## Multiple lines
 
-```blade
+```html
 <flux:chart wire:model="data">
     <flux:chart.viewport class="min-h-[20rem]" >
         <flux:chart.svg>
@@ -145,7 +145,7 @@ class Dashboard extends Component
 
 ## Live summary
 
-```blade
+```html
 <flux:card>
     <flux:chart class="grid gap-6" wire:model="data">
         <flux:chart.summary class="flex gap-12">
@@ -186,7 +186,7 @@ class Dashboard extends Component
 
 ## Sparkline
 
-```blade
+```html
 <flux:chart :value="[15, 18, 16, 19, 22, 25, 28, 25, 29, 28, 32, 35]" class="w-[5rem] aspect-[3/1]">
     <flux:chart.svg gutter="0">
         <flux:chart.line class="text-green-500 dark:text-green-400" />
@@ -196,7 +196,7 @@ class Dashboard extends Component
 
 ## Dashboard stat
 
-```blade
+```html
 <flux:card class="overflow-hidden min-w-[12rem]">
     <flux:text>Revenue</flux:text>
     <flux:heading size="xl" class="mt-2 tabular-nums">$12,345</flux:heading>
@@ -211,7 +211,7 @@ class Dashboard extends Component
 
 ## Chart padding
 
-```blade
+```html
 <flux:chart>
     <flux:chart.svg gutter="12 0 12 8">
         <!-- ... -->
@@ -221,7 +221,7 @@ class Dashboard extends Component
 
 ## Axis scale
 
-```blade
+```html
 <flux:chart.axis axis="y" scale="linear">
     <!-- ... -->
 </flux:chart.axis>
@@ -229,7 +229,7 @@ class Dashboard extends Component
 
 ## Axis lines
 
-```blade
+```html
 <flux:chart.svg>
     <!-- ... -->
     <flux:chart.axis axis="x">
@@ -243,14 +243,14 @@ class Dashboard extends Component
 </flux:chart.svg>
 ```
 
-```blade
+```html
 <!-- A dark gray axis line that is 2px wide and has a gray color: -->
 <flux:chart.axis.line class="text-zinc-800" stroke-width="2" />
 ```
 
 ## Zero line
 
-```blade
+```html
 <flux:chart.svg>
     <!-- ... -->
     <!-- Zero line: -->
@@ -258,14 +258,14 @@ class Dashboard extends Component
 </flux:chart.svg>
 ```
 
-```blade
+```html
 <!-- A dark gray zero line that is 2px wide and has a gray color: -->
 <flux:chart.zero-line class="text-zinc-800" stroke-width="2" />
 ```
 
 ## Grid lines
 
-```blade
+```html
 <flux:chart.svg>
     <!-- ... -->
     <flux:chart.axis axis="x">
@@ -279,14 +279,14 @@ class Dashboard extends Component
 </flux:chart.svg>
 ```
 
-```blade
+```html
 <!-- A dashed grid line that is 2px wide and has a gray color: -->
 <flux:chart.axis.grid class="text-zinc-200/50" stroke-width="2" stroke-dasharray="4,4" />
 ```
 
 ## Ticks
 
-```blade
+```html
 <flux:chart.svg>
     <!-- ... -->
     <flux:chart.axis axis="x">
@@ -304,37 +304,37 @@ class Dashboard extends Component
 </flux:chart.svg>
 ```
 
-```blade
+```html
 <!-- A tick mark line that is 10px long, 2px wide, and has a gray color: -->
 <flux:chart.axis.mark class="text-zinc-300" stroke-width="2" y1="0" y2="10" />
 ```
 
-```blade
+```html
 <!-- A tick label that is 12px, has a blue color, is center aligned, and is 2.5rem from the axis line: -->
 <flux:chart.axis.tick class="text-xs text-blue-500" text-anchor="middle" dy="2.5rem" />
 ```
 
 ## Tick frequency
 
-```blade
+```html
 <flux:chart.axis axis="y" tick-count="5">
     <!-- ... -->
 </flux:chart.axis>
 ```
 
-```blade
+```html
 <flux:chart.axis axis="y" tick-start="min">
     <!-- ... -->
 </flux:chart.axis>
 ```
 
-```blade
+```html
 <flux:chart.axis axis="y" tick-end="max">
     <!-- ... -->
 </flux:chart.axis>
 ```
 
-```blade
+```html
 <flux:chart.axis axis="y" tick-values="[0, 128, 256, 384, 512]" tick-suffix="MB">
     <!-- ... -->
 </flux:chart.axis>
@@ -342,7 +342,7 @@ class Dashboard extends Component
 
 ## Tick formatting
 
-```blade
+```html
 <flux:chart.svg>
     <!-- ... -->
     <!-- Format the X axis tick labels to display the month and day: -->
@@ -358,13 +358,13 @@ class Dashboard extends Component
 </flux:chart.svg>
 ```
 
-```blade
+```html
 <flux:chart.axis axis="y" tick-prefix="$">
     <!-- ... -->
 </flux:chart.axis>
 ```
 
-```blade
+```html
 <flux:chart.axis axis="y" tick-suffix="MB">
     <!-- ... -->
 </flux:chart.axis>
@@ -372,21 +372,21 @@ class Dashboard extends Component
 
 ## Cursor
 
-```blade
+```html
 <flux:chart.svg>
     <!-- ... -->
     <flux:chart.cursor />
 </flux:chart.svg>
 ```
 
-```blade
+```html
 <!-- A dashed, black cursor that is 1px wide: -->
 <flux:chart.cursor class="text-zinc-800" stroke-width="1" stroke-dasharray="4,4" />
 ```
 
 ## Tooltip
 
-```blade
+```html
 <flux:chart>
     <flux:chart.svg>
         <!-- ... -->
@@ -399,7 +399,7 @@ class Dashboard extends Component
 </flux:chart>
 ```
 
-```blade
+```html
 <flux:chart.tooltip>
     <flux:chart.tooltip.heading field="date" />
     <flux:chart.tooltip.value field="visitors" label="Visitors" />
@@ -409,7 +409,7 @@ class Dashboard extends Component
 
 ## Legend
 
-```blade
+```html
 <flux:chart wire:model="data">
     <flux:chart.viewport class="aspect-3/1">
         <flux:chart.svg>
@@ -430,7 +430,7 @@ class Dashboard extends Component
 
 ## Summary
 
-```blade
+```html
 <flux:chart wire:model="data">
     <flux:chart.summary>
         <flux:chart.summary.value field="visitors" :format="['notation' => 'compact']" />
@@ -441,19 +441,19 @@ class Dashboard extends Component
 </flux:chart>
 ```
 
-```blade
+```html
 <flux:chart.summary.value field="visitors" fallback="1200" />
 ```
 
 ## Formatting numbers
 
-```blade
+```html
 <flux:chart.axis axis="y" :format="['style' => 'currency', 'currency' => 'USD']" />
 ```
 
 ## Formatting dates
 
-```blade
+```html
 <flux:chart.axis axis="x" field="date" :format="['month' => 'long', 'day' => 'numeric']" />
 ```
 

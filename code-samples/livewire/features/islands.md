@@ -90,7 +90,7 @@ The island will display a loading state initially, then fetch and render its con
 
 By default, lazy uses an intersection observer to trigger the load when the island becomes visible in the viewport. If you want the island to load immediately after the page loads (regardless of visibility), use `defer` instead:
 
-```blade
+```html
 {{-- Loads when scrolled into view --}}
 @island(lazy: true)
     <!-- ... -->
@@ -106,7 +106,7 @@ By default, lazy uses an intersection observer to trigger the load when the isla
 
 You can customize what displays while a lazy island is loading using the `@placeholder` directive:
 
-```blade
+```html
 @island(lazy: true)
     @placeholder
         <!-- Loading indicator -->
@@ -127,7 +127,7 @@ You can customize what displays while a lazy island is loading using the `@place
 
 To trigger an island from elsewhere in your component, give it a name and reference it using `wire:island`:
 
-```blade
+```html
 <div>
     @island(name: 'revenue')
         <div>
@@ -145,7 +145,7 @@ The `wire:island` directive works alongside action directives like `wire:click`,
 
 When you have multiple islands with the same name, they're linked together and will always render as a group:
 
-```blade
+```html
 @island(name: 'revenue')
     <div class="sidebar">
         Revenue: {{ $this->revenue }}
@@ -216,7 +216,7 @@ Available modes:
 
 Islands can be nested inside each other. When an outer island re-renders, inner islands are skipped by default:
 
-```blade
+```html
 @island(name: 'revenue')
     <div>
         Total revenue: {{ $this->revenue }}
@@ -244,7 +244,7 @@ Clicking "Refresh revenue" updates only the outer island, while "Refresh breakdo
 
 By default, when a component re-renders, islands are skipped. Use the `always` parameter to force an island to update whenever the parent component updates:
 
-```blade
+```html
 <div>
     @island(always: true)
         <div>
@@ -266,7 +266,7 @@ This also works for nested islands — an inner island with `always: true` will 
 
 The `skip` parameter prevents an island from rendering initially, perfect for on-demand content:
 
-```blade
+```html
 @island(skip: true)
     @placeholder
         <button type="button" wire:click="$refresh">
@@ -288,7 +288,7 @@ The placeholder content will be shown initially. When triggered, the island rend
 
 You can use `wire:poll` within an island to refresh just that island on an interval:
 
-```blade
+```html
 @island(skip: true)
     <div wire:poll.3s>
         Revenue: {{ $this->revenue }}
@@ -308,7 +308,7 @@ While islands provide powerful isolation, keep in mind:
 
 Islands have access to the component's properties and methods, but not to template variables defined outside the island. Any `@php` variables or loop variables from the parent template won't be available inside the island:
 
-```blade
+```html
 @php
     $localVariable = 'This won\'t be available in the island';
 @endphp
@@ -326,7 +326,7 @@ Islands have access to the component's properties and methods, but not to templa
 
 Because islands don't have access to loop variables or conditional context, they cannot be used inside `@foreach`, `@if`, or other control structures:
 
-```blade
+```html
 {{-- ❌ This won't work --}}
 @foreach ($items as $item)
     @island

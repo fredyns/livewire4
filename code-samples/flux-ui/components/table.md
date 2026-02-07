@@ -6,7 +6,7 @@ Display structured data in a condensed, searchable format.
 
 ## Basic Example
 
-```blade
+```html
 <flux:table :paginate="$this->orders">
     <flux:table.columns>
         <flux:table.column>Customer</flux:table.column>
@@ -39,7 +39,7 @@ Display structured data in a condensed, searchable format.
 
 The primary table example above is a full-featured table with sorting, pagination, etc. Here's a clean example of a simple data table that you can use as a simpler starting point.
 
-```blade
+```html
 <flux:table>
     <flux:table.columns>
         <flux:table.column>Customer</flux:table.column>
@@ -80,7 +80,7 @@ The primary table example above is a full-featured table with sorting, paginatio
 
 Allow users to navigate through different pages of data by passing in any model paginator to the `paginate` prop.
 
-```blade
+```html
 <!-- $orders = \App\Models\Order::paginate(5) -->
 <flux:table :paginate="$orders">
     <!-- ... -->
@@ -91,7 +91,7 @@ Allow users to navigate through different pages of data by passing in any model 
 
 Allow users to sort rows by specific columns using a combination of the `sortable`, `sorted`, and `direction` props.
 
-```blade
+```html
 <flux:table>
     <flux:table.columns>
         <flux:table.column>Customer</flux:table.column>
@@ -108,7 +108,7 @@ Keep the header visible during vertical scrolling by adding the `sticky` prop to
 
 >Make sure to set a background color on the header row to prevent content overlap.
 
-```blade
+```html
 <!-- Set the height of the table container... -->
 <flux:table container:class="max-h-80">
     <flux:table.columns sticky class="bg-white dark:bg-zinc-900">
@@ -124,7 +124,7 @@ Keep important info visible during horizontal scrolling by adding the `sticky` p
 
 >Make sure to set a background color on columns and cells to prevent content overlap.
 
-```blade
+```html
 <flux:table container:class="max-h-80">
     <flux:table.columns sticky class="bg-white dark:bg-zinc-900">
         <flux:table.column sticky class="bg-white dark:bg-zinc-900">ID</flux:table.column>

@@ -6,7 +6,7 @@ A collection of cards arranged in columns, representing different stages of a wo
 
 ## Basic Example
 
-```blade
+```html
 <flux:kanban>
     @foreach ($this->columns as $column)
         <flux:kanban.column>
@@ -24,7 +24,7 @@ A collection of cards arranged in columns, representing different stages of a wo
 
 ## Column actions
 
-```blade
+```html
 <flux:kanban.column>
     <flux:kanban.column.header :heading="$column->title" :count="count($column->cards)">
         <x-slot name="actions">
@@ -48,7 +48,7 @@ A collection of cards arranged in columns, representing different stages of a wo
 
 ## Column subheading
 
-```blade
+```html
 <flux:kanban.column>
     <flux:kanban.column.header heading="Blacklog" subheading="Ideas and suggestions" />
     <flux:kanban.column.cards>
@@ -59,7 +59,7 @@ A collection of cards arranged in columns, representing different stages of a wo
 
 ## Column footer
 
-```blade
+```html
 <flux:kanban.column>
     <flux:kanban.column.header :heading="$column['title']" count="5" />
     <flux:kanban.column.cards>
@@ -85,13 +85,13 @@ A collection of cards arranged in columns, representing different stages of a wo
 
 ## Card as button
 
-```blade
+```html
 <flux:kanban.card as="button" wire:click="edit" heading="Update privacy policy in app" />
 ```
 
 ## Card header
 
-```blade
+```html
 <flux:kanban.card as="button" heading="Update privacy policy in app">
     <x-slot name="header">
         <div class="flex gap-2">
@@ -105,7 +105,7 @@ A collection of cards arranged in columns, representing different stages of a wo
 
 ## Card footer
 
-```blade
+```html
 <flux:kanban.card as="button" heading="Update privacy policy in app">
     <x-slot name="footer">
         <flux:icon name="bars-3-bottom-left" variant="micro" class="text-zinc-400" />

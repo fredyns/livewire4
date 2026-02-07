@@ -31,7 +31,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <form wire:submit="save">
     <input wire:model="title" placeholder="Title">
     <textarea wire:model="content" placeholder="Content"></textarea>
@@ -119,7 +119,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div>
     <button @click="$wire.showCount()">Show Count (from PHP)</button>
     <button @click="$js.incrementLocal()">Increment Local (from JS)</button>

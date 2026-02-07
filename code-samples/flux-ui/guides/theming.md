@@ -40,7 +40,7 @@ Here is an example of redefining "zinc" to "slate" in your CSS file:
 
 Now, Flux will use "slate" as the base color instead of "zinc", and you can use "slate" inside your application utilities like you normally would:
 
-```blade
+```html
 <flux:text class="text-slate-800 dark:text-white">...</flux:text>
 ```
 
@@ -91,7 +91,7 @@ However, this is not a very ergonomic syntax. Instead you can use utility classe
 
 Certain design elements like tabs and links use the accent color by default. If you'd like to opt out of this behavior, and use the base color instead, you can use the `:accent="false"` prop:
 
-```blade
+```html
 <!-- Link -->
 <flux:link :accent="false">Profile</flux:link>
 

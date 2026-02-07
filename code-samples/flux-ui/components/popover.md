@@ -6,7 +6,7 @@ Show extra content in a popup on click or hover.
 
 ## Basic Example
 
-```blade
+```html
 <flux:dropdown>
     <flux:button>Open</flux:button>
     <flux:popover>Popover content</flux:popover>
@@ -15,7 +15,7 @@ Show extra content in a popup on click or hover.
 
 ## Hover trigger
 
-```blade
+```html
 <flux:dropdown hover position="bottom" align="start" offset="-16" gap="10">
     <button type="button" class="flex items-center gap-3">
         <flux:avatar size="sm" name="Caleb Porzio" src="https://unavatar.io/x/calebporzio" />
@@ -44,7 +44,7 @@ Show extra content in a popup on click or hover.
 
 ## Position
 
-```blade
+```html
 <flux:dropdown position="top" align="start">
     <flux:button>...</flux:button>
     <flux:popover>...</flux:popover>
@@ -68,7 +68,7 @@ Show extra content in a popup on click or hover.
 
 ## Gap & offset
 
-```blade
+```html
 <!-- Gap -->
 <flux:dropdown gap="16">
     <flux:button>Gap: 16px</flux:button>
@@ -84,7 +84,7 @@ Show extra content in a popup on click or hover.
 
 ## Examples
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon="tag" icon:variant="micro" icon:class="text-zinc-400" >
         Categories
@@ -114,7 +114,7 @@ Show extra content in a popup on click or hover.
 </flux:dropdown>
 ```
 
-```blade
+```html
 <flux:dropdown>
     <flux:button icon="chat-bubble-oval-left" icon:variant="micro" icon:class="text-zinc-300">
         Feedback
@@ -140,7 +140,7 @@ Show extra content in a popup on click or hover.
 </flux:dropdown>
 ```
 
-```blade
+```html
 <flux:dropdown position="bottom center">
     <button type="button" class="w-54 rounded-lg p-2 flex items-center gap-2 bg-zinc-100 hover:bg-zinc-200">
         <div class="self-stretch w-0.5 bg-zinc-800 rounded-full"></div>

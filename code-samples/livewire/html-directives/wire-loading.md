@@ -14,7 +14,7 @@ Livewire provides a simple yet extremely powerful syntax for controlling loading
 
 Below is a basic example of a CreatePost component's form with `wire:loading` being used to toggle a loading message:
 
-```blade
+```html
 <form wire:submit="save">
     <!-- ... -->
 
@@ -32,7 +32,7 @@ When a user presses "Save", the "Saving post..." message will appear below the b
 
 Alternatively, you can append `.remove` for the inverse effect, showing an element by default and hiding it during requests to the server:
 
-```blade
+```html
 <div wire:loading.remove>...</div>
 ```
 
@@ -42,13 +42,13 @@ In addition to toggling the visibility of entire elements, it's often useful to 
 
 Below is a simple example of using the Tailwind class `opacity-50` to make the "Save" button fainter while the form is being submitted:
 
-```blade
+```html
 <button wire:loading.class="opacity-50">Save</button>
 ```
 
 Like toggling an element, you can perform the inverse class operation by appending `.remove` to the `wire:loading` directive:
 
-```blade
+```html
 <button class="bg-blue-500" wire:loading.class.remove="bg-blue-500">
     Save
 </button>
@@ -60,7 +60,7 @@ By default, when a form is submitted, Livewire will automatically disable the su
 
 However, in addition to this default behavior, Livewire offers the `.attr` modifier to allow you to toggle other attributes on an element:
 
-```blade
+```html
 <button
     type="button"
     wire:click="remove"
@@ -80,7 +80,7 @@ For example, consider the following "Save post" form. In addition to a "Save" bu
 
 By adding `wire:target` to the following `wire:loading` element, you can instruct Livewire to only show the loading message when the "Remove" button is clicked:
 
-```blade
+```html
 <form wire:submit="save">
     <!-- ... -->
 
@@ -100,7 +100,7 @@ When the above "Remove" button is pressed, the "Removing post..." message will b
 
 You may find yourself in a situation where you would like `wire:loading` to react to some, but not all, actions on a page. In these cases you can pass multiple actions into `wire:target` separated by a comma:
 
-```blade
+```html
 <form wire:submit="save">
     <input type="text" wire:model.live.blur="title">
 
@@ -122,7 +122,7 @@ The loading indicator will now only be shown when the "Remove" or "Save" button 
 
 In situations where the same action is triggered with different parameters from multiple places on a page, you can further scope `wire:target` to a specific action by passing in additional parameters:
 
-```blade
+```html
 <div>
     @foreach ($posts as $post)
         <div wire:key="{{ $post->id }}">
@@ -146,7 +146,7 @@ Livewire also allows you to target specific component property updates by passin
 
 Consider the following example where a form input named username uses `wire:model.live` for real-time validation as a user types:
 
-```blade
+```html
 <form wire:submit="save">
     <input type="text" wire:model.live="username">
     @error('username') <span>{{ $message }}</span> @enderror
@@ -165,7 +165,7 @@ The "Checking availability..." message will show when the server is updated with
 
 Sometimes you may wish to display a loading indicator for every Livewire request except a specific property or action. In these cases you can use the `wire:target.except` modifier:
 
-```blade
+```html
 <div wire:loading wire:target.except="download">...</div>
 ```
 
@@ -177,13 +177,13 @@ When `wire:loading` is added to an element, Livewire updates the CSS `display` p
 
 If you are toggling an element that uses a display value other than `inline-block`, like `flex`, you can append `.flex` to `wire:loading`:
 
-```blade
+```html
 <div class="flex" wire:loading.flex>...</div>
 ```
 
 Available display values:
 
-```blade
+```html
 <div wire:loading.inline-flex>...</div>
 <div wire:loading.inline>...</div>
 <div wire:loading.block>...</div>
@@ -198,7 +198,7 @@ On fast connections, updates often happen so quickly that loading indicators onl
 
 For this reason, Livewire provides a `.delay` modifier to delay the showing of an indicator:
 
-```blade
+```html
 <div wire:loading.delay>...</div>
 ```
 
@@ -206,7 +206,7 @@ The above element will only appear if the request takes over 200 milliseconds. T
 
 To customize the amount of time to delay the loading indicator, you can use one of Livewire's helpful interval aliases:
 
-```blade
+```html
 <div wire:loading.delay.shortest>...</div> <!-- 50ms -->
 <div wire:loading.delay.shorter>...</div>  <!-- 100ms -->
 <div wire:loading.delay.short>...</div>    <!-- 150ms -->
@@ -224,7 +224,7 @@ Livewire automatically adds a `data-loading` attribute to any element that trigg
 
 You can use Tailwind's `data-loading:` variant to apply styles when an element is loading:
 
-```blade
+```html
 <button
     wire:click="save"
     class="data-loading:opacity-50 data-loading:pointer-events-none"
@@ -255,7 +255,7 @@ button[data-loading] {
 
 You can style parent elements when a child has `data-loading` using the `has-data-loading:` variant:
 
-```blade
+```html
 <div class="has-data-loading:opacity-50">
     <button wire:click="save">Save</button>
 </div>
@@ -263,7 +263,7 @@ You can style parent elements when a child has `data-loading` using the `has-dat
 
 Or style child elements from a parent with `data-loading` using the `in-data-loading:` variant:
 
-```blade
+```html
 <button wire:click="save">
     <span class="in-data-loading:hidden">Save</span>
     <span class="hidden in-data-loading:block">Saving...</span>

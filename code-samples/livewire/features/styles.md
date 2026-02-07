@@ -121,7 +121,7 @@ Sometimes you need styles that apply globally rather than being scoped to a sing
 
 ### Single-File Components
 
-```blade
+```html
 <style global>
 body {
     font-family: system-ui, sans-serif;
@@ -201,7 +201,7 @@ Livewire automatically deduplicates styles when multiple instances of the same c
 - When loading CSS from a CDN
 - When including third-party library styles
 
-```blade
+```html
 @assets
 <link rel="stylesheet" href="https://cdn.example.com/library.css">
 @endassets

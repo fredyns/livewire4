@@ -6,14 +6,14 @@ Consistent typographical components like text and link.
 
 ## Basic Example
 
-```blade
+```html
 <flux:heading>Text component</flux:heading>
 <flux:text class="mt-2">This is the standard text component for body copy and general content throughout your application.</flux:text>
 ```
 
 ## Size
 
-```blade
+```html
 <flux:text class="text-base">Base text size</flux:text>
 <flux:text>Default text size</flux:text>
 <flux:text class="text-xs">Smaller text</flux:text>
@@ -21,7 +21,7 @@ Consistent typographical components like text and link.
 
 ## Color
 
-```blade
+```html
 <flux:text variant="strong">Strong text color</flux:text>
 <flux:text>Default text color</flux:text>
 <flux:text variant="subtle">Subtle text color</flux:text>
@@ -30,13 +30,13 @@ Consistent typographical components like text and link.
 
 ## Link
 
-```blade
+```html
 <flux:text>Visit our <flux:link href="#">documentation</flux:link> for more information.</flux:text>
 ```
 
 ## Link variants
 
-```blade
+```html
 <flux:link href="#">Default link</flux:link>
 <flux:link href="#" variant="ghost">Ghost link</flux:link>
 <flux:link href="#" variant="subtle">Subtle link</flux:link>
@@ -44,7 +44,7 @@ Consistent typographical components like text and link.
 
 ## Link as button
 
-```blade
+```html
 <flux:link as="button" wire:click="...">Create new account →</flux:link>
 ```
 

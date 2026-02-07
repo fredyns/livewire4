@@ -6,7 +6,7 @@ Arrange navigation links vertically or horizontally.
 
 ## Basic Example
 
-```blade
+```html
 <flux:navbar>
     <flux:navbar.item href="#">Home</flux:navbar.item>
     <flux:navbar.item href="#">Features</flux:navbar.item>
@@ -19,7 +19,7 @@ Arrange navigation links vertically or horizontally.
 
 ## Detecting the current page
 
-```blade
+```html
 <flux:navbar.item href="/" current>Home</flux:navbar.item>
 <flux:navbar.item href="/" :current="false">Home</flux:navbar.item>
 <flux:navbar.item href="/" :current="request()->is('/')">Home</flux:navbar.item>
@@ -27,7 +27,7 @@ Arrange navigation links vertically or horizontally.
 
 ## With icons
 
-```blade
+```html
 <flux:navbar>
     <flux:navbar.item href="#" icon="home">Home</flux:navbar.item>
     <flux:navbar.item href="#" icon="puzzle-piece">Features</flux:navbar.item>
@@ -38,7 +38,7 @@ Arrange navigation links vertically or horizontally.
 
 ## With badges
 
-```blade
+```html
 <flux:navbar>
     <flux:navbar.item href="#">Home</flux:navbar.item>
     <flux:navbar.item href="#" badge="12">Inbox</flux:navbar.item>
@@ -49,7 +49,7 @@ Arrange navigation links vertically or horizontally.
 
 ## Dropdown navigation
 
-```blade
+```html
 <flux:navbar>
     <flux:navbar.item href="#">Dashboard</flux:navbar.item>
     <flux:navbar.item href="#">Transactions</flux:navbar.item>
@@ -66,7 +66,7 @@ Arrange navigation links vertically or horizontally.
 
 ## Navlist (sidebar)
 
-```blade
+```html
 <flux:navlist class="w-64">
     <flux:navlist.item href="#" icon="home">Home</flux:navlist.item>
     <flux:navlist.item href="#" icon="puzzle-piece">Features</flux:navlist.item>
@@ -77,7 +77,7 @@ Arrange navigation links vertically or horizontally.
 
 ## Navlist group
 
-```blade
+```html
 <flux:navlist>
     <flux:navlist.group heading="Account" class="mt-4">
         <flux:navlist.item href="#">Profile</flux:navlist.item>
@@ -89,7 +89,7 @@ Arrange navigation links vertically or horizontally.
 
 ## Collapsible Navlist groups
 
-```blade
+```html
 <flux:navlist class="w-64">
     <flux:navlist.item href="#" icon="home">Dashboard</flux:navlist.item>
     <flux:navlist.item href="#" icon="list-bullet">Transactions</flux:navlist.item>
@@ -101,13 +101,13 @@ Arrange navigation links vertically or horizontally.
 </flux:navlist>
 ```
 
-```blade
+```html
 <flux:navlist.group heading="Account" expandable :expanded="false">
 ```
 
 ## Navlist badges
 
-```blade
+```html
 <flux:navlist class="w-64">
     <flux:navlist.item href="#" icon="home">Home</flux:navlist.item>
     <flux:navlist.item href="#" icon="envelope" badge="12">Inbox</flux:navlist.item>

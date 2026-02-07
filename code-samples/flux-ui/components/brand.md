@@ -6,7 +6,7 @@ Display your company or application's logo and name in a clean, consistent way a
 
 ## Basic Example
 
-```blade
+```html
 <flux:brand href="#" logo="/img/demo/logo.png" name="Acme Inc." />
 
 <flux:brand href="#" name="Acme Inc.">
@@ -18,7 +18,7 @@ Display your company or application's logo and name in a clean, consistent way a
 
 ## Logo slot
 
-```blade
+```html
 <flux:brand href="#" name="Launchpad">
     <x-slot name="logo" class="size-6 rounded-full bg-cyan-500 text-white text-xs font-bold">
         <flux:icon name="rocket-launch" variant="micro" />
@@ -28,13 +28,13 @@ Display your company or application's logo and name in a clean, consistent way a
 
 ## Logo only
 
-```blade
+```html
 <flux:brand href="#" logo="/img/demo/logo.png" />
 ```
 
 ## Examples
 
-```blade
+```html
 <flux:header class="px-4! w-full bg-zinc-50 dark:bg-zinc-800 rounded-lg border border-zinc-100 dark:border-white/5">
     <flux:brand href="#" name="Acme Inc.">
         <x-slot name="logo" class="bg-accent text-accent-foreground">

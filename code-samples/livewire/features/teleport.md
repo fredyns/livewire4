@@ -16,7 +16,7 @@ To teleport a portion of your template to another part of the DOM, you can wrap 
 
 Below is an example of using `@teleport` to render a modal dialog's contents at the end of the `<body>` element on the page:
 
-```blade
+```html
 <div>
     <!-- Modal -->
     <div x-data="{ open: false }">
@@ -63,7 +63,7 @@ Make sure you only include a single root element inside your `@teleport` stateme
 
 Solve z-index issues with nested modals by teleporting them to the same level:
 
-```blade
+```html
 <div x-data="{ open: false }">
     <button @click="open = !open">Open Modal</button>
 
@@ -83,7 +83,7 @@ Solve z-index issues with nested modals by teleporting them to the same level:
 
 Teleport notifications to a dedicated container:
 
-```blade
+```html
 @teleport('#notifications')
     <div class="alert alert-success">
         {{ $message }}
@@ -95,7 +95,7 @@ Teleport notifications to a dedicated container:
 
 Prevent dropdown overflow by teleporting to body:
 
-```blade
+```html
 <div x-data="{ open: false }" class="relative">
     <button @click="open = !open">Menu</button>
 
@@ -113,7 +113,7 @@ Prevent dropdown overflow by teleporting to body:
 
 In your main layout, create containers for teleported content:
 
-```blade
+```html
 <!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
 <html>
@@ -135,7 +135,7 @@ In your main layout, create containers for teleported content:
 
 You can teleport content from nested Livewire components:
 
-```blade
+```html
 <!-- Parent component -->
 <div>
     <h1>Parent Component</h1>
@@ -161,7 +161,7 @@ You can teleport content from nested Livewire components:
 
 Teleport works seamlessly with Alpine directives for animations and interactions:
 
-```blade
+```html
 @teleport('body')
     <div
         x-show="open"

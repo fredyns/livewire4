@@ -6,7 +6,7 @@ A searchable list of commands.
 
 ## Basic Example
 
-```blade
+```html
 <flux:command>
     <flux:command.input placeholder="Search..." />
 
@@ -23,7 +23,7 @@ A searchable list of commands.
 
 ## As a modal
 
-```blade
+```html
 <flux:modal.trigger name="search" shortcut="cmd.k">
     <flux:input as="button" placeholder="Search..." icon="magnifying-glass" kbd="⌘K" />
 </flux:modal.trigger>

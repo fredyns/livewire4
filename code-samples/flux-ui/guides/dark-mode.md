@@ -22,7 +22,7 @@ By default, Flux will handle the appearance of your application by adding a dark
 
 If you don't want Flux to handle this for you, you can remove the `@fluxAppearance` directive from your layout file.
 
-```blade
+```html
 <head>
     ...
 --    @fluxAppearance
@@ -54,13 +54,13 @@ Given these two utilities, you can now use Alpine to easily build widgets to man
 
 For example, here's how you would write a simple dark mode toggle button:
 
-```blade
+```html
 <flux:button x-data x-on:click="$flux.dark = ! $flux.dark">Toggle</flux:button>
 ```
 
 Or if you wanted to allow a user to choose their preferred color scheme, you could write:
 
-```blade
+```html
 <flux:radio.group x-data x-model="$flux.appearance">
     <flux:radio value="light">Light</flux:radio>
     <flux:radio value="dark">Dark</flux:radio>
@@ -86,7 +86,7 @@ Rather than offer a one-size-fits-all none solution, Flux provides a few example
 
 A simple toggle button to allow uesrs to control dark mode from something like a navbar or sidebar.
 
-```blade
+```html
 <flux:button
     x-data
     x-on:click="$flux.dark = ! $flux.dark"
@@ -100,7 +100,7 @@ A simple toggle button to allow uesrs to control dark mode from something like a
 
 More robust than a simple toggle button, this dropdown menu allows users to choose between light, dark, and system modes.
 
-```blade
+```html
 <flux:dropdown x-data align="end">
     <flux:button variant="subtle" square class="group" aria-label="Preferred color scheme">
         <flux:icon.sun x-show="$flux.appearance === 'light'" variant="mini" class="text-zinc-500 dark:text-white" />
@@ -122,7 +122,7 @@ More robust than a simple toggle button, this dropdown menu allows users to choo
 
 A simple toggle switch to allow users to control dark mode from something like a settings page.
 
-```blade
+```html
 <flux:switch x-data x-model="$flux.dark" label="Dark mode" />
 ```
 
@@ -130,7 +130,7 @@ A simple toggle switch to allow users to control dark mode from something like a
 
 A simple toggle switch to allow users to control dark mode from something like a settings page.
 
-```blade
+```html
 <flux:radio.group x-data variant="segmented" x-model="$flux.appearance">
     <flux:radio value="light" icon="sun">Light</flux:radio>
     <flux:radio value="dark" icon="moon">Dark</flux:radio>
@@ -140,7 +140,7 @@ A simple toggle switch to allow users to control dark mode from something like a
 
 Alternatively, you can use an icon-only variant to save horizontal space:
 
-```blade
+```html
 <flux:radio.group x-data variant="segmented" x-model="$flux.appearance">
     <flux:radio value="light" icon="sun" />
     <flux:radio value="dark" icon="moon" />

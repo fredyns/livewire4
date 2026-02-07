@@ -33,7 +33,7 @@ class CreatePost extends Component
 }
 ```
 
-```blade
+```html
 <div>
     <button x-on:click="$wire.showModal = true">New Post</button>
 
@@ -53,7 +53,7 @@ When the "Create New Post" button is clicked, the modal appears without a server
 
 You can combine `wire:show` with Alpine.js transitions to create smooth show/hide animations. Since `wire:show` only toggles the CSS display property, Alpine's `x-transition` directives work perfectly with it:
 
-```blade
+```html
 <div>
     <button x-on:click="$wire.showModal = true">New Post</button>
 

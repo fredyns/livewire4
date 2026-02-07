@@ -91,7 +91,7 @@ Livewire honors the same APIs Laravel uses for storing uploaded files, so feel f
 
 Livewire automatically handles multiple file uploads by detecting when a file input has the `multiple` attribute.
 
-```blade
+```html
 <input type="file" wire:model="photos" multiple>
 ```
 
@@ -114,7 +114,7 @@ public function save()
 
 Livewire provides a way to show upload progress to users using Alpine and the `wire:loading` directive:
 
-```blade
+```html
 <input type="file" wire:model="photo">
 
 <div wire:loading wire:target="photo">
@@ -124,7 +124,7 @@ Livewire provides a way to show upload progress to users using Alpine and the `w
 
 For more detailed progress information, you can use Alpine's `$wire` magic to access upload progress:
 
-```blade
+```html
 <input type="file" wire:model="photo" @change="uploadProgress = 0">
 
 <div wire:loading wire:target="photo">

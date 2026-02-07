@@ -6,13 +6,13 @@ Flux uses the excellent Heroicons project for its icon collection. Heroicons is 
 
 ## Basic Example
 
-```blade
+```html
 <flux:icon.bolt />
 ```
 
 ## Variants
 
-```blade
+```html
 <flux:icon.bolt />
 <!-- 24px, outline -->
 
@@ -28,7 +28,7 @@ Flux uses the excellent Heroicons project for its icon collection. Heroicons is 
 
 ## Sizes
 
-```blade
+```html
 <flux:icon.bolt class="size-12" />
 <flux:icon.bolt class="size-10" />
 <flux:icon.bolt class="size-8" />
@@ -36,33 +36,33 @@ Flux uses the excellent Heroicons project for its icon collection. Heroicons is 
 
 ## Color
 
-```blade
+```html
 <flux:icon.bolt variant="solid" class="text-amber-500 dark:text-amber-300" />
 ```
 
 ## Loading spinner
 
-```blade
+```html
 <flux:icon.loading />
 ```
 
 ## Dynamic icons
 
-```blade
+```html
 <flux:icon name="bolt" />
 ```
 
 ## Lucide icons
 
-```blade
+```html
 php artisan flux:icon
 ```
 
-```blade
+```html
 php artisan flux:icon crown grip-vertical github
 ```
 
-```blade
+```html
 <flux:icon.crown />
 <flux:icon.grip-vertical />
 <flux:icon.github />
@@ -70,7 +70,7 @@ php artisan flux:icon crown grip-vertical github
 
 ## Custom icons
 
-```blade
+```html
 - resources
 - views
 - flux
@@ -78,7 +78,7 @@ php artisan flux:icon crown grip-vertical github
 - wink.blade.php
 ```
 
-```blade
+```html
 @php $attributes = $unescapedForwardedAttributes ?? $attributes; @endphp
 
 @props([
@@ -101,7 +101,7 @@ php artisan flux:icon crown grip-vertical github
 </svg>
 ```
 
-```blade
+```html
 <flux:icon.wink />
 ```
 

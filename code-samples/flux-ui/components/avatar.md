@@ -6,13 +6,13 @@ Display an image or initials as an avatar.
 
 ## Basic Example
 
-```blade
+```html
 <flux:avatar src="https://unavatar.io/x/calebporzio" />
 ```
 
 ## Tooltip
 
-```blade
+```html
 <flux:avatar tooltip="Caleb Porzio" src="https://unavatar.io/x/calebporzio" />
 
 <!-- Or infer from the name prop... -->
@@ -21,7 +21,7 @@ Display an image or initials as an avatar.
 
 ## Initials
 
-```blade
+```html
 <flux:avatar name="Caleb Porzio" />
 <flux:avatar name="calebporzio" />
 <flux:avatar name="calebporzio" initials:single />
@@ -32,7 +32,7 @@ Display an image or initials as an avatar.
 
 ## Size
 
-```blade
+```html
 <!-- Extra large: size-16 (64px) -->
 <flux:avatar size="xl" src="https://unavatar.io/x/calebporzio" />
 
@@ -51,7 +51,7 @@ Display an image or initials as an avatar.
 
 ## Icon
 
-```blade
+```html
 <flux:avatar icon="user" />
 <flux:avatar icon="phone" />
 <flux:avatar icon="computer-desktop" />
@@ -59,7 +59,7 @@ Display an image or initials as an avatar.
 
 ## Colors
 
-```blade
+```html
 <flux:avatar name="Caleb Porzio" color="red" />
 <flux:avatar name="Caleb Porzio" color="orange" />
 <flux:avatar name="Caleb Porzio" color="amber" />
@@ -81,7 +81,7 @@ Display an image or initials as an avatar.
 
 ## Auto color
 
-```blade
+```html
 <flux:avatar name="Caleb Porzio" color="auto" />
 
 <!-- Use color:seed to generate a consistent color based -->
@@ -91,13 +91,13 @@ Display an image or initials as an avatar.
 
 ## Circle
 
-```blade
+```html
 <flux:avatar circle src="https://unavatar.io/x/calebporzio" />
 ```
 
 ## Badge
 
-```blade
+```html
 <flux:avatar badge badge:color="green" src="https://unavatar.io/x/calebporzio" />
 <flux:avatar badge badge:color="zinc" badge:position="top right" badge:circle badge:variant="outline" src="https://unavatar.io/x/calebporzio" />
 <flux:avatar badge="25" src="https://unavatar.io/x/calebporzio" />
@@ -111,7 +111,7 @@ Display an image or initials as an avatar.
 
 ## Groups
 
-```blade
+```html
 <flux:avatar.group>
     <flux:avatar src="https://unavatar.io/x/calebporzio" />
     <flux:avatar src="https://unavatar.io/github/hugosaintemarie" />
@@ -130,19 +130,19 @@ Display an image or initials as an avatar.
 
 ## As button
 
-```blade
+```html
 <flux:avatar as="button" src="https://unavatar.io/x/calebporzio" />
 ```
 
 ## As link
 
-```blade
+```html
 <flux:avatar href="https://x.com/calebporzio" src="https://unavatar.io/x/calebporzio" />
 ```
 
 ## Examples
 
-```blade
+```html
 <div>
     <div class="flex items-center gap-2">
         <flux:icon.star variant="solid" />

@@ -6,7 +6,7 @@ Capture user data with various forms of text input.
 
 ## Basic Example
 
-```blade
+```html
 <flux:field>
     <flux:label>Username</flux:label>
     <flux:description>This will be publicly displayed.</flux:description>
@@ -18,7 +18,7 @@ Capture user data with various forms of text input.
 ## Shorthand
 Because using the field component in its full form can be verbose and repetitive, all form controls in flux allow you pass a label and a description parameter directly. Under the hood, they will be wrapped in a field with an error component automatically.
 
-```blade
+```html
 <flux:input label="Username" description="This will be publicly displayed." />
 ```
 
@@ -27,13 +27,13 @@ Unlike other form components, Flux's input component is composed of two underlyi
 
 This is typically fine, however, if you need to pass classes into the input component and have them directly applied to the input element, you can do so using the class:input attribute instead of simply class:
 
-```blade
+```html
 <flux:input class="max-w-xs" class:input="font-mono" />
 ```
 
 ## Types
 
-```blade
+```html
 <flux:input type="email" label="Email" />
 <flux:input type="password" label="Password" />
 <flux:input type="date" max="2999-12-31" label="Date" />
@@ -41,38 +41,38 @@ This is typically fine, however, if you need to pass classes into the input comp
 
 ## File
 
-```blade
+```html
 <flux:input type="file" wire:model="logo" label="Logo"/>
 <flux:input type="file" wire:model="attachments" label="Attachments" multiple />
 ```
 
 ## Smaller
 
-```blade
+```html
 <flux:input size="sm" placeholder="Filter by..." />
 ```
 
 ## Disabled
 
-```blade
+```html
 <flux:input disabled label="Email" />
 ```
 
 ## Readonly
 
-```blade
+```html
 <flux:input readonly variant="filled" />
 ```
 
 ## Invalid
 
-```blade
+```html
 <flux:input invalid />
 ```
 
 ## Input masking
 
-```blade
+```html
 <flux:input mask="(999) 999-9999" value="7161234567" />
 <flux:input mask:dynamic="$money($input)" value="1234.56" />
 ```
@@ -80,7 +80,7 @@ This is typically fine, however, if you need to pass classes into the input comp
 ## Icons
 Append or prepend an icon to the inside of a form input.
 
-```blade
+```html
 <flux:input icon="magnifying-glass" placeholder="Search orders" />
 <flux:input icon:trailing="credit-card" placeholder="4444-4444-4444-4444" />
 <flux:input icon:trailing="loading" placeholder="Search transactions" />
@@ -89,7 +89,7 @@ Append or prepend an icon to the inside of a form input.
 ## Icon buttons
 Append a button to the inside of an input to provide associated functionality.
 
-```blade
+```html
 <flux:input placeholder="Search orders">
     <x-slot name="iconTrailing">
         <flux:button size="sm" variant="subtle" icon="x-mark" class="-mr-1" />
@@ -105,7 +105,7 @@ Append a button to the inside of an input to provide associated functionality.
 
 ## Clearable, copyable, and viewable inputs
 
-```blade
+```html
 <flux:input placeholder="Search orders" clearable />
 <flux:input type="password" value="password" viewable />
 <flux:input icon="key" value="FLUX-1234-5678-ABCD-EFGH" readonly copyable />
@@ -113,20 +113,20 @@ Append a button to the inside of an input to provide associated functionality.
 
 ## Keyboard hint
 
-```blade
+```html
 <flux:input kbd="⌘K" icon="magnifying-glass" placeholder="Search..."/>
 ```
 
 ## As a button
 
-```blade
+```html
 <flux:input as="button" placeholder="Search..." icon="magnifying-glass" kbd="⌘K" />
 ```
 
 ## With buttons
 Attach buttons to the beginning or end of an input element.
 
-```blade
+```html
 <flux:input.group>
     <flux:input placeholder="Post title" />
     <flux:button icon="plus">New post</flux:button>
@@ -143,7 +143,7 @@ Attach buttons to the beginning or end of an input element.
 
 ## Text prefixes and suffixes
 
-```blade
+```html
 <flux:input.group>
     <flux:input.group.prefix>https://</flux:input.group.prefix>
     <flux:input placeholder="example.com" />
@@ -157,7 +157,7 @@ Attach buttons to the beginning or end of an input element.
 
 ## Input group labels
 
-```blade
+```html
 <flux:field>
     <flux:label>Website</flux:label>
     <flux:input.group>

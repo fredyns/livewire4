@@ -8,7 +8,7 @@ Livewire's `wire:navigate` feature makes page navigation much faster, providing 
 
 Below is a simple example of adding `wire:navigate` to links in a nav bar:
 
-```blade
+```html
 <nav>
     <a href="/" wire:navigate>Dashboard</a>
     <a href="/posts" wire:navigate>Posts</a>
@@ -22,7 +22,7 @@ When any of these links are clicked, Livewire will intercept the click and, inst
 
 Livewire automatically adds a `data-current` attribute to any `wire:navigate` link that matches the current page URL. This allows you to style active navigation links using CSS or Tailwind without any additional directives:
 
-```blade
+```html
 <nav>
     <a href="/" wire:navigate class="data-current:font-bold">Dashboard</a>
     <a href="/posts" wire:navigate class="data-current:font-bold">Posts</a>
@@ -36,7 +36,7 @@ The `data-current` attribute is added and removed automatically as users navigat
 
 By adding the `.hover` modifier, Livewire will pre-fetch a page when a user hovers over a link. This way, the page will have already been downloaded from the server when the user clicks on the link:
 
-```blade
+```html
 <a href="/" wire:navigate.hover>Dashboard</a>
 ```
 

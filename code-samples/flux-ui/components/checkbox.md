@@ -6,7 +6,7 @@ Select one or multiple options from a set.
 
 ## Basic Example
 
-```blade
+```html
 <flux:field variant="inline">
     <flux:checkbox wire:model="terms" />
     <flux:label>I agree to the terms and conditions</flux:label>
@@ -16,7 +16,7 @@ Select one or multiple options from a set.
 
 ## Checkbox group
 
-```blade
+```html
 <flux:checkbox.group wire:model="notifications" label="Notifications">
     <flux:checkbox label="Push notifications" value="push" checked />
     <flux:checkbox label="Email" value="email" checked />
@@ -27,7 +27,7 @@ Select one or multiple options from a set.
 
 ## With descriptions
 
-```blade
+```html
 <flux:checkbox.group wire:model="subscription" label="Subscription preferences">
     <flux:checkbox checked value="newsletter" label="Newsletter" description="Receive our monthly newsletter with the latest updates and offers." />
     <flux:checkbox value="updates" label="Product updates" description="Stay informed about new features and product updates." />
@@ -37,7 +37,7 @@ Select one or multiple options from a set.
 
 ## Horizontal fieldset
 
-```blade
+```html
 <flux:fieldset>
     <flux:legend>Languages</flux:legend>
     <flux:description>Choose the languages you want to support.</flux:description>
@@ -52,7 +52,7 @@ Select one or multiple options from a set.
 
 ## Check-all
 
-```blade
+```html
 <flux:checkbox.group>
     <flux:checkbox.all />
     <flux:checkbox checked />
@@ -63,19 +63,19 @@ Select one or multiple options from a set.
 
 ## Checked
 
-```blade
+```html
 <flux:checkbox checked />
 ```
 
 ## Disabled
 
-```blade
+```html
 <flux:checkbox disabled />
 ```
 
 ## Checkbox cards
 
-```blade
+```html
 <flux:checkbox.group wire:model="subscription" label="Subscription preferences" variant="cards" class="max-sm:flex-col">
     <flux:checkbox checked value="newsletter" label="Newsletter" description="Get the latest updates and offers." />
     <flux:checkbox value="updates" label="Product updates" description="Learn about new features and products." />
@@ -83,7 +83,7 @@ Select one or multiple options from a set.
 </flux:checkbox.group>
 ```
 
-```blade
+```html
 <flux:checkbox.group ... class="max-sm:flex-col">
     <!-- ... -->
 </flux:checkbox.group>
@@ -91,7 +91,7 @@ Select one or multiple options from a set.
 
 ## Vertical cards
 
-```blade
+```html
 <flux:checkbox.group label="Subscription preferences" variant="cards" class="flex-col">
     <flux:checkbox checked value="newsletter" label="Newsletter" description="Get the latest updates and offers." />
     <flux:checkbox value="updates" label="Product updates" description="Learn about new features and products." />
@@ -101,7 +101,7 @@ Select one or multiple options from a set.
 
 ## Cards with icons
 
-```blade
+```html
 <flux:checkbox.group label="Subscription preferences" variant="cards" class="flex-col">
     <flux:checkbox checked value="newsletter" icon="newspaper" label="Newsletter" description="Get the latest updates and offers." />
     <flux:checkbox value="updates" icon="cube" label="Product updates" description="Learn about new features and products." />
@@ -111,7 +111,7 @@ Select one or multiple options from a set.
 
 ## Custom card content
 
-```blade
+```html
 <flux:checkbox.group label="Subscription preferences" variant="cards" class="flex-col">
     <flux:checkbox checked value="newsletter">
         <flux:checkbox.indicator />
@@ -139,7 +139,7 @@ Select one or multiple options from a set.
 
 ## Pills
 
-```blade
+```html
 <flux:checkbox.group wire:model="categories" label="Categories" variant="pills">
     <flux:checkbox value="fantasy" label="Fantasy" />
     <flux:checkbox value="science-fiction" label="Science fiction" />
@@ -155,7 +155,7 @@ Select one or multiple options from a set.
 
 ## Buttons
 
-```blade
+```html
 <flux:checkbox.group wire:model="features" label="Features" variant="buttons">
     <flux:checkbox value="notifications" icon="bell" label="Notifications" />
     <flux:checkbox value="analytics" icon="chart-bar" label="Analytics" />

@@ -28,7 +28,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div wire:intersect="logActivity">
     <!-- Logs activity asynchronously when element enters viewport -->
 </div>
@@ -66,7 +66,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <a href="{{ $url }}" target="_blank" wire:click="trackClick">
     Visit External Site
 </a>
@@ -109,7 +109,7 @@ If a user rapidly clicks the increment button, multiple async requests fire simu
 
 Instead of using the attribute, you can make specific action calls async with the `.async` modifier:
 
-```blade
+```html
 <button wire:click.async="logActivity">Track Event</button>
 ```
 

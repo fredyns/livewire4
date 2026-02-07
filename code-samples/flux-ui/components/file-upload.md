@@ -6,7 +6,7 @@ A flexible file upload component with built-in drag-and-drop support, file previ
 
 ## Basic Example
 
-```blade
+```html
 <flux:file-upload wire:model="photos" multiple label="Upload files">
     <flux:file-upload.dropzone
         heading="Drop files here or click to browse"
@@ -30,7 +30,7 @@ A flexible file upload component with built-in drag-and-drop support, file previ
 ## Inline layout
 For a more compact interface, use the inline prop on the dropzone to create a horizontal layout that takes up less vertical space.
 
-```blade
+```html
 <flux:file-upload wire:model="photos" multiple label="Upload files">
     <flux:file-upload.dropzone heading="Drop files or click to browse" text="JPG, PNG, GIF up to 10MB" inline />
 </flux:file-upload>
@@ -54,7 +54,7 @@ Use the with-progress on the dropzone to show a progress indicator while the fil
 
 >The `text` prop is required with the progress indicator.
 
-```blade
+```html
 <flux:file-upload wire:model="photos" multiple label="Upload files">
     <flux:file-upload.dropzone heading="Drop files or click to browse" text="JPG, PNG, GIF up to 10MB" with-progress inline />
 </flux:file-upload>
@@ -68,7 +68,7 @@ These variables are automatically updated during upload and can be used in your 
 ## Disabled state
 Use the disabled prop to prevent user interaction with the file upload component. When disabled, the dropzone becomes unclickable, drag-and-drop is disabled, and the UI appears in a muted state to indicate it's inactive.
 
-```blade
+```html
 <flux:file-upload wire:model="photos" multiple label="Upload files" disabled>
     <flux:file-upload.dropzone heading="Drop files or click to browse" text="JPG, PNG, GIF up to 10MB" inline />
 </flux:file-upload>
@@ -78,7 +78,7 @@ Use the disabled prop to prevent user interaction with the file upload component
 The flux:file-upload wrapper handles all the complex file upload functionality - drag and drop, file selection, and upload progress. You can place any custom HTML inside it to completely customize the appearance while maintaining all the upload behavior.
 
 Here's an example of a custom avatar uploader:
-```blade
+```html
 <flux:file-upload wire:model="photo">
     <!-- Custom avatar uploader -->
     <div class=" relative flex items-center justify-center size-20 rounded-full transition-colors cursor-pointer border border-zinc-200 dark:border-white/10 hover:border-zinc-300 dark:hover:border-white/10 bg-zinc-100 hover:bg-zinc-200 dark:bg-white/10 hover:dark:bg-white/15 in-data-dragging:dark:bg-white/15 ">
@@ -135,7 +135,7 @@ class FileUpload extends Component
 }
 ```
 
-```blade
+```html
 <!-- Blade view: -->
 <form wire:submit="save">
     <flux:file-upload wire:model="photo" label="Upload file">
@@ -189,7 +189,7 @@ class FileUpload extends Component
 }
 ```
 
-```blade
+```html
 <!-- Blade view: -->
 <form wire:submit="save">
     <flux:file-upload wire:model="photos" label="Upload files" multiple>

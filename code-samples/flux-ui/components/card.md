@@ -6,7 +6,7 @@ A container for related content, such as a form, alert, or data list.
 
 ## Basic Example
 
-```blade
+```html
 <flux:card class="space-y-6">
     <div>
         <flux:heading size="lg">Log in to your account</flux:heading>
@@ -36,7 +36,7 @@ A container for related content, such as a form, alert, or data list.
 
 ## Small card
 
-```blade
+```html
 <a href="#" aria-label="Latest on our blog">
     <flux:card size="sm" class="hover:bg-zinc-50 dark:hover:bg-zinc-700">
         <flux:heading class="flex items-center gap-2">Latest on our blog <flux:icon name="arrow-up-right" class="ml-auto text-zinc-400" variant="micro" /></flux:heading>
@@ -47,7 +47,7 @@ A container for related content, such as a form, alert, or data list.
 
 ## Header actions
 
-```blade
+```html
 <flux:card class="space-y-6">
     <div class="flex">
         <div class="flex-1">
@@ -71,7 +71,7 @@ A container for related content, such as a form, alert, or data list.
 
 ## Simple card
 
-```blade
+```html
 <flux:card>
     <flux:heading size="lg">Are you sure?</flux:heading>
     <flux:text class="mt-2 mb-4">

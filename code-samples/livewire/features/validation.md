@@ -43,7 +43,7 @@ class CreatePost extends Component
 }
 ```
 
-```blade
+```html
 <form wire:submit="save">
     <input type="text" wire:model="title">
     <div>@error('title') {{ $message }} @enderror</div>
@@ -247,7 +247,7 @@ class CreatePost extends Component
 
 By default, validation only runs when you explicitly call `$this->validate()`. However, you can enable real-time validation by using the `.live` modifier on your `wire:model` directives:
 
-```blade
+```html
 <input type="text" wire:model.live="title">
 @error('title') <span>{{ $message }}</span> @enderror
 ```

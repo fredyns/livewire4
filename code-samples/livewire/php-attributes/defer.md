@@ -106,7 +106,7 @@ Now, if there are ten revenue components on the page, all ten will load via a si
 
 Instead of the attribute, you can defer specific component instances using the `defer` parameter:
 
-```blade
+```html
 <livewire:revenue defer />
 ```
 
@@ -116,7 +116,7 @@ This is useful when you only want certain instances of a component to be deferre
 
 If a component has `#[Defer]` but you want to load it immediately in certain cases, you can override it:
 
-```blade
+```html
 <livewire:revenue :defer="false" />
 ```
 

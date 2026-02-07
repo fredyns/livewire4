@@ -12,7 +12,7 @@ Livewire makes this easy to do by adding `wire:confirm` in addition to any actio
 
 Here's an example of adding a confirmation dialog to a "Delete post" button:
 
-```blade
+```html
 <button
     type="button"
     wire:click="delete"
@@ -30,7 +30,7 @@ For even more dangerous actions such as deleting a user's account entirely, you 
 
 Livewire provides a helpful `.prompt` modifier, that when applied to `wire:confirm`, it will prompt the user for input and only confirm the action if the input matches (case-sensitive) the provided string (designated by a `|` (pipe) character at the end of the `wire:confirm` value):
 
-```blade
+```html
 <button
     type="button"
     wire:click="delete"

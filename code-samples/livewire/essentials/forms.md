@@ -88,7 +88,7 @@ new class extends Component {
 
 We'll also modify our Blade template to show any validation errors on the page:
 
-```blade
+```html
 <form wire:submit="save">
     <input type="text" wire:model="title">
     <div>
@@ -165,7 +165,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <form wire:submit="save">
     <input type="text" wire:model="form.title">
     <div>
@@ -422,7 +422,7 @@ For example, if a user visits a `post.edit` page and starts modifying the title 
 
 Livewire provides the `wire:dirty` directive to allow you to toggle elements or modify classes when an input's value diverges from the server-side component:
 
-```blade
+```html
 <input type="text" wire:model.live.blur="title" wire:dirty.class="border-yellow">
 ```
 
@@ -430,7 +430,7 @@ In the above example, when a user types into the input field, a yellow border wi
 
 If you want to toggle an entire element's visibility, you can do so by using `wire:dirty` in conjunction with `wire:target`. `wire:target` is used to specify which piece of data you want to watch for "dirtiness". In this case, the "title" field:
 
-```blade
+```html
 <input type="text" wire:model="title">
 
 <div wire:dirty wire:target="title">Unsaved...</div>
@@ -440,7 +440,7 @@ If you want to toggle an entire element's visibility, you can do so by using `wi
 
 When using `.live` on a text input, you may want more fine-grained control over how often a network request is sent. By default, a debounce of "250ms" is applied to the input; however, you can customize this using the `.debounce` modifier:
 
-```blade
+```html
 <input type="text" wire:model.live.debounce.150ms="title" >
 ```
 
@@ -454,7 +454,7 @@ Sometimes this isn't the desired behavior, and you would rather send a request a
 
 In these cases, you can instead use `.throttle` to signify a time interval to send network requests:
 
-```blade
+```html
 <input type="text" wire:model.live.throttle.150ms="title" >
 ```
 
@@ -470,7 +470,7 @@ It can be helpful to extract repetitive UI elements such as these into dedicated
 
 Original template:
 
-```blade
+```html
 <form wire:submit="save">
     <input type="text" wire:model="title"> 
     <div>
@@ -488,7 +488,7 @@ Original template:
 
 Refactored with Blade component:
 
-```blade
+```html
 <form wire:submit="save">
     <x-input-text name="title" wire:model="title" /> 
 
@@ -500,7 +500,7 @@ Refactored with Blade component:
 
 Blade component source:
 
-```blade
+```html
 <!-- resources/views/components/input-text.blade.php -->
 
 @props(['name'])
@@ -528,7 +528,7 @@ This pattern is very useful; however, there might be some cases where you want t
 
 Pure Alpine counter component:
 
-```blade
+```html
 <div x-data="{ count: 0 }">
     <button x-on:click="count--">-</button>
 
@@ -540,7 +540,7 @@ Pure Alpine counter component:
 
 To make this work with `wire:model="quantity"`:
 
-```blade
+```html
 <!-- resources/view/components/input-counter.blade.php -->
 
 <div x-data="{ count: 0 }" x-modelable="count" {{ $attributes}}>
@@ -558,7 +558,7 @@ To make this work with `wire:model="quantity"`:
 
 Because `x-modelable` works for both `wire:model` and `x-model`, you can also use this Blade component interchangeably with Livewire and Alpine:
 
-```blade
+```html
 <x-input-counter x-model="quantity" />
 ```
 

@@ -4,7 +4,7 @@ Source: https://fluxui.dev/components/context
 
 Dropdown menus that open when right clicking a designated area.
 
-```blade
+```html
 <flux:context>
     <flux:card class="border-dashed border-2 px-16">
         <flux:text>Right click</flux:text>

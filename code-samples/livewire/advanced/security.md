@@ -33,7 +33,7 @@ class ShowPost extends Component
 }
 ```
 
-```blade
+```html
 <button wire:click="delete({{ $post->id }})">Delete Post</button>
 ```
 
@@ -83,7 +83,7 @@ public function delete($id)
 
 Public properties should also be treated as untrusted input. A malicious user could inject:
 
-```blade
+```html
 <input type="text" wire:model="postId">
 ```
 

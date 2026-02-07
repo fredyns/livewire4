@@ -75,13 +75,13 @@ By default, Livewire's paginator scrolls to the top of the page after every page
 
 You can disable this behavior by passing `false` to the `scrollTo` parameter of the `links()` method like so:
 
-```blade
+```html
 {{ $posts->links(data: ['scrollTo' => false]) }}
 ```
 
 Alternatively, you can provide any CSS selector to the `scrollTo` parameter, and Livewire will find the nearest element matching that selector and scroll to it after each navigation:
 
-```blade
+```html
 {{ $posts->links(data: ['scrollTo' => '#paginated-posts']) }}
 ```
 

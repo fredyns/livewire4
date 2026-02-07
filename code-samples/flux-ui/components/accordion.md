@@ -6,7 +6,7 @@ Collapse and expand sections of content. Perfect for FAQs and content-heavy area
 
 ## Basic Example
 
-```blade
+```html
 <flux:accordion>
     <flux:accordion.item>
         <flux:accordion.heading>What's your refund policy?</flux:accordion.heading>
@@ -36,7 +36,7 @@ Collapse and expand sections of content. Perfect for FAQs and content-heavy area
 
 ## Shorthand
 
-```blade
+```html
 <flux:accordion.item heading="What's your refund policy?">
     If you are not satisfied with your purchase, we offer a 30-day money-back guarantee. Please contact our support team for assistance.
 </flux:accordion.item>
@@ -44,7 +44,7 @@ Collapse and expand sections of content. Perfect for FAQs and content-heavy area
 
 ## With transition
 
-```blade
+```html
 <flux:accordion transition>
     <!-- ... -->
 </flux:accordion>
@@ -52,7 +52,7 @@ Collapse and expand sections of content. Perfect for FAQs and content-heavy area
 
 ## Disabled
 
-```blade
+```html
 <flux:accordion.item disabled>
     <!-- ... -->
 </flux:accordion.item>
@@ -60,7 +60,7 @@ Collapse and expand sections of content. Perfect for FAQs and content-heavy area
 
 ## Exclusive
 
-```blade
+```html
 <flux:accordion exclusive>
     <!-- ... -->
 </flux:accordion>
@@ -68,7 +68,7 @@ Collapse and expand sections of content. Perfect for FAQs and content-heavy area
 
 ## Expanded
 
-```blade
+```html
 <flux:accordion.item expanded>
     <!-- ... -->
 </flux:accordion.item>
@@ -76,7 +76,7 @@ Collapse and expand sections of content. Perfect for FAQs and content-heavy area
 
 ## Leading icon
 
-```blade
+```html
 <flux:accordion variant="reverse">
     <!-- ... -->
 </flux:accordion>

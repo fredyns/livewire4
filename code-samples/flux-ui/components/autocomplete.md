@@ -6,7 +6,7 @@ Enhance an input field with autocomplete suggestions.
 
 ## Basic Example
 
-```blade
+```html
 <flux:autocomplete wire:model="state" label="State of residence">
     <flux:autocomplete.item>Alabama</flux:autocomplete.item>
     <flux:autocomplete.item>Arkansas</flux:autocomplete.item>

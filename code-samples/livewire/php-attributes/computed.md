@@ -33,7 +33,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div>
     <h1>{{ $this->user->name }}</h1>
     <span>{{ $this->user->email }}</span>

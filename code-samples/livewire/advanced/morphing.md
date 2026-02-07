@@ -29,7 +29,7 @@ class Todos extends Component
 }
 ```
 
-```blade
+```html
 <form wire:submit="add">
     <ul>
         @foreach ($todos as $item)
@@ -79,7 +79,7 @@ Livewire walks both HTML trees simultaneously, comparing elements for changes, a
 
 Consider a CreatePost component with conditional error messages:
 
-```blade
+```html
 <form wire:submit="save">
     <div>
         <input wire:model="title">
@@ -113,7 +113,7 @@ Livewire has an additional step in its morphing algorithm that checks subsequent
 
 Livewire automatically detects conditionals inside Blade templates and wraps them in HTML comment markers:
 
-```blade
+```html
 <form wire:submit="save">
     <div>
         <input wire:model="title">
@@ -141,7 +141,7 @@ To disable this feature, update `config/livewire.php`:
 
 The most reliable way to avoid morphing problems is to wrap conditionals and loops in their own elements that are always present:
 
-```blade
+```html
 <form wire:submit="save">
     <div>
         <input wire:model="title">
@@ -163,7 +163,7 @@ The most reliable way to avoid morphing problems is to wrap conditionals and loo
 
 Use `wire:replace` to instruct Livewire to replace all children of an element instead of attempting to morph:
 
-```blade
+```html
 <div wire:replace>
     <!-- This element and its children will be completely replaced -->
 </div>

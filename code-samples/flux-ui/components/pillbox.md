@@ -6,7 +6,7 @@ A multi-select component that displays selected items as removable "pills" that 
 
 ## Basic Example
 
-```blade
+```html
 <flux:pillbox wire:model="selectedTags" multiple placeholder="Choose tags...">
     <flux:pillbox.option value="design">Design</flux:pillbox.option>
     <flux:pillbox.option value="development">Development</flux:pillbox.option>
@@ -21,7 +21,7 @@ A multi-select component that displays selected items as removable "pills" that 
 
 ## Small
 
-```blade
+```html
 <flux:pillbox size="sm" multiple placeholder="Choose tags...">
     <flux:pillbox.option value="design">Design</flux:pillbox.option>
     <flux:pillbox.option value="development">Development</flux:pillbox.option>
@@ -36,7 +36,7 @@ A multi-select component that displays selected items as removable "pills" that 
 
 ## Searchable
 
-```blade
+```html
 <flux:pillbox multiple searchable placeholder="Choose skills...">
     <flux:pillbox.option value="javascript">JavaScript</flux:pillbox.option>
     <flux:pillbox.option value="typescript">TypeScript</flux:pillbox.option>
@@ -53,7 +53,7 @@ A multi-select component that displays selected items as removable "pills" that 
 
 ### Custom search placeholder
 
-```blade
+```html
 <flux:pillbox multiple searchable search:placeholder="Filter skills...">
     ...
 </flux:pillbox>
@@ -61,7 +61,7 @@ A multi-select component that displays selected items as removable "pills" that 
 
 ## With icons
 
-```blade
+```html
 <flux:pillbox multiple placeholder="Choose platforms...">
     <flux:pillbox.option value="github">
         <div class="flex items-center gap-2">
@@ -86,7 +86,7 @@ A multi-select component that displays selected items as removable "pills" that 
 
 ## Combobox
 
-```blade
+```html
 <flux:pillbox variant="combobox" multiple placeholder="Choose skills...">
     <flux:pillbox.option value="javascript">JavaScript</flux:pillbox.option>
     <flux:pillbox.option value="typescript">TypeScript</flux:pillbox.option>
@@ -107,7 +107,7 @@ Allow users to the create new options using the `<flux:pillbox.option.create>` c
 
 Flux will automatically hide the create option when the search input matches an existing item in the list. You can also specify the minimum number of characters required for the create option to appear using the `min-length` prop.
 
-```blade
+```html
 <flux:pillbox wire:model="selectedTags" variant="combobox" multiple>
     <x-slot name="input">
         <flux:pillbox.input wire:model="search" placeholder="Choose tags..." />
@@ -145,7 +145,7 @@ If you're using `:filter="false"`, make sure to adjust your query to always incl
 
 Flux will automatically disable the create option during requests to prevent duplicate entries and when the list is updated, it performs a uniqueness check on the frontend.
 
-```blade
+```html
 <flux:pillbox wire:model.live="selectedTags" variant="combobox" multiple :filter="false">
     <x-slot name="input">
         <flux:pillbox.input wire:model.live="search" placeholder="Choose tags..." />
@@ -180,7 +180,7 @@ public function tags() {
 
 When then create option is hidden by the frontend but new results aren't available yet, Flux displays a special "Loading..." message. To customize this message, use the `when-loading` prop on the `<flux:pillbox.option.empty>` component.
 
-```blade
+```html
 <flux:pillbox wire:model="selectedTags" variant="combobox" multiple :filter="false">
     ...
 
@@ -196,7 +196,7 @@ When then create option is hidden by the frontend but new results aren't availab
 
 When you perform additional validation on the backend, the search input will indicate an invalid state when there are validation errors present. Make sure to reset the error bag when the user updates the input.
 
-```blade
+```html
 <flux:pillbox wire:model.live="selectedTags" variant="combobox" multiple placeholder="Choose tags..." :filter="false">
     <x-slot name="input">
         <flux:pillbox.input wire:model.live="search" placeholder="Choose tags..." />
@@ -226,7 +226,7 @@ public function updatedSearch() {
 
 Use the modal prop to specify a name of a modal and handle more complex creation workflows inside a form.
 
-```blade
+```html
 <flux:pillbox wire:model="projectId" variant="combobox" placeholder="Choose project...">
     <flux:pillbox.option.create modal="create-tag">Create new</flux:pillbox.option>
 

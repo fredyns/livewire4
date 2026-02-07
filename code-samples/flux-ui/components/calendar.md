@@ -6,21 +6,21 @@ A flexible calendar component for date selection. Supports single dates, multipl
 
 ## Basic Example
 
-```blade
+```html
 <flux:calendar />
 ```
 
 ## Basic Usage
 
-```blade
+```html
 <flux:calendar value="2026-01-27" />
 ```
 
-```blade
+```html
 <flux:calendar wire:model="date" />
 ```
 
-```blade
+```html
 <?php use Illuminate\Support\Carbon;
 use Livewire\Component;
 
@@ -37,19 +37,19 @@ class BookAppointment extends Component
 
 ## Multiple dates
 
-```blade
+```html
 <flux:calendar multiple />
 ```
 
-```blade
+```html
 <flux:calendar multiple value="2026-01-02,2026-01-05,2026-01-15" />
 ```
 
-```blade
+```html
 <flux:calendar multiple wire:model="dates" />
 ```
 
-```blade
+```html
 <?php use Illuminate\Support\Carbon;
 use Livewire\Component;
 
@@ -69,19 +69,19 @@ class RequestTimeOff extends Component
 
 ## Date range
 
-```blade
+```html
 <flux:calendar mode="range" />
 ```
 
-```blade
+```html
 <flux:calendar mode="range" value="2026-01-02/2026-01-06" />
 ```
 
-```blade
+```html
 <flux:calendar mode="range" wire:model="range" />
 ```
 
-```blade
+```html
 <?php use Livewire\Component;
 
 class BookFlight extends Component
@@ -98,7 +98,7 @@ class BookFlight extends Component
 }
 ```
 
-```blade
+```html
 <?php use Livewire\Component;
 use Flux\DateRange;
 
@@ -118,7 +118,7 @@ class BookFlight extends Component
 
 ## Range Configuration
 
-```blade
+```html
 <!-- Set minimum and maximum range limits -->
 <flux:calendar mode="range" min-range="3" max-range="10" />
 
@@ -128,23 +128,23 @@ class BookFlight extends Component
 
 ## Size
 
-```blade
+```html
 <flux:calendar size="xl" />
 ```
 
 ## Static
 
-```blade
+```html
 <flux:calendar static value="2026-01-27" size="xs" :navigation="false" />
 ```
 
 ## Min/max dates
 
-```blade
+```html
 <flux:calendar max="2026-01-27" />
 ```
 
-```blade
+```html
 <!-- Prevent selection before today... -->
 <flux:calendar min="today" />
 
@@ -154,63 +154,63 @@ class BookFlight extends Component
 
 ## Unavailable dates
 
-```blade
+```html
 <flux:calendar unavailable="2026-01-26,2026-01-28" />
 ```
 
 ## With today shortcut
 
-```blade
+```html
 <flux:calendar with-today />
 ```
 
 ## Selectable header
 
-```blade
+```html
 <flux:calendar selectable-header />
 ```
 
 ## Fixed weeks
 
-```blade
+```html
 <flux:calendar fixed-weeks />
 ```
 
 ## Start day
 
-```blade
+```html
 <flux:calendar start-day="1" />
 ```
 
 ## Open to
 
-```blade
+```html
 <flux:calendar open-to="2027-02-01" />
 ```
 
-```blade
+```html
 <flux:calendar open-to="2027-02-01" force-open-to />
 ```
 
 ## Week numbers
 
-```blade
+```html
 <flux:calendar week-numbers />
 ```
 
 ## Localization
 
-```blade
+```html
 <flux:calendar locale="ja-JP" />
 ```
 
 ## The DateRange object
 
-```blade
+```html
 <flux:calendar wire:model.live="range" />
 ```
 
-```blade
+```html
 <?php use Livewire\Component;
 use Flux\DateRange;
 
@@ -222,7 +222,7 @@ class Dashboard extends Component
 
 ## Instantiation
 
-```blade
+```html
 <?php use Livewire\Component;
 use Flux\DateRange;
 
@@ -239,7 +239,7 @@ class Dashboard extends Component
 
 ## Persisting to the session
 
-```blade
+```html
 <?php use Livewire\Attributes\Session;
 use Livewire\Component;
 use Flux\DateRange;
@@ -253,7 +253,7 @@ class Dashboard extends Component
 
 ## Using with Eloquent
 
-```blade
+```html
 <?php use Livewire\Attributes\Computed;
 use Livewire\Component;
 use App\Models\Order;
@@ -273,7 +273,7 @@ class Dashboard extends Component
 
 ## Available methods
 
-```blade
+```html
 $range = new Flux\DateRange(
     now()->subDays(1),
     now()->addDays(1),
@@ -298,7 +298,7 @@ foreach ($range as $date) {
 $range->toArray();
 ```
 
-```blade
+```html
 $orders = Order::whereBetween('created_at', $range)->get();
 ```
 

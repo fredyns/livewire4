@@ -6,7 +6,7 @@ A full-width top navigation layout for your application.
 
 ## Basic Example
 
-```blade
+```html
 <head>
     <!-- ... -->
 

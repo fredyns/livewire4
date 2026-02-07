@@ -31,7 +31,7 @@ class SubscriberCount extends Component
 }
 ```
 
-```blade
+```html
 <div wire:poll>
     Subscribers: {{ $count }}
 </div>
@@ -41,7 +41,7 @@ Normally, this component would show the subscriber count for the user and never 
 
 You can also specify an action to fire on the polling interval by passing a value to `wire:poll`:
 
-```blade
+```html
 <div wire:poll="refreshSubscribers">
     Subscribers: {{ $count }}
 </div>
@@ -57,7 +57,7 @@ The best way to reduce requests in this scenario is simply to make the polling i
 
 You can manually control how often the component will poll by appending the desired duration to `wire:poll` like so:
 
-```blade
+```html
 <div wire:poll.15s> <!-- In seconds... -->
 
 <div wire:poll.15000ms> <!-- In milliseconds... -->
@@ -69,7 +69,7 @@ To further cut down on server requests, Livewire automatically throttles polling
 
 If you want to opt-out of this behavior and keep polling continuously, even when a tab is in the background, you can add the `.keep-alive` modifier to `wire:poll`:
 
-```blade
+```html
 <div wire:poll.keep-alive>
 ```
 
@@ -77,7 +77,7 @@ If you want to opt-out of this behavior and keep polling continuously, even when
 
 Another measure you can take to only poll when necessary, is to add the `.visible` modifier to `wire:poll`. The `.visible` modifier instructs Livewire to only poll the component when it is visible on the page:
 
-```blade
+```html
 <div wire:poll.visible>
 ```
 

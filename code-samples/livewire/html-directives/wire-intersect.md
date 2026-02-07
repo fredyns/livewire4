@@ -10,7 +10,7 @@ Livewire's `wire:intersect` directive allows you to execute an action when an el
 
 The simplest form runs an action when an element becomes visible:
 
-```blade
+```html
 <div wire:intersect="loadMore">
     <!-- Content loads when scrolled into view -->
 </div>
@@ -22,7 +22,7 @@ When the element enters the viewport, the `loadMore` action will be called on yo
 
 You can specify whether to run the action on enter, leave, or both:
 
-```blade
+```html
 <!-- Runs when entering viewport (default) -->
 <div wire:intersect="trackView">...</div>
 
@@ -37,7 +37,7 @@ You can specify whether to run the action on enter, leave, or both:
 
 Control how much of the element needs to be visible before triggering:
 
-```blade
+```html
 <!-- Trigger when any part is visible (default) -->
 <div wire:intersect="load">...</div>
 
@@ -55,7 +55,7 @@ Control how much of the element needs to be visible before triggering:
 
 Add a margin around the viewport to trigger the action before/after the element enters:
 
-```blade
+```html
 <!-- Trigger 200px before entering viewport -->
 <div wire:intersect.margin.200px="loadMore">...</div>
 
@@ -70,7 +70,7 @@ Add a margin around the viewport to trigger the action before/after the element 
 
 Use the `.once` modifier to ensure the action only fires on the first intersection:
 
-```blade
+```html
 <div wire:intersect.once="trackImpression">
     <!-- Action only fires once, even if scrolled past multiple times -->
 </div>
@@ -82,7 +82,7 @@ This is particularly useful for analytics or tracking when you only want to reco
 
 You can combine multiple modifiers to create precise behaviors:
 
-```blade
+```html
 <!-- Load when half visible, only once, with 100px margin -->
 <div wire:intersect.once.half.margin.100px="loadSection">
     <!-- ... -->
@@ -161,7 +161,7 @@ new class extends Component {
 
 ### Tracking Visibility
 
-```blade
+```html
 <div wire:intersect:enter.once="trackView" wire:intersect:leave="trackLeave">
     <!-- Track when users view and leave this content -->
 </div>

@@ -41,7 +41,7 @@ class CreatePost extends Component
 }
 ```
 
-```blade
+```html
 <form wire:submit="save">
     <input type="text" wire:model="title">
 

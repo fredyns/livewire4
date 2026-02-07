@@ -59,7 +59,7 @@ new #[Layout('layouts::dashboard', ['title' => 'Posts Dashboard'])] class extend
 
 In your layout file, the `$title` variable will be available:
 
-```blade
+```html
 <!DOCTYPE html>
 <html>
 <head>

@@ -19,7 +19,7 @@ The most common cause is forgetting to add `wire:key` to elements and components
 
 Any time you have a loop in your Blade templates, add `wire:key` to the opening tag of the first element within the loop:
 
-```blade
+```html
 @foreach($posts as $post)
     <div wire:key="{{ $post->id }}">
         ...
@@ -29,7 +29,7 @@ Any time you have a loop in your Blade templates, add `wire:key` to the opening 
 
 The same applies to Livewire components within a loop:
 
-```blade
+```html
 @foreach($posts as $post)
     <livewire:show-post :$post :wire:key="$post->id" />
 @endforeach
@@ -37,7 +37,7 @@ The same applies to Livewire components within a loop:
 
 **Important:** When you have a Livewire component deeply nested inside a `@foreach` loop, you STILL need to add a key to it:
 
-```blade
+```html
 @foreach($posts as $post)
     <div wire:key="{{ $post->id }}">
         ...
@@ -51,7 +51,7 @@ The same applies to Livewire components within a loop:
 
 Another scenario is having duplicate keys within the same component. Add prefixes to designate each set of keys as unique:
 
-```blade
+```html
 <div>
     @foreach($posts as $post)
         <div wire:key="post-{{ $post->id }}">...</div>

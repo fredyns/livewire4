@@ -6,13 +6,13 @@ Highlight information like status, category, or count.
 
 ## Basic Example
 
-```blade
+```html
 <flux:badge color="lime">New</flux:badge>
 ```
 
 ## Sizes
 
-```blade
+```html
 <flux:badge size="sm">Small</flux:badge>
 <flux:badge>Default</flux:badge>
 <flux:badge size="lg">Large</flux:badge>
@@ -20,7 +20,7 @@ Highlight information like status, category, or count.
 
 ## Icons
 
-```blade
+```html
 <flux:badge icon="user-circle">Users</flux:badge>
 <flux:badge icon="document-text">Files</flux:badge>
 <flux:badge icon:trailing="video-camera">Videos</flux:badge>
@@ -28,19 +28,19 @@ Highlight information like status, category, or count.
 
 ## Rounded
 
-```blade
+```html
 <flux:badge rounded icon="user">Users</flux:badge>
 ```
 
 ## As button
 
-```blade
+```html
 <flux:badge as="button" rounded icon="plus" size="lg">Amount</flux:badge>
 ```
 
 ## With close button
 
-```blade
+```html
 <flux:badge>
     Admin <flux:badge.close />
 </flux:badge>
@@ -48,7 +48,7 @@ Highlight information like status, category, or count.
 
 ## Colors
 
-```blade
+```html
 <flux:badge color="zinc">Zinc</flux:badge>
 <flux:badge color="red">Red</flux:badge>
 <flux:badge color="orange">Orange</flux:badge>
@@ -71,7 +71,7 @@ Highlight information like status, category, or count.
 
 ## Solid variant
 
-```blade
+```html
 <flux:badge variant="solid" color="zinc">Zinc</flux:badge>
 <flux:badge variant="solid" color="red">Red</flux:badge>
 <flux:badge variant="solid" color="orange">Orange</flux:badge>
@@ -94,7 +94,7 @@ Highlight information like status, category, or count.
 
 ## Inset
 
-```blade
+```html
 <flux:heading>
     Page builder <flux:badge color="lime" inset="top bottom">New</flux:badge>
 </flux:heading>

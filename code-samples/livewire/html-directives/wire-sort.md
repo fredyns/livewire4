@@ -30,7 +30,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <ul wire:sort="sortItem">
     @foreach ($todo->items as $item)
         <li wire:sort:item="{{ $item->id }}">
@@ -68,7 +68,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div>
     @foreach ($user->todoLists as $todo)
         <ul wire:sort="sortItem" wire:sort:group="todos">
@@ -90,7 +90,7 @@ By default, users can drag an item by clicking and dragging anywhere on the sort
 
 This is useful when you have interactive elements within your sortable items and want to prevent accidental drags:
 
-```blade
+```html
 <ul wire:sort="sortItem">
     @foreach ($todo->items as $item)
         <li wire:sort:item="{{ $item->id }}">
@@ -110,7 +110,7 @@ Now users can only drag items by clicking and dragging the element marked with `
 
 You can prevent specific areas within a sortable item from triggering drag operations by using `wire:sort:ignore`. This is particularly useful when you have buttons or other interactive elements inside sortable items:
 
-```blade
+```html
 <ul wire:sort="sortItem">
     @foreach ($todo->items as $item)
         <li wire:sort:item="{{ $item->id }}">

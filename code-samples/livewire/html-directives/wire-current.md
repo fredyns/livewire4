@@ -10,7 +10,7 @@ The `wire:current` directive allows you to easily detect and style currently act
 
 Here's a simple example of adding `wire:current` to links in a navbar so that the currently active link has a stronger font weight:
 
-```blade
+```html
 <nav>
     <a href="/dashboard" ... wire:current="font-bold text-zinc-800">Dashboard</a>
     <a href="/posts" ... wire:current="font-bold text-zinc-800">Posts</a>
@@ -32,7 +32,7 @@ If you wish to use exact matching, you can add the `.exact` modifier to the dire
 
 Here's an example where you might want to use exact matching to prevent the "Dashboard" link from being highlighted when the user visits `/posts`:
 
-```blade
+```html
 <nav>
     <a href="/" wire:current.exact="font-bold">Dashboard</a>
 </nav>
@@ -44,7 +44,7 @@ By default, `wire:current` will remove trailing slashes (`/`) from its compariso
 
 If you'd like to disable this behavior and force a strict path string comparison, you can append the `.strict` modifier:
 
-```blade
+```html
 <nav>
     <a href="/posts/" wire:current.strict="font-bold">Dashboard</a>
 </nav>

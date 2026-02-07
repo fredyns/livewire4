@@ -6,7 +6,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Basic Example
 
-```blade
+```html
 <flux:radio.group wire:model="payment" label="Select your payment method">
     <flux:radio value="cc" label="Credit Card" checked />
     <flux:radio value="paypal" label="Paypal" />
@@ -16,7 +16,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## With descriptions
 
-```blade
+```html
 <flux:radio.group label="Role">
     <flux:radio name="role" value="administrator" label="Administrator" description="Administrator users can perform any action." checked />
     <flux:radio name="role" value="editor" label="Editor" description="Editor users have the ability to read, create, and update." />
@@ -26,7 +26,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Within fieldset
 
-```blade
+```html
 <flux:fieldset>
     <flux:legend>Role</flux:legend>
     <flux:radio.group>
@@ -39,7 +39,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Segmented
 
-```blade
+```html
 <flux:radio.group wire:model="role" label="Role" variant="segmented">
     <flux:radio label="Admin" />
     <flux:radio label="Editor" />
@@ -47,7 +47,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 </flux:radio.group>
 ```
 
-```blade
+```html
 <flux:radio.group wire:model="role" label="Role" variant="segmented" size="sm">
     <flux:radio label="Admin" />
     <flux:radio label="Editor" />
@@ -57,7 +57,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Segmented with icons
 
-```blade
+```html
 <flux:radio.group wire:model="role" variant="segmented">
     <flux:radio label="Admin" icon="wrench" />
     <flux:radio label="Editor" icon="pencil-square" />
@@ -67,7 +67,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Radio cards
 
-```blade
+```html
 <flux:radio.group wire:model="shipping" label="Shipping" variant="cards" class="max-sm:flex-col">
     <flux:radio value="standard" label="Standard" description="4-10 business days" checked />
     <flux:radio value="fast" label="Fast" description="2-5 business days" />
@@ -75,7 +75,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 </flux:radio.group>
 ```
 
-```blade
+```html
 <flux:radio.group ... class="max-sm:flex-col">
     <!-- ... -->
 </flux:radio.group>
@@ -83,7 +83,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Vertical cards
 
-```blade
+```html
 <flux:radio.group label="Shipping" variant="cards" class="flex-col">
     <flux:radio value="standard" label="Standard" description="4-10 business days" />
     <flux:radio value="fast" label="Fast" description="2-5 business days" />
@@ -93,7 +93,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Cards with icons
 
-```blade
+```html
 <flux:radio.group label="Shipping" variant="cards" class="max-sm:flex-col">
     <flux:radio value="standard" icon="truck" label="Standard" description="4-10 business days" />
     <flux:radio value="fast" icon="cube" label="Fast" description="2-5 business days" />
@@ -103,7 +103,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Cards without indicators
 
-```blade
+```html
 <flux:radio.group label="Shipping" variant="cards" :indicator="false" class="max-sm:flex-col">
     <flux:radio value="standard" icon="truck" label="Standard" description="4-10 business days" />
     <flux:radio value="fast" icon="cube" label="Fast" description="2-5 business days" />
@@ -113,7 +113,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Custom card content
 
-```blade
+```html
 <flux:radio.group label="Shipping" variant="cards" class="max-sm:flex-col">
     <flux:radio value="standard" checked>
         <flux:radio.indicator />
@@ -141,7 +141,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Pills
 
-```blade
+```html
 <flux:radio.group wire:model="priority" label="Priority" variant="pills">
     <flux:radio value="low" label="Low" />
     <flux:radio value="medium" label="Medium" />
@@ -152,7 +152,7 @@ Select one option from a set of mutually exclusive choices. Perfect for single-c
 
 ## Buttons
 
-```blade
+```html
 <flux:radio.group variant="buttons" class="w-full *:flex-1" label="Feedback type">
     <flux:radio icon="bug-ant" checked>Bug report</flux:radio>
     <flux:radio icon="light-bulb">Suggestion</flux:radio>

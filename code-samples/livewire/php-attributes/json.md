@@ -28,7 +28,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div x-data="{ query: '', posts: [] }">
     <input
         type="text"

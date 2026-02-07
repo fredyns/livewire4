@@ -4,13 +4,13 @@ Source: https://fluxui.dev/components/switch
 
 ## Basic Example
 
-```blade
+```html
 <flux:switch wire:model="enabled" />
 ```
 
 ## Fieldset
 
-```blade
+```html
 <flux:fieldset>
     <flux:legend>Email notifications</flux:legend>
 
@@ -50,7 +50,7 @@ Source: https://fluxui.dev/components/switch
 
 ## Left align
 
-```blade
+```html
 <flux:fieldset>
     <flux:legend>Email notifications</flux:legend>
 

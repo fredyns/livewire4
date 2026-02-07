@@ -6,7 +6,7 @@ Organize content into separate panels within a single container. Easily switch b
 
 ## Basic Example
 
-```blade
+```html
 <flux:tab.group>
     <flux:tabs>
         <flux:tab name="profile">Profile</flux:tab>
@@ -21,7 +21,7 @@ Organize content into separate panels within a single container. Easily switch b
 
 ## With icons
 
-```blade
+```html
 <flux:tab.group>
     <flux:tabs>
         <flux:tab name="profile" icon="user">Profile</flux:tab>
@@ -36,7 +36,7 @@ Organize content into separate panels within a single container. Easily switch b
 
 ## Padded edges
 
-```blade
+```html
 <flux:tabs class="px-4">
     <flux:tab name="profile">Profile</flux:tab>
     <flux:tab name="account">Account</flux:tab>
@@ -48,7 +48,7 @@ Organize content into separate panels within a single container. Easily switch b
 
 If your tabs extend beyond the viewport, especially on mobile devices, you should make them `scrollable` to prevent horizontal overflow.
 
-```blade
+```html
 <flux:tab.group>
     <flux:tabs scrollable>
         <flux:tab name="profile">Profile</flux:tab>
@@ -75,7 +75,7 @@ If your tabs extend beyond the viewport, especially on mobile devices, you shoul
 
 Use `scrollable:fade` to add a fade effect to the trailing edge. This visual cue indicates that additional tabs are available beyond the visible area.
 
-```blade
+```html
 <flux:tab.group>
     <flux:tabs scrollable scrollable:fade>
         <flux:tab name="profile">Profile</flux:tab>
@@ -100,7 +100,7 @@ Use `scrollable:fade` to add a fade effect to the trailing edge. This visual cue
 
 Tab through content with visually separated, button-like tabs. Ideal for toggling between views inside a container with a constrained width.
 
-```blade
+```html
 <flux:tabs variant="segmented">
     <flux:tab>List</flux:tab>
     <flux:tab>Board</flux:tab>
@@ -110,7 +110,7 @@ Tab through content with visually separated, button-like tabs. Ideal for togglin
 
 ## Segmented with icons
 
-```blade
+```html
 <flux:tabs variant="segmented">
     <flux:tab icon="list-bullet">List</flux:tab>
     <flux:tab icon="squares-2x2">Board</flux:tab>
@@ -120,7 +120,7 @@ Tab through content with visually separated, button-like tabs. Ideal for togglin
 
 ## Small segmented tabs
 
-```blade
+```html
 <flux:tabs variant="segmented" size="sm">
     <flux:tab>Demo</flux:tab>
     <flux:tab>Code</flux:tab>
@@ -129,7 +129,7 @@ Tab through content with visually separated, button-like tabs. Ideal for togglin
 
 ## Pill tabs
 
-```blade
+```html
 <flux:tabs variant="pills">
     <flux:tab>List</flux:tab>
     <flux:tab>Board</flux:tab>
@@ -141,7 +141,7 @@ Tab through content with visually separated, button-like tabs. Ideal for togglin
 
 If you need, you can dynamically generate additional tabs and panels in your Livewire component. Just make sure you use matching names for the new tabs and panels.
 
-```blade
+```html
 <flux:tab.group>
     <flux:tabs>
         @foreach($tabs as $id => $tab)

@@ -57,7 +57,7 @@ When the user types in the todo-input component, the parent's `$todo` property a
 
 Without `#[Modelable]`, you would need to manually handle two-way communication between parent and child:
 
-```blade
+```html
 <!-- Without #[Modelable] - manual approach -->
 <livewire:todo-input
     :value="$todo"
@@ -92,7 +92,7 @@ new class extends Component {
 </div>
 ```
 
-```blade
+```html
 {{-- Usage in parent --}}
 <livewire:date-picker wire:model="startDate" />
 <livewire:date-picker wire:model="endDate" />
@@ -102,7 +102,7 @@ new class extends Component {
 
 The parent can use `wire:model` modifiers, and they'll work as expected:
 
-```blade
+```html
 {{-- Live updates on every keystroke --}}
 <livewire:todo-input wire:model.live="todo" />
 
@@ -143,7 +143,7 @@ new class extends Component {
 </div>
 ```
 
-```blade
+```html
 {{-- Usage --}}
 <livewire:rich-editor wire:model="postContent" />
 ```

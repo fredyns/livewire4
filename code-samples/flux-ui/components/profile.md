@@ -6,32 +6,32 @@ Display a user's profile with an avatar and optional name in a compact, interact
 
 ## Basic Example
 
-```blade
+```html
 <flux:profile avatar="https://unavatar.io/x/calebporzio" />
 ```
 
 ## With name
 
-```blade
+```html
 <flux:profile name="Caleb Porzio" avatar="https://unavatar.io/x/calebporzio" />
 ```
 
 ## Without chevron
 
-```blade
+```html
 <flux:profile :chevron="false" avatar="https://unavatar.io/x/calebporzio" />
 ```
 
 ## Circle avatar
 
-```blade
+```html
 <flux:profile circle :chevron="false" avatar="https://unavatar.io/x/calebporzio" />
 <flux:profile circle name="Caleb Porzio" avatar="https://unavatar.io/x/calebporzio" />
 ```
 
 ## Avatar with initials
 
-```blade
+```html
 <!-- Automatically generates initials from name -->
 <flux:profile name="Caleb Porzio" />
 
@@ -47,13 +47,13 @@ Display a user's profile with an avatar and optional name in a compact, interact
 
 ## Custom trailing icon
 
-```blade
+```html
 <flux:profile icon:trailing="chevron-up-down" avatar="https://unavatar.io/x/calebporzio" name="Caleb Porzio" />
 ```
 
 ## Examples
 
-```blade
+```html
 <flux:dropdown align="end">
     <flux:profile avatar="https://unavatar.io/x/calebporzio" />
     <flux:navmenu class="max-w-[12rem]">
@@ -76,7 +76,7 @@ Display a user's profile with an avatar and optional name in a compact, interact
 </flux:dropdown>
 ```
 
-```blade
+```html
 <flux:dropdown position="top" align="start">
     <flux:profile avatar="https://unavatar.io/x/calebporzio" name="Caleb Porzio" />
     <flux:menu>

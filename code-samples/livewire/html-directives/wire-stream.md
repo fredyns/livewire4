@@ -151,7 +151,7 @@ $this->stream(to: 'target', content: '...', replace: true);
 
 Append/replace can also be specified at the target element level by appending or removing the `.replace` modifier:
 
-```blade
+```html
 <!-- Append contents... -->
 <div wire:stream="target">
 

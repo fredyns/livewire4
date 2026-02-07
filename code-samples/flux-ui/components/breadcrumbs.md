@@ -6,7 +6,7 @@ Help users navigate and understand their place within your application.
 
 ## Basic Example
 
-```blade
+```html
 <flux:breadcrumbs>
     <flux:breadcrumbs.item href="#">Home</flux:breadcrumbs.item>
     <flux:breadcrumbs.item href="#">Blog</flux:breadcrumbs.item>
@@ -16,7 +16,7 @@ Help users navigate and understand their place within your application.
 
 ## With slashes
 
-```blade
+```html
 <flux:breadcrumbs>
     <flux:breadcrumbs.item href="#" separator="slash">Home</flux:breadcrumbs.item>
     <flux:breadcrumbs.item href="#" separator="slash">Blog</flux:breadcrumbs.item>
@@ -26,7 +26,7 @@ Help users navigate and understand their place within your application.
 
 ## With icon
 
-```blade
+```html
 <flux:breadcrumbs>
     <flux:breadcrumbs.item href="#" icon="home" />
     <flux:breadcrumbs.item href="#">Blog</flux:breadcrumbs.item>
@@ -36,7 +36,7 @@ Help users navigate and understand their place within your application.
 
 ## With ellipsis
 
-```blade
+```html
 <flux:breadcrumbs>
     <flux:breadcrumbs.item href="#" icon="home" />
     <flux:breadcrumbs.item icon="ellipsis-horizontal" />
@@ -46,7 +46,7 @@ Help users navigate and understand their place within your application.
 
 ## With ellipsis dropdown
 
-```blade
+```html
 <flux:breadcrumbs>
     <flux:breadcrumbs.item href="#" icon="home" />
     <flux:breadcrumbs.item>

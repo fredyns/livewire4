@@ -32,7 +32,7 @@ This command will generate a file called `resources/views/layouts/app.blade.php`
 
 Ensure you have created a Blade file at this location and included a `{{ $slot }}` placeholder:
 
-```blade
+```html
 <!-- resources/views/layouts/app.blade.php -->
 
 <!DOCTYPE html>
@@ -104,7 +104,7 @@ Assigning unique page titles to each page in your application is helpful for bot
 
 To set a custom page title for a page component, first, make sure your layout file includes a dynamic title:
 
-```blade
+```html
 <head>
     <title>{{ $title ?? config('app.name') }}</title>
 </head>
@@ -143,7 +143,7 @@ If your layout file has any named slots in addition to `$slot`, you can set thei
 
 ### Layout with Named Slots
 
-```blade
+```html
 <!-- resources/views/layouts/app.blade.php -->
 
 <!DOCTYPE html>
@@ -170,7 +170,7 @@ If your layout file has any named slots in addition to `$slot`, you can set thei
 
 Then, in your component view, define an `<x-slot>` element outside the root element:
 
-```blade
+```html
 <x-slot:lang>fr</x-slot> <!-- This component is in French -->
 
 <div>

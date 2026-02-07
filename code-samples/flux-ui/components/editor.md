@@ -8,7 +8,7 @@ A basic rich text editor for your application. Built using [ProseMirror](https:/
 
 ## Basic Example
 
-```blade
+```html
 <flux:editor wire:model="content" label="…" description="…" />
 ```
 
@@ -17,7 +17,7 @@ Flux's editor toolbar is both keyboard/screen-reader accessible and completely c
 
 ## Configuring items
 
-```blade
+```html
 <flux:editor toolbar="heading | bold italic underline | align ~ undo redo" />
 ```
 >You may have noticed the `|` and `~` characters in the toolbar configuration. These are shorthand for `separator` and `spacer` respectively.
@@ -52,7 +52,7 @@ resources/
 
 Here's an example of what a custom "Copy to clipboard" item in a blade file might look like:
 
-```blade
+```html
 <flux:tooltip content="{{ __('Copy to clipboard') }}" class="contents">
     <flux:editor.button x-on:click="navigator.clipboard?.writeText($el.closest('[data-flux-editor]').value); $el.setAttribute('data-copied', ''); setTimeout(() => $el.removeAttribute('data-copied'), 2000)">
         <flux:icon.clipboard variant="outline" class="[[data-copied]_&]:hidden size-5!" />
@@ -62,14 +62,14 @@ Here's an example of what a custom "Copy to clipboard" item in a blade file migh
 ```
 
 Now you can reference your new component by name in any toolbar configuration like so:
-```blade
+```html
 <flux:editor toolbar="heading | […] | align ~ copy" />
 ```
 
 ## Customization
 If you have deeper customization needs, you can compose your own editor component. Here's an example of putting a custom dropdown menu in an editor's toolbar:
 
-```blade
+```html
 <flux:editor>
     <flux:editor.toolbar>
         <flux:editor.heading />
@@ -101,7 +101,7 @@ If you have deeper customization needs, you can compose your own editor componen
 
 ## Height
 
-```blade
+```html
 <flux:editor class="**:data-[slot=content]:min-h-[100px]!" />
 ```
 
@@ -160,7 +160,7 @@ The following extensions are already installed:
 ## Set up listener
 To do this, you'll first need to create a listener for the `flux:editor` event in the `<head>` tag in your layout.
 
-```blade
+```html
 <head>
     ...
 </head>
@@ -168,7 +168,7 @@ To do this, you'll first need to create a listener for the `flux:editor` event i
 
 Or you can add the listener to your `app.js` file.
 
-```blade
+```html
 ...
 document.addEventListener('flux:editor', (e) => {
     ...
@@ -180,7 +180,7 @@ Once you have the listener set up, you can add extensions by passing an array of
 
 >If an extension already exists, it will be replaced.
 
-```blade
+```html
 import Youtube from 'https://cdn.jsdelivr.net/npm/@tiptap/extension-youtube@2.11.7/+esm'
 
 document.addEventListener('flux:editor', (e) => {
@@ -196,7 +196,7 @@ document.addEventListener('flux:editor', (e) => {
 ## Disabling extensions
 If you need to disable an extension that comes with the editor, you can disable an extension by calling the `disableExtension` method supplied by the `flux:editor` event and passing through the name of the extension.
 
-```blade
+```html
 document.addEventListener('flux:editor', (e) => {
     e.detail.disableExtension('underline')
 })
@@ -209,7 +209,7 @@ You can do so by passing a callback to the `init` method supplied by the `flux:e
 
 >The `init` callback will be called when Tiptap's `beforeCreate` event is fired. You can find more details about Tiptap's events in the [Tiptap documentation](https://tiptap.dev/docs/editor/api/events).
 
-```blade
+```html
 document.addEventListener('flux:editor', (e) => {
     e.detail.init(({ editor }) => {
         editor.on('create', () => {})

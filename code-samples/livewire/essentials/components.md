@@ -110,7 +110,7 @@ new class extends Component {
 
 **Blade Template (create.blade.php):**
 
-```blade
+```html
 <div>
     <input wire:model="title" type="text">
     <button wire:click="save">Save Post</button>
@@ -171,20 +171,20 @@ This combines all files back into a single file and deletes the directory.
 
 You can include a Livewire component within any Blade template using the `<livewire:component-name />` syntax:
 
-```blade
+```html
 <livewire:component-name />
 ```
 
 If the component is located in a sub-directory, use the dot (.) character:
 
-```blade
+```html
 <!-- For: resources/views/components/post/⚡create.blade.php -->
 <livewire:post.create />
 ```
 
 For namespaced components—like `pages::`—use the namespace prefix:
 
-```blade
+```html
 <livewire:pages::post.create />
 ```
 
@@ -192,13 +192,13 @@ For namespaced components—like `pages::`—use the namespace prefix:
 
 To pass data into a Livewire component, use prop attributes on the component tag:
 
-```blade
+```html
 <livewire:post.create title="Initial Title" />
 ```
 
 For dynamic values or variables, prefix the attribute with a colon:
 
-```blade
+```html
 <livewire:post.create :title="$initialTitle" />
 ```
 
@@ -322,7 +322,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div>
     <h1>{{ $title }}</h1>
 </div>
@@ -353,7 +353,7 @@ public function posts()
 }
 ```
 
-```blade
+```html
 <div>
     @foreach ($this->posts as $post)
         <article wire:key="{{ $post->id }}">{{ $post->title }}</article>
@@ -409,7 +409,7 @@ Then use them when creating, rendering, and routing:
 php artisan make:livewire admin::users-table
 ```
 
-```blade
+```html
 <livewire:admin::users-table />
 ```
 
@@ -521,7 +521,7 @@ class CreatePost extends Component
 
 **resources/views/livewire/create-post.blade.php:**
 
-```blade
+```html
 <div>
     {{-- ... --}}
 </div>

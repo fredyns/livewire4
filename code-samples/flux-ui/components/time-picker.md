@@ -6,35 +6,35 @@ Allow users to select specific times for scheduling events or setting appointmen
 
 ## Basic usage
 
-```blade
+```html
 <flux:time-picker value="11:30" />
 ```
 
-```blade
+```html
 <flux:time-picker wire:model="time" />
 ```
 
 ## Input trigger
 
-```blade
+```html
 <flux:time-picker type="input" />
 ```
 
 ## Without dropdown
 
-```blade
+```html
 <flux:time-picker type="input" :dropdown="false" />
 ```
 
 ## Multiple times
 
-```blade
+```html
 <flux:time-picker multiple />
 ```
 
 ## Time format
 
-```blade
+```html
 <flux:time-picker time-format="12-hour" />
 <flux:time-picker time-format="24-hour" />
 ```
@@ -43,17 +43,17 @@ Allow users to select specific times for scheduling events or setting appointmen
 
 You can set the interval between the displayed time options by setting the interval attribute to a number of minutes. The default is 30 minutes.
 
-```blade
+```html
 <flux:time-picker interval="60" />
 ```
 
 ## Min/max times
 
-```blade
+```html
 <flux:time-picker min="09:00" max="17:00" />
 ```
 
-```blade
+```html
 <!-- Prevent selection before now... -->
 <flux:time-picker min="now" />
 
@@ -63,7 +63,7 @@ You can set the interval between the displayed time options by setting the inter
 
 ## Unavailable times
 
-```blade
+```html
 <flux:time-picker unavailable="03:00,04:00,05:30-07:29" />
 ```
 
@@ -71,13 +71,13 @@ You can set the interval between the displayed time options by setting the inter
 
 Set the time that the time picker will open to. Otherwise, the time picker defaults to the selected time, or the current time.
 
-```blade
+```html
 <flux:time-picker open-to="10:00" />
 ```
 
 ## Localization
 
-```blade
+```html
 <flux:time-picker locale="ja-JP" />
 ```
 

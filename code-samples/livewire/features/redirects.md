@@ -131,7 +131,7 @@ public function save()
 
 Then on the redirected page, you can access the flashed data:
 
-```blade
+```html
 @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}

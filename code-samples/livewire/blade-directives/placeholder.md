@@ -49,7 +49,7 @@ When rendered with `<livewire:revenue lazy />`, the placeholder displays until t
 
 Use `@placeholder` inside lazy islands to customize loading states:
 
-```blade
+```html
 @island(lazy: true)
     @placeholder
         <div class="animate-pulse">
@@ -71,7 +71,7 @@ The placeholder appears while the island is loading, then gets replaced with the
 
 Placeholders are ideal for skeleton loaders that match your content's layout:
 
-```blade
+```html
 @placeholder
     <div class="space-y-4">
         <div class="h-4 bg-gray-200 rounded w-3/4"></div>

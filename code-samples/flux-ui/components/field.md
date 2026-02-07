@@ -6,7 +6,7 @@ Encapsulate input elements with labels, descriptions, and validation.
 
 ## Basic Example
 
-```blade
+```html
 <flux:field>
     <flux:label>Email</flux:label>
 
@@ -19,14 +19,14 @@ Encapsulate input elements with labels, descriptions, and validation.
 ## Shorthand props
 Because using the field component in its full form can be verbose and repetitive, all form controls in flux allow you pass a label and a description parameter directly. Under the hood, they will be wrapped in a field with an error component automatically.
 
-```blade
+```html
 <flux:input wire:model="email" label="Email" type="email" />
 ```
 
 ## With trailing description
 Position the field description directly below the input.
 
-```blade
+```html
 <flux:field>
     <flux:label>Password</flux:label>
     <flux:input type="password" />
@@ -41,7 +41,7 @@ Position the field description directly below the input.
 ## With badge
 Badges allow you to enhance a field with additional information such as being "required" or "optional" when it might not be expected.
 
-```blade
+```html
 <flux:field>
     <flux:label badge="Required">Email</flux:label>
     <flux:input type="email" required />
@@ -58,7 +58,7 @@ Badges allow you to enhance a field with additional information such as being "r
 ## Split layout
 Display multiple fields horizontally in the same row.
 
-```blade
+```html
 <div class="grid grid-cols-2 gap-4">
     <flux:input label="First name" placeholder="River" />
     <flux:input label="Last name" placeholder="Porzio" />
@@ -67,7 +67,7 @@ Display multiple fields horizontally in the same row.
 
 ## Fieldset
 
-```blade
+```html
 <flux:fieldset>
     <flux:legend>Shipping address</flux:legend>
     <div class="space-y-6">

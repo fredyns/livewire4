@@ -20,7 +20,7 @@ By adding `wire:dirty` to an element, you are instructing Livewire to only show 
 
 To demonstrate, here is an example of an UpdatePost form containing a visual "Unsaved changes..." indication that signals to the user that the form contains input that has not been saved:
 
-```blade
+```html
 <form wire:submit="update">
     <input type="text" wire:model="title">
 
@@ -40,7 +40,7 @@ When the user submits the form, the message will disappear again, since the serv
 
 By adding the `.remove` modifier to `wire:dirty`, you can instead show an element by default and only hide it when the component has "dirty" state:
 
-```blade
+```html
 <div wire:dirty.remove>The data is in-sync...</div>
 ```
 
@@ -50,7 +50,7 @@ Imagine you are using `wire:model.live.blur` to update a property on the server 
 
 Here is an example of only showing a dirty indication when the title property has been changed:
 
-```blade
+```html
 <form wire:submit="update">
     <input wire:model.live.blur="title">
 
@@ -66,7 +66,7 @@ Often, instead of toggling entire elements, you may want to toggle individual CS
 
 Below is an example where a user types into an input field and the border becomes yellow, indicating an "unsaved" state. Then, when the user tabs away from the field, the border is removed, indicating that the state has been saved on the server:
 
-```blade
+```html
 <input wire:model.live.blur="title" wire:dirty.class="border-yellow-500">
 ```
 
@@ -78,7 +78,7 @@ In addition to the `wire:dirty` directive, you can check dirty state programmati
 
 To check if any property on the component has unsaved changes:
 
-```blade
+```html
 <div wire:show="$dirty">You have unsaved changes</div>
 ```
 
@@ -86,13 +86,13 @@ To check if any property on the component has unsaved changes:
 
 To check if a specific property has been modified:
 
-```blade
+```html
 <div wire:show="$dirty('title')">Title has been modified</div>
 ```
 
 You can also check nested properties:
 
-```blade
+```html
 <div wire:show="$dirty('user.name')">Name has been modified</div>
 ```
 
@@ -100,7 +100,7 @@ You can also check nested properties:
 
 You can use `$wire.$dirty()` in Alpine to conditionally run logic:
 
-```blade
+```html
 <button x-on:click="$wire.$dirty('title') && $wire.save()">
     Save Title
 </button>
@@ -108,7 +108,7 @@ You can use `$wire.$dirty()` in Alpine to conditionally run logic:
 
 Or apply conditional classes with Alpine:
 
-```blade
+```html
 <input
     wire:model="email"
     :class="$wire.$dirty('email') && 'border-yellow-500'"

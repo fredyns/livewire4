@@ -10,7 +10,7 @@
 
 To use `wire:cloak`, add the directive to any element you want to hide during page load:
 
-```blade
+```html
 <div wire:cloak>
     This content will be hidden until Livewire is fully loaded
 </div>
@@ -20,7 +20,7 @@ To use `wire:cloak`, add the directive to any element you want to hide during pa
 
 `wire:cloak` is particularly useful in scenarios where you want to prevent users from seeing uninitialized dynamic content such as elements shown or hidden using `wire:show`.
 
-```blade
+```html
 <div>
     <div wire:show="starred" wire:cloak>
         <!-- Yellow star icon... -->

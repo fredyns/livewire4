@@ -6,13 +6,13 @@ Create placeholder content while loading data.
 
 ## Basic Example
 
-```blade
+```html
 <flux:skeleton />
 ```
 
 ## Line of text
 
-```blade
+```html
 <flux:skeleton.group animate="shimmer">
     <flux:skeleton.line class="mb-2 w-1/4" />
     <flux:skeleton.line />
@@ -23,7 +23,7 @@ Create placeholder content while loading data.
 
 ## Animation
 
-```blade
+```html
 <flux:skeleton />
 <flux:skeleton animate="shimmer" />
 <flux:skeleton animate="pulse" />
@@ -35,7 +35,7 @@ Here are some examples of different ways you can use the skeleton component.
 
 ### Table
 
-```blade
+```html
 <flux:skeleton.group animate="shimmer">
     <flux:table>
         <flux:table.columns>
@@ -80,7 +80,7 @@ Here are some examples of different ways you can use the skeleton component.
 
 Use the skeleton component to create a loading state for a chart.
 
-```blade
+```html
 <flux:card class="dark:bg-zinc-800">
     <div class="flex flex-col gap-6">
         <div class="flex gap-12">

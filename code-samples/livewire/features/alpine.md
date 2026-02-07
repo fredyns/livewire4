@@ -14,7 +14,7 @@ The best place to learn about using AlpineJS is the [Alpine documentation](https
 
 To lay a foundation for the rest of this documentation, here is one of the most simple and informative examples of an Alpine component. A small "counter" that shows a number on the page and allows the user to increment that number by clicking a button:
 
-```blade
+```html
 <!-- Declare a JavaScript object of data... -->
 <div x-data="{ count: 0 }">
     <!-- Render the current "count" value inside an element... -->
@@ -33,7 +33,7 @@ Let's explore a more real-life example of using an Alpine component inside a Liv
 
 Below is a simple Livewire component showing the details of a post model from the database. By default, only the title of the post is shown:
 
-```blade
+```html
 <div>
     <h1>{{ $post->title }}</h1>
 
@@ -64,7 +64,7 @@ You can think of `$wire` as a gateway from JavaScript into PHP. It allows you to
 
 Here is an example of a simple "character count" utility in a form for creating a post. This will instantly show a user how many characters are contained inside their post's content as they type:
 
-```blade
+```html
 <form wire:submit="save">
     <!-- ... -->
 
@@ -84,7 +84,7 @@ As you can see `x-text` in the above example is being used to allow Alpine to co
 
 Here is an example of using `$wire` inside Alpine to clear the "title" field of a form for creating a post:
 
-```blade
+```html
 <form wire:submit="save">
     <input wire:model="title" type="text">
 
@@ -113,7 +113,7 @@ Alpine can also easily call any Livewire methods/actions by simply calling them 
 
 Here is an example of using Alpine to listen for a "blur" event on an input and triggering a form save. The "blur" event is dispatched by the browser when a user presses "tab" to remove focus from the current element and focus on the next one on the page:
 
-```blade
+```html
 <form wire:submit="save">
     <input wire:model="title" type="text" x-on:blur="$wire.save()">
 
@@ -145,7 +145,7 @@ public function deletePost($postId)
 
 Now, you can pass a `$postId` parameter to the `deletePost()` method from Alpine like so:
 
-```blade
+```html
 <button type="button" x-on:click="$wire.deletePost(1)">
     Delete
 </button>
@@ -153,7 +153,7 @@ Now, you can pass a `$postId` parameter to the `deletePost()` method from Alpine
 
 In general, something like a `$postId` would be generated in Blade. Here's an example of using Blade to determine which `$postId` Alpine passes into `deletePost()`:
 
-```blade
+```html
 @foreach ($posts as $post)
     <button type="button" wire:key="{{ $post->id }}" x-on:click="$wire.deletePost({{ $post->id }})">
         Delete "{{ $post->title }}"
@@ -189,7 +189,7 @@ Let's say, instead of an ID, your Post model uses UUIDs for indexes (IDs are int
 
 If we render the following just like we did with an ID there will be an issue:
 
-```blade
+```html
 <!-- Warning: this is an example of problematic code... -->
 <button
     type="button"
@@ -211,7 +211,7 @@ Notice the lack of quotes around the UUID string? When Alpine goes to evaluate t
 
 To fix this, we need to add quotations around the Blade expression like so:
 
-```blade
+```html
 <button
     type="button"
     x-on:click="$wire.deletePost('{{ $post->uuid }}')"
@@ -231,7 +231,7 @@ Now the above template will render properly and everything will work as expected
 
 You can easily refresh a Livewire component (trigger network roundtrip to re-render a component's Blade view) using `$wire.$refresh()`:
 
-```blade
+```html
 <button type="button" x-on:click="$wire.$refresh()">
     Refresh
 </button>
@@ -247,7 +247,7 @@ In almost all cases, you should use `$wire` to directly access Livewire properti
 
 For rare cases where you need bidirectional state synchronization between Alpine and Livewire, you can use `$wire.entangle()`:
 
-```blade
+```html
 <div x-data="{ open: $wire.entangle('showDropdown') }">
     <button x-on:click="open = true">Show More...</button>
 
@@ -259,7 +259,7 @@ For rare cases where you need bidirectional state synchronization between Alpine
 
 By default, changes are deferred until the next Livewire request. Use `.live` to sync immediately:
 
-```blade
+```html
 <div x-data="{ open: $wire.entangle('showDropdown').live }">
     <!-- ... -->
 </div>
@@ -269,7 +269,7 @@ By default, changes are deferred until the next Livewire request. Use `.live` to
 
 If you need to output PHP data for use in Alpine directly, you can use the `@js` directive:
 
-```blade
+```html
 <div x-data="{ posts: @js($posts) }">
     <!-- ... -->
 </div>
@@ -285,7 +285,7 @@ To include Livewire and Alpine via your own JavaScript bundle on a page is strai
 
 First, you must include the `@livewireScriptConfig` directive in your layout file like so:
 
-```blade
+```html
 <html>
 <head>
     <!-- ... -->

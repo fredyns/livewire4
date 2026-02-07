@@ -34,7 +34,7 @@ class Posts extends Component
 }
 ```
 
-```blade
+```html
 <div>
     Post Limit: <input type="number" wire:model.live="postLimit">
 
@@ -64,7 +64,7 @@ class ShowPost extends Component
 }
 ```
 
-```blade
+```html
 <div>
     <h1>{{ $post->title }}</h1>
 

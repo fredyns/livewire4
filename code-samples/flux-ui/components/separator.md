@@ -6,31 +6,31 @@ Visually divide sections of content or groups of items.
 
 ## Basic Example
 
-```blade
+```html
 <flux:separator />
 ```
 
 ## With text
 
-```blade
+```html
 <flux:separator text="or" />
 ```
 
 ## Vertical
 
-```blade
+```html
 <flux:separator vertical />
 ```
 
 ## Limited height
 
-```blade
+```html
 <flux:separator vertical class="my-2" />
 ```
 
 ## Subtle
 
-```blade
+```html
 <flux:separator vertical variant="subtle" />
 ```
 

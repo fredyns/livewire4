@@ -6,7 +6,7 @@ A message that provides feedback to users about an action or event, often tempor
 
 To use the Toast component from Livewire, you must include it somewhere on the page; often in your layout file:
 
-```blade
+```html
 <body>
     <!-- ... -->
 
@@ -16,7 +16,7 @@ To use the Toast component from Livewire, you must include it somewhere on the p
 
 If you are using `wire:navigate` to navigate between pages, you may want to persist the toast component so that toast messages don't suddenly disappear when navigating away from the page.
 
-```blade
+```html
 <body>
     <!-- ... -->
 
@@ -49,7 +49,7 @@ class EditPost extends Component
 
 You can also trigger a toast from Alpine directly using Flux's magic methods:
 
-```blade
+```html
 <button x-on:click="$flux.toast('Your changes have been saved.')">
     Save changes
 </button>
@@ -59,7 +59,7 @@ You can also trigger a toast from Alpine directly using Flux's magic methods:
 
 Both $flux and window.Flux support the following method parameter signatures:
 
-```blade
+```html
 Flux.toast('Your changes have been saved.')
 
 // Or...
@@ -73,7 +73,7 @@ Flux.toast({
 
 ## With heading
 
-```blade
+```html
 Flux::toast(
     heading: 'Changes saved.',
     text: 'You can always update this in your settings.',
@@ -82,7 +82,7 @@ Flux::toast(
 
 ## Variants
 
-```blade
+```html
 Flux::toast(variant: 'success', ...);
 Flux::toast(variant: 'warning', ...);
 Flux::toast(variant: 'danger', ...);
@@ -92,7 +92,7 @@ Flux::toast(variant: 'danger', ...);
 
 By default, the toast will appear in the bottom right corner of the page. You can customize this position using the `position` prop.
 
-```blade
+```html
 <flux:toast position="top end" />
 
 <!-- Customize top padding for things like navbars... -->
@@ -101,14 +101,14 @@ By default, the toast will appear in the bottom right corner of the page. You ca
 
 ## Duration
 
-```blade
+```html
 // 1 second...
 Flux::toast(duration: 1000, ...);
 ```
 
 ## Permanent
 
-```blade
+```html
 // Show indefinitely...
 Flux::toast(duration: 0, ...);
 ```
@@ -117,7 +117,7 @@ Flux::toast(duration: 0, ...);
 
 To show a stack of toasts, you can wrap the `flux:toast` component in a `flux:toast.group` component. By default, toasts in a stack overlap and expand on hover to show each toast vertically.
 
-```blade
+```html
 <flux:toast.group>
     <flux:toast />
 </flux:toast.group>
@@ -125,13 +125,13 @@ To show a stack of toasts, you can wrap the `flux:toast` component in a `flux:to
 
 Use the `expanded` prop to always show the toast stack in an expanded state, making all toasts visible at once.
 
-```blade
+```html
 <flux:toast.group expanded>
     <flux:toast />
 </flux:toast.group>
 ```
 
-```blade
+```html
 <flux:toast.group position="top end">
     <flux:toast />
 </flux:toast.group>

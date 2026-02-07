@@ -6,19 +6,19 @@ Capture multi-line text input from users. Ideal for comments, descriptions, and 
 
 ## Basic Example
 
-```blade
+```html
 <flux:textarea />
 ```
 
 ## With placeholder
 
-```blade
+```html
 <flux:textarea label="Order notes" placeholder="No lettuce, tomato, or onion..." />
 ```
 
 ## Fixed row height
 
-```blade
+```html
 <flux:textarea rows="2" label="Note" />
 ```
 
@@ -28,13 +28,13 @@ Using CSS's new `field-sizing` property, the textarea will automatically adjust 
 
 >This feature is not available in all web browsers. Visit [caniuse.com] to see which browsers support this feature.
 
-```blade
+```html
 <flux:textarea rows="auto" />
 ```
 
 ## Configure resize
 
-```blade
+```html
 <flux:textarea resize="vertical" />
 <flux:textarea resize="none" />
 <flux:textarea resize="horizontal" />

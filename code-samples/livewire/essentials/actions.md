@@ -76,7 +76,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div>
     @foreach ($this->posts as $post)
         <div wire:key="{{ $post->id }}">
@@ -153,7 +153,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div>
     @foreach ($this->posts as $post)
         <div wire:key="{{ $post->id }}">
@@ -189,13 +189,13 @@ You can use one of Livewire's convenient aliases to narrow down key press event 
 
 For example, to perform a search when a user hits Enter after typing into a search box, you can use `wire:keydown.enter`:
 
-```blade
+```html
 <input wire:model="query" wire:keydown.enter="searchPosts">
 ```
 
 You can chain more key aliases after the first to listen for combinations of keys. For example, if you would like to listen for the Enter key only while the Shift key is pressed, you may write the following:
 
-```blade
+```html
 <input wire:keydown.shift.enter="...">
 ```
 
@@ -227,7 +227,7 @@ Livewire also includes helpful modifiers to make common event-handling tasks tri
 
 For example, if you need to call `event.preventDefault()` from inside an event listener, you can suffix the event name with `.prevent`:
 
-```blade
+```html
 <input wire:keydown.prevent="...">
 ```
 
@@ -259,7 +259,7 @@ Livewire also supports listening for custom events fired by third-party librarie
 
 For example, let's imagine you're using the Trix rich text editor in your project and you want to listen for the `trix-change` event to capture the editor's content. You can accomplish this using the `wire:trix-change` directive:
 
-```blade
+```html
 <form wire:submit="save">
     <!-- ... -->
 
@@ -307,7 +307,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <button wire:click="sendEmail">Send Email</button>
 ```
 
@@ -371,7 +371,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div x-data="{ suggestions: [] }">
     <input
         type="text"
@@ -390,7 +390,7 @@ Because the suggestions are stored purely in Alpine's `suggestions` data and nev
 
 When updating content, the browser may jump to a different scroll position. The `.preserve-scroll` modifier maintains the current scroll position during updates:
 
-```blade
+```html
 <button wire:click.preserve-scroll="loadMore">Load More</button>
 
 <select wire:model.live.preserve-scroll="category">...</select>
@@ -492,7 +492,7 @@ new class extends Component {
 };
 ```
 
-```blade
+```html
 <div>
     @foreach ($this->posts as $post)
         <div wire:key="{{ $post->id }}">

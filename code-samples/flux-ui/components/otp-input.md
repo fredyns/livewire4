@@ -4,13 +4,13 @@ Source: https://fluxui.dev/components/otp-input
 
 ## Basic Example
 
-```blade
+```html
 <flux:otp wire:model="code" length="6" />
 ```
 
 ## Example usage
 
-```blade
+```html
 <flux:card>
     <form wire:submit="verify" class="space-y-8">
         <div class="max-w-64 mx-auto space-y-2">
@@ -38,7 +38,7 @@ Source: https://fluxui.dev/components/otp-input
 
 ## Autosubmit
 
-```blade
+```html
 <form wire:submit="verify" class="space-y-8">
     <div class="max-w-64 mx-auto space-y-2">
         <flux:heading size="lg" class="text-center">Verify your account</flux:heading>
@@ -53,7 +53,7 @@ Source: https://fluxui.dev/components/otp-input
 
 ## Alphanumeric
 
-```blade
+```html
 <flux:otp
     wire:model="licenseKey"
     length="10"
@@ -67,13 +67,13 @@ Source: https://fluxui.dev/components/otp-input
 
 masking sensitive value
 
-```blade
+```html
 <flux:otp wire:model="pin" length="4" private label="PIN Code" />
 ```
 
 ## Separator
 
-```blade
+```html
 <flux:otp wire:model="code">
     <flux:otp.input />
     <flux:otp.input />
@@ -89,7 +89,7 @@ masking sensitive value
 
 ## Group
 
-```blade
+```html
 <flux:otp wire:model="code">
     <flux:otp.group>
         <flux:otp.input />
@@ -104,7 +104,7 @@ masking sensitive value
 
 ## Group separator
 
-```blade
+```html
 <flux:otp wire:model="code">
     <flux:otp.group>
         <flux:otp.input />
