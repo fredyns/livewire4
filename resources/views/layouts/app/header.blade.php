@@ -12,6 +12,20 @@
                 <flux:navbar.item icon="layout-grid" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                     {{ __('Dashboard') }}
                 </flux:navbar.item>
+                <flux:navbar.item icon="layout-grid" :href="route('user.index')" :current="request()->routeIs('user.*')" wire:navigate>
+                    {{ __('Users') }}
+                </flux:navbar.item>
+            </flux:navbar>
+
+            <flux:navbar class="-mb-px lg:hidden">
+                <flux:dropdown>
+                    <flux:navbar.item icon:trailing="ellipsis-vertical"></flux:navbar.item>
+                    <flux:navmenu>
+                        <flux:navmenu.item icon="layout-grid" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Dashboard') }}
+                        </flux:navmenu.item>
+                    </flux:navmenu>
+                </flux:dropdown>
             </flux:navbar>
 
             <flux:spacer />
