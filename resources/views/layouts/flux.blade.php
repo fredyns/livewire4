@@ -11,9 +11,13 @@
 
             <div class="flex-1"></div>
 
-            <button type="button" class="h-8 px-3 rounded-md bg-zinc-800/5 hover:bg-zinc-800/10 dark:bg-white/10 dark:hover:bg-white/20 text-sm font-medium text-zinc-800 dark:text-white" aria-label="Search">
-                Search (Ctrl+K)
-            </button>
+            <flux:button
+                x-data
+                x-on:click="$flux.dark = ! $flux.dark"
+                icon="moon"
+                variant="subtle"
+                aria-label="Toggle dark mode"
+            />
 
             <div class="ms-2"></div>
 
