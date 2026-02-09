@@ -7,8 +7,6 @@
 <div class="min-h-screen flex flex-col lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[18rem_1fr] lg:[grid-template-areas:'header_header''sidebar_main']">
     <header class="z-10 min-h-14 flex items-center [:where(&)]:bg-white dark:[:where(&)]:bg-zinc-900 [:where(&)]:border-b [:where(&)]:border-zinc-200 dark:[:where(&)]:border-white/10 lg:[grid-area:header]">
         <div class="mx-auto w-full [:where(&)]:max-w-7xl px-6 lg:px-8 flex items-center min-h-[4.5rem]">
-            <flux:sidebar.toggle class="lg:hidden" icon="bars-2" />
-
             <x-app-logo href="{{ route('home') }}" wire:navigate/>
 
             <div class="flex-1"></div>

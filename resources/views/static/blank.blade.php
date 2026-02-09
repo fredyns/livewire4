@@ -1,9 +1,13 @@
 <x-layouts::flux :title="__('Blank')">
         <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-            <flux:breadcrumbs>
-                <flux:breadcrumbs.item href="{{ route('home') }}" icon="home" />
-                <flux:breadcrumbs.item>{{ __('Blank') }}</flux:breadcrumbs.item>
-            </flux:breadcrumbs>
+            <div class="flex items-center gap-3 lg:hidden">
+                <flux:sidebar.toggle icon="bars-2" />
+
+                <flux:breadcrumbs>
+                    <flux:breadcrumbs.item href="{{ route('home') }}" icon="home" />
+                    <flux:breadcrumbs.item>{{ __('Blank') }}</flux:breadcrumbs.item>
+                </flux:breadcrumbs>
+            </div>
 
             <div class="grid auto-rows-min gap-4 md:grid-cols-3">
                 <div
