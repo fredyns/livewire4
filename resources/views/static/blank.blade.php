@@ -1,6 +1,6 @@
 <x-layouts::flux :title="__('Blank')">
         <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-            <div class="flex items-center gap-3 lg:hidden">
+            <div class="sticky z-20 -mx-6 px-6 h-12 flex items-center gap-3 lg:hidden bg-white/95 dark:bg-zinc-900/95 backdrop-blur border-b border-zinc-200 dark:border-white/10" style="top: 4.5rem; margin-top: -2.5rem;">
                 <flux:sidebar.toggle icon="bars-2" />
 
                 <flux:breadcrumbs>
