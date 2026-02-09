@@ -61,6 +61,8 @@ require __DIR__.'/settings.php';
 if (! app()->isProduction()) {
     Route::get('/api/docs', fn () => redirect('/api/documentation'));
 
+    Route::view('blank', 'static.blank')->name('static.blank');
+
     Route::middleware(['guest'])->group(function () {
         Route::livewire('/login-as', 'pages::auth.login-as')->name('login-as');
     });
