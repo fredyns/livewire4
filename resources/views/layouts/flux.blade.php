@@ -31,7 +31,7 @@
         </div>
     </header>
 
-    @include('sidebars.apps')
+    @includeWhen($sidebar, 'sidebars.'.$sidebar)
 
     <main class="flex-1 px-6 lg:px-8 py-10 lg:[grid-area:main]">
         <div class="mx-auto w-full max-w-3xl">
