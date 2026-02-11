@@ -1,6 +1,7 @@
 @props([
     'sidebar' => false,
     'title' => null,
+    'width' => null,
 ])
 
 <!DOCTYPE html>
@@ -11,7 +12,7 @@
 <body class="min-h-screen bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white">
 <div
     x-data="{
-        contentWidth: (localStorage.getItem('contentWidth') ?? '3xl'),
+        contentWidth: (localStorage.getItem('contentWidth') ?? @js($width ?? '3xl')),
         setContentWidth(width) {
             this.contentWidth = width
             localStorage.setItem('contentWidth', width)

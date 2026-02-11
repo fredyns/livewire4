@@ -1,4 +1,4 @@
-<x-layouts::flux title="IT Services - Digital Solutions for Your Business">
+<x-layouts::flux title="IT Services - Digital Solutions for Your Business" width="7xl">
     <section class="pt-10 pb-20">
         <div class="max-w-7xl mx-auto text-center">
             <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
