@@ -54,11 +54,19 @@
                         aria-label="Set content max width"
                     />
 
-                    <flux:menu>
-                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('3xl')" x-bind:data-active="contentWidth === '3xl'">3xl</flux:menu.item>
-                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('5xl')" x-bind:data-active="contentWidth === '5xl'">5xl</flux:menu.item>
-                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('7xl')" x-bind:data-active="contentWidth === '7xl'">7xl</flux:menu.item>
-                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('max')" x-bind:data-active="contentWidth === 'max'">max</flux:menu.item>
+                    <flux:menu class="w-fit min-w-0">
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('3xl')">
+                            <span class="w-full text-center" x-bind:class="contentWidth == '3xl' ? 'font-semibold' : ''">3xl</span>
+                        </flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('5xl')">
+                            <span class="w-full text-center" x-bind:class="contentWidth == '5xl' ? 'font-semibold' : ''">5xl</span>
+                        </flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('7xl')">
+                            <span class="w-full text-center" x-bind:class="contentWidth == '7xl' ? 'font-semibold' : ''">7xl</span>
+                        </flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('max')">
+                            <span class="w-full text-center" x-bind:class="contentWidth == 'max' ? 'font-semibold' : ''">max</span>
+                        </flux:menu.item>
                     </flux:menu>
                 </flux:dropdown>
 
