@@ -49,17 +49,16 @@
                 <flux:dropdown position="bottom" align="end">
                     <flux:button
                         class="ms-2"
+                        icon="unfold-horizontal"
                         variant="subtle"
                         aria-label="Set content max width"
-                    >
-                        Width
-                    </flux:button>
+                    />
 
                     <flux:menu>
-                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('3xl')">3xl</flux:menu.item>
-                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('5xl')">5xl</flux:menu.item>
-                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('7xl')">7xl</flux:menu.item>
-                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('max')">max</flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('3xl')" x-bind:data-active="contentWidth === '3xl'">3xl</flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('5xl')" x-bind:data-active="contentWidth === '5xl'">5xl</flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('7xl')" x-bind:data-active="contentWidth === '7xl'">7xl</flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('max')" x-bind:data-active="contentWidth === 'max'">max</flux:menu.item>
                     </flux:menu>
                 </flux:dropdown>
 
