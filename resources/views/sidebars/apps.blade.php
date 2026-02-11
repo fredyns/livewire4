@@ -20,7 +20,7 @@
     </flux:sidebar.nav>
 </flux:sidebar>
 
-<aside class="hidden pl-4 z-40 lg:block border-r border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900 lg:[grid-area:sidebar]">
+<aside class="hidden pl-4 z-40 lg:block border-r border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900 lg:col-start-1 lg:row-start-2">
     <div class="h-full overflow-y-auto px-4 py-6">
         <div class="text-xs font-semibold tracking-wide text-zinc-500 dark:text-white/60">Guides</div>
         <nav class="mt-2 grid gap-1">
