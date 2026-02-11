@@ -46,7 +46,7 @@
                     aria-label="Toggle dark mode"
                 />
 
-                <flux:dropdown position="bottom" align="end">
+                <flux:dropdown position="bottom" align="end" class="hidden xl:block">
                     <flux:button
                         class="ms-2"
                         icon="unfold-horizontal"
