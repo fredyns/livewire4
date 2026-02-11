@@ -1,11 +1,21 @@
+@props([
+    'sidebar' => false,
+])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
 <head>
     @include('partials.head')
 </head>
 <body class="min-h-screen bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white">
-<div class="min-h-screen flex flex-col lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[18rem_1fr] lg:[grid-template-areas:'header_header''sidebar_main']">
-    <header class="sticky top-0 z-10 flex items-center [:where(&)]:bg-white dark:[:where(&)]:bg-zinc-900 [:where(&)]:border-b [:where(&)]:border-zinc-200 dark:[:where(&)]:border-white/10 lg:[grid-area:header]" style="height: 4.5rem;">
+<div @class([
+    'min-h-screen flex flex-col',
+    'lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[18rem_1fr]' => (bool) $sidebar,
+])>
+    <header @class([
+        'sticky top-0 z-10 flex items-center [:where(&)]:bg-white dark:[:where(&)]:bg-zinc-900 [:where(&)]:border-b [:where(&)]:border-zinc-200 dark:[:where(&)]:border-white/10',
+        'lg:col-span-2' => (bool) $sidebar,
+    ]) style="height: 4.5rem;">
         <div class="w-full h-full px-6 lg:px-0 flex items-center">
             <div class="flex items-center lg:w-[18rem] lg:px-8">
                 <x-app-logo href="{{ route('home') }}" wire:navigate/>
@@ -33,7 +43,10 @@
 
     @includeWhen($sidebar, 'sidebars.'.$sidebar)
 
-    <main class="flex-1 px-6 lg:px-8 py-10 lg:[grid-area:main]">
+    <main @class([
+        'flex-1 px-6 lg:px-8 py-10',
+        'lg:col-start-2 lg:row-start-2' => (bool) $sidebar,
+    ])>
         <div class="mx-auto w-full max-w-3xl">
             {{ $slot }}
         </div>
