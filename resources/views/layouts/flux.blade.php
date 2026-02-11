@@ -8,7 +8,23 @@
     @include('partials.head')
 </head>
 <body class="min-h-screen bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white">
-<div @class([
+<div
+    x-data="{
+        contentWidth: (localStorage.getItem('contentWidth') ?? '3xl'),
+        setContentWidth(width) {
+            this.contentWidth = width
+            localStorage.setItem('contentWidth', width)
+        },
+        get contentWidthClass() {
+            return {
+                '3xl': 'max-w-3xl',
+                '5xl': 'max-w-5xl',
+                '7xl': 'max-w-7xl',
+                'max': 'max-w-none',
+            }[this.contentWidth] ?? 'max-w-3xl'
+        },
+    }"
+    @class([
     'min-h-screen flex flex-col',
     'lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[18rem_1fr]' => (bool) $sidebar,
 ])>
@@ -30,6 +46,23 @@
                     aria-label="Toggle dark mode"
                 />
 
+                <flux:dropdown position="bottom" align="end">
+                    <flux:button
+                        class="ms-2"
+                        variant="subtle"
+                        aria-label="Set content max width"
+                    >
+                        Width
+                    </flux:button>
+
+                    <flux:menu>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('3xl')">3xl</flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('5xl')">5xl</flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('7xl')">7xl</flux:menu.item>
+                        <flux:menu.item as="button" type="button" x-on:click="setContentWidth('max')">max</flux:menu.item>
+                    </flux:menu>
+                </flux:dropdown>
+
                 <div class="ms-2"></div>
 
                 @if(auth()->user())
@@ -47,7 +80,7 @@
         'flex-1 px-6 lg:px-8 py-10',
         'lg:col-start-2 lg:row-start-2' => (bool) $sidebar,
     ])>
-        <div class="mx-auto w-full max-w-3xl">
+        <div id="content-frame" class="mx-auto w-full" :class="contentWidthClass">
             {{ $slot }}
         </div>
     </main>
