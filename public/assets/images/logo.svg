@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+    <rect width="1024" height="1024" fill="#ffffff"/>
+
+    <defs>
+        <!-- Cloud -->
+        <clipPath id="cloudClip">
+            <path d="
+        M230 640
+        C230 570 285 515 355 515
+        C370 430 445 370 535 370
+        C590 370 640 392 675 430
+        C710 360 785 315 870 315
+        C980 315 1065 400 1065 505
+        C1125 530 1165 585 1165 650
+        C1165 740 1090 815 1000 815
+        L325 815
+        C270 815 230 770 230 710
+        Z
+      " transform="translate(-185,-24)"/>
+        </clipPath>
+    </defs>
+
+    <!-- Cloud (naik 24px) -->
+    <g clip-path="url(#cloudClip)">
+        <rect x="0" y="0" width="512" height="512" fill="#34A853"/>
+        <rect x="0" y="512" width="512" height="512" fill="#1A73E8"/>
+        <rect x="512" y="0" width="512" height="512" fill="#EA4335"/>
+        <rect x="512" y="512" width="512" height="512" fill="#FBBC05"/>
+    </g>
+
+    <!-- Browser Frame (tetap di posisi sebelumnya) -->
+    <g>
+        <rect x="272" y="412" width="480" height="300" rx="34"
+              fill="none" stroke="#ffffff" stroke-width="16"/>
+
+        <line x1="272" y1="490" x2="752" y2="490"
+              stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+
+        <circle cx="315" cy="460" r="9" fill="#ffffff"/>
+        <circle cx="345" cy="460" r="9" fill="#ffffff"/>
+        <circle cx="375" cy="460" r="9" fill="#ffffff"/>
+    </g>
+</svg>
