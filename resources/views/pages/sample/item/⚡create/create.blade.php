@@ -40,14 +40,14 @@
 
                     <div class="mt-6 space-y-4 text-sm">
                         <div>
-                            <p class="font-semibold text-neutral-900 dark:text-neutral-100">{{ __('Searchable') }}</p>
+                            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Searchable</p>
                             <p class="mt-1 text-neutral-600 dark:text-neutral-400">
                                 {{ __('String, email, color and text are searchable fields.') }}
                             </p>
                         </div>
 
                         <div>
-                            <p class="font-semibold text-neutral-900 dark:text-neutral-100">{{ __('Validation') }}</p>
+                            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Validation</p>
                             <p class="mt-1 text-neutral-600 dark:text-neutral-400">
                                 {{ __('Some fields require specific formats (email, ip, time).') }}
                             </p>
