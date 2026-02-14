@@ -150,7 +150,7 @@
                     <flux:heading size="lg" level="2">{{ __('Actions') }}</flux:heading>
 
                     <div class="mt-6 space-y-2">
-                        <flux:button href="{{-- route('sample.item.edit', $item) --}}" variant="primary" class="w-full">
+                        <flux:button href="{{ route('sample.item.edit', $item) }}" variant="primary" class="w-full" wire:navigate>
                             {{ __('Edit Item') }}
                         </flux:button>
                     </div>

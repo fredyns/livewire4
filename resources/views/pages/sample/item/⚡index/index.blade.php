@@ -84,8 +84,9 @@
                                                 {{ __('View') }}
                                             </flux:menu.item>
                                             <flux:menu.item
-                                                href="{{-- route('sample.item.edit', $item) --}}"
+                                                href="{{ route('sample.item.edit', $item) }}"
                                                 icon="pencil"
+                                                wire:navigate
                                             >
                                                 {{ __('Edit') }}
                                             </flux:menu.item>
