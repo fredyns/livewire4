@@ -53,6 +53,9 @@ Route::middleware(['auth'])->group(function () {
     Route::livewire('/rbac/permissions/{permission}/edit', 'pages::rbac.permission.edit')->name('rbac.permission.edit');
     Route::livewire('/rbac/permissions/{permission}', 'pages::rbac.permission.show')->name('rbac.permission.show');
 
+    // Sample - Items
+    Route::livewire('/sample/items', 'pages::sample.item.index')->name('sample.item.index');
+
 });
 
 require __DIR__.'/settings.php';
@@ -61,7 +64,7 @@ require __DIR__.'/settings.php';
 if (! app()->isProduction()) {
     Route::get('/api/docs', fn () => redirect('/api/documentation'));
 
-    # sample pages
+    // sample pages
     Route::view('blank', 'static.blank')->name('static.blank');
     Route::view('blank2', 'static.blank2')->name('static.blank2');
     Route::view('blank3', 'static.blank3')->name('static.blank3');
