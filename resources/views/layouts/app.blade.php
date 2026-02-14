@@ -31,7 +31,7 @@
     'lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[18rem_1fr]' => (bool) $sidebar,
 ])>
     <header @class([
-        'sticky top-0 z-10 flex items-center [:where(&)]:bg-white dark:[:where(&)]:bg-zinc-900 [:where(&)]:border-b [:where(&)]:border-zinc-200 dark:[:where(&)]:border-white/10',
+        'sticky top-0 z-50 flex items-center [:where(&)]:bg-white dark:[:where(&)]:bg-zinc-900 [:where(&)]:border-b [:where(&)]:border-zinc-200 dark:[:where(&)]:border-white/10',
         'lg:col-span-2' => (bool) $sidebar,
     ]) style="height: 4.5rem;">
         <div class="w-full h-full px-6 lg:px-0 flex items-center">
