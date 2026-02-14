@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Sample - Items
     Route::livewire('/sample/items', 'pages::sample.item.index')->name('sample.item.index');
+    Route::livewire('/sample/items/create', 'pages::sample.item.create')->name('sample.item.create');
     Route::livewire('/sample/items/{item}', 'pages::sample.item.show')->name('sample.item.show');
 
 });

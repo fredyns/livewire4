@@ -8,7 +8,7 @@
                     {{ __('Manage and view sample items') }}
                 </p>
             </div>
-            <flux:button href="{{-- route('sample.item.create') --}}" icon="plus">
+            <flux:button href="{{ route('sample.item.create') }}" icon="plus" wire:navigate>
                 {{ __('Add Item') }}
             </flux:button>
         </div>
