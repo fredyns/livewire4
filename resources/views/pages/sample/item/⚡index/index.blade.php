@@ -77,8 +77,9 @@
 
                                         <flux:menu>
                                             <flux:menu.item
-                                                href="{{-- route('sample.item.show', $item) --}}"
+                                                href="{{ route('sample.item.show', $item) }}"
                                                 icon="eye"
+                                                wire:navigate
                                             >
                                                 {{ __('View') }}
                                             </flux:menu.item>
