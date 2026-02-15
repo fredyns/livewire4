@@ -28,6 +28,6 @@ new class extends Component {
     {
         return $this->view([
             'item' => $this->item,
-        ])->title($this->item->string ?: 'Sample Item');
+        ])->layout('layouts.app', ['sidebar' => 'apps'])->title($this->item->string ?: 'Sample Item');
     }
 };

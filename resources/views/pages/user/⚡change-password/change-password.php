@@ -61,6 +61,6 @@ new class extends Component
     {
         return $this->view([
             'user' => $this->user,
-        ])->title('Edit Password ' . $this->user->name);
+        ])->layout('layouts.app', ['sidebar' => 'apps'])->title('Edit Password ' . $this->user->name);
     }
 };

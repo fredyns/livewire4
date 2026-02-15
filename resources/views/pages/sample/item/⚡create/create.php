@@ -131,6 +131,6 @@ new class extends Component
 
     public function render(): View
     {
-        return $this->view()->title('Create Sample Item');
+        return $this->view()->layout('layouts.app', ['sidebar' => 'apps'])->title('Create Sample Item');
     }
 };

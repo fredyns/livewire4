@@ -131,6 +131,6 @@ new class extends Component
     {
         return $this->view([
             'permissions' => $this->permissions,
-        ])->title('Permissions');
+        ])->layout('layouts.app', ['sidebar' => 'apps'])->title('Permissions');
     }
 };

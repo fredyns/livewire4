@@ -158,6 +158,6 @@ new class extends Component
     {
         return $this->view([
             'item' => $this->item,
-        ])->title('Edit '.$this->item->string);
+        ])->layout('layouts.app', ['sidebar' => 'apps'])->title('Edit '.$this->item->string);
     }
 };

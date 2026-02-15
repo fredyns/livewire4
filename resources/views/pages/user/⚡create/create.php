@@ -64,6 +64,6 @@ new class extends Component
 
     public function render(): View
     {
-        return $this->view()->title('Create User');
+        return $this->view()->layout('layouts.app', ['sidebar' => 'apps'])->title('Create User');
     }
 };
