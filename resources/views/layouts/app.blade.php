@@ -39,6 +39,31 @@
                 <x-app-logo href="{{ route('home') }}" wire:navigate/>
             </div>
 
+            @if(auth()->user())
+                <flux:navbar class="-mb-px max-lg:hidden">
+                    <flux:navbar.item icon="layout-grid" :href="route('dashboard')"
+                                      :current="request()->routeIs('dashboard')" wire:navigate>
+                        {{ __('Dashboard') }}
+                    </flux:navbar.item>
+                    <flux:navbar.item icon="layout-grid" :href="route('user.index')"
+                                      :current="request()->routeIs('user.*')" wire:navigate>
+                        {{ __('Users') }}
+                    </flux:navbar.item>
+                </flux:navbar>
+
+                <flux:navbar class="-mb-px lg:hidden">
+                    <flux:dropdown>
+                        <flux:navbar.item icon:trailing="ellipsis-vertical"></flux:navbar.item>
+                        <flux:navmenu>
+                            <flux:navmenu.item icon="layout-grid" :href="route('dashboard')"
+                                               :current="request()->routeIs('dashboard')" wire:navigate>
+                                {{ __('Dashboard') }}
+                            </flux:navmenu.item>
+                        </flux:navmenu>
+                    </flux:dropdown>
+                </flux:navbar>
+            @endif
+
             <div class="flex-1 flex items-center justify-end lg:px-8">
                 <flux:button
                     x-data
@@ -58,16 +83,35 @@
 
                     <flux:menu class="w-fit min-w-0">
                         <flux:menu.item as="button" type="button" x-on:click="setContentWidth('3xl')">
-                            <span class="w-full text-center" x-bind:class="contentWidth == '3xl' ? 'font-semibold' : ''">3xl</span>
+                            <span
+                                class="w-full text-center"
+                                x-bind:class="contentWidth == '3xl' ? 'font-semibold' : ''"
+                            >
+                                3xl
+                            </span>
                         </flux:menu.item>
                         <flux:menu.item as="button" type="button" x-on:click="setContentWidth('5xl')">
-                            <span class="w-full text-center" x-bind:class="contentWidth == '5xl' ? 'font-semibold' : ''">5xl</span>
+                            <span
+                                class="w-full text-center"
+                                x-bind:class="contentWidth == '5xl' ? 'font-semibold' : ''">
+                                5xl
+                            </span>
                         </flux:menu.item>
                         <flux:menu.item as="button" type="button" x-on:click="setContentWidth('7xl')">
-                            <span class="w-full text-center" x-bind:class="contentWidth == '7xl' ? 'font-semibold' : ''">7xl</span>
+                            <span
+                                class="w-full text-center"
+                                x-bind:class="contentWidth == '7xl' ? 'font-semibold' : ''"
+                            >
+                                7xl
+                            </span>
                         </flux:menu.item>
                         <flux:menu.item as="button" type="button" x-on:click="setContentWidth('max')">
-                            <span class="w-full text-center" x-bind:class="contentWidth == 'max' ? 'font-semibold' : ''">max</span>
+                            <span
+                                class="w-full text-center"
+                                x-bind:class="contentWidth == 'max' ? 'font-semibold' : ''"
+                            >
+                                max
+                            </span>
                         </flux:menu.item>
                     </flux:menu>
                 </flux:dropdown>
