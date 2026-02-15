@@ -1,4 +1,28 @@
-<x-layouts::flux title="IT Services - Digital Solutions for Your Business" width="7xl">
+<?php
+
+use Illuminate\View\View;
+use Livewire\Component;
+
+new class extends Component
+{
+    public function mount(): void
+    {
+        if (auth()->check()) {
+            $this->redirectRoute('dashboard', navigate: true);
+        }
+    }
+
+    public function render(): View
+    {
+        return $this->view()
+            ->layout('layouts.app', ['width' => '7xl'])
+            ->title('IT Services - Digital Solutions for Your Business');
+    }
+};
+
+?>
+<div>
+
     <section class="pt-10 pb-20">
         <div class="max-w-7xl mx-auto text-center">
             <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
@@ -222,4 +246,7 @@
             </div>
         </div>
     </footer>
-</x-layouts::flux>
+
+    {{-- The whole future lies in uncertainty: live immediately. - Seneca --}}
+
+</div>
