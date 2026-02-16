@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::livewire('/', 'pages::home')->name('home');
 
-Route::view('dashboard', 'dashboard')
+Route::livewire('/dashboard', 'pages::dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
@@ -66,9 +66,9 @@ if (! app()->isProduction()) {
     Route::get('/api/docs', fn () => redirect('/api/documentation'));
 
     // sample pages
-    Route::view('blank', 'static.blank')->name('static.blank');
-    Route::view('blank2', 'static.blank2')->name('static.blank2');
-    Route::view('blank3', 'static.blank3')->name('static.blank3');
+    Route::livewire('/blank1', 'pages::blank1')->name('static.blank1');
+    Route::livewire('/blank2', 'pages::blank2')->name('static.blank2');
+    Route::livewire('/blank3', 'pages::blank3')->name('static.blank3');
 
     Route::middleware(['guest'])->group(function () {
         Route::livewire('/login-as', 'pages::auth.login-as')->name('login-as');
