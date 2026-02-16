@@ -8,7 +8,7 @@ new class extends Component
     public function render(): View
     {
         return $this->view()
-            ->layout('layouts.flux', ['sidebar' => 'sample'])
+            ->layout('layouts.app', ['sidebar' => 'sample'])
             ->title(__('Blank 2'));
     }
 };

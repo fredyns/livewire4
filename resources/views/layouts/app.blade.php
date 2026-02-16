@@ -41,27 +41,67 @@
 
             @if(auth()->check())
                 <flux:navbar class="-mb-px max-lg:hidden">
-                    <flux:navbar.item icon="layout-grid" :href="route('dashboard')"
-                                      :current="request()->routeIs('dashboard')" wire:navigate>
+                    <flux:navbar.item
+                        icon="layout-grid"
+                        :href="route('dashboard')"
+                        :current="request()->routeIs('dashboard')"
+                        wire:navigate
+                    >
                         {{ __('Dashboard') }}
                     </flux:navbar.item>
-                    <flux:navbar.item icon="layout-grid" :href="route('user.index')"
-                                      :current="request()->routeIs('user.*')" wire:navigate>
+                    <flux:navbar.item
+                        icon="layout-grid"
+                        :href="route('user.index')"
+                        :current="request()->routeIs('user.*')"
+                        wire:navigate
+                    >
                         {{ __('Users') }}
                     </flux:navbar.item>
+
+                    @if(!app()->isProduction())
+                        <flux:navbar.item
+                            icon="layout-grid"
+                            :href="route('sample.blank1')"
+                            :current="request()->routeIs('sample.*')"
+                            wire:navigate
+                        >
+                            {{ __('Sample') }}
+                        </flux:navbar.item>
+                    @endif
+
                 </flux:navbar>
 
                 <flux:navbar class="-mb-px lg:hidden">
                     <flux:dropdown>
                         <flux:navbar.item icon:trailing="ellipsis-vertical"></flux:navbar.item>
                         <flux:navmenu>
-                            <flux:navmenu.item icon="layout-grid" :href="route('dashboard')"
-                                               :current="request()->routeIs('dashboard')" wire:navigate>
+                            <flux:navmenu.item
+                                icon="layout-grid"
+                                :href="route('dashboard')"
+                                :current="request()->routeIs('dashboard')"
+                                wire:navigate
+                            >
                                 {{ __('Dashboard') }}
                             </flux:navmenu.item>
+
+                            @if(!app()->isProduction())
+                                <flux:navmenu.item
+                                    icon="layout-grid"
+                                    :href="route('sample.blank1')"
+                                    :current="request()->routeIs('sample.*')"
+                                    wire:navigate
+                                >
+                                    {{ __('Sample') }}
+                                </flux:navmenu.item>
+                            @endif
+
                         </flux:navmenu>
                     </flux:dropdown>
                 </flux:navbar>
+
+                @if(!app()->isProduction())
+                @endif
+
             @endif
 
             <div class="flex-1 flex items-center justify-end lg:px-8">

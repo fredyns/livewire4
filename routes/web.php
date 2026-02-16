@@ -50,13 +50,6 @@ Route::middleware(['auth'])->group(function () {
     Route::livewire('/rbac/permissions/create', 'pages::rbac.permission.create')->name('rbac.permission.create');
     Route::livewire('/rbac/permissions/{permission}/edit', 'pages::rbac.permission.edit')->name('rbac.permission.edit');
     Route::livewire('/rbac/permissions/{permission}', 'pages::rbac.permission.show')->name('rbac.permission.show');
-
-    // Sample - Items
-    Route::livewire('/sample/items', 'pages::sample.item.index')->name('sample.item.index');
-    Route::livewire('/sample/items/create', 'pages::sample.item.create')->name('sample.item.create');
-    Route::livewire('/sample/items/{item}/edit', 'pages::sample.item.edit')->name('sample.item.edit');
-    Route::livewire('/sample/items/{item}', 'pages::sample.item.show')->name('sample.item.show');
-
 });
 
 require __DIR__.'/settings.php';
@@ -66,9 +59,15 @@ if (! app()->isProduction()) {
     Route::get('/api/docs', fn () => redirect('/api/documentation'));
 
     // sample pages
-    Route::livewire('/blank1', 'pages::blank1')->name('static.blank1');
-    Route::livewire('/blank2', 'pages::blank2')->name('static.blank2');
-    Route::livewire('/blank3', 'pages::blank3')->name('static.blank3');
+    Route::livewire('/blank1', 'pages::sample.blank1')->name('sample.blank1');
+    Route::livewire('/blank2', 'pages::sample.blank2')->name('sample.blank2');
+    Route::livewire('/blank3', 'pages::sample.blank3')->name('sample.blank3');
+
+    // Sample - Items
+    Route::livewire('/sample/items', 'pages::sample.item.index')->name('sample.item.index');
+    Route::livewire('/sample/items/create', 'pages::sample.item.create')->name('sample.item.create');
+    Route::livewire('/sample/items/{item}/edit', 'pages::sample.item.edit')->name('sample.item.edit');
+    Route::livewire('/sample/items/{item}', 'pages::sample.item.show')->name('sample.item.show');
 
     Route::middleware(['guest'])->group(function () {
         Route::livewire('/login-as', 'pages::auth.login-as')->name('login-as');
