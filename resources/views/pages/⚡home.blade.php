@@ -5,12 +5,12 @@ use Livewire\Component;
 
 new class extends Component
 {
-    public function mount(): void
-    {
-        if (auth()->check()) {
-            $this->redirectRoute('dashboard', navigate: true);
-        }
-    }
+//    public function mount(): void
+//    {
+//        if (auth()->check()) {
+//            $this->redirectRoute('dashboard', navigate: true);
+//        }
+//    }
 
     public function render(): View
     {
