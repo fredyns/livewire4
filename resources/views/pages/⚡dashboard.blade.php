@@ -8,7 +8,7 @@ new class extends Component
     public function render(): View
     {
         return $this->view()
-            ->layout('layouts.app')
+            ->layout('layouts.app', ['sidebar' => 'apps'])
             ->title(__('Dashboard'));
     }
 };
@@ -28,7 +28,7 @@ new class extends Component
                 <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
             </div>
         </div>
-        <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative h-full flex-1 min-h-96 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
             <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
         </div>
     </div>
