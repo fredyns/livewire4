@@ -74,7 +74,7 @@
 
                 <div class="ms-2"></div>
 
-                @if(auth()->user())
+                @if(auth()->check())
                     <x-desktop-user-menu/>
                 @else
                     <x-desktop-guest-menu/>

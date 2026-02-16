@@ -39,7 +39,7 @@
                 <x-app-logo href="{{ route('home') }}" wire:navigate/>
             </div>
 
-            @if(auth()->user())
+            @if(auth()->check())
                 <flux:navbar class="-mb-px max-lg:hidden">
                     <flux:navbar.item icon="layout-grid" :href="route('dashboard')"
                                       :current="request()->routeIs('dashboard')" wire:navigate>
@@ -118,7 +118,7 @@
 
                 <div class="ms-2"></div>
 
-                @if(auth()->user())
+                @if(auth()->check())
                     <x-desktop-user-menu/>
                 @else
                     <x-desktop-guest-menu/>
