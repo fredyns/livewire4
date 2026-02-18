@@ -76,6 +76,11 @@ new class extends Component
         $this->resetPage();
     }
 
+    public function updatedSearch(): void
+    {
+        $this->resetPage();
+    }
+
     public function updatedColumns(mixed $value, string $key): void
     {
         $selectedCount = count(array_filter($this->columns));
