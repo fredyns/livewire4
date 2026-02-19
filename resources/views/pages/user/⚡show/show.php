@@ -40,6 +40,6 @@ new class extends Component {
     {
         return $this->view([
             'user' => $this->user,
-        ])->layout('layouts.app', ['sidebar' => 'apps'])->title($this->user->name);
+        ])->layout('layouts.app', ['sidebar' => 'user'])->title($this->user->name);
     }
 };

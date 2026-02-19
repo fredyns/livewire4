@@ -91,6 +91,6 @@ new class extends Component
     {
         return $this->view([
             'role' => $this->role,
-        ])->layout('layouts.app', ['sidebar' => 'apps'])->title($this->role->name);
+        ])->layout('layouts.app', ['sidebar' => 'user'])->title($this->role->name);
     }
 };

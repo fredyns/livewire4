@@ -55,7 +55,7 @@
                         :current="request()->routeIs('user.*')"
                         wire:navigate
                     >
-                        {{ __('Users') }}
+                        Auth
                     </flux:navbar.item>
 
                     @if(!app()->isProduction())

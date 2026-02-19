@@ -72,6 +72,6 @@ new class extends Component
     {
         return $this->view([
             'role' => $this->role,
-        ])->layout('layouts.app', ['sidebar' => 'apps'])->title('Edit '.$this->role->name);
+        ])->layout('layouts.app', ['sidebar' => 'user'])->title('Edit '.$this->role->name);
     }
 };
