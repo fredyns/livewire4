@@ -27,6 +27,18 @@
             </flux:sidebar.item>
         </flux:sidebar.group>
     </flux:sidebar.nav>
+
+    <flux:spacer />
+
+    <flux:sidebar.nav>
+        <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
+            {{ __('Repository') }}
+        </flux:sidebar.item>
+
+        <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
+            {{ __('Documentation') }}
+        </flux:sidebar.item>
+    </flux:sidebar.nav>
 </flux:sidebar>
 
 <aside class="hidden pl-4 z-40 lg:block border-r border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900 lg:col-start-1 lg:row-start-2">
@@ -90,6 +102,16 @@
                 wire:navigate
             >
                 Blank 3
+            </a>
+        </nav>
+
+        <div class="mt-6 text-xs font-semibold tracking-wide text-zinc-500 dark:text-white/60">{{ __('Resources') }}</div>
+        <nav class="mt-2 grid gap-1">
+            <a href="https://github.com/laravel/livewire-starter-kit" target="_blank" class="px-3 py-2 rounded-lg text-sm font-medium text-zinc-600 dark:text-white/80 hover:bg-zinc-800/5 dark:hover:bg-white/10">
+                {{ __('Repository') }}
+            </a>
+            <a href="https://laravel.com/docs/starter-kits#livewire" target="_blank" class="px-3 py-2 rounded-lg text-sm font-medium text-zinc-600 dark:text-white/80 hover:bg-zinc-800/5 dark:hover:bg-white/10">
+                {{ __('Documentation') }}
             </a>
         </nav>
     </div>
