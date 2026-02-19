@@ -2,7 +2,7 @@
     <flux:sidebar.header>
         <flux:sidebar.collapse class="-mr-2" />
         <flux:spacer />
-        <x-app-logo href="{{ route('home') }}" wire:navigate/>
+        <x-app-logo href="{{ route('dashboard') }}" wire:navigate/>
         <flux:spacer />
     </flux:sidebar.header>
 
