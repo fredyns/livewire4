@@ -12,6 +12,7 @@
 <div
     x-data="{
         contentWidth: (localStorage.getItem('contentWidth') ?? @js($width ?? '3xl')),
+        sidebarCollapsedDesktop: (localStorage.getItem('flux-sidebar-collapsed-desktop') === 'true'),
         setContentWidth(width) {
             this.contentWidth = width
             localStorage.setItem('contentWidth', width)
@@ -25,9 +26,33 @@
             }[this.contentWidth] ?? 'max-w-3xl'
         },
     }"
+    x-init="
+        if (!@js((bool) $sidebar)) {
+            return
+        }
+
+        const sidebar = $el.querySelector('[data-flux-sidebar]')
+
+        if (sidebar) {
+            this.sidebarCollapsedDesktop = sidebar.hasAttribute('data-flux-sidebar-collapsed-desktop')
+
+            new MutationObserver(() => {
+                this.sidebarCollapsedDesktop = sidebar.hasAttribute('data-flux-sidebar-collapsed-desktop')
+            }).observe(sidebar, { attributes: true, attributeFilter: ['data-flux-sidebar-collapsed-desktop'] })
+        }
+
+        window.addEventListener('storage', (event) => {
+            if (event.key === 'flux-sidebar-collapsed-desktop') {
+                this.sidebarCollapsedDesktop = (event.newValue === 'true')
+            }
+        })
+    "
+    :class="@js((bool) $sidebar)
+        ? (sidebarCollapsedDesktop ? 'lg:grid-cols-[3.5rem_1fr]' : 'lg:grid-cols-[18rem_1fr]')
+        : ''"
     @class([
     'min-h-screen flex flex-col',
-    'lg:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[18rem_1fr]' => (bool) $sidebar,
+    'lg:grid lg:grid-rows-[auto_1fr]' => (bool) $sidebar,
 ])>
     <header @class([
         'sticky top-0 z-50 flex items-center [:where(&)]:bg-white dark:[:where(&)]:bg-zinc-900 [:where(&)]:border-b [:where(&)]:border-zinc-200 dark:[:where(&)]:border-white/10',
