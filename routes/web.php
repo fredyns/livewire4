@@ -59,9 +59,9 @@ if (! app()->isProduction()) {
     Route::get('/api/docs', fn () => redirect('/api/documentation'));
 
     // sample pages
-    Route::livewire('/blank1', 'pages::sample.blank1')->name('sample.blank1');
-    Route::livewire('/blank2', 'pages::sample.blank2')->name('sample.blank2');
-    Route::livewire('/blank3', 'pages::sample.blank3')->name('sample.blank3');
+    Route::livewire('sample/blank1', 'pages::sample.blank1')->name('sample.blank1');
+    Route::livewire('sample/blank2', 'pages::sample.blank2')->name('sample.blank2');
+    Route::livewire('sample/blank3', 'pages::sample.blank3')->name('sample.blank3');
 
     Route::middleware(['guest'])->group(function () {
         Route::livewire('/login-as', 'pages::auth.login-as')->name('login-as');
