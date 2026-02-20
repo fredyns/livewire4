@@ -6,30 +6,4 @@
         stroke-width="48"
         stroke-linejoin="round"
     />
-
-    <rect
-        x="272"
-        y="412"
-        width="480"
-        height="300"
-        rx="34"
-        fill="currentColor"
-        fill-opacity="0.5"
-        stroke="currentColor"
-        stroke-width="32"
-    />
-
-    <line
-        x1="272"
-        y1="490"
-        x2="752"
-        y2="490"
-        stroke="currentColor"
-        stroke-width="28"
-        stroke-linecap="round"
-    />
-
-    <circle cx="315" cy="460" r="12" fill="currentColor" />
-    <circle cx="345" cy="460" r="12" fill="currentColor" />
-    <circle cx="375" cy="460" r="12" fill="currentColor" />
 </svg>
