@@ -1,8 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 42" {{ $attributes }}>
-    <path 
-        fill="currentColor" 
-        fill-rule="evenodd" 
-        clip-rule="evenodd"
-        d="M17.2 5.633 8.6.855 0 5.633v26.51l16.2 9 16.2-9v-8.442l7.6-4.223V9.856l-8.6-4.777-8.6 4.777V18.3l-5.6 3.111V5.633ZM38 18.301l-5.6 3.11v-6.157l5.6-3.11V18.3Zm-1.06-7.856-5.54 3.078-5.54-3.079 5.54-3.078 5.54 3.079ZM24.8 18.3v-6.157l5.6 3.111v6.158L24.8 18.3Zm-1 1.732 5.54 3.078-13.14 7.302-5.54-3.078 13.14-7.3v-.002Zm-16.2 7.89 7.6 4.222V38.3L2 30.966V7.92l5.6 3.111v16.892ZM8.6 9.3 3.06 6.222 8.6 3.143l5.54 3.08L8.6 9.3Zm21.8 15.51-13.2 7.334V38.3l13.2-7.334v-6.156ZM9.6 11.034l5.6-3.11v14.6l-5.6 3.11v-14.6Z"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none" {{ $attributes }}>
+    <path
+        d="M230 640C230 570 285 515 355 515C370 430 445 370 535 370C590 370 640 392 675 430C710 360 785 315 870 315C980 315 1065 400 1065 505C1125 530 1165 585 1165 650C1165 740 1090 815 1000 815L325 815C270 815 230 770 230 710Z"
+        transform="translate(-185,-24)"
+        stroke="currentColor"
+        stroke-width="48"
+        stroke-linejoin="round"
     />
+
+    <rect
+        x="272"
+        y="412"
+        width="480"
+        height="300"
+        rx="34"
+        stroke="#ffffff"
+        stroke-width="32"
+    />
+
+    <line
+        x1="272"
+        y1="490"
+        x2="752"
+        y2="490"
+        stroke="#ffffff"
+        stroke-width="28"
+        stroke-linecap="round"
+    />
+
+    <circle cx="315" cy="460" r="12" fill="#ffffff" />
+    <circle cx="345" cy="460" r="12" fill="#ffffff" />
+    <circle cx="375" cy="460" r="12" fill="#ffffff" />
 </svg>
