@@ -26,7 +26,6 @@ use Livewire\Component;
  * @property string|null $time
  * @property string|null $ip_address
  * @property bool|null $boolean
- * @property string|null $markdown_text
  * @property string|null $wysiwyg
  * @property float|null $latitude
  * @property float|null $longitude
@@ -74,9 +73,6 @@ new class extends Component
 
     #[Validate('nullable|boolean')]
     public ?bool $boolean = null;
-
-    #[Validate('nullable|string')]
-    public ?string $markdown_text = null;
 
     #[Validate('nullable|string')]
     public ?string $wysiwyg = null;

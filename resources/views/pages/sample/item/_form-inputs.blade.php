@@ -145,18 +145,6 @@
 
     <div class="md:col-span-2">
         <flux:textarea
-            wire:model="markdown_text"
-            label="{{ __('Markdown Text') }}"
-            placeholder="{{ __('Enter markdown text') }}"
-            rows="4"
-        />
-        @error('markdown_text')
-            <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-        @enderror
-    </div>
-
-    <div class="md:col-span-2">
-        <flux:textarea
             wire:model="wysiwyg"
             label="{{ __('WYSIWYG') }}"
             placeholder="{{ __('Enter wysiwyg content') }}"

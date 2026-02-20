@@ -42,7 +42,6 @@ class SampleItemFactory extends Factory
             'boolean' => $this->faker->boolean(),
             'enumerate' => $this->faker->randomElement(SampleItemEnumerate::values()),
             'text' => $this->faker->text(),
-            'markdown_text' => $this->faker->text(),
             'wysiwyg' => $this->faker->text(),
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),

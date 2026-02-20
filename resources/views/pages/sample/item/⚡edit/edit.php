@@ -27,7 +27,6 @@ use Livewire\Component;
  * @property string|null $time
  * @property string|null $ip_address
  * @property bool|null $boolean
- * @property string|null $markdown_text
  * @property string|null $wysiwyg
  * @property float|null $latitude
  * @property float|null $longitude
@@ -77,9 +76,6 @@ new class extends Component
     public ?bool $boolean = null;
 
     #[Validate('nullable|string')]
-    public ?string $markdown_text = null;
-
-    #[Validate('nullable|string')]
     public ?string $wysiwyg = null;
 
     #[Validate('nullable|numeric')]
@@ -113,7 +109,6 @@ new class extends Component
         $this->time = $item->time?->format('H:i:s');
         $this->ip_address = $item->ip_address;
         $this->boolean = $item->boolean;
-        $this->markdown_text = $item->markdown_text;
         $this->wysiwyg = $item->wysiwyg;
         $this->latitude = $item->latitude;
         $this->longitude = $item->longitude;

@@ -37,7 +37,6 @@ use Illuminate\Support\Facades\Storage;
  * @property bool|null $boolean
  * @property string|null $file
  * @property string|null $image
- * @property string|null $markdown_text
  * @property string|null $wysiwyg
  * @property float|null $latitude
  * @property float|null $longitude
@@ -76,7 +75,6 @@ class SampleItem extends Model
         'text',
         'file',
         'image',
-        'markdown_text',
         'wysiwyg',
         'latitude',
         'longitude',

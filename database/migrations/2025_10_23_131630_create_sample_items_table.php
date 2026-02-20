@@ -35,7 +35,6 @@ return new class extends Migration {
             $table->text('file')->nullable();
             $table->text('image')->nullable();
 
-            $table->text('markdown_text')->nullable();
             $table->text('wysiwyg')->nullable();
 
             $table->decimal('latitude', 10, 8)->nullable();
