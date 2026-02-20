@@ -13,9 +13,9 @@
         width="480"
         height="300"
         rx="34"
-        fill="#ffffff"
+        fill="currentColor"
         fill-opacity="0.5"
-        stroke="#ffffff"
+        stroke="currentColor"
         stroke-width="32"
     />
 
@@ -24,12 +24,12 @@
         y1="490"
         x2="752"
         y2="490"
-        stroke="#ffffff"
+        stroke="currentColor"
         stroke-width="28"
         stroke-linecap="round"
     />
 
-    <circle cx="315" cy="460" r="12" fill="#ffffff" />
-    <circle cx="345" cy="460" r="12" fill="#ffffff" />
-    <circle cx="375" cy="460" r="12" fill="#ffffff" />
+    <circle cx="315" cy="460" r="12" fill="currentColor" />
+    <circle cx="345" cy="460" r="12" fill="currentColor" />
+    <circle cx="375" cy="460" r="12" fill="currentColor" />
 </svg>
