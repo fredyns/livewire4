@@ -13,6 +13,8 @@
         width="480"
         height="300"
         rx="34"
+        fill="#ffffff"
+        fill-opacity="0.5"
         stroke="#ffffff"
         stroke-width="32"
     />
