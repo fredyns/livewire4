@@ -70,10 +70,12 @@ if (! app()->isProduction()) {
     Route::middleware(['auth'])->group(function () {
 
         // Sample - Items
-        Route::livewire('/sample/items', 'pages::sample.item.index')->name('sample.item.index');
-        Route::livewire('/sample/items/create', 'pages::sample.item.create')->name('sample.item.create');
-        Route::livewire('/sample/items/{item}/edit', 'pages::sample.item.edit')->name('sample.item.edit');
-        Route::livewire('/sample/items/{item}', 'pages::sample.item.show')->name('sample.item.show');
+        Route::livewire('/sample/items', 'pages::sample.items')->name('sample.items.index');
+
+        Route::livewire('/sample/item', 'pages::sample.item.index')->name('sample.item.index');
+        Route::livewire('/sample/item/create', 'pages::sample.item.create')->name('sample.item.create');
+        Route::livewire('/sample/item/{item}/edit', 'pages::sample.item.edit')->name('sample.item.edit');
+        Route::livewire('/sample/item/{item}', 'pages::sample.item.show')->name('sample.item.show');
 
     });
 }
