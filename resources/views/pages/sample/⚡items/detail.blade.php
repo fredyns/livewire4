@@ -46,7 +46,7 @@
 
             <div class="shrink-0 flex items-center gap-2">
                 <flux:dropdown position="bottom" align="end">
-                    <flux:button variant="outline" size="sm" icon="arrows-right-left" icon:trailing="chevron-down">
+                    <flux:button variant="outline" size="sm" icon="unfold-horizontal" icon:trailing="chevron-down">
                         <span x-text="modalWidth.toUpperCase()"></span>
                     </flux:button>
 
