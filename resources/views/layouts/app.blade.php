@@ -12,7 +12,6 @@
 <div
     x-data="{
         contentWidth: (localStorage.getItem('contentWidth') ?? @js($width ?? '3xl')),
-        sidebarCollapsedDesktop: (localStorage.getItem('flux-sidebar-collapsed-desktop') === 'true'),
         setContentWidth(width) {
             this.contentWidth = width
             localStorage.setItem('contentWidth', width)
@@ -33,33 +32,39 @@
 
         const sidebar = $el.querySelector('[data-flux-sidebar]')
 
+        const syncSidebarWidth = () => {
+            const isCollapsed = sidebar && sidebar.hasAttribute('data-flux-sidebar-collapsed-desktop')
+            document.documentElement.style.setProperty('--sidebar-width', isCollapsed ? '3.5rem' : '18rem')
+        }
+
         if (sidebar) {
-            this.sidebarCollapsedDesktop = sidebar.hasAttribute('data-flux-sidebar-collapsed-desktop')
+            syncSidebarWidth()
 
             new MutationObserver(() => {
-                this.sidebarCollapsedDesktop = sidebar.hasAttribute('data-flux-sidebar-collapsed-desktop')
+                syncSidebarWidth()
             }).observe(sidebar, { attributes: true, attributeFilter: ['data-flux-sidebar-collapsed-desktop'] })
         }
 
         window.addEventListener('storage', (event) => {
             if (event.key === 'flux-sidebar-collapsed-desktop') {
-                this.sidebarCollapsedDesktop = (event.newValue === 'true')
+                document.documentElement.style.setProperty('--sidebar-width', (event.newValue === 'true') ? '3.5rem' : '18rem')
             }
         })
     "
-    :class="@js((bool) $sidebar)
-        ? (sidebarCollapsedDesktop ? 'lg:grid-cols-[3.5rem_1fr]' : 'lg:grid-cols-[18rem_1fr]')
-        : ''"
     @class([
     'min-h-screen flex flex-col',
     'lg:grid lg:grid-rows-[auto_1fr]' => (bool) $sidebar,
-])>
+])
+    @if($sidebar) style="grid-template-columns: var(--sidebar-width) 1fr; grid-template-areas: 'header header' 'sidebar main';" @endif
+>
     <header @class([
         'sticky top-0 z-50 flex items-center [:where(&)]:bg-white dark:[:where(&)]:bg-zinc-900 [:where(&)]:border-b [:where(&)]:border-zinc-200 dark:[:where(&)]:border-white/10',
-        'lg:col-span-2' => (bool) $sidebar,
-    ]) style="height: 4.5rem;">
+    ]) @if($sidebar) style="height: 4.5rem; grid-area: header;" @else style="height: 4.5rem;" @endif>
         <div class="w-full h-full px-6 lg:px-0 flex items-center">
-            <div class="flex items-center lg:w-[18rem] lg:px-8">
+            <div
+                class="flex items-center lg:px-8"
+                @if($sidebar) style="width: var(--sidebar-width);" @endif
+            >
                 <x-app-logo href="{{ route('home') }}" wire:navigate/>
             </div>
 
@@ -195,8 +200,7 @@
 
     <main @class([
         'flex-1 px-6 lg:px-8 py-10',
-        'lg:col-start-2 lg:row-start-2' => (bool) $sidebar,
-    ])>
+    ]) @if($sidebar) style="grid-area: main;" @endif>
         <div id="content-frame" class="mx-auto w-full" :class="contentWidthClass">
             {{ $slot }}
         </div>
