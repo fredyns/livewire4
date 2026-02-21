@@ -145,6 +145,12 @@
 
                                         <flux:menu>
                                             <flux:menu.item
+                                                wire:click="viewModel('{{ $item->id }}')"
+                                                icon="eye"
+                                            >
+                                                View on Modal
+                                            </flux:menu.item>
+                                            <flux:menu.item
                                                 href="{{ route('sample.item.show', $item) }}"
                                                 icon="eye"
                                                 wire:navigate
@@ -203,4 +209,6 @@
             </flux:toast>
         @endif
     </div>
+
+    @include('pages.sample.⚡items.detail')
 </section>

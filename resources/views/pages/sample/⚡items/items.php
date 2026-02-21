@@ -17,6 +17,8 @@ new class extends Component
 {
     use WithPagination;
 
+    // properties for index
+
     public string $search = '';
 
     public array $columns = [
@@ -39,6 +41,7 @@ new class extends Component
     ];
 
     public string $sortField = 'created_at';
+
     public string $sortDirection = 'desc';
 
     public array $columnLabels = [
@@ -60,6 +63,24 @@ new class extends Component
         'created_at' => 'Created',
     ];
 
+    // properties for model
+    public ?SampleItem $model;
+    public bool $editing = false;
+    public bool $showingModalView = false;
+    public bool $showingModalForm = false;
+
+    public $modelFile;
+
+    public $modelImage;
+
+    public $modelDatetime;
+
+    public $modelDate;
+
+    public $modelTime;
+
+    // component methods
+
     /**
      * @throws AuthorizationException
      */
@@ -67,6 +88,20 @@ new class extends Component
     {
         $this->authorize('viewAny', SampleItem::class);
     }
+
+    public function resetModel(): void
+    {
+        $this->model = new SampleItem;
+        $this->modelFile = null;
+        $this->modelImage = null;
+        $this->modelDatetime = null;
+        $this->modelDate = null;
+        $this->modelTime = null;
+
+        $this->dispatch('refresh');
+    }
+
+    // index methods
 
     public function resetSearch(): void
     {
@@ -191,4 +226,26 @@ new class extends Component
             ->layout('layouts.app', ['sidebar' => 'sample'])
             ->title('Sample Items');
     }
+
+    // details methods
+
+    public function viewModel(SampleItem $model): void
+    {
+        $this->editing = false;
+        $this->model = $model;
+        $this->modelDatetime = optional($this->model->datetime)->format('Y-m-d H:i:s');
+        $this->modelDate = optional($this->model->date)->format('Y-m-d');
+        $this->modelTime = optional($this->model->time)->format('H:i');
+
+        $this->dispatch('refresh');
+        $this->showModalView();
+    }
+
+    public function showModalView(): void
+    {
+        $this->resetErrorBag();
+        $this->showingModalView = true;
+        $this->showingModalForm = false;
+    }
+
 };
