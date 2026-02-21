@@ -198,9 +198,7 @@
 
     @includeWhen($sidebar, 'sidebars.'.$sidebar)
 
-    <main @class([
-        'flex-1 px-6 lg:px-8 py-10',
-    ]) @if($sidebar) style="grid-area: main;" @endif>
+    <main @class(['flex-1 px-6 lg:px-8 py-10']) @if($sidebar) style="grid-area: main;" @endif>
         <div id="content-frame" class="mx-auto w-full" :class="contentWidthClass">
             {{ $slot }}
         </div>
