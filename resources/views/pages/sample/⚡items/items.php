@@ -69,6 +69,8 @@ new class extends Component
     public bool $showingModalView = false;
     public bool $showingModalForm = false;
 
+    public string $modalWidth = '3xl';
+
     public $modelFile;
 
     public $modelImage;
@@ -246,6 +248,29 @@ new class extends Component
         $this->resetErrorBag();
         $this->showingModalView = true;
         $this->showingModalForm = false;
+    }
+
+    public function setModalWidth(string $width): void
+    {
+        $allowed = ['3xl', '5xl', '7xl', 'max'];
+
+        if (! in_array($width, $allowed, true)) {
+            $width = '3xl';
+        }
+
+        $this->modalWidth = $width;
+    }
+
+    #[Computed]
+    public function modalDialogClass(): string
+    {
+        return match ($this->modalWidth) {
+            '3xl' => '[:where(&)]:max-w-3xl',
+            '5xl' => '[:where(&)]:max-w-5xl',
+            '7xl' => '[:where(&)]:max-w-7xl',
+            'max' => '[:where(&)]:max-w-[calc(100vw-2rem)]',
+            default => '[:where(&)]:max-w-3xl',
+        };
     }
 
 };

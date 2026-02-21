@@ -1,5 +1,39 @@
-<x-modal wire:model="showingModalView">
-    <div class="space-y-6">
+<x-modal wire:model="showingModalView" :closable="false" class="{{ $this->modalDialogClass }}">
+    <div
+        class="space-y-6"
+        x-data="{
+            modalWidth: @js($this->modalWidth),
+            applyWidth() {
+                const dialog = this.$el.closest('dialog');
+
+                if (! dialog) {
+                    return;
+                }
+
+                [...dialog.classList]
+                    .filter((c) => c.startsWith('[:where(&)]:max-w-'))
+                    .forEach((c) => dialog.classList.remove(c));
+
+                [...dialog.classList]
+                    .filter((c) => c === 'w-auto' || c === 'w-fit' || c === 'w-full' || c.startsWith('w-'))
+                    .forEach((c) => dialog.classList.remove(c));
+
+                dialog.classList.add('w-full');
+
+                const map = {
+                    '3xl': '[:where(&)]:max-w-3xl',
+                    '5xl': '[:where(&)]:max-w-5xl',
+                    '7xl': '[:where(&)]:max-w-7xl',
+                    'max': '[:where(&)]:max-w-[calc(100vw-2rem)]',
+                };
+
+                dialog.classList.add(map[this.modalWidth] ?? '[:where(&)]:max-w-3xl');
+            },
+        }"
+        x-init="$nextTick(() => applyWidth())"
+        x-effect="applyWidth()"
+        x-on:sample-modal-width-change.window="modalWidth = $event.detail.width; $nextTick(() => applyWidth())"
+    >
         <div class="flex items-start justify-between gap-4">
             <div class="min-w-0">
                 <flux:heading size="lg" level="2" class="truncate">
@@ -11,6 +45,19 @@
             </div>
 
             <div class="shrink-0 flex items-center gap-2">
+                <flux:dropdown position="bottom" align="end">
+                    <flux:button variant="outline" size="sm" icon="arrows-right-left" icon:trailing="chevron-down">
+                        <span x-text="modalWidth.toUpperCase()"></span>
+                    </flux:button>
+
+                    <flux:menu>
+                        <flux:menu.item x-on:click.prevent.stop="window.dispatchEvent(new CustomEvent('sample-modal-width-change', { detail: { width: '3xl' } }))">3XL</flux:menu.item>
+                        <flux:menu.item x-on:click.prevent.stop="window.dispatchEvent(new CustomEvent('sample-modal-width-change', { detail: { width: '5xl' } }))">5XL</flux:menu.item>
+                        <flux:menu.item x-on:click.prevent.stop="window.dispatchEvent(new CustomEvent('sample-modal-width-change', { detail: { width: '7xl' } }))">7XL</flux:menu.item>
+                        <flux:menu.item x-on:click.prevent.stop="window.dispatchEvent(new CustomEvent('sample-modal-width-change', { detail: { width: 'max' } }))">MAX</flux:menu.item>
+                    </flux:menu>
+                </flux:dropdown>
+
                 <flux:button
                     variant="outline"
                     size="sm"
@@ -60,18 +107,57 @@
         </flux:card>
 
         <flux:card>
-            <flux:tab.group>
-                <flux:tabs>
-                    <flux:tab name="basic">{{ __('Basic') }}</flux:tab>
-                    <flux:tab name="datetime">{{ __('Date & Time') }}</flux:tab>
-                    <flux:tab name="other">{{ __('Other') }}</flux:tab>
-                    <flux:tab name="location">{{ __('Location') }}</flux:tab>
-                    <flux:tab name="files">{{ __('Files') }}</flux:tab>
-                    <flux:tab name="content">{{ __('Content') }}</flux:tab>
-                </flux:tabs>
+            <div
+                x-data="{
+                    maxH: 0,
+                    observer: null,
+                    measure() {
+                        const panel = this.$el.querySelector('[role=tabpanel]');
 
-                <flux:tab.panel name="basic">
-                    <div class="space-y-4">
+                        if (! panel) {
+                            return;
+                        }
+
+                        const h = panel.scrollHeight || 0;
+
+                        if (h > this.maxH) {
+                            this.maxH = h;
+                        }
+                    },
+                    start() {
+                        this.measure();
+
+                        this.observer = new MutationObserver(() => {
+                            this.$nextTick(() => this.measure());
+                        });
+
+                        this.observer.observe(this.$el, {
+                            childList: true,
+                            subtree: true,
+                            attributes: true,
+                            characterData: true,
+                        });
+
+                        window.addEventListener('resize', () => {
+                            this.$nextTick(() => this.measure());
+                        });
+                    }
+                }"
+                x-init="$nextTick(() => start())"
+                :style="maxH ? `min-height: ${maxH}px` : null"
+            >
+                <flux:tab.group>
+                    <flux:tabs>
+                        <flux:tab name="basic">{{ __('Basic') }}</flux:tab>
+                        <flux:tab name="datetime">{{ __('Date & Time') }}</flux:tab>
+                        <flux:tab name="other">{{ __('Other') }}</flux:tab>
+                        <flux:tab name="location">{{ __('Location') }}</flux:tab>
+                        <flux:tab name="files">{{ __('Files') }}</flux:tab>
+                        <flux:tab name="content">{{ __('Content') }}</flux:tab>
+                    </flux:tabs>
+
+                    <flux:tab.panel name="basic">
+                        <div class="space-y-4">
                         <div>
                             <flux:label>{{ __('Color') }}</flux:label>
                             <div class="mt-2 flex items-center gap-2">
@@ -99,15 +185,15 @@
                             <p class="mt-1 text-sm">{{ $model?->npwp ?? '-' }}</p>
                         </div>
 
-                        <div>
-                            <flux:label>{{ __('User') }}</flux:label>
-                            <p class="mt-1 text-sm">{{ $model?->user?->name ?? '-' }}</p>
+                            <div>
+                                <flux:label>{{ __('User') }}</flux:label>
+                                <p class="mt-1 text-sm">{{ $model?->user?->name ?? '-' }}</p>
+                            </div>
                         </div>
-                    </div>
-                </flux:tab.panel>
+                    </flux:tab.panel>
 
-                <flux:tab.panel name="datetime">
-                    <div class="space-y-4">
+                    <flux:tab.panel name="datetime">
+                        <div class="space-y-4">
                         <div>
                             <flux:label>{{ __('Date') }}</flux:label>
                             <p class="mt-1 text-sm">{{ $model?->date?->format('l, d F Y') ?? '-' }}</p>
@@ -118,31 +204,31 @@
                             <p class="mt-1 text-sm">{{ $model?->time?->format('H:i') ?? '-' }}</p>
                         </div>
 
-                        <div>
-                            <flux:label>{{ __('Datetime') }}</flux:label>
-                            <p class="mt-1 text-sm">{{ $model?->datetime?->format('l, d F Y H:i') ?? '-' }}</p>
+                            <div>
+                                <flux:label>{{ __('Datetime') }}</flux:label>
+                                <p class="mt-1 text-sm">{{ $model?->datetime?->format('l, d F Y H:i') ?? '-' }}</p>
+                            </div>
                         </div>
-                    </div>
-                </flux:tab.panel>
+                    </flux:tab.panel>
 
-                <flux:tab.panel name="other">
-                    <div class="space-y-4">
+                    <flux:tab.panel name="other">
+                        <div class="space-y-4">
                         <div>
                             <flux:label>{{ __('IP Address') }}</flux:label>
                             <p class="mt-1 text-sm">{{ $model?->ip_address ?? '-' }}</p>
                         </div>
 
-                        <div>
-                            <flux:label>{{ __('Boolean') }}</flux:label>
-                            <p class="mt-1 text-sm">
-                                {{ is_null($model?->boolean) ? '-' : ($model->boolean ? __('Yes') : __('No')) }}
-                            </p>
+                            <div>
+                                <flux:label>{{ __('Boolean') }}</flux:label>
+                                <p class="mt-1 text-sm">
+                                    {{ is_null($model?->boolean) ? '-' : ($model->boolean ? __('Yes') : __('No')) }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </flux:tab.panel>
+                    </flux:tab.panel>
 
-                <flux:tab.panel name="location">
-                    <div class="space-y-4">
+                    <flux:tab.panel name="location">
+                        <div class="space-y-4">
                         @if ($model?->latitude && $model?->longitude)
                             <div>
                                 <flux:label>{{ __('Coordinates') }}</flux:label>
@@ -162,11 +248,11 @@
                         @else
                             <p class="text-sm text-neutral-600 dark:text-neutral-400">{{ __('No location data available') }}</p>
                         @endif
-                    </div>
-                </flux:tab.panel>
+                        </div>
+                    </flux:tab.panel>
 
-                <flux:tab.panel name="files">
-                    <div class="space-y-4">
+                    <flux:tab.panel name="files">
+                        <div class="space-y-4">
                         <div>
                             <flux:label>{{ __('Image') }}</flux:label>
                             @if ($model?->image)
@@ -182,30 +268,30 @@
                             @endif
                         </div>
 
-                        <div>
-                            <flux:label>{{ __('File') }}</flux:label>
-                            @if ($model?->file)
-                                <div class="mt-2 flex items-center gap-2">
-                                    <flux:button
-                                        href="{{ \Illuminate\Support\Facades\Storage::url($model->file) }}"
-                                        target="_blank"
-                                        variant="outline"
-                                        size="sm"
-                                        icon="arrow-down-tray"
-                                    >
-                                        {{ __('Open / Download') }}
-                                    </flux:button>
-                                    <span class="text-xs text-neutral-600 dark:text-neutral-400">{{ basename($model->file) }}</span>
-                                </div>
-                            @else
-                                <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">-</p>
-                            @endif
+                            <div>
+                                <flux:label>{{ __('File') }}</flux:label>
+                                @if ($model?->file)
+                                    <div class="mt-2 flex items-center gap-2">
+                                        <flux:button
+                                            href="{{ \Illuminate\Support\Facades\Storage::url($model->file) }}"
+                                            target="_blank"
+                                            variant="outline"
+                                            size="sm"
+                                            icon="arrow-down-tray"
+                                        >
+                                            {{ __('Open / Download') }}
+                                        </flux:button>
+                                        <span class="text-xs text-neutral-600 dark:text-neutral-400">{{ basename($model->file) }}</span>
+                                    </div>
+                                @else
+                                    <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">-</p>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                </flux:tab.panel>
+                    </flux:tab.panel>
 
-                <flux:tab.panel name="content">
-                    <div class="space-y-4">
+                    <flux:tab.panel name="content">
+                        <div class="space-y-4">
                         <div>
                             <flux:label>{{ __('WYSIWYG Content') }}</flux:label>
                             @if ($model?->wysiwyg)
@@ -216,9 +302,10 @@
                                 <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">-</p>
                             @endif
                         </div>
-                    </div>
-                </flux:tab.panel>
-            </flux:tab.group>
+                        </div>
+                    </flux:tab.panel>
+                </flux:tab.group>
+            </div>
         </flux:card>
     </div>
 </x-modal>
