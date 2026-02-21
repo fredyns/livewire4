@@ -8,7 +8,7 @@ new class extends Component
     public function render(): View
     {
         return $this->view()
-            ->layout('layouts.app', ['sidebar' => 'apps'])
+            ->layout('layouts.app', ['sidebar' => 'main'])
             ->title(__('Dashboard'));
     }
 };

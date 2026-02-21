@@ -190,7 +190,7 @@ new class extends Component
     public function render(): View
     {
         return $this->view(['items' => $this->items])
-            ->layout('layouts.app', ['sidebar' => 'apps'])
+            ->layout('layouts.app', ['sidebar' => 'sample'])
             ->title('Sample Items');
     }
 };
