@@ -20,7 +20,10 @@ new class extends Component
 
     public function mount(): void
     {
-        abort_unless(! app()->isProduction(), 403, 'Login As feature is only available in non-production environment.');
+        if (app()->isProduction()) {
+            $this->redirectRoute('login', navigate: true);
+            return;
+        }
     }
 
     public function resetSearch(): void
