@@ -3,6 +3,7 @@
         class="space-y-6"
         x-data="{
             modalWidth: @js($this->modalWidth),
+            wasOpen: false,
             applyWidth() {
                 const dialog = this.$el.closest('dialog');
 
@@ -31,7 +32,18 @@
             },
         }"
         x-init="$nextTick(() => applyWidth())"
-        x-effect="applyWidth()"
+        x-effect="
+            applyWidth()
+
+            if ($wire.showingModalView && ! wasOpen) {
+                wasOpen = true
+                Livewire.dispatch('progress-done')
+            }
+
+            if (! $wire.showingModalView && wasOpen) {
+                wasOpen = false
+            }
+        "
         x-on:sample-modal-width-change.window="modalWidth = $event.detail.width; $nextTick(() => applyWidth())"
     >
         <div class="flex items-start justify-between gap-4">

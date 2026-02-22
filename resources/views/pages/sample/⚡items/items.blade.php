@@ -145,6 +145,8 @@
 
                                         <flux:menu>
                                             <flux:menu.item
+                                                x-data
+                                                x-on:click="Livewire.dispatch('progress-loading')"
                                                 wire:click="viewModel('{{ $item->id }}')"
                                                 icon="eye"
                                             >

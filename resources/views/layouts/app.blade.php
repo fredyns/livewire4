@@ -206,5 +206,15 @@
 </div>
 
 @fluxScripts
+<script>
+    document.addEventListener('livewire:init', () => {
+        Livewire.on('progress-loading', (event) => {
+            (document.getElementById('content-frame') ?? document.body).style.cursor = 'progress';
+        });
+        Livewire.on('progress-done', (event) => {
+            (document.getElementById('content-frame') ?? document.body).style.cursor = '';
+        });
+    });
+</script>
 </body>
 </html>
