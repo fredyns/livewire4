@@ -72,6 +72,6 @@ new class extends Component
     {
         return $this->view([
             'users' => $this->users,
-        ])->layout('layouts.auth')->title('Login As');
+        ])->layout('layouts.app', ['width' => 'max'])->title('Login As');
     }
 };
