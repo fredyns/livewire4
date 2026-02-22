@@ -87,38 +87,29 @@
                 <div class="md:col-span-2">
                     <flux:input
                         wire:model="model.string"
-                        label="{{ __('String') }}"
                         type="text"
+                        label="{{ __('String') }}"
                         placeholder="{{ __('Enter string') }}"
                         required
                     />
-                    @error('model.string')
-                        <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                    @enderror
                 </div>
 
                 <div>
                     <flux:input
                         wire:model="model.email"
-                        label="{{ __('Email') }}"
                         type="email"
+                        label="{{ __('Email') }}"
                         placeholder="{{ __('Enter email') }}"
                     />
-                    @error('model.email')
-                        <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                    @enderror
                 </div>
 
                 <div>
                     <flux:input
                         wire:model="model.user_id"
-                        label="{{ __('User ID') }}"
                         type="text"
+                        label="{{ __('User ID') }}"
                         placeholder="{{ __('(optional)') }}"
                     />
-                    @error('model.user_id')
-                        <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                    @enderror
                 </div>
 
                 <div>
@@ -128,21 +119,15 @@
                             <flux:select.option value="{{ $enum->value }}">{{ $enum->name }}</flux:select.option>
                         @endforeach
                     </flux:select>
-                    @error('model.enumerate')
-                        <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                    @enderror
                 </div>
 
                 <div class="md:col-span-2">
                     <flux:textarea
                         wire:model="model.text"
-                        label="{{ __('Text') }}"
                         placeholder="{{ __('Enter text') }}"
+                        label="{{ __('Text') }}"
                         rows="4"
                     />
-                    @error('model.text')
-                        <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                    @enderror
                 </div>
             </div>
         </flux:card>
@@ -202,62 +187,47 @@
                             <div>
                                 <flux:input
                                     wire:model="model.color"
-                                    label="{{ __('Color') }}"
                                     type="text"
+                                    label="{{ __('Color') }}"
                                     placeholder="{{ __('e.g. #ff0000') }}"
                                 />
-                                @error('model.color')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
 
                             <div>
                                 <flux:input
                                     wire:model="model.ip_address"
-                                    label="{{ __('IP Address') }}"
                                     type="text"
+                                    label="{{ __('IP Address') }}"
                                     placeholder="{{ __('e.g. 127.0.0.1') }}"
                                 />
-                                @error('model.ip_address')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
 
                             <div>
                                 <flux:input
                                     wire:model="model.integer"
-                                    label="{{ __('Integer') }}"
                                     type="number"
+                                    label="{{ __('Integer') }}"
                                     placeholder="{{ __('Enter integer') }}"
                                 />
-                                @error('model.integer')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
 
                             <div>
                                 <flux:input
                                     wire:model="model.decimal"
-                                    label="{{ __('Decimal') }}"
                                     type="number"
                                     step="0.01"
+                                    label="{{ __('Decimal') }}"
                                     placeholder="{{ __('Enter decimal') }}"
                                 />
-                                @error('model.decimal')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
 
                             <div class="md:col-span-2">
                                 <flux:input
                                     wire:model="model.npwp"
-                                    label="{{ __('NPWP') }}"
                                     type="text"
+                                    label="{{ __('NPWP') }}"
                                     placeholder="{{ __('Enter NPWP') }}"
                                 />
-                                @error('model.npwp')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
                         </div>
                     </flux:tab.panel>
@@ -265,37 +235,28 @@
                     <flux:tab.panel name="datetime">
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                             <div>
-                                <flux:input
+                                <flux:date-picker
                                     wire:model="modelDate"
-                                    label="{{ __('Date') }}"
                                     type="date"
+                                    label="{{ __('Date') }}"
                                 />
-                                @error('modelDate')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
 
                             <div>
                                 <flux:input
                                     wire:model="modelTime"
-                                    label="{{ __('Time') }}"
                                     type="time"
                                     step="1"
+                                    label="{{ __('Time') }}"
                                 />
-                                @error('modelTime')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
 
                             <div class="md:col-span-2">
                                 <flux:input
                                     wire:model="modelDatetime"
-                                    label="{{ __('Datetime') }}"
                                     type="datetime-local"
+                                    label="{{ __('Datetime') }}"
                                 />
-                                @error('modelDatetime')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
                         </div>
                     </flux:tab.panel>
@@ -304,9 +265,6 @@
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                             <div class="md:col-span-2">
                                 <flux:checkbox wire:model="model.boolean" label="{{ __('Boolean') }}" />
-                                @error('model.boolean')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
                         </div>
                     </flux:tab.panel>
@@ -316,25 +274,19 @@
                             <div>
                                 <flux:input
                                     wire:model="model.latitude"
-                                    label="{{ __('Latitude') }}"
                                     type="number"
                                     step="0.00000001"
+                                    label="{{ __('Latitude') }}"
                                 />
-                                @error('model.latitude')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
 
                             <div>
                                 <flux:input
                                     wire:model="model.longitude"
-                                    label="{{ __('Longitude') }}"
                                     type="number"
                                     step="0.00000001"
+                                    label="{{ __('Longitude') }}"
                                 />
-                                @error('model.longitude')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
                             </div>
 
                             @if (($model?->latitude && $model?->longitude))
@@ -358,13 +310,10 @@
                             <div>
                                 <flux:input
                                     wire:model="modelImage"
-                                    label="{{ __('Image') }}"
                                     type="file"
                                     accept="image/*"
+                                    label="{{ __('Image') }}"
                                 />
-                                @error('modelImage')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
 
                                 @if ($model?->image)
                                     <div class="mt-3">
@@ -380,12 +329,9 @@
                             <div>
                                 <flux:input
                                     wire:model="modelFile"
-                                    label="{{ __('File') }}"
                                     type="file"
+                                    label="{{ __('File') }}"
                                 />
-                                @error('modelFile')
-                                    <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                                @enderror
 
                                 @if ($model?->file)
                                     <div class="mt-3 flex items-center gap-2">
@@ -407,15 +353,12 @@
 
                     <flux:tab.panel name="content">
                         <div class="space-y-4">
-                            <flux:textarea
+                            <flux:editor
                                 wire:model="model.wysiwyg"
-                                label="{{ __('WYSIWYG Content') }}"
                                 placeholder="{{ __('Enter content') }}"
+                                label="{{ __('WYSIWYG Content') }}"
                                 rows="6"
                             />
-                            @error('model.wysiwyg')
-                                <span class="mt-2 block text-sm text-red-600 dark:text-red-400">{{ $message }}</span>
-                            @enderror
                         </div>
                     </flux:tab.panel>
                 </flux:tab.group>
