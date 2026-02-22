@@ -62,7 +62,7 @@
     ]) @if($sidebar) style="height: 4.5rem; grid-area: header;" @else style="height: 4.5rem;" @endif>
         <div class="w-full h-full px-6 lg:px-0 flex items-center">
             <div
-                class="flex items-center lg:px-8"
+                class="flex items-center lg:px-4 overflow-hidden"
                 @if($sidebar) style="width: var(--sidebar-width);" @endif
             >
                 <x-app-logo href="{{ route('home') }}" wire:navigate/>
