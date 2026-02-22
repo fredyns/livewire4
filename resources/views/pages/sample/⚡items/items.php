@@ -1,12 +1,14 @@
 <?php
 
 use App\Models\Sample\SampleItem;
+use Carbon\Carbon;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 /**
@@ -16,6 +18,7 @@ use Livewire\WithPagination;
 new class extends Component
 {
     use WithPagination;
+    use WithFileUploads;
 
     // properties for index
 
@@ -65,8 +68,11 @@ new class extends Component
 
     // properties for model
     public ?SampleItem $model;
+
     public bool $editing = false;
+
     public bool $showingModalView = false;
+
     public bool $showingModalForm = false;
 
     public string $modalWidth = '3xl';
@@ -80,6 +86,38 @@ new class extends Component
     public $modelDate;
 
     public $modelTime;
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function rules(): array
+    {
+        return [
+            'model.string' => ['required', 'string', 'max:255'],
+            'model.email' => ['nullable', 'email', 'max:255'],
+            'model.user_id' => ['nullable', 'string'],
+            'model.enumerate' => ['nullable', 'string'],
+            'model.text' => ['nullable', 'string'],
+
+            'model.color' => ['nullable', 'string', 'max:50'],
+            'model.ip_address' => ['nullable', 'string', 'max:255'],
+            'model.integer' => ['nullable', 'integer'],
+            'model.decimal' => ['nullable', 'numeric'],
+            'model.npwp' => ['nullable', 'string', 'max:255'],
+
+            'model.boolean' => ['nullable', 'boolean'],
+            'model.latitude' => ['nullable', 'numeric'],
+            'model.longitude' => ['nullable', 'numeric'],
+            'model.wysiwyg' => ['nullable', 'string'],
+
+            'modelDate' => ['nullable', 'date'],
+            'modelTime' => ['nullable', 'date_format:H:i'],
+            'modelDatetime' => ['nullable', 'date'],
+
+            'modelFile' => ['nullable', 'file', 'max:10240'],
+            'modelImage' => ['nullable', 'image', 'max:10240'],
+        ];
+    }
 
     // component methods
 
@@ -100,7 +138,7 @@ new class extends Component
         $this->modelDate = null;
         $this->modelTime = null;
 
-        $this->dispatch('refresh');
+        // $this->dispatch('refresh');
     }
 
     // index methods
@@ -233,19 +271,21 @@ new class extends Component
 
     public function viewModel(SampleItem $model): void
     {
+        // todo: check authorization
         $this->editing = false;
         $this->model = $model;
         $this->modelDatetime = optional($this->model->datetime)->format('Y-m-d H:i:s');
         $this->modelDate = optional($this->model->date)->format('Y-m-d');
         $this->modelTime = optional($this->model->time)->format('H:i');
 
-        $this->dispatch('refresh');
+        // $this->dispatch('refresh');
         $this->showModalView();
     }
 
     public function showModalView(): void
     {
         $this->resetErrorBag();
+        $this->editing = false;
         $this->showingModalView = true;
         $this->showingModalForm = false;
     }
@@ -271,6 +311,66 @@ new class extends Component
             'max' => '[:where(&)]:max-w-[calc(100vw-2rem)]',
             default => '[:where(&)]:max-w-3xl',
         };
+    }
+
+    public function createModel(): void
+    {
+        // todo: check authorization
+        $this->editing = false;
+        $this->resetModel();
+        $this->showModalForm();
+    }
+
+    public function showModalForm(): void
+    {
+        $this->resetErrorBag();
+        $this->showingModalView = false;
+        $this->showingModalForm = true;
+    }
+
+    public function save(): void
+    {
+        $this->validate();
+
+        if (! $this->model->id) {
+            $this->authorize('create', SampleItem::class);
+        } else {
+            $this->authorize('update', $this->model);
+        }
+
+        if ($this->modelFile) {
+            $this->model->file = $this->modelFile->store('public');
+        }
+
+        if ($this->modelImage) {
+            $this->model->image = $this->modelImage->store('public');
+        }
+
+        $this->model->datetime = Carbon::make($this->modelDatetime);
+        $this->model->date = Carbon::make($this->modelDate);
+        $this->model->time = $this->modelTime ? Carbon::createFromFormat('H:i', $this->modelTime)->format('H:i:s') : null;
+        // $this->model->wysiwyg = StringCleaner::forRTF($this->model->wysiwyg);
+
+        $this->model->save();
+        $this->hideModal();
+    }
+
+    public function hideModal(): void
+    {
+        $this->showingModalView = false;
+        $this->showingModalForm = false;
+    }
+
+    public function editModel(SampleItem $model): void
+    {
+        $this->editing = true;
+        $this->model = $model;
+        $this->modelDatetime = optional($this->model->datetime)->format('Y-m-d H:i:s');
+        $this->modelDate = optional($this->model->date)->format('Y-m-d');
+        $this->modelTime = optional($this->model->time)->format('H:i');
+
+        // $this->dispatch('refresh');
+        $this->showModalForm();
     }
 
 };

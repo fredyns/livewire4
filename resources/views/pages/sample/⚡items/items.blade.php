@@ -8,7 +8,12 @@
                     {{ __('Manage and view sample items') }}
                 </p>
             </div>
-            <flux:button href="{{ route('sample.item.create') }}" icon="plus" wire:navigate>
+            <flux:button
+                x-on:click="Livewire.dispatch('progress-loading')"
+                wire:click="createModel()"
+                icon="plus"
+                wire:navigate
+            >
                 {{ __('Add Item') }}
             </flux:button>
         </div>
@@ -149,18 +154,13 @@
                                                 x-on:click="Livewire.dispatch('progress-loading')"
                                                 wire:click="viewModel('{{ $item->id }}')"
                                                 icon="eye"
-                                            >
-                                                View on Modal
-                                            </flux:menu.item>
-                                            <flux:menu.item
-                                                href="{{ route('sample.item.show', $item) }}"
-                                                icon="eye"
                                                 wire:navigate
                                             >
                                                 {{ __('View') }}
                                             </flux:menu.item>
                                             <flux:menu.item
-                                                href="{{ route('sample.item.edit', $item) }}"
+                                                x-on:click="Livewire.dispatch('progress-loading')"
+                                                wire:click="editModel('{{ $item->id }}')"
                                                 icon="pencil"
                                                 wire:navigate
                                             >
@@ -213,4 +213,5 @@
     </div>
 
     @include('pages.sample.⚡items.detail')
+    @include('pages.sample.⚡items.form')
 </section>
