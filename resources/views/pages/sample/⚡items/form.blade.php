@@ -237,17 +237,19 @@
                             <div>
                                 <flux:date-picker
                                     wire:model="modelDate"
-                                    type="date"
                                     label="{{ __('Date') }}"
+                                    placeholder="{{ __('Select date') }}"
+                                    clearable
                                 />
                             </div>
 
                             <div>
-                                <flux:input
+                                <flux:time-picker
                                     wire:model="modelTime"
-                                    type="time"
-                                    step="1"
                                     label="{{ __('Time') }}"
+                                    placeholder="{{ __('Select time') }}"
+                                    clearable
+                                    type="input"
                                 />
                             </div>
 
@@ -264,7 +266,7 @@
                     <flux:tab.panel name="other">
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                             <div class="md:col-span-2">
-                                <flux:checkbox wire:model="model.boolean" label="{{ __('Boolean') }}" />
+                                <flux:switch wire:model="model.boolean" label="{{ __('Boolean') }}" />
                             </div>
                         </div>
                     </flux:tab.panel>
@@ -308,12 +310,22 @@
                     <flux:tab.panel name="files">
                         <div class="space-y-6">
                             <div>
-                                <flux:input
-                                    wire:model="modelImage"
-                                    type="file"
-                                    accept="image/*"
-                                    label="{{ __('Image') }}"
-                                />
+                                <flux:file-upload wire:model="modelImage" label="{{ __('Image') }}">
+                                    <flux:file-upload.dropzone
+                                        heading="{{ __('Drop image here or click to browse') }}"
+                                        text="{{ __('JPG, PNG, GIF up to 10MB') }}"
+                                    />
+                                </flux:file-upload>
+
+                                @if ($modelImage)
+                                    <div class="mt-3 flex flex-col gap-2">
+                                        <flux:file-item :heading="$modelImage->getClientOriginalName()" :image="$modelImage->temporaryUrl()" :size="$modelImage->getSize()">
+                                            <x-slot name="actions">
+                                                <flux:file-item.remove wire:click="removeModelImage" aria-label="{{ __('Remove image') }}" />
+                                            </x-slot>
+                                        </flux:file-item>
+                                    </div>
+                                @endif
 
                                 @if ($model?->image)
                                     <div class="mt-3">
@@ -327,11 +339,23 @@
                             </div>
 
                             <div>
-                                <flux:input
-                                    wire:model="modelFile"
-                                    type="file"
-                                    label="{{ __('File') }}"
-                                />
+                                <flux:file-upload wire:model="modelFile" label="{{ __('File') }}">
+                                    <flux:file-upload.dropzone
+                                        heading="{{ __('Drop file here or click to browse') }}"
+                                        text="{{ __('Up to 10MB') }}"
+                                        inline
+                                    />
+                                </flux:file-upload>
+
+                                @if ($modelFile)
+                                    <div class="mt-3 flex flex-col gap-2">
+                                        <flux:file-item :heading="$modelFile->getClientOriginalName()" :size="$modelFile->getSize()">
+                                            <x-slot name="actions">
+                                                <flux:file-item.remove wire:click="removeModelFile" aria-label="{{ __('Remove file') }}" />
+                                            </x-slot>
+                                        </flux:file-item>
+                                    </div>
+                                @endif
 
                                 @if ($model?->file)
                                     <div class="mt-3 flex items-center gap-2">
@@ -355,9 +379,7 @@
                         <div class="space-y-4">
                             <flux:editor
                                 wire:model="model.wysiwyg"
-                                placeholder="{{ __('Enter content') }}"
                                 label="{{ __('WYSIWYG Content') }}"
-                                rows="6"
                             />
                         </div>
                     </flux:tab.panel>

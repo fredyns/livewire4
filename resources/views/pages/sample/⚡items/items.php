@@ -361,6 +361,16 @@ new class extends Component
         $this->showingModalForm = false;
     }
 
+    public function removeModelImage(): void
+    {
+        $this->modelImage = null;
+    }
+
+    public function removeModelFile(): void
+    {
+        $this->modelFile = null;
+    }
+
     public function editModel(SampleItem $model): void
     {
         $this->editing = true;
