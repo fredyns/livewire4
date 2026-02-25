@@ -86,7 +86,7 @@
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div class="md:col-span-2">
                     <flux:input
-                        wire:model="model.string"
+                        wire:model.live="form.string"
                         type="text"
                         label="{{ __('String') }}"
                         placeholder="{{ __('Enter string') }}"
@@ -96,7 +96,7 @@
 
                 <div>
                     <flux:input
-                        wire:model="model.email"
+                        wire:model="form.email"
                         type="email"
                         label="{{ __('Email') }}"
                         placeholder="{{ __('Enter email') }}"
@@ -105,7 +105,7 @@
 
                 <div>
                     <flux:input
-                        wire:model="model.user_id"
+                        wire:model="form.user_id"
                         type="text"
                         label="{{ __('User ID') }}"
                         placeholder="{{ __('(optional)') }}"
@@ -113,7 +113,7 @@
                 </div>
 
                 <div>
-                    <flux:select wire:model="model.enumerate" label="{{ __('Status') }}" placeholder="{{ __('Select value') }}">
+                    <flux:select wire:model="form.enumerate" label="{{ __('Status') }}" placeholder="{{ __('Select value') }}">
                         <flux:select.option value="">{{ __('None') }}</flux:select.option>
                         @foreach (\App\Enums\Sample\SampleItemEnumerate::cases() as $enum)
                             <flux:select.option value="{{ $enum->value }}">{{ $enum->name }}</flux:select.option>
@@ -123,7 +123,7 @@
 
                 <div class="md:col-span-2">
                     <flux:textarea
-                        wire:model="model.text"
+                        wire:model="form.text"
                         placeholder="{{ __('Enter text') }}"
                         label="{{ __('Text') }}"
                         rows="4"
@@ -186,7 +186,7 @@
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                             <div>
                                 <flux:input
-                                    wire:model="model.color"
+                                    wire:model="form.color"
                                     type="text"
                                     label="{{ __('Color') }}"
                                     placeholder="{{ __('e.g. #ff0000') }}"
@@ -195,7 +195,7 @@
 
                             <div>
                                 <flux:input
-                                    wire:model="model.ip_address"
+                                    wire:model="form.ip_address"
                                     type="text"
                                     label="{{ __('IP Address') }}"
                                     placeholder="{{ __('e.g. 127.0.0.1') }}"
@@ -204,7 +204,7 @@
 
                             <div>
                                 <flux:input
-                                    wire:model="model.integer"
+                                    wire:model="form.integer"
                                     type="number"
                                     label="{{ __('Integer') }}"
                                     placeholder="{{ __('Enter integer') }}"
@@ -213,7 +213,7 @@
 
                             <div>
                                 <flux:input
-                                    wire:model="model.decimal"
+                                    wire:model="form.decimal"
                                     type="number"
                                     step="0.01"
                                     label="{{ __('Decimal') }}"
@@ -223,7 +223,7 @@
 
                             <div class="md:col-span-2">
                                 <flux:input
-                                    wire:model="model.npwp"
+                                    wire:model="form.npwp"
                                     type="text"
                                     label="{{ __('NPWP') }}"
                                     placeholder="{{ __('Enter NPWP') }}"
@@ -266,7 +266,7 @@
                     <flux:tab.panel name="other">
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                             <div class="md:col-span-2">
-                                <flux:switch wire:model="model.boolean" label="{{ __('Boolean') }}" />
+                                <flux:switch wire:model="form.boolean" label="{{ __('Boolean') }}" />
                             </div>
                         </div>
                     </flux:tab.panel>
@@ -275,7 +275,7 @@
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                             <div>
                                 <flux:input
-                                    wire:model="model.latitude"
+                                    wire:model="form.latitude"
                                     type="number"
                                     step="0.00000001"
                                     label="{{ __('Latitude') }}"
@@ -284,7 +284,7 @@
 
                             <div>
                                 <flux:input
-                                    wire:model="model.longitude"
+                                    wire:model="form.longitude"
                                     type="number"
                                     step="0.00000001"
                                     label="{{ __('Longitude') }}"
@@ -378,7 +378,7 @@
                     <flux:tab.panel name="content">
                         <div class="space-y-4">
                             <flux:editor
-                                wire:model="model.wysiwyg"
+                                wire:model="form.wysiwyg"
                                 label="{{ __('WYSIWYG Content') }}"
                             />
                         </div>

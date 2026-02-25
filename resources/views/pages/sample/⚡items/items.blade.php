@@ -12,7 +12,6 @@
                 x-on:click="Livewire.dispatch('progress-loading')"
                 wire:click="createModel()"
                 icon="plus"
-                wire:navigate
             >
                 {{ __('Add Item') }}
             </flux:button>
@@ -154,7 +153,6 @@
                                                 x-on:click="Livewire.dispatch('progress-loading')"
                                                 wire:click="viewModel('{{ $item->id }}')"
                                                 icon="eye"
-                                                wire:navigate
                                             >
                                                 {{ __('View') }}
                                             </flux:menu.item>
@@ -162,7 +160,6 @@
                                                 x-on:click="Livewire.dispatch('progress-loading')"
                                                 wire:click="editModel('{{ $item->id }}')"
                                                 icon="pencil"
-                                                wire:navigate
                                             >
                                                 {{ __('Edit') }}
                                             </flux:menu.item>

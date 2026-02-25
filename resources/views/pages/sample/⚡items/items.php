@@ -67,7 +67,14 @@ new class extends Component
     ];
 
     // properties for model
-    public ?SampleItem $model;
+    public ?SampleItem $model = null;
+
+    /**
+     * @var array<string, mixed>
+     */
+    public array $form = [];
+
+    public ?int $modelId = null;
 
     public bool $editing = false;
 
@@ -93,22 +100,22 @@ new class extends Component
     protected function rules(): array
     {
         return [
-            'model.string' => ['required', 'string', 'max:255'],
-            'model.email' => ['nullable', 'email', 'max:255'],
-            'model.user_id' => ['nullable', 'string'],
-            'model.enumerate' => ['nullable', 'string'],
-            'model.text' => ['nullable', 'string'],
+            'form.string' => ['required', 'string', 'max:255'],
+            'form.email' => ['nullable', 'email', 'max:255'],
+            'form.user_id' => ['nullable', 'string'],
+            'form.enumerate' => ['nullable', 'string'],
+            'form.text' => ['nullable', 'string'],
 
-            'model.color' => ['nullable', 'string', 'max:50'],
-            'model.ip_address' => ['nullable', 'string', 'max:255'],
-            'model.integer' => ['nullable', 'integer'],
-            'model.decimal' => ['nullable', 'numeric'],
-            'model.npwp' => ['nullable', 'string', 'max:255'],
+            'form.color' => ['nullable', 'string', 'max:50'],
+            'form.ip_address' => ['nullable', 'string', 'max:255'],
+            'form.integer' => ['nullable', 'integer'],
+            'form.decimal' => ['nullable', 'numeric'],
+            'form.npwp' => ['nullable', 'string', 'max:255'],
 
-            'model.boolean' => ['nullable', 'boolean'],
-            'model.latitude' => ['nullable', 'numeric'],
-            'model.longitude' => ['nullable', 'numeric'],
-            'model.wysiwyg' => ['nullable', 'string'],
+            'form.boolean' => ['nullable', 'boolean'],
+            'form.latitude' => ['nullable', 'numeric'],
+            'form.longitude' => ['nullable', 'numeric'],
+            'form.wysiwyg' => ['nullable', 'string'],
 
             'modelDate' => ['nullable', 'date'],
             'modelTime' => ['nullable', 'date_format:H:i'],
@@ -127,11 +134,54 @@ new class extends Component
     public function mount(): void
     {
         $this->authorize('viewAny', SampleItem::class);
+        $this->resetForm();
+    }
+
+    public function resetForm(): void
+    {
+        $this->form = [
+            'string' => '',
+            'email' => null,
+            'user_id' => null,
+            'enumerate' => null,
+            'text' => null,
+            'color' => null,
+            'ip_address' => null,
+            'integer' => null,
+            'decimal' => null,
+            'npwp' => null,
+            'boolean' => null,
+            'latitude' => null,
+            'longitude' => null,
+            'wysiwyg' => null,
+        ];
+    }
+
+    public function fillFormFromModel(SampleItem $model): void
+    {
+        $this->form = [
+            'string' => $model->string,
+            'email' => $model->email,
+            'user_id' => $model->user_id,
+            'enumerate' => $model->enumerate?->value ?? $model->enumerate,
+            'text' => $model->text,
+            'color' => $model->color,
+            'ip_address' => $model->ip_address,
+            'integer' => $model->integer,
+            'decimal' => $model->decimal,
+            'npwp' => $model->npwp,
+            'boolean' => $model->boolean,
+            'latitude' => $model->latitude,
+            'longitude' => $model->longitude,
+            'wysiwyg' => $model->wysiwyg,
+        ];
     }
 
     public function resetModel(): void
     {
-        $this->model = new SampleItem;
+        $this->model = null;
+        $this->modelId = null;
+        $this->resetForm();
         $this->modelFile = null;
         $this->modelImage = null;
         $this->modelDatetime = null;
@@ -332,26 +382,46 @@ new class extends Component
     {
         $this->validate();
 
-        if (! $this->model->id) {
+        if (! $this->modelId) {
             $this->authorize('create', SampleItem::class);
         } else {
-            $this->authorize('update', $this->model);
+            $model = SampleItem::query()->findOrFail($this->modelId);
+            $this->authorize('update', $model);
         }
 
+        $model = $this->modelId
+            ? SampleItem::query()->findOrFail($this->modelId)
+            : new SampleItem;
+
+        $model->string = (string) ($this->form['string'] ?? '');
+        $model->email = $this->form['email'] ?: null;
+        $model->user_id = $this->form['user_id'] ?: null;
+        $model->enumerate = $this->form['enumerate'] ?: null;
+        $model->text = $this->form['text'] ?: null;
+        $model->color = $this->form['color'] ?: null;
+        $model->ip_address = $this->form['ip_address'] ?: null;
+        $model->integer = $this->form['integer'] !== null && $this->form['integer'] !== '' ? (int) $this->form['integer'] : null;
+        $model->decimal = $this->form['decimal'] !== null && $this->form['decimal'] !== '' ? $this->form['decimal'] : null;
+        $model->npwp = $this->form['npwp'] ?: null;
+        $model->boolean = $this->form['boolean'] === '' ? null : $this->form['boolean'];
+        $model->latitude = $this->form['latitude'] !== null && $this->form['latitude'] !== '' ? $this->form['latitude'] : null;
+        $model->longitude = $this->form['longitude'] !== null && $this->form['longitude'] !== '' ? $this->form['longitude'] : null;
+        $model->wysiwyg = $this->form['wysiwyg'] ?: null;
+
         if ($this->modelFile) {
-            $this->model->file = $this->modelFile->store('public');
+            $model->file = $this->modelFile->store('public');
         }
 
         if ($this->modelImage) {
-            $this->model->image = $this->modelImage->store('public');
+            $model->image = $this->modelImage->store('public');
         }
 
-        $this->model->datetime = Carbon::make($this->modelDatetime);
-        $this->model->date = Carbon::make($this->modelDate);
-        $this->model->time = $this->modelTime ? Carbon::createFromFormat('H:i', $this->modelTime)->format('H:i:s') : null;
+        $model->datetime = Carbon::make($this->modelDatetime);
+        $model->date = Carbon::make($this->modelDate);
+        $model->time = $this->modelTime ? Carbon::createFromFormat('H:i', $this->modelTime)->format('H:i:s') : null;
         // $this->model->wysiwyg = StringCleaner::forRTF($this->model->wysiwyg);
 
-        $this->model->save();
+        $model->save();
         $this->hideModal();
     }
 
@@ -375,6 +445,8 @@ new class extends Component
     {
         $this->editing = true;
         $this->model = $model;
+        $this->modelId = $model->id;
+        $this->fillFormFromModel($model);
         $this->modelDatetime = optional($this->model->datetime)->format('Y-m-d H:i:s');
         $this->modelDate = optional($this->model->date)->format('Y-m-d');
         $this->modelTime = optional($this->model->time)->format('H:i');
