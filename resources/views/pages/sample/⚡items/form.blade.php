@@ -236,7 +236,7 @@
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                             <div>
                                 <flux:date-picker
-                                    wire:model="modelDate"
+                                    wire:model="form.date"
                                     label="{{ __('Date') }}"
                                     placeholder="{{ __('Select date') }}"
                                     clearable
@@ -245,7 +245,7 @@
 
                             <div>
                                 <flux:time-picker
-                                    wire:model="modelTime"
+                                    wire:model="form.time"
                                     label="{{ __('Time') }}"
                                     placeholder="{{ __('Select time') }}"
                                     clearable
@@ -255,7 +255,7 @@
 
                             <div class="md:col-span-2">
                                 <flux:input
-                                    wire:model="modelDatetime"
+                                    wire:model="form.datetime"
                                     type="datetime-local"
                                     label="{{ __('Datetime') }}"
                                 />
@@ -310,18 +310,18 @@
                     <flux:tab.panel name="files">
                         <div class="space-y-6">
                             <div>
-                                <flux:file-upload wire:model="modelImage" label="{{ __('Image') }}">
+                                <flux:file-upload wire:model="form.image" label="{{ __('Image') }}">
                                     <flux:file-upload.dropzone
                                         heading="{{ __('Drop image here or click to browse') }}"
                                         text="{{ __('JPG, PNG, GIF up to 10MB') }}"
                                     />
                                 </flux:file-upload>
 
-                                @if ($modelImage)
+                                @if ($form->image)
                                     <div class="mt-3 flex flex-col gap-2">
-                                        <flux:file-item :heading="$modelImage->getClientOriginalName()" :image="$modelImage->temporaryUrl()" :size="$modelImage->getSize()">
+                                        <flux:file-item :heading="$form->image->getClientOriginalName()" :image="$form->image->temporaryUrl()" :size="$form->image->getSize()">
                                             <x-slot name="actions">
-                                                <flux:file-item.remove wire:click="removeModelImage" aria-label="{{ __('Remove image') }}" />
+                                                <flux:file-item.remove wire:click="removeImage" aria-label="{{ __('Remove image') }}" />
                                             </x-slot>
                                         </flux:file-item>
                                     </div>
@@ -339,7 +339,7 @@
                             </div>
 
                             <div>
-                                <flux:file-upload wire:model="modelFile" label="{{ __('File') }}">
+                                <flux:file-upload wire:model="form.file" label="{{ __('File') }}">
                                     <flux:file-upload.dropzone
                                         heading="{{ __('Drop file here or click to browse') }}"
                                         text="{{ __('Up to 10MB') }}"
@@ -347,11 +347,11 @@
                                     />
                                 </flux:file-upload>
 
-                                @if ($modelFile)
+                                @if ($form->file)
                                     <div class="mt-3 flex flex-col gap-2">
-                                        <flux:file-item :heading="$modelFile->getClientOriginalName()" :size="$modelFile->getSize()">
+                                        <flux:file-item :heading="$form->file->getClientOriginalName()" :size="$form->file->getSize()">
                                             <x-slot name="actions">
-                                                <flux:file-item.remove wire:click="removeModelFile" aria-label="{{ __('Remove file') }}" />
+                                                <flux:file-item.remove wire:click="removeFile" aria-label="{{ __('Remove file') }}" />
                                             </x-slot>
                                         </flux:file-item>
                                     </div>
