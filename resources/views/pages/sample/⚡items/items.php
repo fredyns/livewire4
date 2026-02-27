@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Forms\Sample\ItemForm;
+use App\Livewire\Traits\ConvertEmptyStringsToNull;
 use App\Models\Sample\SampleItem;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -19,6 +20,7 @@ new class extends Component
 {
     use WithPagination;
     use WithFileUploads;
+    use ConvertEmptyStringsToNull;
 
     // properties for index
 
@@ -95,7 +97,7 @@ new class extends Component
     public function resetForm(): void
     {
         $this->form->reset();
-        $this->form->model = null;
+        $this->form->model = new SampleItem;
     }
 
     public function resetModel(): void
