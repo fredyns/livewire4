@@ -46,6 +46,7 @@ This folder mirrors the official Flux documentation structure.
 - [Pillbox](./components/pillbox.md)
 - [Popover](./components/popover.md)
 - [Profile](./components/profile.md)
+- [Progress](./components/progress.md)
 - [Radio](./components/radio.md)
 - [Select](./components/select.md)
 - [Separator](./components/separator.md)
@@ -57,6 +58,7 @@ This folder mirrors the official Flux documentation structure.
 - [Text](./components/text.md)
 - [Textarea](./components/textarea.md)
 - [Time picker](./components/time-picker.md)
+- [Timeline](./components/timeline.md)
 - [Toast](./components/toast.md)
 - [Tooltip](./components/tooltip.md)
 
