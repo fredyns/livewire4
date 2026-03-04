@@ -4,6 +4,7 @@ namespace App\Livewire\Forms\Sample;
 
 use App\Models\Sample\SampleItem;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -23,10 +24,10 @@ class ItemForm extends Form
     #[Validate(['nullable', 'date'])]
     public ?string $datetime = null;
 
-    #[Validate(['nullable', 'file', 'max:10240'])]
+    #[Validate('nullable|file|extensions:pdf,docx,xlsx,pptx,zip,rar|max:10240')]
     public $file = null;
 
-    #[Validate(['nullable', 'image', 'max:10240'])]
+    #[Validate('nullable|image|extensions:jpeg,png,jpg,gif,svg,webm,heic|max:5120')]
     public $image = null;
 
     #[Validate(['required', 'string', 'max:255'])]
@@ -138,6 +139,7 @@ class ItemForm extends Form
             'wysiwyg',
         ]));
 
+        $model->id = (string) Str::uuid();
         $model->datetime = Carbon::make($this->datetime);
         $model->date = Carbon::make($this->date);
         $model->time = $this->time ? Carbon::createFromFormat('H:i', $this->time)->format('H:i:s') : null;
